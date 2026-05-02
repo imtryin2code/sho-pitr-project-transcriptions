@@ -40,8 +40,17 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 | Recording ID | Description | Status | Formats Available |
 | :--- | :--- | :--- | :--- |
 | **682-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **683-S1** | Boas Text Recitation | 🟡 In Progress | MD, PDF, DOCX |
-| **694-S1** | Boas Text Recitation | 🟡 In Progress | MD, PDF, DOCX |
+| **682-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **683-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **683-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **684-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **684-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **685-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **685-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **693-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **693-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **694-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **694-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
 
 ---
 
