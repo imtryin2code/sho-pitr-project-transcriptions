@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/Prefs_v1.1.xsd">
+    <pref key="FrameSize">
+        <Object class="java.awt.Dimension">2509,1104</Object>
+    </pref>
+    <prefList key="SegmentationViewer.TierOrder">
+        <String>Joe Peter</String>
+        <String>John Marr</String>
+    </prefList>
+    <prefList key="ExportTradTranscript.HiddenTiers"/>
+    <pref key="LayoutManager.VisibleMultiTierViewer">
+        <String>mpi.eudico.client.annotator.viewer.TimeLineViewer</String>
+    </pref>
+    <pref key="InterlinearizationMode.LeftTopBottomSplit">
+        <Double>0.12760416666666666</Double>
+    </pref>
+    <pref key="TranscriptionTable.LastActiveRow">
+        <Int>628</Int>
+    </pref>
+    <pref key="SignalViewer.ZoomLevel">
+        <Float>98.0</Float>
+    </pref>
+    <pref key="LayoutManager.CurrentMode">
+        <Int>2</Int>
+    </pref>
+    <pref key="IGTViewerRenderInfo.headerWidth">
+        <Int>100</Int>
+    </pref>
+    <prefGroup key="TranscriptionMode.Temp.TierColors">
+        <pref key="John Marr">
+            <Object class="java.awt.Color">0,160,90</Object>
+        </pref>
+        <pref key="Joe Peter">
+            <Object class="java.awt.Color">90,90,0</Object>
+        </pref>
+    </prefGroup>
+    <prefGroup key="InterlinearizationMode.LexiconPanelPrefs">
+        <pref key="LexiconPanel.SelectedLexicon">
+            <String>none</String>
+        </pref>
+    </prefGroup>
+    <pref key="FrameLocation">
+        <Object class="java.awt.Point">37,212</Object>
+    </pref>
+    <pref key="TimeLineViewer.ZoomLevel">
+        <Float>98.0</Float>
+    </pref>
+    <prefList key="TranscriptionTable.NonEditableTiers"/>
+    <pref key="LayoutManager.AudioSplitPaneDividerLocation">
+        <Int>23</Int>
+    </pref>
+    <prefList key="TranscriptionTable.ColumnTypes">
+        <String>default-lt</String>
+    </prefList>
+    <pref key="SelectionBeginTime">
+        <Long>1210876</Long>
+    </pref>
+    <prefList key="MultiTierViewer.HiddenTiers"/>
+    <pref key="InterlinearizationEditor.FontSize">
+        <Int>12</Int>
+    </pref>
+    <pref key="MediaControlRate">
+        <Float>1.0</Float>
+    </pref>
+    <prefGroup key="TranscriptionTable.TierMap">
+        <prefList key="John Marr">
+            <String>John Marr</String>
+        </prefList>
+        <prefList key="Joe Peter">
+            <String>Joe Peter</String>
+        </prefList>
+    </prefGroup>
+    <pref key="TimeScaleBeginTime">
+        <Long>1149091</Long>
+    </pref>
+    <pref key="MediaTime">
+        <Long>1210876</Long>
+    </pref>
+    <prefGroup key="TierColors">
+        <pref key="John Marr">
+            <Object class="java.awt.Color">0,160,90</Object>
+        </pref>
+        <pref key="Joe Peter">
+            <Object class="java.awt.Color">90,90,0</Object>
+        </pref>
+    </prefGroup>
+    <prefList key="MultiTierViewer.TierOrder">
+        <String>Joe Peter</String>
+        <String>John Marr</String>
+    </prefList>
+    <pref key="LayoutManager.SplitPaneDividerLocation">
+        <Int>70</Int>
+    </pref>
+    <prefList key="TranscriptionTable.HiddenTiers"/>
+    <prefGroup key="TranscriptionTable.ColumnWidth">
+        <pref key="1">
+            <Int>2023</Int>
+        </pref>
+    </prefGroup>
+    <prefList key="ExportTradTranscript.TierOrder">
+        <String>Joe Peter</String>
+        <String>John Marr</String>
+    </prefList>
+    <pref key="LayoutManager.SelectedTabIndex">
+        <Int>7</Int>
+    </pref>
+    <pref key="LayoutManager.MediaAreaWidth">
+        <Int>390</Int>
+    </pref>
+    <pref key="SegmentationViewer.ZoomLevel">
+        <Float>98.0</Float>
+    </pref>
+    <prefList key="ExportTradTranscript.selectedTiers">
+        <String>Joe Peter</String>
+        <String>John Marr</String>
+    </prefList>
+    <pref key="MultiTierViewer.ActiveTierName">
+        <String>John Marr</String>
+    </pref>
+    <pref key="LayoutManager.MediaAreaHeight">
+        <Int>250</Int>
+    </pref>
+    <pref key="SelectionEndTime">
+        <Long>1214199</Long>
+    </pref>
+    <prefGroup key="CommentViewer.Columns">
+        <pref key="Sender">
+            <Int>0</Int>
+        </pref>
+        <pref key="Comment">
+            <Int>75</Int>
+        </pref>
+        <pref key="Creation Date">
+            <Int>75</Int>
+        </pref>
+        <pref key="Tier">
+            <Int>75</Int>
+        </pref>
+        <pref key="Modification Date">
+            <Int>75</Int>
+        </pref>
+        <pref key="Recipient">
+            <Int>0</Int>
+        </pref>
+        <pref key="Start Time">
+            <Int>75</Int>
+        </pref>
+        <pref key="Initials">
+            <Int>75</Int>
+        </pref>
+        <pref key="End Time">
+            <Int>75</Int>
+        </pref>
+        <pref key="Thread">
+            <Int>75</Int>
+        </pref>
+    </prefGroup>
+    <pref key="SegmentationViewer.ActiveTier">
+        <String>John Marr</String>
+    </pref>
+    <prefList key="CommentViewer.Columns.Order">
+        <String>Start Time</String>
+        <String>End Time</String>
+        <String>Tier</String>
+        <String>Initials</String>
+        <String>Comment</String>
+        <String>Thread</String>
+        <String>Sender</String>
+        <String>Recipient</String>
+        <String>Creation Date</String>
+        <String>Modification Date</String>
+    </prefList>
+    <pref key="ActiveRecognizerName">
+        <String>BAS - WebMAUS Basic</String>
+    </pref>
+    <pref key="MediaControlVolume">
+        <Float>1.0</Float>
+    </pref>
+    <prefGroup key="IndividualPlayerMuteSoloSettings">
+        <pref key="sinaa_00000682_side1_original_stereo.wav">
+            <String>mute</String>
+        </pref>
+        <pref key="sinaa_00000682_side1_amplified.wav">
+            <String>mute</String>
+        </pref>
+        <pref key="NMNH-sinaa_00000694_side2_elan2_32.wav">
+            <String>mute</String>
+        </pref>
+    </prefGroup>
+    <prefList key="InterlinearizationConfigurations"/>
+    <pref key="TM.SignalViewer.ZoomLevel">
+        <Float>5.0</Float>
+    </pref>
+    <prefGroup key="BAS - WebMAUS Basic">
+        <pref key="LANGUAGE">
+            <String>deu-DE</String>
+        </pref>
+        <prefGroup key="TierUrl"/>
+        <pref key="SignalParamName">
+            <String>SIGNAL</String>
+        </pref>
+        <pref key="ServiceName">
+            <String>runMAUSBasic</String>
+        </pref>
+        <pref key="SignalUrl">
+            <String>F:/Chinuk Wawa/Joe Peter/Joe Peter Recordings/Smithsonian download 12-2017/sinaa_00000682_side1.wav</String>
+        </pref>
+        <pref key="TextParamName">
+            <String>TEXT</String>
+        </pref>
+    </prefGroup>
+    <pref key="ExportTradTranscript.SelectTiersMode">
+        <String>Tier</String>
+    </pref>
+    <pref key="TranscriptionTable.LastActiveColumn">
+        <String>default-lt</String>
+    </pref>
+    <prefGroup key="IndividualPlayerVolumes">
+        <pref key="sinaa_00000682_side1.wav">
+            <Float>1.0</Float>
+        </pref>
+        <pref key="sinaa_00000682_side1_original_stereo.wav">
+            <Float>1.0</Float>
+        </pref>
+        <pref key="sinaa_00000682_side1_amplified.wav">
+            <Float>1.0</Float>
+        </pref>
+        <pref key="NMNH-sinaa_00000694_side2_elan2_32.wav">
+            <Float>1.0</Float>
+        </pref>
+        <pref key="NMNH-sinaa_00000694_side2_elan1_32.wav">
+            <Float>1.0</Float>
+        </pref>
+        <pref key="sinaa_00000694_side2_original.wav">
+            <Float>1.0</Float>
+        </pref>
+    </prefGroup>
+    <pref key="InterlinearizationMode.LeftRightSplit">
+        <Double>0.19205729166666666</Double>
+    </pref>
+    <prefList key="CommentViewer.Columns.Hidden">
+        <String>Sender</String>
+        <String>Recipient</String>
+    </prefList>
+    <pref key="SegmentationManager.SelectedTabIndex">
+        <Int>1</Int>
+    </pref>
+    <prefList key="SegmentationViewer.HiddenTiers"/>
+    <prefGroup key="InterlinearizationConfigurations.ExcludedTierConfigurations"/>
+</preferences>
