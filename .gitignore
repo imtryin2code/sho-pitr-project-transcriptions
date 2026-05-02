@@ -1,0 +1,12 @@
+# ELAN temporary/backup files
+*.pfsx
+*.bak
+*.old
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Large media (backup safety)
+*.wav
+*.mov
