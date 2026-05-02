@@ -47,10 +47,28 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 | **684-S2** | Boas Text Recitation | 🟡 In Progress | |
 | **685-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
 | **685-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **686-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **686-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **687-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **687-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **688-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **688-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **689-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **689-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **690-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **690-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **691-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **691-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **692-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **692-S2** | Boas Text Recitation | 🟡 In Progress | |
 | **693-S1** | Boas Text Recitation | 🟡 In Progress | |
 | **693-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
 | **694-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
 | **694-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **695-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **695-S2** | Boas Text Recitation | 🟡 In Progress | |
+| **696-S1** | Boas Text Recitation | 🟡 In Progress | |
+| **696-S2** | Boas Text Recitation | 🟡 In Progress | |
 
 ---
 
