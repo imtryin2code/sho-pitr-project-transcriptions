@@ -1,8 +1,5 @@
 # Reading Guide: 683-S1
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:00 | John Marr | JM:  .... <<she's through over/she threw over>> |

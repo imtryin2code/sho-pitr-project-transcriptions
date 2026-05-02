@@ -1,21 +1,27 @@
 import csv
 import os
 from fpdf import FPDF
+from docx import Document
+from docx.shared import Pt
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 def generate_guides():
     csv_path = 'metadata/master_transcription_list.csv'
-    md_output_base = 'exports'
+    # Paths for the three formats
+    md_output_base = 'exports/markdown'
     pdf_output_base = 'exports/pdfs'
+    word_output_base = 'exports/word-docs'
     
-    # Path to your Unicode font - Make sure this file exists!
-    # If using DejaVuSans.ttf in the scripts folder, use: font_path = "scripts/DejaVuSans.ttf"
-    font_path = "scripts/DejaVuSans.ttf" 
+    font_path = "scripts/DejaVuSans.ttf"  # Ensure this font file is in the correct location
 
     if not os.path.exists(csv_path):
-        print("Error: Master CSV not found. Please run the extraction script first.")
+        print("Error: Master CSV not found.")
         return
 
+    # Ensure all directories exist
+    os.makedirs(md_output_base, exist_ok=True)
     os.makedirs(pdf_output_base, exist_ok=True)
+    os.makedirs(word_output_base, exist_ok=True)
 
     stories = {}
     with open(csv_path, 'r', encoding='utf-8') as f:
@@ -29,75 +35,68 @@ def generate_guides():
     for story_id, rows in stories.items():
         print(f"Processing {story_id}...")
 
-        # --- 1. GENERATE MARKDOWN (.md) ---
+        # --- 1. MARKDOWN GENERATION ---
         md_path = os.path.join(md_output_base, f"{story_id}_Reading_Guide.md")
         with open(md_path, 'w', encoding='utf-8') as f:
-            f.write(f"# Reading Guide: {story_id}\n\n")
-            f.write(f"**Source:** 1941 Metal Disc Recording\n")
-            f.write(f"**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)\n\n")
-            f.write("| Time | Speaker | Text |\n")
-            f.write("| :--- | :--- | :--- |\n")
+            f.write(f"# Reading Guide: {story_id}\n\n| Time | Speaker | Text |\n| :--- | :--- | :--- |\n")
             for row in rows:
                 text = row['Text']
                 if "Joe" in row['Speaker'] or "Peter" in row['Speaker']:
                     text = f"**{text}**"
                 f.write(f"| {row['Time']} | {row['Speaker']} | {text} |\n")
 
-        # --- 2. GENERATE PDF (.pdf) ---
+        # --- 2. PDF GENERATION ---
         pdf = FPDF()
         pdf.add_page()
-        
-        # Register Font
         if os.path.exists(font_path):
-            # We call it 'UniFont' to ensure no confusion with system defaults
             pdf.add_font("UniFont", style="", fname=font_path)
             pdf.set_font("UniFont", size=12)
         else:
-            print(f"Font not found at {font_path}, using Helvetica fallback.")
             pdf.set_font("Helvetica", size=12)
 
-        # Header
         pdf.cell(0, 10, f"Joe Peter Project: {story_id}", align='C', new_x="LMARGIN", new_y="NEXT")
-        pdf.set_font("UniFont", size=10)
-        pdf.cell(0, 10, "1941 Metal Disc Transcriptions", align='C', new_x="LMARGIN", new_y="NEXT")
         pdf.ln(5)
 
-        # Table Header
-        pdf.set_fill_color(230, 230, 230)
-        pdf.cell(20, 10, "Time", border=1, fill=True)
-        pdf.cell(35, 10, "Speaker", border=1, fill=True)
-        pdf.cell(135, 10, "Transcription", border=1, fill=True, new_x="LMARGIN", new_y="NEXT")
-
-        # Table Rows
         for row in rows:
             is_joe = "Joe" in row['Speaker'] or "Peter" in row['Speaker']
-            
-            # Start position
-            x, y = pdf.get_x(), pdf.get_y()
-            
-            # We use a consistent font but bold the Jargon text if possible 
-            # Note: regular ArialUnicodeMS doesn't always have a separate 'bold' file,
-            # so we use font size to differentiate.
+            y_start = pdf.get_y()
             pdf.set_font("UniFont", size=11 if is_joe else 10)
-
-            # Calculate height for multi_cell
-            # This is a trick to keep borders aligned
             pdf.multi_cell(135, 10, row['Text'], border=1, new_x="LMARGIN", new_y="NEXT")
-            end_y = pdf.get_y()
-            height = end_y - y
+            y_end = pdf.get_y()
+            h = y_end - y_start
+            pdf.set_xy(10, y_start)
+            pdf.cell(20, h, row['Time'], border=1)
+            pdf.cell(35, h, row['Speaker'], border=1)
+            pdf.set_y(y_end)
+        pdf.output(os.path.join(pdf_output_base, f"{story_id}_Reading_Guide.pdf"))
 
-            # Go back to draw the Time and Speaker boxes with the calculated height
-            pdf.set_xy(x, y)
-            pdf.cell(20, height, row['Time'], border=1)
-            pdf.cell(35, height, row['Speaker'], border=1)
-            
-            # Reset Y to the bottom of the row for the next entry
-            pdf.set_y(end_y)
-
-        pdf_path = os.path.join(pdf_output_base, f"{story_id}_Reading_Guide.pdf")
-        pdf.output(pdf_path)
+        # --- 3. WORD DOCUMENT GENERATION ---
+        doc = Document()
+        title = doc.add_heading(f'Reading Guide: {story_id}', 0)
+        title.alignment = WD_ALIGN_PARAGRAPH.CENTER
         
-    print(f"\nFinished! Check 'exports/' for Markdown and 'exports/pdfs/' for PDFs.")
+        table = doc.add_table(rows=1, cols=3)
+        table.style = 'Table Grid'
+        hdr_cells = table.rows[0].cells
+        hdr_cells[0].text = 'Time'
+        hdr_cells[1].text = 'Speaker'
+        hdr_cells[2].text = 'Transcription'
+
+        for row in rows:
+            row_cells = table.add_row().cells
+            row_cells[0].text = row['Time']
+            row_cells[1].text = row['Speaker']
+            
+            # Format the text (Bold for Joe Peter)
+            p = row_cells[2].paragraphs[0]
+            run = p.add_run(row['Text'])
+            if "Joe" in row['Speaker'] or "Peter" in row['Speaker']:
+                run.bold = True
+
+        doc_path = os.path.join(word_output_base, f"{story_id}_Reading_Guide.docx")
+        doc.save(doc_path)
+        
+    print(f"\nSuccess! Exported MD, PDF, and DOCX for {len(stories)} stories.")
 
 if __name__ == "__main__":
     generate_guides()

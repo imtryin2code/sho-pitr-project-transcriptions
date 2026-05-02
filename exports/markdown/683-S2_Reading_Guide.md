@@ -1,8 +1,5 @@
 # Reading Guide: 683-S2
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:00 | John Marr | JM:  how do you say there were five men/// there were five men [Page 22] |

@@ -1,8 +1,5 @@
 # Reading Guide: 694-S2
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:00 | John Marr | JM: (pg. 229) the grandmother of a boy was deserted |

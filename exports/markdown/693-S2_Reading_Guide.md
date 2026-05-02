@@ -1,8 +1,5 @@
 # Reading Guide: 693-S2
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:17 | John Marr | (pg.168) JM: then that bird looked back |

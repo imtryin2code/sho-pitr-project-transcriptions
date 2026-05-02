@@ -1,8 +1,5 @@
 # Reading Guide: 685-S1
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:00 | Page Reference | P37-L20 |

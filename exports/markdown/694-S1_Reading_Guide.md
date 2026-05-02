@@ -1,8 +1,5 @@
 # Reading Guide: 694-S1
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:20 | John Marr | (pg. 170) JM: he reached still another prairie |

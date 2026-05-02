@@ -1,8 +1,5 @@
 # Reading Guide: 682-S2
 
-**Source:** 1941 Metal Disc Recording
-**Participants:** Jack Marr (English) & Joe Peter (Chinook Jargon)
-
 | Time | Speaker | Text |
 | :--- | :--- | :--- |
 | 00:21 | John Marr | JM:  one night he spoke to the old man |
