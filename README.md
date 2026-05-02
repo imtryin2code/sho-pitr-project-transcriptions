@@ -1,24 +1,54 @@
 # sho-pitr-project-transcriptions
 Completed project work by the "Joe Peter Project" and we hope you enjoy or work of these transcriptions! The work - Joe Peter / Jack Marr Chinook Jargon transcriptions from 1941 recordings originally recorded on metal discs
 
-# Joe Peter Project Transcriptions
+# Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
-## Overview
-This repository contains the digital transcriptions of historical recordings made in **1941** on metal discs. The project focuses on the linguistic and cultural preservation of **Chinookan** and **Chinook Jargon**.
+## 📜 Project Overview
+This repository preserves and digitizes a unique linguistic encounter from **1941**. The recordings feature **Jack Marr** reciting English sentences from Franz Boas’s *Chinookan Texts* (1894), followed by **Joe Peter**, an Indigenous elder, providing the equivalent in **Chinook Jargon**.
 
-## The Recordings
-The data consists of sessions where **Jack Marr**, a young gentleman, recites sentences and stories from traditional Chinookan texts. Following each recitation, **Joe Peter**, an older Indigenous gentleman, provides the equivalent in Chinook Jargon.
+Our goal is to transform these historical metal disc recordings into accessible, searchable, and educational formats for language revitalization.
 
-## Project Goals
-* **Preservation:** Moving raw 1941 audio into modern, structured ELAN (`.eaf`) formats.
-* **Accessibility:** Making these transcriptions searchable and usable for community members, linguists, and language learners.
-* **Revitalization:** Providing high-quality data for the study and teaching of Chinook Jargon.
+---
 
-## Repository Structure
-* `6XX-SX/`: Folders organized by original disc and side number.
-    * `.eaf`: ELAN transcription files (XML format).
-    * `.pfsx`: ELAN preference files.
-* `scripts/`: (Planned) Python tools to convert ELAN data into web-friendly formats.
+## 📂 Repository Structure
+The project is organized to provide both raw technical data and user-friendly exports:
 
-## How to Use
-To view the full linguistic transcriptions, we recommend opening the `.eaf` files in [ELAN](https://archive.mpi.nl/tla/elan).
+* **`[Disc-ID]/`**: (e.g., `682-S1`) Contains the original ELAN (`.eaf`) linguistic transcription files.
+* **`exports/`**: The central hub for accessing the transcriptions in various formats:
+    * **[Markdown](./exports/markdown)**: Best for quick reading directly on GitHub.
+    * **[PDFs](./exports/pdfs)**: Print-ready versions for offline study.
+    * **[Word Docs](./exports/word-docs)**: Editable versions for educators and lesson planning.
+* **`audio-previews/`**: Low-bitrate MP3s for reference (Full WAVs stored externally).
+* **`metadata/`**: Contains the [Master Transcription List](./metadata/master_transcription_list.csv)—a searchable index of every line spoken.
+* **`scripts/`**: Python tools used to automate the data pipeline.
+
+---
+
+## 🛠 How to Use This Archive
+
+### For Language Learners & Educators
+If you want to read or print the stories, navigate to the **[`exports/`](./exports)** folder. 
+* Use the **PDFs** for high-quality printing.
+* Use the **Word Docs** if you want to create your own learning materials or vocabulary lists.
+
+### For Linguists
+The raw transcription data is available in the **`.eaf`** format within the disc-specific folders. These can be opened using [ELAN](https://archive.mpi.nl/tla/elan) for deep phonetic or structural analysis.
+
+---
+
+## 📈 Project Progress
+| Recording ID | Description | Status | Formats Available |
+| :--- | :--- | :--- | :--- |
+| **682-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
+| **683-S1** | Boas Text Recitation | 🟡 In Progress | MD, PDF, DOCX |
+| **694-S1** | Boas Text Recitation | 🟡 In Progress | MD, PDF, DOCX |
+
+---
+
+## 🤝 Contributing
+This is a public archive. If you find a transcription error or have historical context to add:
+1. **Fork** the repository.
+2. Create a new **Branch**.
+3. Submit a **Pull Request** for review.
+
+*Special thanks to the community members and linguists dedicated to the preservation of Chinook Jargon.*
