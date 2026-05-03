@@ -21,14 +21,14 @@ def generate_index_html():
         with open(glossary_path, 'r', encoding='utf-8') as f:
             glossary = json.load(f)
 
-    # 2. Calculate Top 5 Frequent Words for the Spotlight
-    # Only look at words that have definitions (or at least a count > 0)
+    # 2. Top 5 Frequency Spotlight Logic
     sorted_by_freq = sorted(
         [item for item in glossary.items() if item[1]['count'] > 0],
         key=lambda x: x[1]['count'],
         reverse=True
     )[:5]
 
+    # 3. HTML START & MENU
     html_start = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,24 +40,23 @@ def generate_index_html():
         header { background: #8c1b1b; color: white; padding: 40px 20px; border-radius: 8px 8px 0 0; text-align: center; position: relative; }
         .repo-link { position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 5px 10px; border-radius: 4px; }
         
-        /* Navigation Menu */
-        nav { background: #333; color: white; padding: 10px; text-align: center; border-radius: 0 0 8px 8px; margin-bottom: 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
+        nav { background: #333; color: white; padding: 12px; text-align: center; border-radius: 0 0 8px 8px; margin-bottom: 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
         nav a:hover { color: #ffcccb; }
 
         .section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        h2 { color: #8c1b1b; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h2 { color: #8c1b1b; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-top: 5px solid #8c1b1b; }
         .btn { display: inline-block; background: #8c1b1b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-top: 10px; }
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
-        /* Spotlight & Dictionary Styles */
-        .spotlight-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
-        .spotlight-card { background: #8c1b1b; color: white; padding: 10px 20px; border-radius: 50px; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .spotlight-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 25px 0; }
+        .spotlight-card { background: #8c1b1b; color: white; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; }
         .dict-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .dict-card { background: #fdfdfd; border: 1px solid #ddd; padding: 15px; border-radius: 6px; }
-        .occ-link { display: inline-block; font-size: 0.7rem; background: #eee; padding: 2px 5px; margin: 2px; border-radius: 3px; text-decoration: none; color: #444; border: 1px solid #ccc; }
-        .occ-link:hover { background: #8c1b1b; color: white; border-color: #8c1b1b; }
+        .dict-card { background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 6px; }
+        .occ-link { display: inline-block; font-size: 0.7rem; background: #f8f8f8; padding: 2px 5px; margin: 2px; border-radius: 3px; text-decoration: none; color: #555; border: 1px solid #ccc; }
+        .occ-link:hover { background: #8c1b1b; color: white; }
     </style>
 </head>
 <body>
@@ -69,6 +68,7 @@ def generate_index_html():
 
 <nav>
     <a href="#mission">Mission</a>
+    <a href="#history">History</a>
     <a href="#gallery">Gallery</a>
     <a href="#dictionary">Dictionary</a>
 </nav>
@@ -79,11 +79,25 @@ def generate_index_html():
     <a class="btn" style="background:#2c3e50;" href="https://tilixam.com/wp-content/uploads/2024/10/icsnl59_jpctp_final.pdf" target="_blank">📖 Read our Published UBC Paper</a>
 </div>
 
-<div id="gallery">
-    <h2 style="padding-left:10px;">Transcription Gallery</h2>
+<div id="history" class="section">
+    <h2>History & Equipment</h2>
+    <div class="equipment-grid">
+        <div style="background: #fefefe; padding: 15px; border-left: 4px solid #8c1b1b;">
+            <h3>The Presto Recorder</h3>
+            <p>16-year-old Jack Marr used a 150lb Presto portable aluminum disc recorder to capture these voices in the field in 1941.</p>
+        </div>
+        <div style="background: #fefefe; padding: 15px; border-left: 4px solid #8c1b1b;">
+            <h3>The Discovery</h3>
+            <p>Originally seeking "Pure Chinook," the project instead captured 10 hours of high-level Chinook Jargon.</p>
+        </div>
+    </div>
+</div>
+
+<div id="gallery" class="section" style="background:transparent; box-shadow:none; padding:0;">
+    <h2>Transcription Gallery</h2>
     <div class="grid">"""
 
-    # 3. GALLERY CARDS
+    # 4. GALLERY CARDS (Dynamic)
     html_cards = ""
     for cid in completed_ids:
         html_cards += f"""
@@ -96,19 +110,19 @@ def generate_index_html():
             </div>
         </div>"""
 
-    # 4. DICTIONARY SECTION WITH TOP 5 SPOTLIGHT
+    # 5. DICTIONARY SECTION (With Spotlight)
     html_dict_start = """
     </div>
 </div>
 
-<div id="dictionary" class="section" style="margin-top: 40px;">
+<div id="dictionary" class="section">
     <h2>Chinuk Wawa Dictionary & Concordance</h2>
     
-    <h3>🔥 Top 5 Frequent Words</h3>
+    <p style="margin-bottom:5px; font-weight:bold; font-size:0.9rem; color:#666;">🔥 TOP 5 FREQUENT WORDS</p>
     <div class="spotlight-container">"""
     
     for word, data in sorted_by_freq:
-        html_dict_start += f'<div class="spotlight-card"><strong>{word}</strong> ({data["count"]}x)</div>'
+        html_dict_start += f'<div class="spotlight-card">{word} ({data["count"]}x)</div>'
     
     html_dict_start += """
     </div>
@@ -125,9 +139,9 @@ def generate_index_html():
             ])
             html_dict_cards += f"""
         <div class="dict-card">
-            <strong style="color:#8c1b1b;">{word}</strong> <small>({data['count']})</small>
-            <p style="margin: 5px 0; font-size: 0.85rem;">{data['definition']}</p>
-            <div>{occ_links}</div>
+            <strong style="color:#8c1b1b;">{word}</strong> <small style="color:#999;">({data['count']})</small>
+            <p style="margin: 5px 0; font-size: 0.85rem; color:#444;">{data['definition']}</p>
+            <div style="margin-top:8px;">{occ_links}</div>
         </div>"""
 
     html_end = """
@@ -135,17 +149,19 @@ def generate_index_html():
 </div>
 
 <footer>
-    <p style="text-align:center; margin-top:50px; color:#777; border-top: 1px solid #ddd; padding-top: 20px;">
+    <p style="text-align:center; margin:50px 0 20px 0; color:#777; border-top: 1px solid #ddd; padding-top: 20px;">
         &copy; 2026 Joe Peter Project Team. Powered by the J.P. Harrington Collection.
     </p>
 </footer>
 </body>
 </html>"""
 
+    # 6. COMBINE AND SAVE
     full_html = html_start + html_cards + html_dict_start + html_dict_cards + html_end
     with open(html_output, 'w', encoding='utf-8') as f:
         f.write(full_html)
-    print(f"Success: Web page updated with Nav Menu and Top 5 Spotlight.")
+    
+    print(f"Success: Full page updated with Menu, History, Gallery, and Dictionary Spotlight.")
 
 if __name__ == "__main__":
     generate_index_html()
