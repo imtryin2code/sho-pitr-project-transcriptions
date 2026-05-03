@@ -37,40 +37,41 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 ---
 
 ## 📈 Project Progress
+
+**Current Completion:** 9/30 recordings processed.
+
 | Recording ID | Description | Status | Formats Available |
 | :--- | :--- | :--- | :--- |
-| **682-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **682-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **683-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **683-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **684-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **684-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **685-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **685-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **686-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **686-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **687-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **687-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **688-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **688-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **689-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **689-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **690-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **690-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **691-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **691-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **692-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **692-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **693-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **693-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **694-S1** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **694-S2** | Boas Text Recitation | ✅ Completed | MD, PDF, DOCX |
-| **695-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **695-S2** | Boas Text Recitation | 🟡 In Progress | |
-| **696-S1** | Boas Text Recitation | 🟡 In Progress | |
-| **696-S2** | Boas Text Recitation | 🟡 In Progress | |
-
----
+| **682-S1** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **682-S2** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **683-S1** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **683-S2** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **684-S1** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **684-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **685-S1** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **685-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **686-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **686-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **687-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **687-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **688-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **688-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **689-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **689-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **690-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **690-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **691-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **691-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **692-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **692-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **693-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **693-S2** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **694-S1** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **694-S2** | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX |
+| **695-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **695-S2** | Boas Text Recitation | 🟡 In Progress |  |
+| **696-S1** | Boas Text Recitation | 🟡 In Progress |  |
+| **696-S2** | Boas Text Recitation | 🟡 In Progress |  |
 
 ## 🤝 Contributing
 This is a public archive. If you find a transcription error or have historical context to add:
