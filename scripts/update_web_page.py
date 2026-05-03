@@ -28,7 +28,7 @@ def generate_index_html():
         reverse=True
     )[:5]
 
-    # 3. HTML START & MENU
+    # 3. HTML HEADER, STYLES, AND NAV
     html_start = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +49,11 @@ def generate_index_html():
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-top: 5px solid #8c1b1b; }
         .btn { display: inline-block; background: #8c1b1b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-top: 10px; }
-        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
+        /* History & Hardware Section Grid */
+        .history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .history-card { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; border-left: 5px solid #8c1b1b; }
+
         .spotlight-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 25px 0; }
         .spotlight-card { background: #8c1b1b; color: white; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; }
         .dict-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
@@ -68,7 +71,7 @@ def generate_index_html():
 
 <nav>
     <a href="#mission">Mission</a>
-    <a href="#history">History</a>
+    <a href="#history">History & Hardware</a>
     <a href="#gallery">Gallery</a>
     <a href="#dictionary">Dictionary</a>
 </nav>
@@ -80,15 +83,20 @@ def generate_index_html():
 </div>
 
 <div id="history" class="section">
-    <h2>History & Equipment</h2>
-    <div class="equipment-grid">
-        <div style="background: #fefefe; padding: 15px; border-left: 4px solid #8c1b1b;">
+    <h2>History & Hardware</h2>
+    <p>These recordings represent a landmark moment in Pacific Northwest linguistics, captured using early 20th-century field recording technology.</p>
+    <div class="history-grid">
+        <div class="history-card">
             <h3>The Presto Recorder</h3>
-            <p>16-year-old Jack Marr used a 150lb Presto portable aluminum disc recorder to capture these voices in the field in 1941.</p>
+            <p>16-year-old Jack Marr utilized a 150lb Presto portable aluminum disc recorder, powered by a car battery, to capture Joe Peter's voice in the field in 1941.</p>
         </div>
-        <div style="background: #fefefe; padding: 15px; border-left: 4px solid #8c1b1b;">
+        <div class="history-card">
             <h3>The Discovery</h3>
-            <p>Originally seeking "Pure Chinook," the project instead captured 10 hours of high-level Chinook Jargon.</p>
+            <p>While originally seeking "Pure Chinook" (the Penutian language), the project accidentally captured 10 hours of high-level Chinook Jargon, preserving a unique dialect.</p>
+        </div>
+        <div class="history-card">
+            <h3>J.P. Harrington Collection</h3>
+            <p>Part of the Smithsonian's extensive J.P. Harrington papers, these recordings were digitized and brought to light through modern linguistic scholarship.</p>
         </div>
     </div>
 </div>
@@ -110,7 +118,7 @@ def generate_index_html():
             </div>
         </div>"""
 
-    # 5. DICTIONARY SECTION (With Spotlight)
+    # 5. DICTIONARY SECTION
     html_dict_start = """
     </div>
 </div>
@@ -127,7 +135,7 @@ def generate_index_html():
     html_dict_start += """
     </div>
     
-    <p>A living index of Joe Peter's vocabulary. Click a timestamp to view the source line.</p>
+    <p>A living index of Joe Peter's vocabulary. Click a timestamp to view the source line in the master list.</p>
     <div class="dict-grid">"""
 
     html_dict_cards = ""
@@ -161,7 +169,7 @@ def generate_index_html():
     with open(html_output, 'w', encoding='utf-8') as f:
         f.write(full_html)
     
-    print(f"Success: Full page updated with Menu, History, Gallery, and Dictionary Spotlight.")
+    print(f"Success: Updated index.html with detailed History cards, Gallery, and Dictionary.")
 
 if __name__ == "__main__":
     generate_index_html()
