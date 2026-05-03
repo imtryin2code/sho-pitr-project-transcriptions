@@ -1,5 +1,5 @@
 # sho-pitr-project-transcriptions
-Completed project work by the "Joe Peter Project" and we hope you enjoy or work of these transcriptions! The work - Joe Peter / Jack Marr Chinook Jargon transcriptions from 1941 recordings originally recorded on metal discs
+Digital archive of 1941 Chinook Jargon (Chinuk Wawa) transcriptions. Featuring the field recordings of Joe Peter and Jack Marr (J.P. Harrington Collection), time-aligned ELAN data, and community revitalization resources.
 
 # Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
