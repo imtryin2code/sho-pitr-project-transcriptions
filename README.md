@@ -4,7 +4,7 @@ Completed project work by the "Joe Peter Project" and we hope you enjoy or work 
 # Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
 ## 📜 Project Overview
-This repository preserves and digitizes a unique linguistic encounter from **1941**. The recordings feature **Jack Marr** reciting English sentences from Franz Boas’s *Chinookan Texts* (1894), followed by **Joe Peter**, an Indigenous elder, providing the equivalent in **Chinook Jargon**.
+This repository preserves and digitizes a unique linguistic encounter from **1941**. The recordings feature **Jack Marr** reciting English sentences from Franz Boas’s [*Chinookan Texts*](https://archive.org/details/chinooktexts00boas) (1894), followed by **Joe Peter**, an Indigenous elder, providing the equivalent in **Chinook Jargon**.
 
 Our goal is to transform these historical metal disc recordings into accessible, searchable, and educational formats for language revitalization.
 
