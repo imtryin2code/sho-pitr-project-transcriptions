@@ -77,25 +77,24 @@ def generate_index_html():
 
 <div id="mission" class="section">
     <h2>Our Mission & Revitalization</h2>
-    <p>Our team is dedicated to the revitalization of <strong>Chinuk Wawa (Chinook Jargon)</strong>. By digitizing these historical encounters, we aim to bridge the gap between 20th-century archival silence and modern language learners.</p>
+    <p>Our mission as a group is to listen to all of the <strong>30 recordings totaling 10 hours</strong> and transcribe as much as possible with the knowledge and technology we have available to us. By doing so, we ensure the language knowledge held within them is available to teach and research from, aiding in the <strong>continuation of Chinuk Wawa (Chinook Jargon)</strong>. Through these efforts, we aim to revitalize these languages and keep them going as long as possible.</p>
     <a class="btn" style="background:#2c3e50;" href="https://tilixam.com/wp-content/uploads/2024/10/icsnl59_jpctp_final.pdf" target="_blank">📖 Read our Published UBC Paper</a>
 </div>
 
 <div id="history" class="section">
     <h2>History & Hardware</h2>
-    <p>These recordings represent a landmark moment in Pacific Northwest linguistics, captured using early 20th-century field recording technology.</p>
     <div class="history-grid">
         <div class="history-card">
             <h3>Fairchild Disc Recorder</h3>
-            <p>16-year-old Jack Marr utilized a heavy-duty portable disc recorder—identified in archival records as a <strong>Fairchild</strong> (though Presto equipment was also common in the J.P. Harrington collection)—to cut direct-to-disc recordings on bare aluminum.</p>
+            <p>16-year-old Jack Marr utilized a heavy-duty portable disc recorder—identified in archival records as a <strong>Fairchild</strong> (though Presto equipment was also common)—to cut direct-to-disc recordings on bare aluminum.</p>
         </div>
         <div class="history-card">
             <h3>The Discovery</h3>
-            <p>Originally seeking "Pure Chinook" (the Penutian language), the project instead captured 10 hours of high-level Chinook Jargon, preserving a unique dialect and a snapshot of fluent 1941 speech.</p>
+            <p>Originally seeking "Pure Chinook," the project instead captured 10 hours of high-level Chinook Jargon, preserving a unique dialect and a snapshot of fluent 1941 speech.</p>
         </div>
         <div class="history-card">
             <h3>J.P. Harrington Collection</h3>
-            <p>Part of the Smithsonian's extensive J.P. Harrington papers, these recordings were digitized and brought to light through modern linguistic scholarship and community collaboration.</p>
+            <p>Part of the Smithsonian's extensive J.P. Harrington papers, these recordings were brought to light through modern linguistic scholarship and community collaboration.</p>
         </div>
     </div>
 </div>
@@ -124,7 +123,6 @@ def generate_index_html():
 
 <div id="dictionary" class="section">
     <h2>Chinuk Wawa Dictionary & Concordance</h2>
-    
     <p style="margin-bottom:5px; font-weight:bold; font-size:0.9rem; color:#666;">🔥 TOP 5 FREQUENT WORDS</p>
     <div class="spotlight-container">"""
     
@@ -133,8 +131,6 @@ def generate_index_html():
     
     html_dict_start += """
     </div>
-    
-    <p>A living index of Joe Peter's vocabulary. Click a timestamp to view the source line in the master list.</p>
     <div class="dict-grid">"""
 
     html_dict_cards = ""
@@ -167,7 +163,7 @@ def generate_index_html():
     with open(html_output, 'w', encoding='utf-8') as f:
         f.write(full_html)
     
-    print(f"Success: Updated index.html with Fairchild hardware details and full page layout.")
+    print(f"Success: Updated index.html with the group's specific mission statement.")
 
 if __name__ == "__main__":
     generate_index_html()
