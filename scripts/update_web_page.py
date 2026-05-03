@@ -5,11 +5,7 @@ def generate_index_html():
     csv_path = 'metadata/master_transcription_list.csv'
     html_output = 'docs/index.html'
     
-    if not os.path.exists(csv_path):
-        print("Error: Master CSV not found. Run extract_transcriptions.py first.")
-        return
-
-    # Get unique IDs from the CSV to build the gallery
+    # Get unique IDs from the CSV
     completed_ids = []
     if os.path.exists(csv_path):
         with open(csv_path, 'r', encoding='utf-8') as f:
@@ -18,91 +14,88 @@ def generate_index_html():
                 if row['ID'] not in completed_ids:
                     completed_ids.append(row['ID'])
 
-    # 1. HEADER & HISTORICAL SECTION (Static Content)
     html_start = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Peter Project Archive | 1941 Transcriptions</title>
+    <title>Joe Peter Project Archive</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1100px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
-        header { background: #8c1b1b; color: white; padding: 40px 20px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { font-style: italic; opacity: 0.9; margin-top: 10px; }
+        header { background: #8c1b1b; color: white; padding: 40px 20px; border-radius: 8px; margin-bottom: 30px; text-align: center; position: relative; }
+        header h1 { margin: 0; }
+        .repo-link { position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 5px 10px; border-radius: 4px; }
         .section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         h2 { color: #8c1b1b; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
-        .equipment-card { background: #fefefe; padding: 20px; border-left: 5px solid #8c1b1b; border: 1px solid #eee; border-radius: 4px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-top: 5px solid #8c1b1b; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { margin-top: 0; color: #8c1b1b; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-top: 5px solid #8c1b1b; }
         .btn-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .btn { flex: 1; text-align: center; background: #8c1b1b; color: white; padding: 10px 5px; text-decoration: none; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
-        .btn:hover { background: #5a1111; }
-        .btn.secondary { background: #444; }
-        .btn.secondary:hover { background: #222; }
-        .note { font-size: 0.9rem; color: #666; font-style: italic; background: #fff8f8; padding: 15px; border-radius: 4px; border: 1px solid #f0e0e0; }
+        .btn.paper { background: #2c3e50; margin-top: 20px; display: inline-block; width: auto; padding: 10px 20px; }
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
     </style>
 </head>
 <body>
 <header>
+    <a class="repo-link" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions">← Back to GitHub Repo</a>
     <h1>Joe Peter Project Archive</h1>
-    <p>The 1941 Chinook Jargon Field Transcriptions of Joe Peter and Jack Marr</p>
+    <p>1941 Chinook Jargon Transcriptions of Joe Peter and Jack Marr</p>
 </header>
+
 <div class="section">
-    <h2>History & The Recording Equipment</h2>
-    <p>In the early 1940s, legendary linguist <strong>John Peabody Harrington</strong> tasked his assistant, 16-year-old <strong>Jack Marr</strong>, with capturing the voices of Indigenous speakers along the West Coast. While Harrington sought "Pure Chinook," Marr unknowingly documented 10 hours of a high-level variety of <strong>Chinook Jargon (Chinuk Wawa)</strong> from <strong>Joe Peter</strong>.</p>
+    <h2>Our Mission & Revitalization</h2>
+    <p>Our team is dedicated to the revitalization of <strong>Chinuk Wawa (Chinook Jargon)</strong>. By digitizing these historical encounters, we aim to bridge the gap between 20th-century archival silence and modern language learners.</p>
+    <p><strong>Our Methods:</strong> We utilize specialized linguistic tools like ELAN to create time-aligned transcriptions, ensuring that the rhythm, cadence, and authentic speech of Joe Peter are preserved in a way that allows for modern classroom use and personal study.</p>
+    
+    <a class="btn paper" href="https://tilixam.com/wp-content/uploads/2024/10/icsnl59_jpctp_final.pdf" target="_blank">
+        📖 Read our Published UBC Paper (ICSNL 59)
+    </a>
+</div>
+
+<div class="section">
+    <h2>History & Equipment</h2>
     <div class="equipment-grid">
-        <div class="equipment-card">
+        <div style="background: #fefefe; padding: 15px; border-left: 4px solid #8c1b1b;">
             <h3>The Presto Recorder</h3>
-            <p>Marr utilized a <strong>Presto portable aluminum disc recorder</strong> (likely a Model Y). This high-end field unit weighed approximately <strong>150 pounds</strong> and required massive storage batteries and power inverters to operate in remote locations without electricity.</p>
+            <p>16-year-old Jack Marr used a 150lb Presto portable aluminum disc recorder to capture these voices in the field in 1941.</p>
         </div>
-        <div class="equipment-card">
-            <h3>The Aluminum Discs</h3>
-            <p>Grooves were cut directly into <strong>12-inch bare aluminum discs</strong> using a sapphire needle. These were pure metal—durable for travel, but susceptible to high surface noise, requiring expert digitization by the Smithsonian to be heard today.</p>
+        <div style="background: #fefefe; padding: 15px; border-left: 4px solid #8c1b1b;">
+            <h3>The Discovery</h3>
+            <p>Originally seeking "Pure Chinook," the project instead captured 10 hours of high-level Chinook Jargon, providing a rare linguistic snapshot.</p>
         </div>
-    </div>
-    <br>
-    <div class="note">
-        <strong>Technical Note:</strong> These recordings survive as roughly 15 double-sided discs. Despite the primitive recording conditions, Marr’s work preserved a vital linguistic link to the Cowlitz and Chinook ancestry of Joe Peter.
     </div>
 </div>
+
 <h2>Transcription Gallery</h2>
 <div class="grid">"""
 
-    # 2. DYNAMIC GALLERY (Generated from CSV)
+    # Gallery Cards
     html_cards = ""
     for cid in completed_ids:
         html_cards += f"""
     <div class="card">
         <h3>Recording {cid}</h3>
-        <p>Digital transcription of 1941 metal disc recordings.</p>
+        <p>Digitized transcription of 1941 metal disc recordings.</p>
         <div class="btn-group">
             <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/{cid}_Reading_Guide.md">View Online</a>
-            <a class="btn secondary" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/raw/main/exports/pdfs/{cid}_Reading_Guide.pdf">PDF</a>
-            <a class="btn secondary" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/raw/main/exports/word-docs/{cid}_Reading_Guide.docx">Word</a>
+            <a class="btn" style="background:#444;" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/raw/main/exports/pdfs/{cid}_Reading_Guide.pdf">PDF</a>
+            <a class="btn" style="background:#444;" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/raw/main/exports/word-docs/{cid}_Reading_Guide.docx">Word</a>
         </div>
     </div>"""
 
-    # 3. FOOTER
     html_end = """
 </div>
 <footer>
     <p style="text-align:center; margin-top:50px; color:#777; border-top: 1px solid #ddd; padding-top: 20px;">
-        &copy; 2026 Joe Peter Project Archive. Digitized from the original J.P. Harrington Collection.
+        &copy; 2026 Joe Peter Project Team. Powered by the J.P. Harrington Collection.
     </p>
 </footer>
 </body>
 </html>"""
 
-    # Combine and save
-    full_html = html_start + html_cards + html_end
     with open(html_output, 'w', encoding='utf-8') as f:
-        f.write(full_html)
-    
-    print(f"Success: docs/index.html updated with {len(completed_ids)} recordings and historical context.")
+        f.write(html_start + html_cards + html_end)
+    print(f"Web page successfully updated with Mission and Paper link.")
 
 if __name__ == "__main__":
     generate_index_html()
