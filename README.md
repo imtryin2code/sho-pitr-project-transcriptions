@@ -51,7 +51,7 @@ To maintain consistency across the archive, the following notations are used to 
 | `<...>` | Unknown word(s) or voiced sound(s) |
 | `text/` | Pause in speech following the word |
 | `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
-| `&#124;text&#124;` | Pronunciation deviates significantly from GR dictionary variants |
+| `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
 | `..` | Hesitation or stutter |
 
 ---
