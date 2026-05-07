@@ -58,8 +58,8 @@ To maintain consistency across the archive, the following notations are used to 
 
 ## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
-- **Active Insights:** Currently tracking **0** specific observations.
-- **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
+- **Active Insights:** Currently tracking **302** specific observations.
+- **Access the Log:** Read the full [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
 
 ---
 

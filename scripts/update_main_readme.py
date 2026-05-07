@@ -3,7 +3,8 @@ import re
 
 def update_readme():
     readme_path = 'README.md'
-    notes_path = 'exports/Research_Observations_Log.md'
+    # Updated path to match your new organizational structure
+    notes_path = 'exports/markdown/Research_Observations_Log.md'
     csv_path = 'metadata/master_transcription_list.csv'
     audio_dir = 'audio-previews'
     
@@ -17,6 +18,7 @@ def update_readme():
     notes_count = 0
     if os.path.exists(notes_path):
         with open(notes_path, 'r', encoding='utf-8') as f:
+            # Count the number of bullet points starting with bold text (observations)
             notes_count = len(re.findall(r'^- \*\*', f.read(), re.MULTILINE))
 
     # 2. Read current README
@@ -53,8 +55,7 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 5. Legend Section with Escaped Pipes
-    # Using \| inside the backticks prevents it from being seen as a table divider
+    # 5. Legend Section
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
 
@@ -71,11 +72,11 @@ To maintain consistency across the archive, the following notations are used to 
 | `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
 | `..` | Hesitation or stutter |"""
 
-    # 6. Build Research Section
+    # 6. Build Research Section (Updated link path as well)
     research_section = f"""## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **{notes_count}** specific observations.
-- **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
+- **Access the Log:** Read the full [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
 
     # 7. Reassemble with dividers
     sections = [intro, overview, structure, how_to, legend_section, research_section, progress, contributing]
@@ -87,7 +88,7 @@ Our transcription process includes real-time tagging of linguistic and historica
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print("README updated: Fixed notation pipe escaping.")
+    print(f"README updated: Path to research notes fixed. Found {notes_count} observations.")
 
 if __name__ == "__main__":
     update_readme()
