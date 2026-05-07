@@ -3,10 +3,14 @@ Digital archive of 1941 Chinook Jargon (Chinuk Wawa) transcriptions. Featuring t
 
 # Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
+---
+
 ## 📜 Project Overview
 This repository preserves and digitizes a unique linguistic encounter from **1941**. The recordings feature **Jack Marr** reciting English sentences from Franz Boas’s [*Chinookan Texts*](https://archive.org/details/chinooktexts00boas) (1894), followed by **Joe Peter**, an Indigenous elder, providing the equivalent in **Chinook Jargon**.
 
 Our goal is to transform these historical metal disc recordings into accessible, searchable, and educational formats for language revitalization.
+
+---
 
 ## 📂 Repository Structure
 The project is organized to provide both raw technical data and user-friendly exports:
@@ -20,6 +24,8 @@ The project is organized to provide both raw technical data and user-friendly ex
 * **`metadata/`**: Contains the [Master Transcription List](./metadata/master_transcription_list.csv)—a searchable index of every line spoken.
 * **`scripts/`**: Python tools used to automate the data pipeline.
 
+---
+
 ## 🛠 How to Use This Archive
 
 ### For Language Learners & Educators
@@ -29,6 +35,15 @@ If you want to read or print the stories, navigate to the **[`exports/`](./expor
 
 ### For Linguists
 The raw transcription data is available in the **`.eaf`** format within the disc-specific folders. These can be opened using [ELAN](https://archive.mpi.nl/tla/elan) for deep phonetic or structural analysis.
+
+---
+
+## 🔬 Research & Observations
+Our transcription process includes real-time tagging of linguistic and historical features.
+- **Active Insights:** Currently tracking **302** specific observations.
+- **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
+
+---
 
 ## 📈 Project Progress
 
@@ -65,7 +80,9 @@ The raw transcription data is available in the **`.eaf`** format within the disc
  | **695-S1** | Boas Text Recitation | 🟡 In Progress |  | 
  | **695-S2** | Boas Text Recitation | 🟡 In Progress |  | 
  | **696-S1** | Boas Text Recitation | 🟡 In Progress |  | 
- | **696-S2** | Boas Text Recitation | 🟡 In Progress |  | 
+ | **696-S2** | Boas Text Recitation | 🟡 In Progress |  |
+
+---
 
 ## 🤝 Contributing
 This is a public archive. If you find a transcription error or have historical context to add:
