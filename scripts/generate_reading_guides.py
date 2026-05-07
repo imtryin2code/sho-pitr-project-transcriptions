@@ -7,12 +7,13 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 def generate_guides():
     csv_path = 'metadata/master_transcription_list.csv'
-    # Paths for the three formats
+    # Output directories
     md_output_base = 'exports/markdown'
     pdf_output_base = 'exports/pdfs'
     word_output_base = 'exports/word-docs'
     
-    font_path = "scripts/DejaVuSans.ttf"  # Ensure this font file is in the correct location
+    # Path to your Unicode font
+    font_path = "scripts/DejaVuSans.ttf" 
 
     if not os.path.exists(csv_path):
         print("Error: Master CSV not found.")
@@ -41,39 +42,55 @@ def generate_guides():
             f.write(f"# Reading Guide: {story_id}\n\n| Time | Speaker | Text |\n| :--- | :--- | :--- |\n")
             for row in rows:
                 text = row['Text']
-                if "Joe" in row['Speaker'] or "Peter" in row['Speaker']:
+                if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
                     text = f"**{text}**"
                 f.write(f"| {row['Time']} | {row['Speaker']} | {text} |\n")
 
-        # --- 2. PDF GENERATION ---
+        # --- 2. PDF GENERATION (Optimized for Unicode and Layout) ---
         pdf = FPDF()
         pdf.add_page()
+        
+        # Load custom font to prevent garbled text
         if os.path.exists(font_path):
             pdf.add_font("UniFont", style="", fname=font_path)
-            pdf.set_font("UniFont", size=12)
+            font_family = "UniFont"
         else:
-            pdf.set_font("Helvetica", size=12)
+            print(f"Warning: Font not found at {font_path}, using Helvetica.")
+            font_family = "Helvetica"
 
+        pdf.set_font("Helvetica", 'B', 14)
         pdf.cell(0, 10, f"Joe Peter Project: {story_id}", align='C', new_x="LMARGIN", new_y="NEXT")
         pdf.ln(5)
 
         for row in rows:
-            is_joe = "Joe" in row['Speaker'] or "Peter" in row['Speaker']
-            y_start = pdf.get_y()
-            pdf.set_font("UniFont", size=11 if is_joe else 10)
-            pdf.multi_cell(135, 10, row['Text'], border=1, new_x="LMARGIN", new_y="NEXT")
-            y_end = pdf.get_y()
-            h = y_end - y_start
-            pdf.set_xy(10, y_start)
-            pdf.cell(20, h, row['Time'], border=1)
-            pdf.cell(35, h, row['Speaker'], border=1)
-            pdf.set_y(y_end)
+            is_joe = any(name in row['Speaker'] for name in ["Joe", "Peter"])
+            
+            # Start position for the row
+            y_before = pdf.get_y()
+            
+            # Use Multi-cell for the Text to handle wrapping without overlapping
+            pdf.set_font(font_family, size=11 if is_joe else 10)
+            # The X-offset of 65 leaves room for Time (25) and Speaker (40)
+            pdf.set_xy(75, y_before) 
+            pdf.multi_cell(0, 8, row['Text'], border=1, new_x="LMARGIN", new_y="NEXT")
+            
+            y_after = pdf.get_y()
+            row_height = y_after - y_before
+            
+            # Go back and draw the Time and Speaker cells to match the multi_cell height
+            pdf.set_xy(10, y_before)
+            pdf.set_font("Helvetica", 'B' if is_joe else '', 9)
+            pdf.cell(25, row_height, row['Time'], border=1)
+            pdf.cell(40, row_height, row['Speaker'], border=1)
+            
+            pdf.set_y(y_after) # Set cursor for next row
+
         pdf.output(os.path.join(pdf_output_base, f"{story_id}_Reading_Guide.pdf"))
 
         # --- 3. WORD DOCUMENT GENERATION ---
         doc = Document()
-        title = doc.add_heading(f'Reading Guide: {story_id}', 0)
-        title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        doc_title = doc.add_heading(f'Reading Guide: {story_id}', 0)
+        doc_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
         
         table = doc.add_table(rows=1, cols=3)
         table.style = 'Table Grid'
@@ -90,7 +107,7 @@ def generate_guides():
             # Format the text (Bold for Joe Peter)
             p = row_cells[2].paragraphs[0]
             run = p.add_run(row['Text'])
-            if "Joe" in row['Speaker'] or "Peter" in row['Speaker']:
+            if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
                 run.bold = True
 
         doc_path = os.path.join(word_output_base, f"{story_id}_Reading_Guide.docx")

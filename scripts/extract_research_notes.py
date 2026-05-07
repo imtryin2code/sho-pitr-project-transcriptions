@@ -5,7 +5,7 @@ from datetime import datetime
 
 def extract_research_notes():
     csv_path = 'metadata/master_transcription_list.csv'
-    output_path = 'exports/Research_Observations_Log.md'
+    output_path = 'exports/markdown/Research_Observations_Log.md'
     
     if not os.path.exists(csv_path):
         print("Error: Master CSV not found.")
