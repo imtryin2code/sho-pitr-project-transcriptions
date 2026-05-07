@@ -36,11 +36,12 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 
 ---
 
-
 ## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **302** specific observations.
 - **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
+
+---
 
 ## 📈 Project Progress
 
@@ -79,7 +80,7 @@ Our transcription process includes real-time tagging of linguistic and historica
 | **696-S1** | Boas Text Recitation | 🟡 In Progress |  |
 | **696-S2** | Boas Text Recitation | 🟡 In Progress |  |
 
-
+---
 
 ## 🤝 Contributing
 This is a public archive. If you find a transcription error or have historical context to add:
