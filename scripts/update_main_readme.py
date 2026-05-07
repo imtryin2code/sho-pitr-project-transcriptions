@@ -3,7 +3,7 @@ import re
 
 def update_readme():
     readme_path = 'README.md'
-    notes_path = 'exports/markdown/Research_Observations_Log.md'
+    notes_path = 'exports/Research_Observations_Log.md'
     csv_path = 'metadata/master_transcription_list.csv'
     audio_dir = 'audio-previews'
     
@@ -24,11 +24,9 @@ def update_readme():
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # 3. Step 1: Strip ALL existing horizontal rules to prevent stacking
+    # 3. Strip existing dividers and old sections to rebuild
     content = re.sub(r'\n---\n', '\n', content)
 
-    # 4. Step 2: Define our clean sections
-    # We will split the content by headers to rebuild it
     def get_section(header_name, full_text):
         pattern = rf"## {header_name}.*?(?=\n## |$)"
         match = re.search(pattern, full_text, re.DOTALL)
@@ -41,7 +39,7 @@ def update_readme():
     progress = get_section("📈 Project Progress", content)
     contributing = get_section("🤝 Contributing", content)
 
-    # 5. Step 3: Update Table Links in the Progress section
+    # 4. Update Table Links in Progress
     progress_lines = progress.split('\n')
     updated_progress_lines = []
     for line in progress_lines:
@@ -55,24 +53,40 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 6. Step 4: Build the Research Section
+    # 5. NEW: Transcription Legend Section (NOW USING RAW STRING r""")
+    legend_section = r"""## ⌨️ Transcription Notation Legend
+To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
+
+| Notation | Description |
+| :--- | :--- |
+| `<text>` | Low confidence due to poor audio quality or group disagreement |
+| `<<text>>` | Very low confidence due to extremely poor audio quality |
+| `tex(t)` | Part of the word was not heard or dropped from speech |
+| `[text]` | Transcriber’s notes or standard Grand Ronde (GR) spelling for non-standard pronunciation |
+| `{text}` | English word used within Chinuk-Wawa speech |
+| `<...>` | Unknown word(s) or voiced sound(s) |
+| `text/` | Pause in speech following the word |
+| `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
+| `|text|` | Pronunciation deviates significantly from GR dictionary variants |
+| `..` | Hesitation or stutter |"""
+
+    # 6. Build Research Section
     research_section = f"""## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **{notes_count}** specific observations.
-- **Access the Log:** Read the full [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
+- **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
 
-    # 7. Step 5: Assemble the "Sandwich" with dividers between EVERY section
-    sections = [intro, overview, structure, how_to, research_section, progress, contributing]
-    # Filter out any empty strings and join with a divider
+    # 7. Reassemble with dividers
+    sections = [intro, overview, structure, how_to, legend_section, research_section, progress, contributing]
     new_content = "\n\n---\n\n".join([s for s in sections if s])
 
-    # 8. Step 6: Update final stats
+    # 8. Update stats and Save
     new_content = re.sub(r'Current Completion: \d+/30', f'Current Completion: {len(completed_ids)}/30', new_content)
 
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated with universal dividers. Links: {len(completed_ids)}, Notes: {notes_count}")
+    print("README updated with Notation Legend and consistent dividers.")
 
 if __name__ == "__main__":
     update_readme()
