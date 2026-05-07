@@ -36,12 +36,6 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 
 ---
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 5280c1732f2cbfb6739d21fcbf3f27eab9e41353
-
 ## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **302** specific observations.
