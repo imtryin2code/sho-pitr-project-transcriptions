@@ -53,7 +53,8 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 5. NEW: Transcription Legend Section (NOW USING RAW STRING r""")
+    # 5. Legend Section with HTML Entity for Pipes
+    # We use &#124; because a literal | breaks table columns in Markdown
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
 
@@ -67,7 +68,7 @@ To maintain consistency across the archive, the following notations are used to 
 | `<...>` | Unknown word(s) or voiced sound(s) |
 | `text/` | Pause in speech following the word |
 | `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
-| `|text|` | Pronunciation deviates significantly from GR dictionary variants |
+| `&#124;text&#124;` | Pronunciation deviates significantly from GR dictionary variants |
 | `..` | Hesitation or stutter |"""
 
     # 6. Build Research Section
@@ -86,7 +87,7 @@ Our transcription process includes real-time tagging of linguistic and historica
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print("README updated with Notation Legend and consistent dividers.")
+    print("README updated: Legend pipe formatting fixed using HTML entities.")
 
 if __name__ == "__main__":
     update_readme()
