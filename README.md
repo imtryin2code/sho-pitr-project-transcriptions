@@ -37,6 +37,8 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 ---
 
 
+
+
 ## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **302** specific observations.
@@ -48,13 +50,13 @@ Our transcription process includes real-time tagging of linguistic and historica
 
  | Recording ID | Description | Status | Formats Available | 
  | :--- | :--- | :--- | :--- | 
- | *682-S1* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
- | *682-S2* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
- | *683-S1* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
- | *683-S2* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
- | *684-S1* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [682-S1](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/682-S1.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [682-S2](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/682-S2.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [683-S1](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/683-S1.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [683-S2](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/683-S2.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [684-S1](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/684-S1.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
  | **684-S2** | Boas Text Recitation | 🟡 In Progress |  | 
- | *685-S1* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [685-S1](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/685-S1.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
  | **685-S2** | Boas Text Recitation | 🟡 In Progress |  | 
  | **686-S1** | Boas Text Recitation | 🟡 In Progress |  | 
  | **686-S2** | Boas Text Recitation | 🟡 In Progress |  | 
@@ -71,9 +73,9 @@ Our transcription process includes real-time tagging of linguistic and historica
  | **692-S1** | Boas Text Recitation | 🟡 In Progress |  | 
  | **692-S2** | Boas Text Recitation | 🟡 In Progress |  | 
  | **693-S1** | Boas Text Recitation | 🟡 In Progress |  | 
- | *693-S2* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
- | *694-S1* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
- | *694-S2* | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [693-S2](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/693-S2.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [694-S1](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/694-S1.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
+ | [694-S2](https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/audio-previews/694-S2.mp3) | Boas Text Recitation | ✅ Completed | PDF, MD, DOCX | 
  | **695-S1** | Boas Text Recitation | 🟡 In Progress |  | 
  | **695-S2** | Boas Text Recitation | 🟡 In Progress |  | 
  | **696-S1** | Boas Text Recitation | 🟡 In Progress |  | 
