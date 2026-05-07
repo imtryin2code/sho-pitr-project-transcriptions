@@ -4,84 +4,84 @@ This report extracts instances where Joe Peter's pronunciation deviates from the
 
 | Recording | Time | Joe's Pronunciation | GR Standard Spelling | Full Context |
 | :--- | :--- | :--- | :--- | :--- |
-| 683-S2 | 02:40 | `|lakt|` | `[lakit]` | JP:  |lakt| [lakit] san yaka wawa kakwa |
-| 683-S2 | 04:04 | `|hayaw|` | `[hayu]` | JP:  yaka patɬach yax̣ka |hayaw| [hayu] |
-| 683-S2 | 04:31 | `|hayaw|` | `[hayu]` | JP:  ɬaska mamuk/ ɬaska mamuk-chaku k'ilapay chxi iɬwəli/ |hayaw| [hayu] |
-| 683-S2 | 07:11 | `|makʰmak|` | `[məkʰmək]` | JP:  ikta <<ikta>> aɬqi yaka |makʰmak| [məkʰmək] ukuk nisayka chupʰa [Note: check pronunciation of məkʰmək] |
-| 683-S2 | 08:00 | `|ileyʔi|` | `[iliʔi]` | JP:  ɬaska mamuk-ɬxwap kʰupa |ileyʔi| [iliʔi] |
-| 683-S2 | 09:07 | `|kʰulí|` | `[kʰuli]` | JP:  ɬaska <wawa> ɬaska |kʰulí| [kʰuli]/ saya |
-| 683-S2 | 09:19 | `|milay|` | `[miɬayt]` | JP:  ukuk skukúm yaka/ |milay| [miɬayt]  [Note: possible distortion on "miɬayt"] |
-| 683-S2 | 09:44 | `|k'watin|` | `[k'wətʰin]` | JP:  <<tət'ɬi>> ɬatwa/ kikwəli kʰupa yaka |k'watin| [k'wətʰin] |
-| 683-S2 | 11:14 | `|lepʰiye|` | `[lipʰyi]` | JP:  wik yaka t'ɬap ɬaska |lepʰiye| [lipʰyi] kʰanawi |
-| 683-S2 | 11:55 | `|lepʰiye|` | `[lipʰyi]` | JP:  pi wik yaka t'ɬap wəx̣t/ yaka |lepʰiye| [lipʰyi] |
-| 683-S2 | 12:10 | `|lepʰiye|` | `[lipʰyi]` | JP:  aɬqi yaka alta <ukuk> t'ɬap ɬaska |lepʰiye| [lipʰyi] [Note: is "ukuk" object of "t'ɬap"? or are we mishearing "ukuk" for "yaka"?] |
-| 683-S2 | 12:43 | `|aws|` | `[aw]` | JP:  yaka/ yaka t'ɬap/ lakit ukuk/ ulman/ |aws| [aw]/ yaka mamuk-miməlust kʰanawi |
-| 683-S2 | 14:25 | `|lamiyey|` | `[lamiyay]` | JP:  ukuk |lamiyey| [lamiyay] |
-| 683-S2 | 16:32 | `|lepʰiye|` | `[lipʰyi]` | JP:  yaka/ yaka mash yaka |lepʰiye| [lipʰyi] inatay kʰupa ukuk/ chək |
-| 683-S2 | 16:42 | `|lepʰiye|` | `[lipʰyi]` | JP:  cha../ mayka ɬatwa kʰupa nayka |lepʰiye| [lipʰyi]/ inatay |
-| 683-S2 | 16:57 | `|lepʰiye|` | `[lipʰyi]` | JP:  alta ukuk skukúm yaka ɬatwa kʰupa yaka |lepʰiye| [lipʰyi] ɬatwa inatay |
-| 683-S2 | 17:17 | `|mæn|` | `[man]` | JP:  <alta uk>/ ukuk/ ukuk paya-|mæn| [man] yaka mamuk-/ k'ilapay yaka |lepʰiye| [lipʰyi] |
-| 683-S2 | 17:17 | `|lepʰiye|` | `[lipʰyi]` | JP:  <alta uk>/ ukuk/ ukuk paya-|mæn| [man] yaka mamuk-/ k'ilapay yaka |lepʰiye| [lipʰyi] |
-| 683-S2 | 18:48 | `|leyley|` | `[lili]` | JP:  ɬaska miɬayt kʰupá/ |leyley| [lili] |
-| 683-S2 | 18:55 | `|mæn|` | `[man]` | JP:  ukuk tənəs-|mæn| [man] wik yaka tiki yaka ɬuchmən |
-| 683-S2 | 19:08 | `|sæn|` | `[san]` | JP:  kʰupá |qʰəntsix̣| |sæn| [san] [Note: dialect alternate for qʰəntsi?] |
-| 682-S1 | 12:12 | `|kʰalaytən|` | `[kalaytən]` | JP:  yaka iskam yaka |kʰalaytən| [kalaytən] pi yaka ɬatwa |
-| 682-S1 | 12:29 | `|pʰu|` | `[p'u]` | JP:  yaka |pʰu| [p'u] |
-| 685-S1 | 00:14 | `|tsək|` | `[chək]` | JP:  <ukuk/alta uk> tilixam ɬaska mash |tsək| [chək] kʰupa kʰanawi/ ukuk paya |
-| 685-S1 | 01:21 | `|iley?|` | `[iliʔi]` | JP:  ɬaskaaa// ɬaska mamuk <<tɬuk-tɬuk>> kʰupa |iley?| [iliʔi] ɬaska t'ɬap ukuk ***ENDED HERE 9/15/25*** |
-| 685-S1 | 02:10 | `|leyli|` | `[lili]` | JP:  kʰupá ɬaska miɬayt |leyli| [lili] |
-| 685-S1 | 03:26 | `|tsək|` | `[chək]` | JP:  ɬaska ɬatwa kʰupa ukuk// hayash |tsək| [chək] |
-| 685-S1 | 04:31 | `|tənáaas|` | `[tənas]` | JP:  kʰupá yaka t'ɬap/ makwst |tənáaas| [tənas]/ <hayash-> chək [hayash-chək] kəlakəla |
-| 685-S1 | 05:26 | `|lásup|` | `[lasup]` | JP:  qʰata aɬqi/ qʰata aɬqi mayka mamuk <|lásup| [lasup]> <<kʰupa/ukuk/kʰapuk/kʰupa uk>> mayka tənas |
-| 685-S1 | 06:56 | `|məq'wməq'w|` | `[məkʰmək]` | JP:  kʰanawi/ kʰanawi pulakʰli ukuk tilixam inatay kʰupa uk/ chək ɬaska <iskam> mash inatay/ <|məq'wməq'w| [məkʰmək]> kʰupa nsayka [Note: one syllable "uk" and possible Salish form of məkʰmək] |
-| 685-S1 | 09:30 | `|tənes|` | `[tənas]` | JP:  alta ukuk yaka/ [JM: come up to the house] |tənes| [tənas] wawa "chaku kʰupa haws" ***NOTE: SPLIT*** |
-| 685-S1 | 10:19 | `|mu(n)k-|` | `[mamuk-]` | JP:  ukuk tənas yaka |mu(n)k-| [mamuk-] kʰlay [Note: suggesting "munk"?] |
-| 685-S1 | 12:11 | `|k'ilápa(y)|` | `[k'ilapay]` | JP:  yaka kʰupit-məkʰmək pi yaka ɬatwa |k'ilápa(y)| [k'ilapay] kʰupa yaka haws ***ENDED HERE 9/20/25*** |
-| 685-S1 | 12:17 | `|mənkst|` | `[makwst]` | JP:  ɬaska patɬach yax̣ka |mənkst| [makwst] |
-| 685-S1 | 12:24 | `|ma(m)uk-|` | `[mamuk-]` | JP:  ɬaska |ma(m)uk-| [mamuk-] miɬayt pi yaka |ma(m)uk-| [mamuk-] miɬayt kʰupa yaka lisak |
-| 685-S1 | 12:24 | `|ma(m)uk-|` | `[mamuk-]` | JP:  ɬaska |ma(m)uk-| [mamuk-] miɬayt pi yaka |ma(m)uk-| [mamuk-] miɬayt kʰupa yaka lisak |
-| 685-S1 | 14:11 | `|ilei-|` | `[iliʔi]` | JP:  ukuk |ilei-| [iliʔi] kəlakəla ɬaska məkʰmək mayka |
-| 685-S1 | 14:49 | `|tsxi|` | `[chxi]` | JP:  <sk'ak'a> <<|tsxi| [chxi]>> məkʰmək mayka |
-| 685-S1 | 17:25 | `|qwənəm|` | `[qwinəm]` | JP:  yaka miɬayt |qwənəm| [qwinəm] tənas |
-| 685-S1 | 18:54 | `|qwatʰin|` | `[k'wətʰin]` | JP:  yaka chaku-ɬax̣ pi yakaa q'wəɬ kʰupa yaka/ |qwatʰin| [k'wətʰin] |
-| 684-S1 | 00:57 | `|salax̣/sahlix|` | `[mamuk-sax̣ali]` | JP:  ukuk paya-man yaka mamuk-|salax̣/sahlix| [mamuk-sax̣ali] [flipped syllables for sax̣ali?] |
-| 684-S1 | 01:32 | `|kakwə|` | `[kakwa]` | JP:  yaka mamuk-|kakwə| [kakwa] |
-| 684-S1 | 01:54 | `|ileʔi|` | `[iliʔi]` | JP:  yaka ɬatwa kʰupa haws yaka mash yaka net kʰupa |ileʔi| [iliʔi] |
-| 684-S1 | 02:05 | `|ileʔi|` | `[iliʔi]` | JP:  yaka iskam yaka iskam uk paya/ paya// paya-stik/ |ileʔi| [iliʔi] |
-| 684-S1 | 02:28 | `|cha|` | `[chaku]` | JP:  ukuk win ukuk {uh}/ win yaka <|cha| [chaku] kʰupa> qʰa <ya> kʰupa ɬax̣-san |
-| 684-S1 | 02:36 | `|lolo|` | `[lulu]` | JP:  yaka mamuk// yaka mamuk-win/ |lolo| [lulu] kʰupa win yaka haws/ saya |
-| 684-S1 | 03:14 | `|x̣awqwaɬ|` | `[x̣awqaɬ]` | JP:  pi wik yaka mamuk-kakwa// |x̣awqwaɬ| [x̣awqaɬ] yaka mamuk-kakwa |
-| 684-S1 | 04:54 | `|uku|` | `[ukuk]` | JP:  yaka <mam..> yaka mamuk kʰanumakwst |uku| [ukuk] ulman mamuk-miɬayt ukuk laplash k'ilapay kʰanawi |
-| 684-S1 | 11:13 | `|t'ɬəx̣-t'ɬx̣|` | `[t'ɬəx̣-t'ɬəx̣]` | JP:  yaka/ mamuk-|t'ɬəx̣-t'ɬx̣| [t'ɬəx̣-t'ɬəx̣] yax̣ka kʰanawi-qʰa  |
-| 684-S1 | 14:37 | `|dileyt|` | `[dilit]` | JP:  |dileyt| [dilit] mayka kakwa <kakwa> nayka anqati [Note: clear uvular on "anqati"] |
-| 684-S1 | 15:35 | `|lolo|` | `[luʔluʔ]` | JP:  ukuk {uh}// |lolo| [luʔluʔ] -stik kʰupá |
-| 684-S1 | 15:44 | `|kwas|` | `[k'was]` | JP:  yaka |kwas| [k'was] chaku <<kʰupa>> tənəs/ wik-saya |
-| 684-S1 | 16:01 | `|lolo|` | `[luʔluʔ]` | JP:  iskam ukuk |lolo| [luʔluʔ] -stik |
-| 684-S1 | 16:09 | `|kʰuli|` | `[kuri]` | JP:  yaka |kʰuli| [kuri] saya |
-| 684-S1 | 16:31 | `|kʰuli|` | `[kuri]` | JP:  ɬaska mamuk-|kʰuli| [kuri] yax̣ka |
-| 684-S1 | 16:36 | `|kʰuli|` | `[kuri]` | JP:  ɬaska mamuk-|kʰuli| [kuri] yax̣ka/ saya <|ileyi| [ili?i]> |
-| 684-S1 | 16:36 | `|ileyi|` | `[ili?i]` | JP:  ɬaska mamuk-|kʰuli| [kuri] yax̣ka/ saya <|ileyi| [ili?i]> |
-| 684-S1 | 16:58 | `|chopʰa|` | `[chup]` | JP:  kakshət msayka/ |chopʰa| [chup] |
-| 684-S1 | 17:35 | `|shnas|` | `[snas]` | JP:  yaka hayu-|shnas| [snas] alta |
-| 684-S1 | 18:40 | `|pʰu|` | `[p'u]` | JP:  ɬaska mamuk-|pʰu| [p'u] kʰupa uk stik saya [Note: clear "uk"] |
-| 684-S1 | 19:19 | `|pʰu|` | `[p'u]` | JP:  ɬaska hayu-|pʰu| [p'u] kʰupa ukuk <ya..>/ stik kʰanawi |
-| 684-S1 | 20:03 | `|chupʰa|` | `[chup]` | JP:  <alta msayka mamuk.. alta> msayka kakshət uk mayka |chupʰa| [chup] |
-| 684-S1 | 20:08 | `|chupʰa|` | `[chup]` | JP:  ɬaska iskam/ ɬaska iskam stik kakshət ɬaska |chupʰa| [chup] |
-| 684-S1 | 20:19 | `|tsuk|` | `[tsəqw]` | JP:  <{ya/uh}>// ukuk ulman yaka mamuk-|tsuk| [tsəqw] |
-| 684-S1 | 20:26 | `|shnas|` | `[snas]` | JP:  <yaka hayu>-|shnas| [snas] alta |
-| 683-S1 | 01:23 | `| lʊlʊ |` | `[lulu]` | JP:  ɬaska | lʊlʊ | [lulu] yax̣ka kʰupa <{uh}>/ chək |
-| 683-S1 | 01:37 | `|ɬasa|` | `[ɬaska]` | JP:  |ɬasa| [ɬaska] iskam ɬaska mama |
-| 683-S1 | 02:30 | `|kʰalaytən|` | `[kalaytən]` | JP:  pi yaka iskam/ pi yaka iskam yaka |kʰalaytən| [kalaytən] yaka p'u ukuk hayash kəlakəla tk'up kəlakəla |
-| 683-S1 | 03:41 | `|kʰupuk|` | `[kʰupa <uk>]` | JP:  pi chaku-wam ukuk ston ɬaska mash |kʰupuk| [kʰupa <uk>] chək |
-| 683-S1 | 10:41 | `|aɬqə|` | `[aɬqi]` | JP:  mayka// m.. mayka mayka mayka nim <<|aɬqə| [aɬqi]>> mawich |
-| 683-S1 | 13:11 | `|iliʔey|` | `[iliʔi]` | JP:  <mayka>-k'ilapay kʰupa ukuk |iliʔey| [iliʔi] |
-| 683-S1 | 13:20 | `|elip-lema|` | `[iləp-lima]` | JP:  kʰupa yaka/ kʰupa yaka |elip-lema| [iləp-lima] |
-| 683-S1 | 13:47 | `|iliʔey|` | `[iliʔi]` | JP:  <mayka> kwanisəm miɬayt saya kʰupa ukuk |iliʔey| [iliʔi] |
-| 683-S1 | 13:57 | `|iliʔey|` | `[iliʔi]` | JP:  <yaka/wawa> k'ilapay kʰupa ukuk |iliʔey| [iliʔi] |
-| 683-S1 | 15:25 | `|qʰəntsi|` | `[qʰənchi]` | JP:  ɬaska {uh}/ kʰupá nayka, |qʰəntsi| [qʰənchi] kʰupá nayka |
-| 683-S1 | 16:30 | `|yax̣a|` | `[yax̣ka]` | JP:  mamuk-k'ilapay |yax̣a| [yax̣ka] qwinəm/ k'ilapay |
-| 683-S1 | 16:44 | `|kikwəlili|` | `[kikwəli]` | JP:  yaka mash yax̣ka |kikwəlili| [kikwəli] |
-| 683-S1 | 17:57 | `|eyləp|` | `[iləp]` | JP:  <|eyləp| [iləp]> bon  ***try to clean/boost**** |
-| 682-S2 | 06:26 | `|qʰwinəm|` | `[qwinəm]` | JP:  yaka ɬatwa kikwəli kʰupa ukuk chək |qʰwinəm| [qwinəm] tʰaym |
-| 682-S2 | 08:02 | `|patɬach|` | `[paɬach]` | JP:  pi ukuk ɬaska aw wik yaka |patɬach| [paɬach] yax̣ka  |
-| 682-S2 | 15:12 | `|lepʰiye|` | `[lipʰyi]` | JP:  kʰanawi yaka |lepʰiye| [lipʰyi]/ hilu |
+| 683-S2 | 02:40 | &#124;lakt&#124; | [lakit] | JP:  &#124;lakt&#124; [lakit] san yaka wawa kakwa |
+| 683-S2 | 04:04 | &#124;hayaw&#124; | [hayu] | JP:  yaka patɬach yax̣ka &#124;hayaw&#124; [hayu] |
+| 683-S2 | 04:31 | &#124;hayaw&#124; | [hayu] | JP:  ɬaska mamuk/ ɬaska mamuk-chaku k'ilapay chxi iɬwəli/ &#124;hayaw&#124; [hayu] |
+| 683-S2 | 07:11 | &#124;makʰmak&#124; | [məkʰmək] | JP:  ikta <<ikta>> aɬqi yaka &#124;makʰmak&#124; [məkʰmək] ukuk nisayka chupʰa [Note: check pronunciation of məkʰmək] |
+| 683-S2 | 08:00 | &#124;ileyʔi&#124; | [iliʔi] | JP:  ɬaska mamuk-ɬxwap kʰupa &#124;ileyʔi&#124; [iliʔi] |
+| 683-S2 | 09:07 | &#124;kʰulí&#124; | [kʰuli] | JP:  ɬaska <wawa> ɬaska &#124;kʰulí&#124; [kʰuli]/ saya |
+| 683-S2 | 09:19 | &#124;milay&#124; | [miɬayt] | JP:  ukuk skukúm yaka/ &#124;milay&#124; [miɬayt]  [Note: possible distortion on "miɬayt"] |
+| 683-S2 | 09:44 | &#124;k'watin&#124; | [k'wətʰin] | JP:  <<tət'ɬi>> ɬatwa/ kikwəli kʰupa yaka &#124;k'watin&#124; [k'wətʰin] |
+| 683-S2 | 11:14 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  wik yaka t'ɬap ɬaska &#124;lepʰiye&#124; [lipʰyi] kʰanawi |
+| 683-S2 | 11:55 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  pi wik yaka t'ɬap wəx̣t/ yaka &#124;lepʰiye&#124; [lipʰyi] |
+| 683-S2 | 12:10 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  aɬqi yaka alta <ukuk> t'ɬap ɬaska &#124;lepʰiye&#124; [lipʰyi] [Note: is "ukuk" object of "t'ɬap"? or are we mishearing "ukuk" for "yaka"?] |
+| 683-S2 | 12:43 | &#124;aws&#124; | [aw] | JP:  yaka/ yaka t'ɬap/ lakit ukuk/ ulman/ &#124;aws&#124; [aw]/ yaka mamuk-miməlust kʰanawi |
+| 683-S2 | 14:25 | &#124;lamiyey&#124; | [lamiyay] | JP:  ukuk &#124;lamiyey&#124; [lamiyay] |
+| 683-S2 | 16:32 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  yaka/ yaka mash yaka &#124;lepʰiye&#124; [lipʰyi] inatay kʰupa ukuk/ chək |
+| 683-S2 | 16:42 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  cha../ mayka ɬatwa kʰupa nayka &#124;lepʰiye&#124; [lipʰyi]/ inatay |
+| 683-S2 | 16:57 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  alta ukuk skukúm yaka ɬatwa kʰupa yaka &#124;lepʰiye&#124; [lipʰyi] ɬatwa inatay |
+| 683-S2 | 17:17 | &#124;mæn&#124; | [man] | JP:  <alta uk>/ ukuk/ ukuk paya-&#124;mæn&#124; [man] yaka mamuk-/ k'ilapay yaka &#124;lepʰiye&#124; [lipʰyi] |
+| 683-S2 | 17:17 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  <alta uk>/ ukuk/ ukuk paya-&#124;mæn&#124; [man] yaka mamuk-/ k'ilapay yaka &#124;lepʰiye&#124; [lipʰyi] |
+| 683-S2 | 18:48 | &#124;leyley&#124; | [lili] | JP:  ɬaska miɬayt kʰupá/ &#124;leyley&#124; [lili] |
+| 683-S2 | 18:55 | &#124;mæn&#124; | [man] | JP:  ukuk tənəs-&#124;mæn&#124; [man] wik yaka tiki yaka ɬuchmən |
+| 683-S2 | 19:08 | &#124;sæn&#124; | [san] | JP:  kʰupá &#124;qʰəntsix̣&#124; &#124;sæn&#124; [san] [Note: dialect alternate for qʰəntsi?] |
+| 682-S1 | 12:12 | &#124;kʰalaytən&#124; | [kalaytən] | JP:  yaka iskam yaka &#124;kʰalaytən&#124; [kalaytən] pi yaka ɬatwa |
+| 682-S1 | 12:29 | &#124;pʰu&#124; | [p'u] | JP:  yaka &#124;pʰu&#124; [p'u] |
+| 685-S1 | 00:14 | &#124;tsək&#124; | [chək] | JP:  <ukuk/alta uk> tilixam ɬaska mash &#124;tsək&#124; [chək] kʰupa kʰanawi/ ukuk paya |
+| 685-S1 | 01:21 | &#124;iley?&#124; | [iliʔi] | JP:  ɬaskaaa// ɬaska mamuk <<tɬuk-tɬuk>> kʰupa &#124;iley?&#124; [iliʔi] ɬaska t'ɬap ukuk ***ENDED HERE 9/15/25*** |
+| 685-S1 | 02:10 | &#124;leyli&#124; | [lili] | JP:  kʰupá ɬaska miɬayt &#124;leyli&#124; [lili] |
+| 685-S1 | 03:26 | &#124;tsək&#124; | [chək] | JP:  ɬaska ɬatwa kʰupa ukuk// hayash &#124;tsək&#124; [chək] |
+| 685-S1 | 04:31 | &#124;tənáaas&#124; | [tənas] | JP:  kʰupá yaka t'ɬap/ makwst &#124;tənáaas&#124; [tənas]/ <hayash-> chək [hayash-chək] kəlakəla |
+| 685-S1 | 05:26 | &#124;lásup&#124; | [lasup] | JP:  qʰata aɬqi/ qʰata aɬqi mayka mamuk <&#124;lásup&#124; [lasup]> <<kʰupa/ukuk/kʰapuk/kʰupa uk>> mayka tənas |
+| 685-S1 | 06:56 | &#124;məq'wməq'w&#124; | [məkʰmək] | JP:  kʰanawi/ kʰanawi pulakʰli ukuk tilixam inatay kʰupa uk/ chək ɬaska <iskam> mash inatay/ <&#124;məq'wməq'w&#124; [məkʰmək]> kʰupa nsayka [Note: one syllable "uk" and possible Salish form of məkʰmək] |
+| 685-S1 | 09:30 | &#124;tənes&#124; | [tənas] | JP:  alta ukuk yaka/ [JM: come up to the house] &#124;tənes&#124; [tənas] wawa "chaku kʰupa haws" ***NOTE: SPLIT*** |
+| 685-S1 | 10:19 | &#124;mu(n)k-&#124; | [mamuk-] | JP:  ukuk tənas yaka &#124;mu(n)k-&#124; [mamuk-] kʰlay [Note: suggesting "munk"?] |
+| 685-S1 | 12:11 | &#124;k'ilápa(y)&#124; | [k'ilapay] | JP:  yaka kʰupit-məkʰmək pi yaka ɬatwa &#124;k'ilápa(y)&#124; [k'ilapay] kʰupa yaka haws ***ENDED HERE 9/20/25*** |
+| 685-S1 | 12:17 | &#124;mənkst&#124; | [makwst] | JP:  ɬaska patɬach yax̣ka &#124;mənkst&#124; [makwst] |
+| 685-S1 | 12:24 | &#124;ma(m)uk-&#124; | [mamuk-] | JP:  ɬaska &#124;ma(m)uk-&#124; [mamuk-] miɬayt pi yaka &#124;ma(m)uk-&#124; [mamuk-] miɬayt kʰupa yaka lisak |
+| 685-S1 | 12:24 | &#124;ma(m)uk-&#124; | [mamuk-] | JP:  ɬaska &#124;ma(m)uk-&#124; [mamuk-] miɬayt pi yaka &#124;ma(m)uk-&#124; [mamuk-] miɬayt kʰupa yaka lisak |
+| 685-S1 | 14:11 | &#124;ilei-&#124; | [iliʔi] | JP:  ukuk &#124;ilei-&#124; [iliʔi] kəlakəla ɬaska məkʰmək mayka |
+| 685-S1 | 14:49 | &#124;tsxi&#124; | [chxi] | JP:  <sk'ak'a> <<&#124;tsxi&#124; [chxi]>> məkʰmək mayka |
+| 685-S1 | 17:25 | &#124;qwənəm&#124; | [qwinəm] | JP:  yaka miɬayt &#124;qwənəm&#124; [qwinəm] tənas |
+| 685-S1 | 18:54 | &#124;qwatʰin&#124; | [k'wətʰin] | JP:  yaka chaku-ɬax̣ pi yakaa q'wəɬ kʰupa yaka/ &#124;qwatʰin&#124; [k'wətʰin] |
+| 684-S1 | 00:57 | &#124;salax̣/sahlix&#124; | [mamuk-sax̣ali] | JP:  ukuk paya-man yaka mamuk-&#124;salax̣/sahlix&#124; [mamuk-sax̣ali] [flipped syllables for sax̣ali?] |
+| 684-S1 | 01:32 | &#124;kakwə&#124; | [kakwa] | JP:  yaka mamuk-&#124;kakwə&#124; [kakwa] |
+| 684-S1 | 01:54 | &#124;ileʔi&#124; | [iliʔi] | JP:  yaka ɬatwa kʰupa haws yaka mash yaka net kʰupa &#124;ileʔi&#124; [iliʔi] |
+| 684-S1 | 02:05 | &#124;ileʔi&#124; | [iliʔi] | JP:  yaka iskam yaka iskam uk paya/ paya// paya-stik/ &#124;ileʔi&#124; [iliʔi] |
+| 684-S1 | 02:28 | &#124;cha&#124; | [chaku] | JP:  ukuk win ukuk {uh}/ win yaka <&#124;cha&#124; [chaku] kʰupa> qʰa <ya> kʰupa ɬax̣-san |
+| 684-S1 | 02:36 | &#124;lolo&#124; | [lulu] | JP:  yaka mamuk// yaka mamuk-win/ &#124;lolo&#124; [lulu] kʰupa win yaka haws/ saya |
+| 684-S1 | 03:14 | &#124;x̣awqwaɬ&#124; | [x̣awqaɬ] | JP:  pi wik yaka mamuk-kakwa// &#124;x̣awqwaɬ&#124; [x̣awqaɬ] yaka mamuk-kakwa |
+| 684-S1 | 04:54 | &#124;uku&#124; | [ukuk] | JP:  yaka <mam..> yaka mamuk kʰanumakwst &#124;uku&#124; [ukuk] ulman mamuk-miɬayt ukuk laplash k'ilapay kʰanawi |
+| 684-S1 | 11:13 | &#124;t'ɬəx̣-t'ɬx̣&#124; | [t'ɬəx̣-t'ɬəx̣] | JP:  yaka/ mamuk-&#124;t'ɬəx̣-t'ɬx̣&#124; [t'ɬəx̣-t'ɬəx̣] yax̣ka kʰanawi-qʰa  |
+| 684-S1 | 14:37 | &#124;dileyt&#124; | [dilit] | JP:  &#124;dileyt&#124; [dilit] mayka kakwa <kakwa> nayka anqati [Note: clear uvular on "anqati"] |
+| 684-S1 | 15:35 | &#124;lolo&#124; | [luʔluʔ] | JP:  ukuk {uh}// &#124;lolo&#124; [luʔluʔ] -stik kʰupá |
+| 684-S1 | 15:44 | &#124;kwas&#124; | [k'was] | JP:  yaka &#124;kwas&#124; [k'was] chaku <<kʰupa>> tənəs/ wik-saya |
+| 684-S1 | 16:01 | &#124;lolo&#124; | [luʔluʔ] | JP:  iskam ukuk &#124;lolo&#124; [luʔluʔ] -stik |
+| 684-S1 | 16:09 | &#124;kʰuli&#124; | [kuri] | JP:  yaka &#124;kʰuli&#124; [kuri] saya |
+| 684-S1 | 16:31 | &#124;kʰuli&#124; | [kuri] | JP:  ɬaska mamuk-&#124;kʰuli&#124; [kuri] yax̣ka |
+| 684-S1 | 16:36 | &#124;kʰuli&#124; | [kuri] | JP:  ɬaska mamuk-&#124;kʰuli&#124; [kuri] yax̣ka/ saya <&#124;ileyi&#124; [ili?i]> |
+| 684-S1 | 16:36 | &#124;ileyi&#124; | [ili?i] | JP:  ɬaska mamuk-&#124;kʰuli&#124; [kuri] yax̣ka/ saya <&#124;ileyi&#124; [ili?i]> |
+| 684-S1 | 16:58 | &#124;chopʰa&#124; | [chup] | JP:  kakshət msayka/ &#124;chopʰa&#124; [chup] |
+| 684-S1 | 17:35 | &#124;shnas&#124; | [snas] | JP:  yaka hayu-&#124;shnas&#124; [snas] alta |
+| 684-S1 | 18:40 | &#124;pʰu&#124; | [p'u] | JP:  ɬaska mamuk-&#124;pʰu&#124; [p'u] kʰupa uk stik saya [Note: clear "uk"] |
+| 684-S1 | 19:19 | &#124;pʰu&#124; | [p'u] | JP:  ɬaska hayu-&#124;pʰu&#124; [p'u] kʰupa ukuk <ya..>/ stik kʰanawi |
+| 684-S1 | 20:03 | &#124;chupʰa&#124; | [chup] | JP:  <alta msayka mamuk.. alta> msayka kakshət uk mayka &#124;chupʰa&#124; [chup] |
+| 684-S1 | 20:08 | &#124;chupʰa&#124; | [chup] | JP:  ɬaska iskam/ ɬaska iskam stik kakshət ɬaska &#124;chupʰa&#124; [chup] |
+| 684-S1 | 20:19 | &#124;tsuk&#124; | [tsəqw] | JP:  <{ya/uh}>// ukuk ulman yaka mamuk-&#124;tsuk&#124; [tsəqw] |
+| 684-S1 | 20:26 | &#124;shnas&#124; | [snas] | JP:  <yaka hayu>-&#124;shnas&#124; [snas] alta |
+| 683-S1 | 01:23 | &#124; lʊlʊ &#124; | [lulu] | JP:  ɬaska &#124; lʊlʊ &#124; [lulu] yax̣ka kʰupa <{uh}>/ chək |
+| 683-S1 | 01:37 | &#124;ɬasa&#124; | [ɬaska] | JP:  &#124;ɬasa&#124; [ɬaska] iskam ɬaska mama |
+| 683-S1 | 02:30 | &#124;kʰalaytən&#124; | [kalaytən] | JP:  pi yaka iskam/ pi yaka iskam yaka &#124;kʰalaytən&#124; [kalaytən] yaka p'u ukuk hayash kəlakəla tk'up kəlakəla |
+| 683-S1 | 03:41 | &#124;kʰupuk&#124; | [kʰupa <uk>] | JP:  pi chaku-wam ukuk ston ɬaska mash &#124;kʰupuk&#124; [kʰupa <uk>] chək |
+| 683-S1 | 10:41 | &#124;aɬqə&#124; | [aɬqi] | JP:  mayka// m.. mayka mayka mayka nim <<&#124;aɬqə&#124; [aɬqi]>> mawich |
+| 683-S1 | 13:11 | &#124;iliʔey&#124; | [iliʔi] | JP:  <mayka>-k'ilapay kʰupa ukuk &#124;iliʔey&#124; [iliʔi] |
+| 683-S1 | 13:20 | &#124;elip-lema&#124; | [iləp-lima] | JP:  kʰupa yaka/ kʰupa yaka &#124;elip-lema&#124; [iləp-lima] |
+| 683-S1 | 13:47 | &#124;iliʔey&#124; | [iliʔi] | JP:  <mayka> kwanisəm miɬayt saya kʰupa ukuk &#124;iliʔey&#124; [iliʔi] |
+| 683-S1 | 13:57 | &#124;iliʔey&#124; | [iliʔi] | JP:  <yaka/wawa> k'ilapay kʰupa ukuk &#124;iliʔey&#124; [iliʔi] |
+| 683-S1 | 15:25 | &#124;qʰəntsi&#124; | [qʰənchi] | JP:  ɬaska {uh}/ kʰupá nayka, &#124;qʰəntsi&#124; [qʰənchi] kʰupá nayka |
+| 683-S1 | 16:30 | &#124;yax̣a&#124; | [yax̣ka] | JP:  mamuk-k'ilapay &#124;yax̣a&#124; [yax̣ka] qwinəm/ k'ilapay |
+| 683-S1 | 16:44 | &#124;kikwəlili&#124; | [kikwəli] | JP:  yaka mash yax̣ka &#124;kikwəlili&#124; [kikwəli] |
+| 683-S1 | 17:57 | &#124;eyləp&#124; | [iləp] | JP:  <&#124;eyləp&#124; [iləp]> bon  ***try to clean/boost**** |
+| 682-S2 | 06:26 | &#124;qʰwinəm&#124; | [qwinəm] | JP:  yaka ɬatwa kikwəli kʰupa ukuk chək &#124;qʰwinəm&#124; [qwinəm] tʰaym |
+| 682-S2 | 08:02 | &#124;patɬach&#124; | [paɬach] | JP:  pi ukuk ɬaska aw wik yaka &#124;patɬach&#124; [paɬach] yax̣ka  |
+| 682-S2 | 15:12 | &#124;lepʰiye&#124; | [lipʰyi] | JP:  kʰanawi yaka &#124;lepʰiye&#124; [lipʰyi]/ hilu |
