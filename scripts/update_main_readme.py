@@ -5,16 +5,15 @@ def update_readme():
     readme_path = 'README.md'
     notes_path = 'exports/Research_Observations_Log.md'
     csv_path = 'metadata/master_transcription_list.csv'
+    audio_dir = 'audio-previews'
     
-    # 1. Gather Stats
-    completed_count = 0
+    # 1. Gather Stats & Audio Availability
+    completed_ids = []
     if os.path.exists(csv_path):
         with open(csv_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-            # Count unique IDs skipping header
-            unique_ids = set(line.split(',')[0] for line in lines[1:] if line.strip())
-            completed_count = len(unique_ids)
-
+            completed_ids = list(set(line.split(',')[0] for line in lines[1:] if line.strip()))
+    
     notes_count = 0
     if os.path.exists(notes_path):
         with open(notes_path, 'r', encoding='utf-8') as f:
@@ -26,41 +25,55 @@ def update_readme():
         return
         
     with open(readme_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+        lines = f.readlines()
 
-    # 3. Update Repository Structure Section
-    if "Research_Observations_Log.md" not in content:
-        content = content.replace(
-            "├── exports/", 
-            "├── exports/\n│   ├── Research_Observations_Log.md  <-- 🔬 Auto-generated research insights"
-        )
+    updated_lines = []
+    in_table = False
 
-    # 4. Prepare the Research Section
+    for line in lines:
+        # Detect Table Rows (Example: | *682-S1* | ... |)
+        if line.strip().startswith('|') and not line.strip().startswith('| ---'):
+            cells = [c.strip() for c in line.split('|')]
+            if len(cells) > 2:
+                # Extract the ID (cleaning out existing markdown links or bolding)
+                raw_id = re.sub(r'[\*\[\]\(\)]', '', cells[1]).split('/')[-1].strip()
+                
+                if raw_id in completed_ids:
+                    # Check for MP3 link (GitHub Pages style or relative path)
+                    mp3_filename = f"{raw_id}.mp3"
+                    mp3_path = os.path.join(audio_dir, mp3_filename)
+                    
+                    if os.path.exists(mp3_path):
+                        # Create the link on the ID
+                        # Using relative path so it works on both GitHub and the Web Page
+                        cells[1] = f"[*[{raw_id}]*](./audio-previews/{mp3_filename})"
+                    else:
+                        cells[1] = f"*{raw_id}*"
+                
+                line = " | ".join(cells) + "\n"
+        
+        updated_lines.append(line)
+
+    # 3. Handle Research & Progress Section Updates
+    content = "".join(updated_lines)
+    
+    # Update Research Section
     research_section = f"""
 ## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **{notes_count}** specific observations.
 - **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
 """
-
-    # 5. Clean up old instances of the Research section to avoid duplicates
-    content = re.sub(r'## 🔬 Research & Observations.*?(\n(?=##)|$)', '', content, flags=re.DOTALL)
-
-    # 6. Insert Research section BEFORE Project Progress
-    if "## 📈 Project Progress" in content:
-        content = content.replace("## 📈 Project Progress", research_section + "\n## 📈 Project Progress")
-    else:
-        # Fallback if progress section isn't found
-        content += research_section
-
-    # 7. Update Completion Count
-    content = re.sub(r'Current Completion: \d+/30', f'Current Completion: {completed_count}/30', content)
-
-    # 8. Write back to README
-    with open(readme_path, 'w', encoding='utf-8') as f:
-        f.write(content.strip() + "\n")
+    content = re.sub(r'## 🔬 Research & Observations.*?(\n(?=##)|$)', research_section + "\n", content, flags=re.DOTALL)
     
-    print(f"README updated: Research section moved above Progress. Stats: {completed_count} recordings, {notes_count} notes.")
+    # Update Completion Text
+    content = re.sub(r'Current Completion: \d+/30', f'Current Completion: {len(completed_ids)}/30', content)
+
+    # 4. Save Changes
+    with open(readme_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"README updated: Links added for {len(completed_ids)} recordings.")
 
 if __name__ == "__main__":
     update_readme()
