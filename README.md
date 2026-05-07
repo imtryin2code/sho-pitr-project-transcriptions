@@ -41,6 +41,8 @@ Our transcription process includes real-time tagging of linguistic and historica
 - **Active Insights:** Currently tracking **302** specific observations.
 - **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
 
+---
+
 ## 📈 Project Progress
 
 **Current Completion:** 9/30 recordings processed.
