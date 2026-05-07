@@ -3,7 +3,7 @@ import re
 
 def update_readme():
     readme_path = 'README.md'
-    notes_path = 'exports/Research_Observations_Log.md'
+    notes_path = 'exports/markdown/Research_Observations_Log.md'
     csv_path = 'metadata/master_transcription_list.csv'
     audio_dir = 'audio-previews'
     
@@ -59,7 +59,7 @@ def update_readme():
     research_section = f"""## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **{notes_count}** specific observations.
-- **Access the Log:** Read the full [Research & Observations Log](./exports/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
+- **Access the Log:** Read the full [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
 
     # 7. Step 5: Assemble the "Sandwich" with dividers between EVERY section
     sections = [intro, overview, structure, how_to, research_section, progress, contributing]
