@@ -42,7 +42,7 @@ def generate_index_html():
         with open(notes_path, 'r', encoding='utf-8') as f:
             notes_count = len(re.findall(r'^- \*\*', f.read(), re.MULTILINE))
 
-    # 2. HTML HEADER & STYLES
+    # 2. HTML HEADER & STYLES (Added search styling)
     html_start = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,10 +69,16 @@ def generate_index_html():
         .research-card {{ background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #ffcccc; text-align: center; }}
         .stat-number {{ display: block; font-size: 2.5rem; font-weight: bold; color: #8c1b1b; }}
 
+        /* Search Bar Styles */
+        .search-container {{ margin: 20px 0; }}
+        #dictSearch {{ width: 100%; padding: 12px 20px; border: 2px solid #eee; border-radius: 25px; font-size: 1rem; outline: none; transition: border-color 0.3s; }}
+        #dictSearch:focus {{ border-color: #8c1b1b; }}
+
         .spotlight-container {{ display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 25px 0; }}
         .spotlight-card {{ background: #8c1b1b; color: white; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; }}
         .dict-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }}
-        .dict-card {{ background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 6px; }}
+        .dict-card {{ background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 6px; transition: transform 0.2s; }}
+        .dict-card.hidden {{ display: none; }}
         .occ-link {{ display: inline-block; font-size: 0.7rem; background: #f8f8f8; padding: 2px 5px; margin: 2px; border-radius: 3px; text-decoration: none; color: #555; border: 1px solid #ccc; }}
         .occ-link:hover {{ background: #8c1b1b; color: white; }}
     </style>
@@ -144,7 +150,7 @@ def generate_index_html():
     <h2>Transcription Gallery</h2>
     <div class="grid">"""
 
-    # [Rest of the dynamic card generation and dictionary logic remains the same]
+    # 3. GALLERY CARDS
     html_cards = ""
     for cid in completed_ids:
         html_cards += f"""
@@ -157,12 +163,18 @@ def generate_index_html():
             </div>
         </div>"""
 
+    # 4. DICTIONARY SECTION (Added search input)
     html_dict_start = f"""
     </div>
 </div>
 
 <div id="dictionary" class="section">
     <h2>Chinuk Wawa Dictionary & Concordance</h2>
+    
+    <div class="search-container">
+        <input type="text" id="dictSearch" placeholder="Search dictionary for terms or definitions..." onkeyup="filterDictionary()">
+    </div>
+
     <p style="margin-bottom:5px; font-weight:bold; font-size:0.9rem; color:#666;">🔥 TOP 10 FREQUENT WORDS</p>
     <div class="spotlight-container">"""
     
@@ -171,7 +183,7 @@ def generate_index_html():
     
     html_dict_start += """
     </div>
-    <div class="dict-grid">"""
+    <div id="dictionaryGrid" class="dict-grid">"""
 
     html_dict_cards = ""
     for word, data in glossary.items():
@@ -180,13 +192,15 @@ def generate_index_html():
                 f'<a class="occ-link" href="{o["url"]}" target="_blank">{o["id"]}@{o["time"]}</a>' 
                 for o in data['occurrences']
             ])
+            # Added data-term and data-def for the search function
             html_dict_cards += f"""
-        <div class="dict-card">
+        <div class="dict-card" data-term="{word.lower()}" data-def="{data['definition'].lower()}">
             <strong style="color:#8c1b1b;">{word}</strong> <small style="color:#999;">({data['count']})</small>
             <p style="margin: 5px 0; font-size: 0.85rem; color:#444;">{data['definition']}</p>
             <div style="margin-top:8px;">{occ_links}</div>
         </div>"""
 
+    # 5. FOOTER & SEARCH JAVASCRIPT
     html_end = """
     </div>
 </div>
@@ -196,6 +210,26 @@ def generate_index_html():
         &copy; 2026 Joe Peter Project Team. Powered by the J.P. Harrington Collection.
     </p>
 </footer>
+
+<script>
+    function filterDictionary() {
+        const input = document.getElementById('dictSearch');
+        const filter = input.value.toLowerCase();
+        const grid = document.getElementById('dictionaryGrid');
+        const cards = grid.getElementsByClassName('dict-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            const term = cards[i].getAttribute('data-term');
+            const def = cards[i].getAttribute('data-def');
+            
+            if (term.includes(filter) || def.includes(filter)) {
+                cards[i].classList.remove('hidden');
+            } else {
+                cards[i].classList.add('hidden');
+            }
+        }
+    }
+</script>
 </body>
 </html>"""
 
@@ -203,7 +237,7 @@ def generate_index_html():
     with open(html_output, 'w', encoding='utf-8') as f:
         f.write(full_html)
     
-    print(f"Success: index.html updated. History restored and Top 10 spotlight active.")
+    print(f"Success: index.html updated with search functionality.")
 
 if __name__ == "__main__":
     generate_index_html()
