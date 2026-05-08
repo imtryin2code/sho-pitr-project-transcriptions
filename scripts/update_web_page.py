@@ -42,7 +42,7 @@ def generate_index_html():
         with open(notes_path, 'r', encoding='utf-8') as f:
             notes_count = len(re.findall(r'^- \*\*', f.read(), re.MULTILINE))
 
-    # 2. HTML HEADER & STYLES (Added search styling)
+    # 2. HTML HEADER & STYLES (Fixed Search Box Width)
     html_start = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,9 +69,18 @@ def generate_index_html():
         .research-card {{ background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #ffcccc; text-align: center; }}
         .stat-number {{ display: block; font-size: 2.5rem; font-weight: bold; color: #8c1b1b; }}
 
-        /* Search Bar Styles */
+        /* Fixed Search Bar Styles */
         .search-container {{ margin: 20px 0; }}
-        #dictSearch {{ width: 100%; padding: 12px 20px; border: 2px solid #eee; border-radius: 25px; font-size: 1rem; outline: none; transition: border-color 0.3s; }}
+        #dictSearch {{ 
+            width: 100%; 
+            padding: 12px 20px; 
+            border: 2px solid #eee; 
+            border-radius: 25px; 
+            font-size: 1rem; 
+            outline: none; 
+            transition: border-color 0.3s;
+            box-sizing: border-box; /* This prevents the box from extending past the page */
+        }}
         #dictSearch:focus {{ border-color: #8c1b1b; }}
 
         .spotlight-container {{ display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 25px 0; }}
@@ -163,7 +172,7 @@ def generate_index_html():
             </div>
         </div>"""
 
-    # 4. DICTIONARY SECTION (Added search input)
+    # 4. DICTIONARY SECTION
     html_dict_start = f"""
     </div>
 </div>
@@ -192,7 +201,6 @@ def generate_index_html():
                 f'<a class="occ-link" href="{o["url"]}" target="_blank">{o["id"]}@{o["time"]}</a>' 
                 for o in data['occurrences']
             ])
-            # Added data-term and data-def for the search function
             html_dict_cards += f"""
         <div class="dict-card" data-term="{word.lower()}" data-def="{data['definition'].lower()}">
             <strong style="color:#8c1b1b;">{word}</strong> <small style="color:#999;">({data['count']})</small>
@@ -237,7 +245,7 @@ def generate_index_html():
     with open(html_output, 'w', encoding='utf-8') as f:
         f.write(full_html)
     
-    print(f"Success: index.html updated with search functionality.")
+    print(f"Success: Fixed search box layout bug.")
 
 if __name__ == "__main__":
     generate_index_html()

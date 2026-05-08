@@ -24,9 +24,18 @@
         .research-card { background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #ffcccc; text-align: center; }
         .stat-number { display: block; font-size: 2.5rem; font-weight: bold; color: #8c1b1b; }
 
-        /* Search Bar Styles */
+        /* Fixed Search Bar Styles */
         .search-container { margin: 20px 0; }
-        #dictSearch { width: 100%; padding: 12px 20px; border: 2px solid #eee; border-radius: 25px; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        #dictSearch { 
+            width: 100%; 
+            padding: 12px 20px; 
+            border: 2px solid #eee; 
+            border-radius: 25px; 
+            font-size: 1rem; 
+            outline: none; 
+            transition: border-color 0.3s;
+            box-sizing: border-box; /* This prevents the box from extending past the page */
+        }
         #dictSearch:focus { border-color: #8c1b1b; }
 
         .spotlight-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 25px 0; }
