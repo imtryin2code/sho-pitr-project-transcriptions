@@ -3,30 +3,36 @@ import re
 
 def update_readme():
     readme_path = 'README.md'
-    # Updated path to match your new organizational structure
     notes_path = 'exports/markdown/Research_Observations_Log.md'
+    variation_path = 'exports/markdown/Dialect_Variation_Report.md'
     csv_path = 'metadata/master_transcription_list.csv'
     audio_dir = 'audio-previews'
     
-    # 1. Gather Stats
+    # 1. Gather Completion Stats
     completed_ids = []
     if os.path.exists(csv_path):
         with open(csv_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
             completed_ids = list(set(line.split(',')[0].strip() for line in lines[1:] if line.strip()))
     
+    # 2. Count Research Notes
     notes_count = 0
     if os.path.exists(notes_path):
         with open(notes_path, 'r', encoding='utf-8') as f:
-            # Count the number of bullet points starting with bold text (observations)
             notes_count = len(re.findall(r'^- \*\*', f.read(), re.MULTILINE))
 
-    # 2. Read current README
+    # 3. Count Dialect Variations
+    variation_count = 0
+    if os.path.exists(variation_path):
+        with open(variation_path, 'r', encoding='utf-8') as f:
+            # Count table rows, excluding the header and separator
+            variation_count = len([l for l in f.readlines() if l.startswith('| 6')])
+
+    # 4. Read current README
     if not os.path.exists(readme_path): return
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # 3. Strip existing dividers and old sections to rebuild
     content = re.sub(r'\n---\n', '\n', content)
 
     def get_section(header_name, full_text):
@@ -41,7 +47,7 @@ def update_readme():
     progress = get_section("📈 Project Progress", content)
     contributing = get_section("🤝 Contributing", content)
 
-    # 4. Update Table Links in Progress
+    # 5. Update Table Links in Progress
     progress_lines = progress.split('\n')
     updated_progress_lines = []
     for line in progress_lines:
@@ -55,7 +61,7 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 5. Legend Section
+    # 6. Legend Section
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
 
@@ -72,23 +78,24 @@ To maintain consistency across the archive, the following notations are used to 
 | `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
 | `..` | Hesitation or stutter |"""
 
-    # 6. Build Research Section (Updated link path as well)
+    # 7. Build Research Section with the NEW Dialect Variation link
     research_section = f"""## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **{notes_count}** specific observations.
-- **Access the Log:** Read the full [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs."""
+- **Dialect Variations:** Identified **{variation_count}** instances of Joe Peter's unique pronunciation patterns.
+- **Access the Logs:** Read the [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) or the [Dialect Variation Report](./exports/markdown/Dialect_Variation_Report.md)."""
 
-    # 7. Reassemble with dividers
+    # 8. Reassemble
     sections = [intro, overview, structure, how_to, legend_section, research_section, progress, contributing]
     new_content = "\n\n---\n\n".join([s for s in sections if s])
 
-    # 8. Update stats and Save
+    # 9. Update stats and Save
     new_content = re.sub(r'Current Completion: \d+/30', f'Current Completion: {len(completed_ids)}/30', new_content)
 
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated: Path to research notes fixed. Found {notes_count} observations.")
+    print(f"README updated with {variation_count} dialect variations linked.")
 
 if __name__ == "__main__":
     update_readme()

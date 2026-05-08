@@ -59,7 +59,8 @@ To maintain consistency across the archive, the following notations are used to 
 ## 🔬 Research & Observations
 Our transcription process includes real-time tagging of linguistic and historical features.
 - **Active Insights:** Currently tracking **302** specific observations.
-- **Access the Log:** Read the full [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) for detailed notes on grammar, history, and peer-review needs.
+- **Dialect Variations:** Identified **81** instances of Joe Peter's unique pronunciation patterns.
+- **Access the Logs:** Read the [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) or the [Dialect Variation Report](./exports/markdown/Dialect_Variation_Report.md).
 
 ---
 
