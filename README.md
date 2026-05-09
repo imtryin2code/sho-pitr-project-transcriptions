@@ -16,10 +16,6 @@ Our goal is to transform these historical metal disc recordings into accessible,
 
 ---
 
----
-
----
-
 ## 📂 Repository Structure
 The project is organized to provide both raw technical data and user-friendly exports:
 
@@ -31,10 +27,6 @@ The project is organized to provide both raw technical data and user-friendly ex
 * **`audio-previews/`**: Low-bitrate MP3s for reference (Full WAVs stored externally).
 * **`metadata/`**: Contains the [Master Transcription List](./metadata/master_transcription_list.csv)—a searchable index of every line spoken.
 * **`scripts/`**: Python tools used to automate the data pipeline.
-
----
-
----
 
 ---
 
@@ -50,16 +42,12 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 
 ---
 
----
-
----
-
 ## ⌨️ Transcription Notation Legend
 | Notation | Description |
 | :--- | :--- |
 | `<text>` | Low confidence |
 | `[text]` | Transcriber notes / Standard spelling |
-| `{{text}}` | English word within speech |
+| `{text}` | English word within speech |
 | `\|text\|` | Significant dialect deviation |
 | `..` | Hesitation |
 
@@ -108,10 +96,6 @@ The raw transcription data is available in the **`.eaf`** format within the disc
  | **695-S2** | Boas Text Recitation | 🟡 In Progress |  | 
  | **696-S1** | Boas Text Recitation | 🟡 In Progress |  | 
  | **696-S2** | Boas Text Recitation | 🟡 In Progress |  |
-
----
-
----
 
 ---
 

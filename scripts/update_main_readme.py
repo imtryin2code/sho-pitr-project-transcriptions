@@ -31,12 +31,15 @@ def update_readme():
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
+    # Clean out all existing dividers first so we start with a blank slate
+    content = re.sub(r'\n+---\n+', '\n\n', content)
+
     def get_section(header_name, full_text):
         pattern = rf"## {header_name}.*?(?=\n## |$)"
         match = re.search(pattern, full_text, re.DOTALL)
         return match.group(0).strip() if match else ""
 
-    # 4. Build Dashboard acknowledging the 3 years already completed
+    # 4. Dashboard
     dashboard = f"""# Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
 > ### 🌐 [Explore the Interactive Archive & Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/)
@@ -72,7 +75,7 @@ def update_readme():
 | :--- | :--- |
 | `<text>` | Low confidence |
 | `[text]` | Transcriber notes / Standard spelling |
-| `{{text}}` | English word within speech |
+| `{text}` | English word within speech |
 | `\|text\|` | Significant dialect deviation |
 | `..` | Hesitation |"""
 
@@ -82,14 +85,16 @@ def update_readme():
 - **Dialect Variations:** {variation_count} identified pronunciation patterns.
 - **Logs:** [Research Log](./exports/markdown/Research_Observations_Log.md) | [Variation Report](./exports/markdown/Dialect_Variation_Report.md)"""
 
-    # 8. Reassemble
+    # 8. Reassemble with dividers restored
     sections = [dashboard, overview, structure, how_to, legend_section, research_section, progress, contributing]
-    new_content = "\n\n---\n\n".join([s for s in sections if s])
+    
+    # We join with a divider to separate each main section clearly
+    new_content = "\n\n---\n\n".join([s for s in sections if s.strip()])
 
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated: Acknowledged 3 years of work and 6 to go.")
+    print(f"README updated: Restored single dividers between sections.")
 
 if __name__ == "__main__":
     update_readme()
