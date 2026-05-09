@@ -43,13 +43,20 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 ---
 
 ## ⌨️ Transcription Notation Legend
+To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
+
 | Notation | Description |
 | :--- | :--- |
-| `<text>` | Low confidence |
-| `[text]` | Transcriber notes / Standard spelling |
-| `{text}` | English word within speech |
-| `\|text\|` | Significant dialect deviation |
-| `..` | Hesitation |
+| `<text>` | Low confidence due to poor audio quality or group disagreement |
+| `<<text>>` | Very low confidence due to extremely poor audio quality |
+| `tex(t)` | Part of the word was not heard or dropped from speech |
+| `[text]` | Transcriber’s notes or standard Grand Ronde (GR) spelling for non-standard pronunciation |
+| `{text}` | English word used within Chinuk-Wawa speech |
+| `<...>` | Unknown word(s) or voiced sound(s) |
+| `text/` | Pause in speech following the word |
+| `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
+| `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
+| `..` | Hesitation or stutter |
 
 ---
 
