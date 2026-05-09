@@ -25,3 +25,4 @@ To maintain consistency across the archive, the following notations are used to 
 | `[TEX]` | For great teaching examples |
 | `[VEX]` | For great vocalization examples |
 | `[OTL]` | For other languages used |
+| `[NOTE]`| For general notes |
