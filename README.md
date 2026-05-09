@@ -67,6 +67,14 @@ To maintain consistency across the archive, the following notations are used to 
 
 ---
 
+## 🛠 Tools & Citation
+All transcriptions in this archive are created and managed using [ELAN](https://archive.mpi.nl/tla/elan), developed by the Max Planck Institute for Psycholinguistics.
+
+**To cite the software used in this project:**
+> ELAN (Version 7.1) [Computer software]. (2026). Nijmegen: Max Planck Institute for Psycholinguistics. Retrieved from https://archive.mpi.nl/tla/elan
+
+---
+
 ## 📈 Project Progress
 
 **Current Completion:** 9/30 recordings processed.

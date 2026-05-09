@@ -31,7 +31,7 @@ def update_readme():
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Clean out all existing dividers first so we start with a blank slate
+    # Clean out all existing dividers
     content = re.sub(r'\n+---\n+', '\n\n', content)
 
     def get_section(header_name, full_text):
@@ -69,7 +69,7 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 6. RESTORED: Full Transcription Notation Legend
+    # 6. Legend Section
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
 
@@ -92,16 +92,32 @@ To maintain consistency across the archive, the following notations are used to 
 - **Dialect Variations:** {variation_count} identified pronunciation patterns.
 - **Logs:** [Research Log](./exports/markdown/Research_Observations_Log.md) | [Variation Report](./exports/markdown/Dialect_Variation_Report.md)"""
 
-    # 8. Reassemble with single dividers
-    sections = [dashboard, overview, structure, how_to, legend_section, research_section, progress, contributing]
+    # 8. NEW: Tools & Citation Section
+    tools_section = r"""## 🛠 Tools & Citation
+All transcriptions in this archive are created and managed using [ELAN](https://archive.mpi.nl/tla/elan), developed by the Max Planck Institute for Psycholinguistics.
+
+**To cite the software used in this project:**
+> ELAN (Version 7.1) [Computer software]. (2026). Nijmegen: Max Planck Institute for Psycholinguistics. Retrieved from https://archive.mpi.nl/tla/elan"""
+
+    # 9. Reassemble
+    sections = [
+        dashboard, 
+        overview, 
+        structure, 
+        how_to, 
+        legend_section, 
+        research_section, 
+        tools_section, # Inserted before progress
+        progress, 
+        contributing
+    ]
     
-    # Filter empty strings and join with exactly one horizontal rule
     new_content = "\n\n---\n\n".join([s for s in sections if s.strip()])
 
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated: Full legend restored and dividers cleaned.")
+    print(f"README updated: Added ELAN citation section.")
 
 if __name__ == "__main__":
     update_readme()
