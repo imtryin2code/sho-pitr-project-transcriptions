@@ -6,7 +6,7 @@ To maintain consistency across the archive, the following notations are used to 
 | `<text>` | Low confidence due to poor audio quality or group disagreement |
 | `<<text>>` | Very low confidence due to extremely poor audio quality |
 | `tex(t)` | Part of the word was not heard or dropped from speech |
-| `[text]` | Transcriber’s notes |
+| `[text]` | Transcriber’s notes; see notes categories|
 | `[[text]]` | Standard Grand Ronde (GR) spelling for non-standard pronunciation |
 | `{text}` | English word used within Chinuk-Wawa speech |
 | `{{text}}` | English word(s) spoken by Joe Peter in conversation with Jack Marr |
