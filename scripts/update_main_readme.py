@@ -27,7 +27,6 @@ def update_readme():
         with open(variation_path, 'r', encoding='utf-8') as f:
             variation_count = len([l for l in f.readlines() if l.startswith('| 6')])
 
-    # 4. Read current README
     if not os.path.exists(readme_path): return
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -37,14 +36,15 @@ def update_readme():
         match = re.search(pattern, full_text, re.DOTALL)
         return match.group(0).strip() if match else ""
 
-    # 5. Build New Dynamic Intro/Dashboard
-    # This replaces the old # sho-pitr-project-transcriptions header
+    # 4. Build Dashboard acknowledging the 3 years already completed
     dashboard = f"""# Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
 > ### 🌐 [Explore the Interactive Archive & Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/)
-> **The Project Web Page** provides a searchable dictionary, live frequency counts of Joe Peter's vocabulary, and formatted reading guides for all completed transcriptions. It is the primary way to engage with the data collected in this repository.
+> **The Project Web Page** provides a searchable dictionary, live frequency counts of Joe Peter's vocabulary, and formatted reading guides. It is the primary interface for this archive.
 
-Current Completion: **{len(completed_ids)}/30** recordings transcribed."""
+- **Current Progress:** {len(completed_ids)}/30 recordings transcribed.
+- **Project History:** 3 years of active transcription completed.
+- **Estimated Completion:** 2032 (Approx. 6 years remaining)."""
 
     overview = get_section("📜 Project Overview", content)
     structure = get_section("📂 Repository Structure", content)
@@ -52,7 +52,7 @@ Current Completion: **{len(completed_ids)}/30** recordings transcribed."""
     progress = get_section("📈 Project Progress", content)
     contributing = get_section("🤝 Contributing", content)
 
-    # 6. Update Table Links in Progress
+    # 5. Update Table Links in Progress
     progress_lines = progress.split('\n')
     updated_progress_lines = []
     for line in progress_lines:
@@ -66,34 +66,30 @@ Current Completion: **{len(completed_ids)}/30** recordings transcribed."""
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 7. Legend Section
+    # 6. Legend Section
     legend_section = r"""## ⌨️ Transcription Notation Legend
-To maintain consistency across the archive, the following notations are used:
-
 | Notation | Description |
 | :--- | :--- |
-| `<text>` | Low confidence due to poor audio quality |
-| `[text]` | Transcriber’s notes or standard spelling for non-standard pronunciation |
-| `{text}` | English word used within Chinuk-Wawa speech |
-| `\|text\|` | Pronunciation deviates significantly from dictionary variants |
-| `..` | Hesitation or stutter |"""
+| `<text>` | Low confidence |
+| `[text]` | Transcriber notes / Standard spelling |
+| `{{text}}` | English word within speech |
+| `\|text\|` | Significant dialect deviation |
+| `..` | Hesitation |"""
 
-    # 8. Research Section
+    # 7. Research Section
     research_section = f"""## 🔬 Research & Observations
-- **Active Insights:** Currently tracking **{notes_count}** specific observations.
-- **Dialect Variations:** Identified **{variation_count}** instances of Joe Peter's unique pronunciation patterns.
-- **Access the Logs:** Read the [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) or the [Dialect Variation Report](./exports/markdown/Dialect_Variation_Report.md)."""
+- **Active Insights:** {notes_count} specific linguistic observations.
+- **Dialect Variations:** {variation_count} identified pronunciation patterns.
+- **Logs:** [Research Log](./exports/markdown/Research_Observations_Log.md) | [Variation Report](./exports/markdown/Dialect_Variation_Report.md)"""
 
-    # 9. Reassemble (Dashboard replaces Intro)
+    # 8. Reassemble
     sections = [dashboard, overview, structure, how_to, legend_section, research_section, progress, contributing]
-    
-    # Filter out empty sections and join with horizontal rules
     new_content = "\n\n---\n\n".join([s for s in sections if s])
 
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated: New dashboard and project link added.")
+    print(f"README updated: Acknowledged 3 years of work and 6 to go.")
 
 if __name__ == "__main__":
     update_readme()

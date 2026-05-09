@@ -1,9 +1,11 @@
 # Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
 > ### 🌐 [Explore the Interactive Archive & Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/)
-> **The Project Web Page** provides a searchable dictionary, live frequency counts of Joe Peter's vocabulary, and formatted reading guides for all completed transcriptions. It is the primary way to engage with the data collected in this repository.
+> **The Project Web Page** provides a searchable dictionary, live frequency counts of Joe Peter's vocabulary, and formatted reading guides. It is the primary interface for this archive.
 
-Current Completion: **9/30** recordings transcribed.
+- **Current Progress:** 9/30 recordings transcribed.
+- **Project History:** 3 years of active transcription completed.
+- **Estimated Completion:** 2032 (Approx. 6 years remaining).
 
 ---
 
@@ -11,6 +13,8 @@ Current Completion: **9/30** recordings transcribed.
 This repository preserves and digitizes a unique linguistic encounter from **1941**. The recordings feature **Jack Marr** reciting English sentences from Franz Boas’s [*Chinookan Texts*](https://archive.org/details/chinooktexts00boas) (1894), followed by **Joe Peter**, an Indigenous elder, providing the equivalent in **Chinook Jargon**.
 
 Our goal is to transform these historical metal disc recordings into accessible, searchable, and educational formats for language revitalization.
+
+---
 
 ---
 
@@ -32,6 +36,8 @@ The project is organized to provide both raw technical data and user-friendly ex
 
 ---
 
+---
+
 ## 🛠 How to Use This Archive
 
 ### For Language Learners & Educators
@@ -46,23 +52,23 @@ The raw transcription data is available in the **`.eaf`** format within the disc
 
 ---
 
-## ⌨️ Transcription Notation Legend
-To maintain consistency across the archive, the following notations are used:
+---
 
+## ⌨️ Transcription Notation Legend
 | Notation | Description |
 | :--- | :--- |
-| `<text>` | Low confidence due to poor audio quality |
-| `[text]` | Transcriber’s notes or standard spelling for non-standard pronunciation |
-| `{text}` | English word used within Chinuk-Wawa speech |
-| `\|text\|` | Pronunciation deviates significantly from dictionary variants |
-| `..` | Hesitation or stutter |
+| `<text>` | Low confidence |
+| `[text]` | Transcriber notes / Standard spelling |
+| `{{text}}` | English word within speech |
+| `\|text\|` | Significant dialect deviation |
+| `..` | Hesitation |
 
 ---
 
 ## 🔬 Research & Observations
-- **Active Insights:** Currently tracking **302** specific observations.
-- **Dialect Variations:** Identified **81** instances of Joe Peter's unique pronunciation patterns.
-- **Access the Logs:** Read the [Research & Observations Log](./exports/markdown/Research_Observations_Log.md) or the [Dialect Variation Report](./exports/markdown/Dialect_Variation_Report.md).
+- **Active Insights:** 302 specific linguistic observations.
+- **Dialect Variations:** 81 identified pronunciation patterns.
+- **Logs:** [Research Log](./exports/markdown/Research_Observations_Log.md) | [Variation Report](./exports/markdown/Dialect_Variation_Report.md)
 
 ---
 
@@ -102,6 +108,8 @@ To maintain consistency across the archive, the following notations are used:
  | **695-S2** | Boas Text Recitation | 🟡 In Progress |  | 
  | **696-S1** | Boas Text Recitation | 🟡 In Progress |  | 
  | **696-S2** | Boas Text Recitation | 🟡 In Progress |  |
+
+---
 
 ---
 
