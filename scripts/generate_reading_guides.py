@@ -24,16 +24,16 @@ def safe_reportlab_text(text):
     text = text.replace(">", "&gt;")
     return text
 
-def is_primary_speaker(speaker_name):
+def safe_markdown_text(text):
     """
-    Strict check to see if the speaker is Joe Peter himself,
-    preventing research notes/tier names from triggering bolding.
+    Escapes angle brackets for Markdown table cells so they don't get 
+    misinterpreted as HTML elements or break layout parsers.
     """
-    if not speaker_name:
-        return False
-    # Normalize name to safely check for explicit primary speech tracks
-    name_clean = speaker_name.strip().lower()
-    return name_clean in ["joe peter", "joe", "peter", "jp"]
+    if not text:
+        return ""
+    text = text.replace("<", "&lt;")
+    text = text.replace(">", "&gt;")
+    return text
 
 def generate_guides():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -52,11 +52,9 @@ def generate_guides():
 
     # Register the Unicode Font
     font_name = "Helvetica"
-    font_bold_name = "Helvetica-Bold"
     if os.path.exists(font_path):
         pdfmetrics.registerFont(TTFont('DejaVuSans', font_path))
         font_name = "DejaVuSans"
-        font_bold_name = "DejaVuSans" 
     else:
         print(f"Warning: Font not found at {font_path}, falling back to Helvetica.")
 
@@ -72,7 +70,7 @@ def generate_guides():
     for story_id, rows in stories.items():
         print(f"Processing {story_id}...")
 
-        # --- 1. MARKDOWN GENERATION ---
+        # --- 1. MARKDOWN GENERATION (Plain Text) ---
         md_path = os.path.join(md_output_base, f"{story_id}_Reading_Guide.md")
         with open(md_path, 'w', encoding='utf-8') as f:
             f.write(f"# Reading Guide: {story_id}\n\n")
@@ -80,18 +78,19 @@ def generate_guides():
             f.write("| :--- | :--- | :--- | :--- |\n")
             for raw_row in rows:
                 row = raw_row.copy()
-                md_text = row['Text'] if row['Text'] else ""
                 
-                # FIX: Only bold actual spoken dialogue from Joe Peter, never empty rows or notes
-                if is_primary_speaker(row['Speaker']) and md_text:
-                    md_text = f"**{md_text}**"
+                md_text = safe_markdown_text(row['Text'])
+                md_speaker = safe_markdown_text(row['Speaker'])
+                md_note_tier = safe_markdown_text(row.get('Notes_Tier', ''))
+                md_note_text = safe_markdown_text(row.get('Notes_Text', ''))
                 
                 note_display = ""
-                if row.get('Notes_Text') and row.get('Notes_Tier'):
-                    note_display = f"*{row['Notes_Tier']}*: {row['Notes_Text']}"
-                f.write(f"| {row['Time']} | {row['Speaker']} | {md_text} | {note_display} |\n")
+                if md_note_text and md_note_tier:
+                    note_display = f"*{md_note_tier}*: {md_note_text}"
+                    
+                f.write(f"| {row['Time']} | {md_speaker} | {md_text} | {note_display} |\n")
 
-        # --- 2. REPORTLAB PDF GENERATION ---
+        # --- 2. REPORTLAB PDF GENERATION (Plain Text) ---
         pdf_path = os.path.join(pdf_output_base, f"{story_id}_Reading_Guide.pdf")
         
         doc = SimpleDocTemplate(
@@ -101,13 +100,11 @@ def generate_guides():
             topMargin=36, bottomMargin=36
         )
         
-        # Setup Styles
+        # Setup Styles (All plain-text formatting weights)
         style_header = ParagraphStyle('HeaderStyle', fontName='Helvetica-Bold', fontSize=10, textColor=colors.white, alignment=1)
         style_time = ParagraphStyle('TimeStyle', fontName='Helvetica', fontSize=9, alignment=1)
         style_speaker = ParagraphStyle('SpeakerStyle', fontName='Helvetica', fontSize=9)
-        style_speaker_bold = ParagraphStyle('SpeakerStyleBold', fontName='Helvetica-Bold', fontSize=9)
         style_text = ParagraphStyle('TextStyle', fontName=font_name, fontSize=9, leading=12)
-        style_text_bold = ParagraphStyle('TextStyleBold', fontName=font_bold_name, fontSize=9, leading=12)
         style_notes = ParagraphStyle('NotesStyle', fontName=font_name, fontSize=8, leading=10, textColor=colors.HexColor('#444444'))
 
         pdf_elements = []
@@ -125,19 +122,15 @@ def generate_guides():
 
         for raw_row in rows:
             row = raw_row.copy()
-            is_joe = is_primary_speaker(row['Speaker'])
             
             clean_text = safe_reportlab_text(row['Text'])
             clean_note_tier = safe_reportlab_text(row['Notes_Tier'])
             clean_note_text = safe_reportlab_text(row['Notes_Text'])
             clean_speaker = safe_reportlab_text(row['Speaker'])
             
-            if is_joe and clean_text:
-                txt_p = Paragraph(f"<b>{clean_text}</b>", style_text_bold)
-                speaker_p = Paragraph(f"<b>{clean_speaker}</b>", style_speaker_bold)
-            else:
-                txt_p = Paragraph(clean_text, style_text)
-                speaker_p = Paragraph(clean_speaker, style_speaker)
+            # Formulate text directly using standard plain styles
+            txt_p = Paragraph(clean_text, style_text)
+            speaker_p = Paragraph(clean_speaker, style_speaker)
             
             note_content = f"<b>[{clean_note_tier}]</b> {clean_note_text}" if clean_note_text else ""
             note_p = Paragraph(note_content, style_notes)
@@ -161,7 +154,7 @@ def generate_guides():
         pdf_elements.append(guide_table)
         doc.build(pdf_elements)
 
-        # --- 3. WORD DOCUMENT GENERATION ---
+        # --- 3. WORD DOCUMENT GENERATION (Plain Text) ---
         doc_word = Document()
         doc_title = doc_word.add_heading(f'Reading Guide: {story_id}', 0)
         doc_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -181,9 +174,7 @@ def generate_guides():
             row_cells[1].text = row['Speaker']
             
             p_trans = row_cells[2].paragraphs[0]
-            run_trans = p_trans.add_run(row['Text'])
-            if is_primary_speaker(row['Speaker']) and row['Text']:
-                run_trans.bold = True
+            p_trans.add_run(row['Text']) # Standard plain text addition
                 
             if row.get('Notes_Text'):
                 p_notes = row_cells[3].paragraphs[0]
@@ -193,7 +184,7 @@ def generate_guides():
         doc_path = os.path.join(word_output_base, f"{story_id}_Reading_Guide.docx")
         doc_word.save(doc_path)
         
-    print(f"\nSuccess! Fixed bolding targeting. All guides regenerated accurately.")
+    print(f"\nSuccess! All bolding removed. Reading Guides rendered strictly as raw text blocks.")
 
 if __name__ == "__main__":
     generate_guides()
