@@ -30,27 +30,27 @@ def generate_variation_report():
             if '|' not in note_content and '[[' not in note_content:
                 continue
                 
-            extracted_variant = "-"
+            # 1. Extract and clean phonetic deviations (strip the outer pipes)
+            clean_variant = "-"
             pipe_match = re.search(r'\|([^\|]+)\|', note_content)
             if pipe_match:
-                extracted_variant = f"|{pipe_match.group(1)}|"
+                clean_variant = pipe_match.group(1).strip() # Squeezes out raw text inside | |
             
-            gr_spelling = "-"
+            # 2. Extract and clean standard GR spellings (strip the outer double brackets)
+            clean_gr_spelling = "-"
             gr_match = re.search(r'\[\[([^\]]+)\]\]', note_content)
             if gr_match:
-                gr_spelling = f"[[{gr_match.group(1)}]]"
+                clean_gr_spelling = gr_match.group(1).strip() # Squeezes out raw text inside [[ ]]
             
-            # FIX: Escape the pipes specifically for the Markdown table cells
-            # This replaces raw '|' with '\|' so Markdown doesn't mistake it for a column border
-            safe_variant = extracted_variant.replace('|', '\\|')
+            # 3. Handle the Markdown pipe-breaker safety for the raw complete column
             safe_content = note_content.replace('|', '\\|')
             
             variations.append({
                 'id': row.get('ID', 'UNKNOWN').strip(),
                 'time': row.get('Time', '00:00').strip(),
                 'speaker': row.get('Speaker', 'Unknown').strip(),
-                'variant': safe_variant,
-                'gr_standard': gr_spelling,
+                'variant': clean_variant,
+                'gr_standard': clean_gr_spelling,
                 'raw_content': safe_content
             })
 
@@ -59,17 +59,18 @@ def generate_variation_report():
         f.write("> Isolated logs capturing speech segments where Joe Peter's pronunciation shifts from traditional Grand Ronde standards.\n\n")
         f.write(f"**Total Variations Logged:** {len(variations)} identified variations across tracks.\n\n")
         
-        f.write("| Recording ID | Timestamp | Speaker | Phonetic Deviation (`\|text\|`) | Standard GR Spelling (`[[text]]`) | Complete Annotation Entry |\n")
+        # Updated table headers to reflect the clean text display
+        f.write("| Recording ID | Timestamp | Speaker | Phonetic Deviation | Standard GR Spelling | Complete Annotation Entry |\n")
         f.write("| :--- | :--- | :--- | :--- | :--- | :--- |\n")
         
         if not variations:
             f.write("| - | - | - | - | - | - |\n")
         else:
             for v in variations:
-                # Removed the bold formatting around v['variant'] to prevent it from conflicting with empty data strings
+                # Keeps variant and standard spelling columns clean, while raw_content retains wrappers
                 f.write(f"| `{v['id']}` | {v['time']} | {v['speaker']} | {v['variant']} | *{v['gr_standard']}* | {v['raw_content']} |\n")
                 
-    print(f"✅ Success! Rebuilt Variation Report. Found {len(variations)} dialect variation entries with escaped Markdown pipes.")
+    print(f"✅ Success! Rebuilt Variation Report. Display formatting cleaned up for {len(variations)} entries.")
 
 if __name__ == "__main__":
     generate_variation_report()
