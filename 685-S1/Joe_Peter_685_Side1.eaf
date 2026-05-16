@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T12:16:47-08:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T16:07:29-08:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
@@ -3648,7 +3648,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a747" ANNOTATION_REF="a125">
-                <ANNOTATION_VALUE>[LiING] |mak-ɬáx̣ayam| [[mamuk-ɬax̣ayam]], shortened "mak-" for "mamuk"</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[LING] |mak-ɬáx̣ayam| [[mamuk-ɬax̣ayam]], shortened "mak-" for "mamuk"</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -3958,7 +3958,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a809" ANNOTATION_REF="a186">
-                <ANNOTATION_VALUE>[NOTE} he use the chinook word for crow here but uses the Cowlitz word most often in this recording</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] he use the chinook word for crow here but uses the Cowlitz word most often in this recording</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>

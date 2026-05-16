@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T15:42:33-08:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T15:52:59-08:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
@@ -2652,7 +2652,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a1078" ANNOTATION_REF="a763">
-                <ANNOTATION_VALUE>[Note] John is describing what a louse is to Joe, the asks what the word for uncle is.</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] John is describing what a louse is to Joe, the asks what the word for uncle is.</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2787,7 +2787,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a1105" ANNOTATION_REF="a820">
-                <ANNOTATION_VALUE>NOTE] John conversing to Joe</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] John conversing to Joe</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -3529,7 +3529,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a1253" ANNOTATION_REF="a571">
-                <ANNOTATION_VALUE>[NOTE} Seems unsure of start and repeats</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] Seems unsure of start and repeats</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>

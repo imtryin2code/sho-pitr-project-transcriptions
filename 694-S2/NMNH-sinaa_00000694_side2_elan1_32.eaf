@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T12:29:34-08:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T16:13:39-08:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
@@ -3612,12 +3612,12 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a493" ANNOTATION_REF="a116">
-                <ANNOTATION_VALUE>***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[?] review had *** originally as note</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a494" ANNOTATION_REF="a117">
-                <ANNOTATION_VALUE>***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[?] review had *** originally as note</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -3747,7 +3747,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a520" ANNOTATION_REF="a143">
-                <ANNOTATION_VALUE>Need to discuss.</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[?] review </ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -3999,7 +3999,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a569" ANNOTATION_REF="a222">
-                <ANNOTATION_VALUE> (pg. 230)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE> [NOTE] (pg. 230)</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -4064,7 +4064,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a582" ANNOTATION_REF="a336">
-                <ANNOTATION_VALUE>(pg. 232)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] (pg. 232)</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>

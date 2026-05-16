@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T12:11:33-08:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T15:58:59-08:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
@@ -3413,7 +3413,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a477" ANNOTATION_REF="a130">
-                <ANNOTATION_VALUE>[NOTE}  ENDED HERE 4/7/25</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE]  ENDED HERE 4/7/25</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -3890,7 +3890,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a572" ANNOTATION_REF="a225">
-                <ANNOTATION_VALUE>[not̓ə]  silence, no response</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE]  silence, no response</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -4095,7 +4095,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a613" ANNOTATION_REF="a266">
-                <ANNOTATION_VALUE>[NOTE} audio glitch after miɬlayt</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] audio glitch after miɬlayt</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -4410,7 +4410,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a676" ANNOTATION_REF="a329">
-                <ANNOTATION_VALUE>[NOTE} Joe respondss to Jm then gives translation</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] Joe respondss to Jm then gives translation</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>

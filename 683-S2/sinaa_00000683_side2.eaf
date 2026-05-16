@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T12:13:30-08:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T16:02:18-08:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
@@ -2801,7 +2801,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a370" ANNOTATION_REF="a4">
-                <ANNOTATION_VALUE>[NOTE} see interlinear on page 22</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] see interlinear on page 22</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -4038,7 +4038,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <REF_ANNOTATION ANNOTATION_ID="a617" ANNOTATION_REF="a271">
-                <ANNOTATION_VALUE>[NOTE} Jm begins to interupt Joe but stops and no discernable word is heard</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>[NOTE] Jm begins to interupt Joe but stops and no discernable word is heard</ANNOTATION_VALUE>
             </REF_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
