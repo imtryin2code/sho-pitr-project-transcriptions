@@ -35,31 +35,31 @@ def generate_research_log():
             note_content = row.get('Notes_Text', '').strip()
             primary_text = row.get('Text', '').strip()
             
-            # Find which column holds our category tag
             matched_tag = None
             
-            # 1. Check for Uncertain Tags first
             if '[?]' in note_content or '[UNCERTAIN]' in note_content or '[?]' in tier_content or '[UNCERTAIN]' in tier_content:
                 matched_tag = '[UNCERTAIN]'
             else:
-                # 2. Check standard tags in both text and tier columns
                 for tag in categories.keys():
                     if tag in note_content or tag in tier_content:
                         matched_tag = tag
                         break
             
-            # If there is no tag anywhere and no text content, skip this row entirely
             if not matched_tag and not note_content:
                 continue
 
-            # Fallback Payload Logic: If Notes_Text is empty, use the primary audio transcription text instead
             actual_note = note_content if note_content else primary_text
             if not actual_note:
                 continue
 
-            # ESCAPE ENGINE: Protect Markdown tables from unescaped pipe syntax error characters
+            # --- ESCAPE ENGINE: Protect Pipes AND Angle Brackets ---
+            # 1. Escape pipes so they don't break table column layouts
             safe_transcription = primary_text.replace('|', '\\|') if primary_text else "[Note Only]"
             safe_note = actual_note.replace('|', '\\|')
+
+            # 2. Convert < and > into safe text entities so Markdown doesn't treat them like HTML tags
+            safe_transcription = safe_transcription.replace('<', '&lt;').replace('>', '&gt;')
+            safe_note = safe_note.replace('<', '&lt;').replace('>', '&gt;')
 
             item = {
                 'id': row.get('ID', 'UNKNOWN').strip(),
@@ -113,7 +113,7 @@ def generate_research_log():
             f.write("\n")
 
     total_found = sum(len(log_data[c]) for c in log_data)
-    print(f"✅ Success! Rebuilt Research Log. Found {total_found} crossed-referenced entries.")
+    print(f"✅ Success! Rebuilt Research Log. Found {total_found} cross-referenced entries.")
 
 if __name__ == "__main__":
     generate_research_log()
