@@ -31,19 +31,22 @@ jobs:
 
       - name: Run Processing Pipeline
         run: |
-          # 1. Extract raw data
+          # 1. Extract raw data from ELAN
           python scripts/extract_transcriptions.py
           
-          # 2. Generate researcher exports (PDF/Word/MD)
+          # 2. Extract research notes from [brackets]
+          python scripts/extract_research_notes.py
+          
+          # 3. Generate Reading Guides (PDF/MD/DOCX)
           python scripts/generate_reading_guides.py
           
-          # 3. Update data structures
+          # 4. Update Glossary & Concordance
           python scripts/update_glossary.py
           
-          # 4. Sync the repository's main README profile
+          # 5. Update the Main README (Stats & Research Section)
           python scripts/update_main_readme.py
           
-          # 5. Rebuild the website index.html
+          # 6. Rebuild the website
           python scripts/update_web_page.py
 
       - name: Commit and Push Changes
@@ -51,7 +54,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Add all potential changes
           git add metadata/ exports/ docs/index.html README.md
           
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: Transcriptions, Glossary, Readme, and Webpage [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: Research Log and Archive [skip ci]" && git push)

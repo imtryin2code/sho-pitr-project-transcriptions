@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-03-21T18:16:23-08:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2026-05-16T12:29:34-08:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
         <MEDIA_DESCRIPTOR
-            MEDIA_URL="file:///F:/Chinuk Wawa/Joe Peter/Joe Peter Recordings/Filtered/694-S2/NMNH-sinaa_00000694_side2_elan2_32.wav" MIME_TYPE="audio/x-wav"/>
+            MEDIA_URL="file:///C:/Users/dbwir/OneDrive/Documents/elan694s2/694-S2/sinaa_00000694_side2_original.wav"
+            MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./sinaa_00000694_side2_original.wav"/>
         <MEDIA_DESCRIPTOR
-            MEDIA_URL="file:///F:/Chinuk Wawa/Joe Peter/Joe Peter Recordings/Smithsonian download 12-2017/sinaa_00000694_side2.wav" MIME_TYPE="audio/x-wav"/>
+            MEDIA_URL="file:///C:/Users/dbwir/OneDrive/Documents/elan694s2/694-S2/NMNH-sinaa_00000694_side2_elan2_32.wav"
+            MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./NMNH-sinaa_00000694_side2_elan2_32.wav"/>
         <PROPERTY NAME="URN">urn:nl-mpi-tools-elan-eaf:b27540a9-8d09-49ad-a159-9a4000ae6cf7</PROPERTY>
-        <PROPERTY NAME="lastUsedAnnotationId">377</PROPERTY>
+        <PROPERTY NAME="lastUsedAnnotationId">586</PROPERTY>
     </HEADER>
     <TIME_ORDER>
         <TIME_SLOT TIME_SLOT_ID="ts1" TIME_VALUE="0"/>
@@ -688,8 +690,8 @@
         <TIME_SLOT TIME_SLOT_ID="ts675" TIME_VALUE="1056648"/>
         <TIME_SLOT TIME_SLOT_ID="ts676" TIME_VALUE="1060021"/>
         <TIME_SLOT TIME_SLOT_ID="ts677" TIME_VALUE="1060021"/>
-        <TIME_SLOT TIME_SLOT_ID="ts678" TIME_VALUE="1062610"/>
-        <TIME_SLOT TIME_SLOT_ID="ts679" TIME_VALUE="1062610"/>
+        <TIME_SLOT TIME_SLOT_ID="ts678" TIME_VALUE="1062159"/>
+        <TIME_SLOT TIME_SLOT_ID="ts679" TIME_VALUE="1062177"/>
         <TIME_SLOT TIME_SLOT_ID="ts680" TIME_VALUE="1065676"/>
         <TIME_SLOT TIME_SLOT_ID="ts681" TIME_VALUE="1065676"/>
         <TIME_SLOT TIME_SLOT_ID="ts682" TIME_VALUE="1069348"/>
@@ -718,10 +720,10 @@
         <TIME_SLOT TIME_SLOT_ID="ts705" TIME_VALUE="1105354"/>
         <TIME_SLOT TIME_SLOT_ID="ts706" TIME_VALUE="1107265"/>
         <TIME_SLOT TIME_SLOT_ID="ts707" TIME_VALUE="1107265"/>
-        <TIME_SLOT TIME_SLOT_ID="ts708" TIME_VALUE="1113725"/>
-        <TIME_SLOT TIME_SLOT_ID="ts709" TIME_VALUE="1113725"/>
-        <TIME_SLOT TIME_SLOT_ID="ts710" TIME_VALUE="1117094"/>
-        <TIME_SLOT TIME_SLOT_ID="ts711" TIME_VALUE="1117094"/>
+        <TIME_SLOT TIME_SLOT_ID="ts708" TIME_VALUE="1113955"/>
+        <TIME_SLOT TIME_SLOT_ID="ts709" TIME_VALUE="1113955"/>
+        <TIME_SLOT TIME_SLOT_ID="ts710" TIME_VALUE="1116858"/>
+        <TIME_SLOT TIME_SLOT_ID="ts711" TIME_VALUE="1116867"/>
         <TIME_SLOT TIME_SLOT_ID="ts712" TIME_VALUE="1119124"/>
         <TIME_SLOT TIME_SLOT_ID="ts713" TIME_VALUE="1119124"/>
         <TIME_SLOT TIME_SLOT_ID="ts714" TIME_VALUE="1120761"/>
@@ -766,17 +768,17 @@
         <TIME_SLOT TIME_SLOT_ID="ts753" TIME_VALUE="1180949"/>
         <TIME_SLOT TIME_SLOT_ID="ts754" TIME_VALUE="1212360"/>
     </TIME_ORDER>
-    <TIER LINGUISTIC_TYPE_REF="default-lt" TIER_ID="Joe Peter">
+    <TIER LINGUISTIC_TYPE_REF="Speaker-Type" TIER_ID="Joe Peter">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a1"
                 TIME_SLOT_REF1="ts2" TIME_SLOT_REF2="ts4">
-                <ANNOTATION_VALUE>JP: &lt;...&gt; yaka chich yaka tənəs-man yaka mash</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;...&gt; yaka chich yaka tənəs-{man} yaka mash</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a2"
                 TIME_SLOT_REF1="ts6" TIME_SLOT_REF2="ts8">
-                <ANNOTATION_VALUE>JP: tax̣am/ tax̣am san yaka mash &lt;kʰapa uk&gt; tənəs-man ɬaska wawa</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: tax̣am/ tax̣am san yaka mash &lt;kʰapa uk&gt; tənəs-{man} ɬaska wawa</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -794,7 +796,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a5"
                 TIME_SLOT_REF1="ts18" TIME_SLOT_REF2="ts20">
-                <ANNOTATION_VALUE>JP: yaka nanich makwst makwst &lt;&lt;alta kəmtəks/kʰupa English&gt;&gt; &lt;might be&gt; fish ducks, x̣atx̣at</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka nanich makwst makwst &lt;&lt;alta kəmtəks ukuk/kʰupa&gt;&gt; {fish} {ducks}, x̣atx̣at</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -806,7 +808,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a7"
                 TIME_SLOT_REF1="ts26" TIME_SLOT_REF2="ts28">
-                <ANNOTATION_VALUE>JP: wik nayka pʰu ɬaska</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: wik nayka pʰu ɬaska </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -854,19 +856,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a15"
                 TIME_SLOT_REF1="ts58" TIME_SLOT_REF2="ts60">
-                <ANNOTATION_VALUE>JP: yaka &lt;q'aləp&gt;/ chək &lt;yaka&gt; ɬatw(a) kʰupá yaka &lt;á&gt; lima yawa sax̣ali</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka &lt;q'aləp&gt;/ chək &lt;yaka&gt; ɬatw&lt;a&gt; kʰupá yaka &lt;á&gt; lima yawa sax̣ali</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a16"
                 TIME_SLOT_REF1="ts62" TIME_SLOT_REF2="ts64">
-                <ANNOTATION_VALUE>JP: &lt;ukuk&gt; x̣atx̣at ɬaska hayu/ (-)supna-supna pi ɬaska ɬatwa-saya</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;ukuk&gt; x̣atx̣at ɬaska hayu/ -supna-supna pi ɬaska ɬatwa-saya</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a17"
                 TIME_SLOT_REF1="ts66" TIME_SLOT_REF2="ts68">
-                <ANNOTATION_VALUE>JP: yaka ɬatwa kʰupa &lt;&lt;ʔili(əx̣)&gt;&gt;</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka ɬatwa kʰupa &lt;&lt;ʔiliəx̣&gt;&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -926,7 +928,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a27"
                 TIME_SLOT_REF1="ts106" TIME_SLOT_REF2="ts108">
-                <ANNOTATION_VALUE>JP: yaka nanich ukuk man pus mamuk-ilan ukuk pʰish</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka nanich ukuk {man} pus mamuk-ilan ukuk pʰish</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -968,19 +970,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a34"
                 TIME_SLOT_REF1="ts134" TIME_SLOT_REF2="ts136">
-                <ANNOTATION_VALUE>JP: yaka nanich ukuk smuk &lt;ukuk&gt; chaku-ɬax̣ani kʰupá qʰa &lt;ukuk&gt;/ ɬaska mash ya(x̣ka)  (pg. 230)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka nanich ukuk smuk &lt;ukuk&gt; chaku-ɬax̣ani kʰupá qʰa &lt;ukuk&gt;/ ɬaska mash ya&lt;x̣ka&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a35"
                 TIME_SLOT_REF1="ts138" TIME_SLOT_REF2="ts140">
-                <ANNOTATION_VALUE>JP: yaka q'uʔ kʰupa (y)ax̣ka</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka q'uʔ kʰupa &lt;y&gt;ax̣ka</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a36"
                 TIME_SLOT_REF1="ts142" TIME_SLOT_REF2="ts144">
-                <ANNOTATION_VALUE>JP: mayka &lt;ma...&gt; mayka nanich alta mayka wik-miməlus(t)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: mayka &lt;ma...&gt; mayka nanich alta mayka wik-miməlus</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -992,7 +994,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a38"
                 TIME_SLOT_REF1="ts150" TIME_SLOT_REF2="ts152">
-                <ANNOTATION_VALUE>JP: yaka nanich kʰupa yax̣ka &lt;patɬa(ch)&gt; məkʰmək</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka nanich kʰupa yax̣ka &lt;patɬach&gt; məkʰmək</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1016,7 +1018,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a42"
                 TIME_SLOT_REF1="ts166" TIME_SLOT_REF2="ts168">
-                <ANNOTATION_VALUE>JP: yaka iskam hayu &lt;&lt;(s)tik (k)ʰupá pi yaka mamuk/ ɬatwa&gt;&gt; kʰupa haws</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka iskam hayu &lt;&lt;{stik} kʰupá pi yaka mamuk/ ɬatwa&gt;&gt; kʰupa {haws}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1028,7 +1030,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a44"
                 TIME_SLOT_REF1="ts174" TIME_SLOT_REF2="ts176">
-                <ANNOTATION_VALUE>JP: tənəs-pʰulakli &lt;&lt;({he} ə)/(hilu)&gt;&gt; k'ilapay</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: tənəs-pʰulakli &lt;&lt;{he} ə/hilu&gt;&gt; k'ilapay</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1058,13 +1060,13 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a49"
                 TIME_SLOT_REF1="ts194" TIME_SLOT_REF2="ts196">
-                <ANNOTATION_VALUE>JP: tənəs-san ixt-san yaka mitxwit pi yaka ɬatuwa yawa saya  ***ENDED HERE 4/10/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: tənəs-san ixt-san yaka mitxwit pi yaka ɬatuwa yawa saya</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a50"
                 TIME_SLOT_REF1="ts198" TIME_SLOT_REF2="ts200">
-                <ANNOTATION_VALUE>JP: yaka chaku-k'ilapay &lt;kʰupa&gt; haws tənəs-pulakʰli</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka chaku-k'ilapay &lt;kʰupa&gt; {haws} tənəs-pulakʰli</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1094,7 +1096,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a55"
                 TIME_SLOT_REF1="ts218" TIME_SLOT_REF2="ts220">
-                <ANNOTATION_VALUE>JP: alta yaka miɬayt tilixam ixt tənəs-man</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta yaka miɬayt tilixam ixt tənəs-{man}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1124,7 +1126,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a60"
                 TIME_SLOT_REF1="ts238" TIME_SLOT_REF2="ts240">
-                <ANNOTATION_VALUE>JP: ɬaska wawa kʰupa ixt-ixt ɬask(a)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska wawa kʰupa ixt-ixt ɬask&lt;a&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1154,7 +1156,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a65"
                 TIME_SLOT_REF1="ts258" TIME_SLOT_REF2="ts260">
-                <ANNOTATION_VALUE>JP: aɬqi nayka mamuk hayash samən yaka chaku</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: aɬqi nayka mamuk hayash {samən} yaka chaku</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1172,7 +1174,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a68"
                 TIME_SLOT_REF1="ts270" TIME_SLOT_REF2="ts272">
-                <ANNOTATION_VALUE>JP: &lt;alta&gt; ukuk yax̣ka &lt;(yaka)/(ukuk)&gt; miməlust-tilixam yaka ilan yax̣ka iləp yaka mamuk-&lt;sax̣ali/ɬax̣ani&gt; yaka lima</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;alta&gt; ukuk yax̣ka &lt;ukuk&gt; miməlust-tilixam yaka ilan yax̣ka iləp yaka mamuk-&lt;sax̣ali/ɬax̣ani&gt; yaka lima</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1184,31 +1186,31 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a70"
                 TIME_SLOT_REF1="ts278" TIME_SLOT_REF2="ts280">
-                <ANNOTATION_VALUE>JP: ixt yaka iskam samən/ hayash samən ukuk ixt yaka iskam tənəs-sm... smelt</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ixt yaka iskam {samən}/ hayash {samən} ukuk ixt yaka iskam tənəs-sm... {smelt}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a71"
                 TIME_SLOT_REF1="ts282" TIME_SLOT_REF2="ts284">
-                <ANNOTATION_VALUE>JP: qʰata ukuk yaka ma(m)uk-dlet</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: qʰata ukuk yaka ma&lt;m&gt;uk-dlet</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a72"
                 TIME_SLOT_REF1="ts286" TIME_SLOT_REF2="ts288">
-                <ANNOTATION_VALUE>JP: &lt;(ha)yu/uk(uk)&gt; tənəs-man yaka ɬatwa kʰupa yaka haws/ k'ilapay  ***Ended here on 4/17/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;hayu/ukuk&gt; tənəs-{man} yaka ɬatwa kʰupa yaka {haws}/ k'ilapay</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a73"
                 TIME_SLOT_REF1="ts290" TIME_SLOT_REF2="ts292">
-                <ANNOTATION_VALUE>JP: ixt ukuk tənəs-man yaka iskam-ɬuchmən</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ixt ukuk tənəs-{man} yaka iskam-ɬuchmən</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a74"
                 TIME_SLOT_REF1="ts294" TIME_SLOT_REF2="ts296">
-                <ANNOTATION_VALUE>JP: ixt/ ixt san yaka ɬuchmən yaka ɬatwa yawa yaka iskam q'ilt* [*Cowlitz "skunk cabbage", Dale Kinkade's dictionary]</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ixt/ ixt san yaka ɬuchmən yaka ɬatwa yawa yaka iskam q'ilt</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1268,7 +1270,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a84"
                 TIME_SLOT_REF1="ts334" TIME_SLOT_REF2="ts336">
-                <ANNOTATION_VALUE>JP: &lt;(m)ayka&gt; iskam ukuk bæskit alta</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;mayka&gt; iskam ukuk bæskit alta</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1280,19 +1282,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a86"
                 TIME_SLOT_REF1="ts342" TIME_SLOT_REF2="ts344">
-                <ANNOTATION_VALUE>JP: ɬaska/ chaku kʰupa ukuk tənəs-stik yawa</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska/ chaku kʰupa ukuk tənəs-{stik} yawa</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a87"
                 TIME_SLOT_REF1="ts346" TIME_SLOT_REF2="ts348">
-                <ANNOTATION_VALUE>JP: yax̣ka x̣luyma ukuk &lt;nanich/namaix (from Cowlitz page 57 Dale Kinkade Cowlitz dictionary and https://dictionary.cowlitzsalish.org/#/E/tide ) &gt;  ***ENDED HERE ON 4/24/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yax̣ka x̣luyma ukuk &lt;nanich/namaix&gt;  </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a88"
                 TIME_SLOT_REF1="ts350" TIME_SLOT_REF2="ts352">
-                <ANNOTATION_VALUE>JP: mash ukuk/ mash ukuk tənas-stik &lt;kʰupa yawa kʰupá&gt; chək tənəs-sax̣ali</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: mash ukuk/ mash ukuk tənas-{stik} &lt;kʰupa yawa kʰupá&gt; chək tənəs-sax̣ali</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1310,7 +1312,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a91"
                 TIME_SLOT_REF1="ts362" TIME_SLOT_REF2="ts364">
-                <ANNOTATION_VALUE>JP: mayka wawa wəx̣t ikta &lt;(w)ixt&gt; mayka mamuk-ɬuk nayka/ {dipne(t)}</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: mayka wawa wəx̣t ikta &lt;wixt&gt; mayka mamuk-ɬuk nayka/ {dipne&lt;t&gt;}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1328,13 +1330,13 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a94"
                 TIME_SLOT_REF1="ts374" TIME_SLOT_REF2="ts376">
-                <ANNOTATION_VALUE>JP: nanich alta ɬask(a)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: nanich alta ɬask&lt;a&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a95"
                 TIME_SLOT_REF1="ts378" TIME_SLOT_REF2="ts380">
-                <ANNOTATION_VALUE>JP: alta ukuk {tree limb} chaku kʰanawi &lt;upu(ts)&gt; smelts/ &lt;nanich&gt;</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ukuk {tree} {limb} chaku kʰanawi &lt;uputs&gt; {smelts}/ &lt;nanich&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1352,19 +1354,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a98"
                 TIME_SLOT_REF1="ts390" TIME_SLOT_REF2="ts392">
-                <ANNOTATION_VALUE>JP: alta ukuk tənəs-smelt ɬaska chak&lt;wa&gt; sax̣ali kʰupa uk(uk) chək kʰanawi-qʰa</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ukuk tənəs-{smelt} ɬaska chak&lt;wa&gt; sax̣ali kʰupa uk&lt;uk&gt; chək kʰanawi-qʰa</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a99"
                 TIME_SLOT_REF1="ts394" TIME_SLOT_REF2="ts396">
-                <ANNOTATION_VALUE>JP: alta ɬaska iskam ukuk stik mamuk-k'ilapay</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ɬaska iskam ukuk {stik} mamuk-k'ilapay</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a100"
                 TIME_SLOT_REF1="ts398" TIME_SLOT_REF2="ts400">
-                <ANNOTATION_VALUE>JP: alta ɬaska mamuk/ alta ɬaska mamuk tənəs-samən kakwa</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ɬaska mamuk/ alta ɬaska mamuk tənəs-{samən} kakwa</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1376,19 +1378,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a102"
                 TIME_SLOT_REF1="ts406" TIME_SLOT_REF2="ts408">
-                <ANNOTATION_VALUE>JP: ɬaska mamuk-lulu ukuk ɬaska smelt kʰupa iliʔi</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska mamuk-lulu ukuk ɬaska {smelt} kʰupa iliʔi</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a103"
                 TIME_SLOT_REF1="ts410" TIME_SLOT_REF2="ts412">
-                <ANNOTATION_VALUE>JP: ɬaska mamuk-lulu kʰupa haws alta</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska mamuk-lulu kʰupa {haws} alta</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a104"
                 TIME_SLOT_REF1="ts414" TIME_SLOT_REF2="ts416">
-                <ANNOTATION_VALUE>JP: yaka wawa kʰupa yaka aw alta mayka mamuk-paya ɬatwa-wash</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka wawa kʰupa yaka aw alta mayka mamuk-paya ɬatwa-{wash}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1406,25 +1408,25 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a107"
                 TIME_SLOT_REF1="ts426" TIME_SLOT_REF2="ts428">
-                <ANNOTATION_VALUE>JP: &lt;&lt;makuk*-kʰanawi uk&gt;&gt; bon mayka iskam mayka stik ***ENDED HERE 5/1/24** [*mək'w- Cowlitz root for pile]</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;&lt;makuk-kʰanawi uk&gt;&gt; {bon} mayka iskam mayka {stik} </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a108"
                 TIME_SLOT_REF1="ts430" TIME_SLOT_REF2="ts432">
-                <ANNOTATION_VALUE>JP: &lt;&lt;makuk*-kʰanawi uk&gt;&gt; ɬaska yak'isiɬ-stik [*mək'w- Cowlitz root for pile]</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;&lt;makuk-kʰanawi uk&gt;&gt; ɬaska yak'isiɬ-{stik}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a109"
                 TIME_SLOT_REF1="ts434" TIME_SLOT_REF2="ts436">
-                <ANNOTATION_VALUE>JP: alta ɬaska ɬatwa kʰupa yaka haws ukuk ɬaska tayi</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ɬaska ɬatwa kʰupa yaka {haws} ukuk ɬaska tayi</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a110"
                 TIME_SLOT_REF1="ts438" TIME_SLOT_REF2="ts440">
-                <ANNOTATION_VALUE>JP: alta tilixam &lt;(ya)ka waw(a)&gt;</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta tilixam &lt;yaka wawa&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1442,31 +1444,31 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a113"
                 TIME_SLOT_REF1="ts450" TIME_SLOT_REF2="ts452">
-                <ANNOTATION_VALUE>JP: alta ukuk smelts yaka miɬayt kʰupá</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ukuk {smelts} yaka miɬayt kʰupá</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a114"
                 TIME_SLOT_REF1="ts454" TIME_SLOT_REF2="ts456">
-                <ANNOTATION_VALUE>JP: alta yaka miɬayt ixt man kʰupa ukuk &lt;mul(ak)/mamuk&gt; skin kʰupa yax̣ka ***ENDED HERE ON 5/15/24*** (pg 231)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta yaka miɬayt ixt {man} kʰupa ukuk &lt;mulak/mamuk&gt; {skin} kʰupa yax̣ka</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a115"
                 TIME_SLOT_REF1="ts458" TIME_SLOT_REF2="ts460">
-                <ANNOTATION_VALUE>JP: yaka lulu-s/saya sitkum &lt;kʰupa ukuk&gt; yaka &lt;&lt;mamuk-k'ilapay/miɬayt kʰupa&gt;&gt; yaka skin***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka lulu-s/saya sitkum &lt;kʰupa ukuk&gt; yaka &lt;&lt;mamuk-k'ilapay/miɬayt kʰupa&gt;&gt; yaka {skin}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a116"
                 TIME_SLOT_REF1="ts462" TIME_SLOT_REF2="ts464">
-                <ANNOTATION_VALUE>JP: iskam qʰa miɬayt kʰupa ukuk/ &lt;pitɬən/putəpt/kawtin&gt; yaka blanket/ yaka pasisi***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: iskam qʰa miɬayt kʰupa ukuk/ &lt;pitɬən/putəpt/kawtin&gt; yaka blanket/ yaka pasisi</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a117"
                 TIME_SLOT_REF1="ts466" TIME_SLOT_REF2="ts468">
-                <ANNOTATION_VALUE>JP: ukuk ixt yaka miɬayt ukuk/ &lt;&lt;ix̣ɬən&gt;&gt; yaka pasisi***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk ixt yaka miɬayt ukuk/ &lt;&lt;ix̣ɬən&gt;&gt; yaka pasisi</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1484,7 +1486,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a120"
                 TIME_SLOT_REF1="ts478" TIME_SLOT_REF2="ts480">
-                <ANNOTATION_VALUE>JP: kʰanawi uk tilixam ɬaska ma(m)uk-kakwa</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: kʰanawi uk tilixam ɬaska ma&lt;m&gt;uk-kakwa</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1496,19 +1498,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a122"
                 TIME_SLOT_REF1="ts486" TIME_SLOT_REF2="ts488">
-                <ANNOTATION_VALUE>JP: &lt;alt(a)&gt; ɬaska &lt;mamuk&gt; haws chaku-pʰatɬ  ***ENDED HERE ON 5/29/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;alta&gt; ɬaska &lt;mamuk&gt; {haws} chaku-pʰatɬ</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a123"
                 TIME_SLOT_REF1="ts490" TIME_SLOT_REF2="ts492">
-                <ANNOTATION_VALUE>JP: kʰanawi &lt;uk&gt; tilixam ɬaska iskam ukuk smelt</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: kʰanawi &lt;uk&gt; tilixam ɬaska iskam ukuk {smelt}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a124"
                 TIME_SLOT_REF1="ts494" TIME_SLOT_REF2="ts496">
-                <ANNOTATION_VALUE>JP: &lt;ixt/wəx̣t&gt; kʰul ɬaska chaku-&lt;&lt;pʰaɬ/p'iɬəɬ/p'iləɬ [p'il-ɬ, Kinkade upper Chehalis for thin]&gt;&gt; &lt;ɬaska&gt; chaku-ulu</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;ixt/wəx̣t&gt; kʰul ɬaska chaku-&lt;&lt;pʰaɬ/p'iɬəɬ/p'iləɬ&gt;&gt; &lt;ɬaska&gt; chaku-ulu</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1520,19 +1522,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a126"
                 TIME_SLOT_REF1="ts502" TIME_SLOT_REF2="ts504">
-                <ANNOTATION_VALUE>JP: ukuk &lt;tayi&gt; ukuk &lt;man&gt;... tayi yaka kəmtəks tilixam &lt;yawa yawa&gt; ɬaska hayu-pʰatɬ</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk &lt;tayi&gt; ukuk &lt;{man}&gt;... tayi yaka kəmtəks tilixam &lt;yawa yawa&gt; ɬaska hayu-pʰatɬ</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a127"
                 TIME_SLOT_REF1="ts506" TIME_SLOT_REF2="ts508">
-                <ANNOTATION_VALUE>JP: ɬaska iskam smelt kʰupá(ʰ)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska iskam {smelt} kʰupá</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a128"
                 TIME_SLOT_REF1="ts510" TIME_SLOT_REF2="ts512">
-                <ANNOTATION_VALUE>JP: alta yaka mamuk-ɬq'up ukuk &lt;tənəs kənim-&gt; stik ***ENDED HERE ON 6/5/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta yaka mamuk-ɬq'up ukuk &lt;tənəs kənim-&gt; {stik} </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1556,7 +1558,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a132"
                 TIME_SLOT_REF1="ts526" TIME_SLOT_REF2="ts528">
-                <ANNOTATION_VALUE>JP: ***&lt;yawa/alta/t'ɬunas/ɬush&gt; nisayka ɬatwa sax̣ali &lt;yawa&gt; iskam &lt;&lt;uk(uk) x̣luyma/&gt;&gt; hayash hayash &lt;&lt;[...t'ɬunas/kʰəltəs/tənəs...] nanich&gt;&gt;***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;yawa/alta/t'ɬunas/ɬush&gt; nisayka ɬatwa sax̣ali &lt;yawa&gt; iskam &lt;&lt;ukuk x̣luyma/&gt;&gt; hayash hayash &lt;&lt;t'ɬunas/kʰəltəs/tənəs nanich&gt;&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1568,13 +1570,13 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a134"
                 TIME_SLOT_REF1="ts534" TIME_SLOT_REF2="ts536">
-                <ANNOTATION_VALUE>JP: ɬaska &lt;chə(k)-&gt; ɬatwa yawa &lt;&lt;kʰupa ukuk/&gt;&gt; &lt;kʰupa ukuk&gt; &lt;&lt;uk&gt;&gt; &lt;ubut-chək&gt; iliʔi yawa ***ENDED HERE 6/12/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska &lt;chək-&gt; ɬatwa yawa &lt;&lt;kʰupa ukuk/&gt;&gt; &lt;kʰupa ukuk&gt; &lt;&lt;uk&gt;&gt; &lt;ubut-chək&gt; iliʔi yawa </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a135"
                 TIME_SLOT_REF1="ts538" TIME_SLOT_REF2="ts540">
-                <ANNOTATION_VALUE>JP: alta ɬaska &lt;ɬax̣&gt; kʰupá kʰupa ixt &lt;{song}/shanti/sʔíln' [Cowlitz online dictionary]&gt;</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ɬaska &lt;ɬax̣&gt; kʰupá kʰupa ixt &lt;{song}/shanti/sʔíln'&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1592,19 +1594,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a138"
                 TIME_SLOT_REF1="ts550" TIME_SLOT_REF2="ts552">
-                <ANNOTATION_VALUE>JP: pus ɬaska patɬach (n)sayka məkʰmək wik mayka məkʰmək</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: pus ɬaska patɬach &lt;n&gt;sayka məkʰmək wik mayka məkʰmək</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a139"
                 TIME_SLOT_REF1="ts554" TIME_SLOT_REF2="ts556">
-                <ANNOTATION_VALUE>JP: ɬaska miɬayt yawa kʰupa ukuk hayash tʰawn hayu haws</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska miɬayt yawa kʰupa ukuk hayash {tʰawn} hayu {haws}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a140"
                 TIME_SLOT_REF1="ts558" TIME_SLOT_REF2="ts560">
-                <ANNOTATION_VALUE>JP: alta ɬaska ɬatwa kʰupa ukuk haws saya</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ɬaska ɬatwa kʰupa ukuk {haws} saya</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1616,7 +1618,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a142"
                 TIME_SLOT_REF1="ts566" TIME_SLOT_REF2="ts568">
-                <ANNOTATION_VALUE>JP: qʰa ukuk/ qʰa ukuk smelt ukuk tənəs-samən/ misayka iskam</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: qʰa ukuk/ qʰa ukuk {smelt} ukuk tənəs-{samən}/ misayka iskam</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1628,7 +1630,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a144"
                 TIME_SLOT_REF1="ts574" TIME_SLOT_REF2="ts576">
-                <ANNOTATION_VALUE>JP: ɬaska pu/ ɬaska mamuk-paya/ smelts kʰupá/ mamuk</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska pu/ ɬaska mamuk-paya/ {smelts} kʰupá/ mamuk</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1652,7 +1654,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a148"
                 TIME_SLOT_REF1="ts590" TIME_SLOT_REF2="ts592">
-                <ANNOTATION_VALUE>JP: ukuk &lt;&lt;chək/smelt&gt;&gt;/ smelt alta wik-saya ɬaska kʰupit</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk &lt;&lt;chək/{smelt}&gt;&gt;/ {smelt} alta wik-saya ɬaska kʰupit</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1670,7 +1672,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a151"
                 TIME_SLOT_REF1="ts602" TIME_SLOT_REF2="ts604">
-                <ANNOTATION_VALUE>JP: tʰuma.. tʰumala &lt;&lt;miɬ..&gt;&gt; nisayka tənəs miɬayt/ lili [leeyli]</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: tʰuma.. tʰumala &lt;&lt;miɬ..&gt;&gt; nisayka tənəs miɬayt/ leeyli </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1682,7 +1684,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a153"
                 TIME_SLOT_REF1="ts610" TIME_SLOT_REF2="ts612">
-                <ANNOTATION_VALUE>JP: alta ɬaska q'uʔ kʰupa ukuk tilixam qʰa ɬaska iskam ukuk smelt</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ɬaska q'uʔ kʰupa ukuk tilixam qʰa ɬaska iskam ukuk {smelt}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1700,7 +1702,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a156"
                 TIME_SLOT_REF1="ts622" TIME_SLOT_REF2="ts624">
-                <ANNOTATION_VALUE>JP: wik-say(a) aɬqi &lt;ukuk/yaka&gt; kʰakshət</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: wik-say&lt;a&gt; aɬqi &lt;ukuk/yaka&gt; kʰakshət</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1712,37 +1714,37 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a158"
                 TIME_SLOT_REF1="ts630" TIME_SLOT_REF2="ts632">
-                <ANNOTATION_VALUE>JP: ukuk ixt man yaka wawa kʰupa yaka shiksh</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk ixt {man} yaka wawa kʰupa yaka shiksh</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a159"
                 TIME_SLOT_REF1="ts634" TIME_SLOT_REF2="ts636">
-                <ANNOTATION_VALUE>JP: yaka mamuk yaka |isəq| {isik}/ ɬawa  ***Ended here on 6/19/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka mamuk yaka isəq/ ɬawa</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a160"
                 TIME_SLOT_REF1="ts638" TIME_SLOT_REF2="ts640">
-                <ANNOTATION_VALUE>JP:  yaka/ |q'ənchi| {qʰənchi} yaka &lt;ɬaska&gt; ɬatwa &lt;mash kʰanawi&gt; ukuk kənim yaka wawa kʰupa yax̣ka</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP:  yaka/ q'ənchi yaka &lt;ɬaska&gt; ɬatwa &lt;mash kʰanawi&gt; ukuk kənim yaka wawa kʰupa yax̣ka</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a161"
                 TIME_SLOT_REF1="ts642" TIME_SLOT_REF2="ts644">
-                <ANNOTATION_VALUE>JP: alta misayka ɬatwa &lt;mamuk-|lalem| {lalam}&gt; katsaq kʰupa ukuk chək</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta misayka ɬatwa &lt;mamuk-lalem&gt; katsaq kʰupa ukuk chək</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a162"
                 TIME_SLOT_REF1="ts646" TIME_SLOT_REF2="ts648">
-                <ANNOTATION_VALUE>JP: ɬaska mamuk-|lalem| {lalam} saya kʰupa ukuk &lt;&lt;{land}&gt;&gt;/ uk(uk) &lt;iliʔi&gt;</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska mamuk-lalem saya kʰupa ukuk &lt;&lt;{land}&gt;&gt;/ uk&lt;uk&gt; &lt;iliʔi&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a163"
                 TIME_SLOT_REF1="ts650" TIME_SLOT_REF2="ts652">
-                <ANNOTATION_VALUE>JP: yaka mamuk-miɬayt qwinəm kəlakəla kʰupa |ukúk| {ukuk}/ &lt;&lt;(w)ixt {side}/ ixt {side}&gt;&gt; kʰupa kənim/ &lt;yaka/ kənim&gt;</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yaka mamuk-miɬayt qwinəm kəlakəla kʰupa ukúk/ &lt;&lt;wixt {side}/ ixt {side}&gt;&gt; kʰupa kənim/ &lt;yaka/ kənim&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1772,19 +1774,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a168"
                 TIME_SLOT_REF1="ts670" TIME_SLOT_REF2="ts672">
-                <ANNOTATION_VALUE>JP: ukuk/ ukuk stik yaka kəlakəla yaka ɬatwa dileyt kakwa kəlakəla(m)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk/ ukuk {stik} yaka kəlakəla yaka ɬatwa dileyt kakwa kəlakəla&lt;m&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a169"
                 TIME_SLOT_REF1="ts674" TIME_SLOT_REF2="ts676">
-                <ANNOTATION_VALUE>JP: &lt;alta yaka&gt; wik-saya san ɬask(a) q'uʔ kʰupa yaka haws</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: &lt;alta yaka&gt; wik-saya san ɬask&lt;a&gt; q'uʔ kʰupa yaka {haws}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a170"
                 TIME_SLOT_REF1="ts678" TIME_SLOT_REF2="ts680">
-                <ANNOTATION_VALUE>JP: ukuk kəlakəla yaka ɬatwa saya kʰupa hayash chək  ***fix audio cutoff**  (middle of page 232)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk kəlakəla yaka ɬatwa saya kʰupa hayash chək   </ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1802,7 +1804,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a173"
                 TIME_SLOT_REF1="ts690" TIME_SLOT_REF2="ts692">
-                <ANNOTATION_VALUE>JP: yawa mayka nanich &lt;alta&gt; &lt;n&gt;ayka mamuk-chaku ukuk smelt  ***ENDED HERE 6/26/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yawa mayka nanich &lt;alta&gt; &lt;n&gt;ayka mamuk-chaku ukuk {smelt}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1814,7 +1816,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a175"
                 TIME_SLOT_REF1="ts698" TIME_SLOT_REF2="ts700">
-                <ANNOTATION_VALUE>JP: wik-saya &lt;wik-say(a)&gt; wik-lili ukuk ɬaska kənim kʰanawi chaku-patɬ</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: wik-saya &lt;wik-saya&gt; wik-lili ukuk ɬaska kənim kʰanawi chaku-patɬ</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1826,13 +1828,13 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a177"
                 TIME_SLOT_REF1="ts706" TIME_SLOT_REF2="ts708">
-                <ANNOTATION_VALUE>JP: yawa saya &lt;kʰupit kʰup(a) ukuk&gt; yaka chaku-ɬax̣ani chək/ kʰawlits&lt;q&gt; ****end cut off, fix*** ???</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: yawa saya &lt;kʰupit kʰupa ukuk&gt; yaka chaku-ɬax̣ani chək/ kʰawlits&lt;q&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a178"
-                TIME_SLOT_REF1="ts710" TIME_SLOT_REF2="ts712">
-                <ANNOTATION_VALUE>JP: ukuk smelt yaka chaku-&lt;heylo&gt;</ANNOTATION_VALUE>
+                TIME_SLOT_REF1="ts711" TIME_SLOT_REF2="ts712">
+                <ANNOTATION_VALUE>JP: ukuk {smelt} yaka chaku-&lt;heylo&gt;</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1862,19 +1864,19 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a183"
                 TIME_SLOT_REF1="ts730" TIME_SLOT_REF2="ts732">
-                <ANNOTATION_VALUE>JP: ukuk smelt alta yaka chaku-hilu</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ukuk {smelt} alta yaka chaku-heylo</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a184"
                 TIME_SLOT_REF1="ts734" TIME_SLOT_REF2="ts736">
-                <ANNOTATION_VALUE>JP: kʰupit ixt tilixam alta yaka iskam ukuk smelt</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: kʰupit ixt tilixam alta yaka iskam ukuk {smelt}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a185"
                 TIME_SLOT_REF1="ts738" TIME_SLOT_REF2="ts740">
-                <ANNOTATION_VALUE>JP: alta ukuk ixt ma.. ixt man yaka tənəs yaka iskam ɬuchmən</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: alta ukuk ixt ma.. ixt {man} yaka tənəs yaka iskam ɬuchmən</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1886,7 +1888,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a187"
                 TIME_SLOT_REF1="ts746" TIME_SLOT_REF2="ts748">
-                <ANNOTATION_VALUE>JP: ɬaska tiki iskam tənəs/ tənəs {fish}/ x̣awqaɬ &lt;&lt;kʰup(a)&gt;&gt; ukuk ɬaska iskam</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JP: ɬaska tiki iskam tənəs/ tənəs {fish}/ x̣awqaɬ &lt;&lt;kʰupa&gt;&gt; ukuk ɬaska iskam</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1896,17 +1898,17 @@
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
     </TIER>
-    <TIER LINGUISTIC_TYPE_REF="default-lt" TIER_ID="John Marr">
+    <TIER LINGUISTIC_TYPE_REF="Speaker-Type" TIER_ID="John Marr">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a189"
                 TIME_SLOT_REF1="ts1" TIME_SLOT_REF2="ts3">
-                <ANNOTATION_VALUE>JM: (pg. 229) the grandmother of a boy was deserted</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: the grandmother of a boy was deserted</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a190"
                 TIME_SLOT_REF1="ts5" TIME_SLOT_REF2="ts7">
-                <ANNOTATION_VALUE>JM: after six days the boy was told</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: after six days the  boy was told</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -1918,7 +1920,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a192"
                 TIME_SLOT_REF1="ts13" TIME_SLOT_REF2="ts15">
-                <ANNOTATION_VALUE>JM: he walked downstream (pg. 230)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: he walked downstream</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2146,7 +2148,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a230"
                 TIME_SLOT_REF1="ts165" TIME_SLOT_REF2="ts167">
-                <ANNOTATION_VALUE>JM: he gathered many sticks and went home ***Ended here on 4/3/24***</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: he gathered many sticks and went home</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2302,7 +2304,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a256"
                 TIME_SLOT_REF1="ts269" TIME_SLOT_REF2="ts271">
-                <ANNOTATION_VALUE>JM: the one who had the guardian spirit helping him to obtain smelts lifted his hand first  (p. 230 bottom)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: the one who had the guardian spirit helping him to obtain smelts lifted his hand first</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2662,7 +2664,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a316"
                 TIME_SLOT_REF1="ts509" TIME_SLOT_REF2="ts511">
-                <ANNOTATION_VALUE>JM: then he carved ten pieces of cedar (P. 232)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: then he carved ten pieces of cedar</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2782,7 +2784,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a336"
                 TIME_SLOT_REF1="ts589" TIME_SLOT_REF2="ts591">
-                <ANNOTATION_VALUE>JM: those smelts are nearly done (pg. 232)</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: those smelts are nearly done</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2914,7 +2916,7 @@
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a358"
                 TIME_SLOT_REF1="ts677" TIME_SLOT_REF2="ts679">
-                <ANNOTATION_VALUE>JM: the gulls were seaward from them ***fix audio cutoff**</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>JM: the gulls were seaward from them</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -2961,7 +2963,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a366"
-                TIME_SLOT_REF1="ts709" TIME_SLOT_REF2="ts711">
+                TIME_SLOT_REF1="ts709" TIME_SLOT_REF2="ts710">
                 <ANNOTATION_VALUE>JM: but the smelts had disappeared</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
@@ -3032,8 +3034,1059 @@
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
     </TIER>
+    <TIER LINGUISTIC_TYPE_REF="Notes-Type" PARENT_REF="Joe Peter" TIER_ID="JP-Notes">
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a378" ANNOTATION_REF="a1">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a379" ANNOTATION_REF="a2">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a380" ANNOTATION_REF="a3">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a381" ANNOTATION_REF="a4">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a382" ANNOTATION_REF="a5">
+                <ANNOTATION_VALUE>[OTL] x̣atx̣at for duck</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a383" ANNOTATION_REF="a6">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a384" ANNOTATION_REF="a7">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a385" ANNOTATION_REF="a8">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a386" ANNOTATION_REF="a9">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a387" ANNOTATION_REF="a10">
+                <ANNOTATION_VALUE>[OTL] x̣atx̣at for duck</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a388" ANNOTATION_REF="a11">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a389" ANNOTATION_REF="a12">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a390" ANNOTATION_REF="a13">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a391" ANNOTATION_REF="a14">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a392" ANNOTATION_REF="a15">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a393" ANNOTATION_REF="a16">
+                <ANNOTATION_VALUE>[OTL] x̣atx̣at for duck</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a394" ANNOTATION_REF="a17">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a395" ANNOTATION_REF="a18">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a396" ANNOTATION_REF="a19">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a397" ANNOTATION_REF="a20">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a398" ANNOTATION_REF="a21">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a399" ANNOTATION_REF="a22">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a400" ANNOTATION_REF="a23">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a401" ANNOTATION_REF="a24">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a402" ANNOTATION_REF="a25">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a403" ANNOTATION_REF="a26">
+                <ANNOTATION_VALUE>[LING] |miməlus| [[miməlust]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a404" ANNOTATION_REF="a27">
+                <ANNOTATION_VALUE>[LING] |ilan| [[yeʔlan]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a405" ANNOTATION_REF="a28">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a406" ANNOTATION_REF="a29">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a407" ANNOTATION_REF="a30">
+                <ANNOTATION_VALUE>[OTL] x̣atx̣at for duck</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a408" ANNOTATION_REF="a31">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a409" ANNOTATION_REF="a32">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a410" ANNOTATION_REF="a33">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a411" ANNOTATION_REF="a34">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a412" ANNOTATION_REF="a35">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a413" ANNOTATION_REF="a36">
+                <ANNOTATION_VALUE>[LING] |miməlus| [[miməlust]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a414" ANNOTATION_REF="a37">
+                <ANNOTATION_VALUE>[LING] |miməlus| [[miməlust]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a415" ANNOTATION_REF="a38">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a416" ANNOTATION_REF="a39">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a417" ANNOTATION_REF="a40">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a418" ANNOTATION_REF="a41">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a419" ANNOTATION_REF="a42">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a420" ANNOTATION_REF="a43">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a421" ANNOTATION_REF="a44">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a422" ANNOTATION_REF="a45">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a423" ANNOTATION_REF="a46">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a424" ANNOTATION_REF="a47">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a425" ANNOTATION_REF="a48">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a426" ANNOTATION_REF="a49">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a427" ANNOTATION_REF="a50">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a428" ANNOTATION_REF="a51">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a429" ANNOTATION_REF="a52">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a430" ANNOTATION_REF="a53">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a431" ANNOTATION_REF="a54">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a432" ANNOTATION_REF="a55">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a433" ANNOTATION_REF="a56">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a434" ANNOTATION_REF="a57">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a435" ANNOTATION_REF="a58">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a436" ANNOTATION_REF="a59">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a437" ANNOTATION_REF="a60">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a438" ANNOTATION_REF="a61">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a439" ANNOTATION_REF="a62">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a440" ANNOTATION_REF="a63">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a441" ANNOTATION_REF="a64">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a442" ANNOTATION_REF="a65">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a443" ANNOTATION_REF="a66">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a444" ANNOTATION_REF="a67">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a445" ANNOTATION_REF="a68">
+                <ANNOTATION_VALUE>[LING] |ilan| [[yeʔlan]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a446" ANNOTATION_REF="a69">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a447" ANNOTATION_REF="a70">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a448" ANNOTATION_REF="a71">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a449" ANNOTATION_REF="a72">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a450" ANNOTATION_REF="a73">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a451" ANNOTATION_REF="a74">
+                <ANNOTATION_VALUE> [OTL] q'ilt, Cowlitz "skunk cabbage", Dale Kinkade's dictionary</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a452" ANNOTATION_REF="a75">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a453" ANNOTATION_REF="a76">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a454" ANNOTATION_REF="a77">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a455" ANNOTATION_REF="a78">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a456" ANNOTATION_REF="a79">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a457" ANNOTATION_REF="a80">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a458" ANNOTATION_REF="a81">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a459" ANNOTATION_REF="a82">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a460" ANNOTATION_REF="a83">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a461" ANNOTATION_REF="a84">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a462" ANNOTATION_REF="a85">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a463" ANNOTATION_REF="a86">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a464" ANNOTATION_REF="a87">
+                <ANNOTATION_VALUE>[?] [OTL] namaix, from Cowlitz page 57 Dale Kinkade Cowlitz dictionary and https://dictionary.cowlitzsalish.org/#/E/tide</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a465" ANNOTATION_REF="a88">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a466" ANNOTATION_REF="a89">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a467" ANNOTATION_REF="a90">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a468" ANNOTATION_REF="a91">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a469" ANNOTATION_REF="a92">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a470" ANNOTATION_REF="a93">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a471" ANNOTATION_REF="a94">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a472" ANNOTATION_REF="a95">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a473" ANNOTATION_REF="a96">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a474" ANNOTATION_REF="a97">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a475" ANNOTATION_REF="a98">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a476" ANNOTATION_REF="a99">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a477" ANNOTATION_REF="a100">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a478" ANNOTATION_REF="a101">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a479" ANNOTATION_REF="a102">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a480" ANNOTATION_REF="a103">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a481" ANNOTATION_REF="a104">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a482" ANNOTATION_REF="a105">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a483" ANNOTATION_REF="a106">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a484" ANNOTATION_REF="a107">
+                <ANNOTATION_VALUE> [?] [OTL] mək'w, Cowlitz root for pile</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a485" ANNOTATION_REF="a108">
+                <ANNOTATION_VALUE> [?] [OTL] mək'w, Cowlitz root for pile</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a486" ANNOTATION_REF="a109">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a487" ANNOTATION_REF="a110">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a488" ANNOTATION_REF="a111">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a489" ANNOTATION_REF="a112">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a490" ANNOTATION_REF="a113">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a491" ANNOTATION_REF="a114">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a492" ANNOTATION_REF="a115">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a493" ANNOTATION_REF="a116">
+                <ANNOTATION_VALUE>***</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a494" ANNOTATION_REF="a117">
+                <ANNOTATION_VALUE>***</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a495" ANNOTATION_REF="a118">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a496" ANNOTATION_REF="a119">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a497" ANNOTATION_REF="a120">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a498" ANNOTATION_REF="a121">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a499" ANNOTATION_REF="a122">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a500" ANNOTATION_REF="a123">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a501" ANNOTATION_REF="a124">
+                <ANNOTATION_VALUE>[?] [OTL] p'il-ɬ, Kinkade upper Chehalis for thin</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a502" ANNOTATION_REF="a125">
+                <ANNOTATION_VALUE>[OTL] q'ilt, Cowlitz "skunk cabbage", Dale Kinkade's dictionary</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a503" ANNOTATION_REF="a126">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a504" ANNOTATION_REF="a127">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a505" ANNOTATION_REF="a128">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a506" ANNOTATION_REF="a129">
+                <ANNOTATION_VALUE>[OTL] x̣atx̣at for duck</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a507" ANNOTATION_REF="a130">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a508" ANNOTATION_REF="a131">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a509" ANNOTATION_REF="a132">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a510" ANNOTATION_REF="a133">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a511" ANNOTATION_REF="a134">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a512" ANNOTATION_REF="a135">
+                <ANNOTATION_VALUE>[?] [OTL] sʔíln', Cowlitz online dictionary for song</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a513" ANNOTATION_REF="a136">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a514" ANNOTATION_REF="a137">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a515" ANNOTATION_REF="a138">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a516" ANNOTATION_REF="a139">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a517" ANNOTATION_REF="a140">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a518" ANNOTATION_REF="a141">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a519" ANNOTATION_REF="a142">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a520" ANNOTATION_REF="a143">
+                <ANNOTATION_VALUE>Need to discuss.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a521" ANNOTATION_REF="a144">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a522" ANNOTATION_REF="a145">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a523" ANNOTATION_REF="a146">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a524" ANNOTATION_REF="a147">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a525" ANNOTATION_REF="a148">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a526" ANNOTATION_REF="a149">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a527" ANNOTATION_REF="a150">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a528" ANNOTATION_REF="a151">
+                <ANNOTATION_VALUE>[LING] |leeyli| [[lili]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a529" ANNOTATION_REF="a152">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a530" ANNOTATION_REF="a153">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a531" ANNOTATION_REF="a154">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a532" ANNOTATION_REF="a155">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a533" ANNOTATION_REF="a156">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a534" ANNOTATION_REF="a157">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a535" ANNOTATION_REF="a158">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a536" ANNOTATION_REF="a159">
+                <ANNOTATION_VALUE>[LING]  |isəq| [[isik]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a537" ANNOTATION_REF="a160">
+                <ANNOTATION_VALUE>[LING] |q'ənchi| [[qʰənchi]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a538" ANNOTATION_REF="a161">
+                <ANNOTATION_VALUE>[LING] |lalem| [[lalam]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a539" ANNOTATION_REF="a162">
+                <ANNOTATION_VALUE>[LING] |lalem| [[lalam]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a540" ANNOTATION_REF="a163">
+                <ANNOTATION_VALUE>[LING] |ukúk| [[ukuk]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a541" ANNOTATION_REF="a164">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a542" ANNOTATION_REF="a165">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a543" ANNOTATION_REF="a166">
+                <ANNOTATION_VALUE>[LING] |lalem| [[lalam]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a544" ANNOTATION_REF="a167">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a545" ANNOTATION_REF="a168">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a546" ANNOTATION_REF="a169">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a547" ANNOTATION_REF="a170">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a548" ANNOTATION_REF="a171">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a549" ANNOTATION_REF="a172">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a550" ANNOTATION_REF="a173">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a551" ANNOTATION_REF="a174">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a552" ANNOTATION_REF="a175">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a553" ANNOTATION_REF="a176">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a554" ANNOTATION_REF="a177">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a555" ANNOTATION_REF="a178">
+                <ANNOTATION_VALUE>[LING] |heylo| [[hilu]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a556" ANNOTATION_REF="a179">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a557" ANNOTATION_REF="a180">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a558" ANNOTATION_REF="a181">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a559" ANNOTATION_REF="a182">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a560" ANNOTATION_REF="a183">
+                <ANNOTATION_VALUE>[LING] |heylo| [[hilu]]</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a561" ANNOTATION_REF="a184">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a562" ANNOTATION_REF="a185">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a563" ANNOTATION_REF="a186">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a564" ANNOTATION_REF="a187">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a565" ANNOTATION_REF="a188">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+    </TIER>
+    <TIER LINGUISTIC_TYPE_REF="Notes-Type" PARENT_REF="John Marr" TIER_ID="JM-Notes">
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a566" ANNOTATION_REF="a189">
+                <ANNOTATION_VALUE>[NOTE] (pg. 229)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a567" ANNOTATION_REF="a190">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a568" ANNOTATION_REF="a192">
+                <ANNOTATION_VALUE>[NOTE] (pg. 230)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a585" ANNOTATION_REF="a194">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a569" ANNOTATION_REF="a222">
+                <ANNOTATION_VALUE> (pg. 230)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a570" ANNOTATION_REF="a230">
+                <ANNOTATION_VALUE>[NOTE] Ended here on 4/3/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a571" ANNOTATION_REF="a237">
+                <ANNOTATION_VALUE>[NOTE] ENDED HERE 4/10/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a572" ANNOTATION_REF="a256">
+                <ANNOTATION_VALUE>[NOTE] (p. 230 bottom)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a573" ANNOTATION_REF="a260">
+                <ANNOTATION_VALUE>[NOTE] Ended here on 4/17/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a574" ANNOTATION_REF="a262">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a575" ANNOTATION_REF="a275">
+                <ANNOTATION_VALUE>[NOTE] ENDED HERE ON 4/24/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a576" ANNOTATION_REF="a276">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a577" ANNOTATION_REF="a295">
+                <ANNOTATION_VALUE>[NOTE] ENDED HERE 5/1/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a578" ANNOTATION_REF="a303">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a579" ANNOTATION_REF="a310">
+                <ANNOTATION_VALUE>[NOTE] ENDED HERE ON 5/29/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a580" ANNOTATION_REF="a316">
+                <ANNOTATION_VALUE>[NOTE] ENDED HERE ON 6/5/24 (P. 232)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a581" ANNOTATION_REF="a322">
+                <ANNOTATION_VALUE>[NOTE] ENDED HERE 6/12/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a582" ANNOTATION_REF="a336">
+                <ANNOTATION_VALUE>(pg. 232)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a583" ANNOTATION_REF="a347">
+                <ANNOTATION_VALUE>[NOTE] Ended here on 6/19/24</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a584" ANNOTATION_REF="a358">
+                <ANNOTATION_VALUE>[NOTE] (middle of page 232)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a586" ANNOTATION_REF="a366">
+                <ANNOTATION_VALUE/>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+    </TIER>
     <LINGUISTIC_TYPE GRAPHIC_REFERENCES="false"
-        LINGUISTIC_TYPE_ID="default-lt" TIME_ALIGNABLE="true"/>
+        LINGUISTIC_TYPE_ID="Speaker-Type" TIME_ALIGNABLE="true"/>
+    <LINGUISTIC_TYPE CONSTRAINTS="Symbolic_Association"
+        GRAPHIC_REFERENCES="false" LINGUISTIC_TYPE_ID="Notes-Type" TIME_ALIGNABLE="false"/>
     <CONSTRAINT
         DESCRIPTION="Time subdivision of parent annotation's time interval, no time gaps allowed within this interval" STEREOTYPE="Time_Subdivision"/>
     <CONSTRAINT
