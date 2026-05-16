@@ -1,5 +1,6 @@
 import csv
 import os
+import re
 
 def generate_research_log():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -11,7 +12,6 @@ def generate_research_log():
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    # Categories matching your legend perfectly
     categories = {
         '[LING]': '🗣️ Linguistic & Phonetic Observations',
         '[HIST]': '📜 Cultural & Historical Context Logs',
@@ -24,38 +24,49 @@ def generate_research_log():
     }
 
     log_data = {tag: [] for tag in categories.keys()}
-    log_data['[UNCATEGORIZED]'] = []  # Catch-all strictly for notes with NO tags at all
+    log_data['[UNCATEGORIZED]'] = []
 
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         reader.fieldnames = [name.strip() for name in reader.fieldnames] if reader.fieldnames else []
 
         for row in reader:
+            tier_content = row.get('Notes_Tier', '').strip()
             note_content = row.get('Notes_Text', '').strip()
             primary_text = row.get('Text', '').strip()
             
-            if not note_content:
-                continue
-
-            # Route the entry to its proper home
+            # Find which column holds our category tag
             matched_tag = None
             
-            # FIX: Check for the exact [?] question mark tag or [UNCERTAIN] string
-            if '[?]' in note_content or '[UNCERTAIN]' in note_content:
+            # 1. Check for Uncertain Tags first
+            if '[?]' in note_content or '[UNCERTAIN]' in note_content or '[?]' in tier_content or '[UNCERTAIN]' in tier_content:
                 matched_tag = '[UNCERTAIN]'
             else:
-                # Look for all other standard legend tags
+                # 2. Check standard tags in both text and tier columns
                 for tag in categories.keys():
-                    if tag in note_content:
+                    if tag in note_content or tag in tier_content:
                         matched_tag = tag
                         break
             
+            # If there is no tag anywhere and no text content, skip this row entirely
+            if not matched_tag and not note_content:
+                continue
+
+            # Fallback Payload Logic: If Notes_Text is empty, use the primary audio transcription text instead
+            actual_note = note_content if note_content else primary_text
+            if not actual_note:
+                continue
+
+            # ESCAPE ENGINE: Protect Markdown tables from unescaped pipe syntax error characters
+            safe_transcription = primary_text.replace('|', '\\|') if primary_text else "[Note Only]"
+            safe_note = actual_note.replace('|', '\\|')
+
             item = {
                 'id': row.get('ID', 'UNKNOWN').strip(),
                 'time': row.get('Time', '00:00').strip(),
                 'speaker': row.get('Speaker', 'Unknown').strip(),
-                'transcription': primary_text if primary_text else "[Note Only]",
-                'note': note_content
+                'transcription': safe_transcription,
+                'note': safe_note
             }
 
             if matched_tag:
@@ -66,7 +77,7 @@ def generate_research_log():
     # Write out the Markdown Document
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write("# 🔬 Master Research & Observations Log\n\n")
-        f.write("> This log compiles cross-repository annotations parsed directly from dependent notes text fields.\n\n")
+        f.write("> This log compiles cross-repository annotations parsed directly from dependent notes fields.\n\n")
         
         f.write("## 🗂️ Category Index\n")
         for tag, section_title in categories.items():
@@ -78,7 +89,6 @@ def generate_research_log():
             f.write(f"- [⚠️ Uncategorized Notes](#uncategorized) ({uncat_count} entries)\n")
         f.write("\n---\n\n")
 
-        # Generate output sections for matched categories
         for tag, section_title in categories.items():
             anchor = tag.lower().replace('[','').replace(']','')
             f.write(f"## <a name=\"{anchor}\"></a>{section_title}\n\n")
@@ -94,7 +104,6 @@ def generate_research_log():
                 f.write(f"| `{e['id']}` | {e['time']} | {e['speaker']} | {e['transcription']} | {e['note']} |\n")
             f.write("\n")
             
-        # Write uncategorized section only if rogue tags slipped through
         if log_data['[UNCATEGORIZED]']:
             f.write("## <a name=\"uncategorized\"></a>⚠️ Uncategorized Notes\n\n")
             f.write("| Source ID | Time | Speaker | Transcription Segment | Observation Note |\n")
@@ -104,7 +113,7 @@ def generate_research_log():
             f.write("\n")
 
     total_found = sum(len(log_data[c]) for c in log_data)
-    print(f"✅ Success! Rebuilt Research Log. Found {total_found} entries total (with [?] mapped to Uncertain).")
+    print(f"✅ Success! Rebuilt Research Log. Found {total_found} crossed-referenced entries.")
 
 if __name__ == "__main__":
     generate_research_log()

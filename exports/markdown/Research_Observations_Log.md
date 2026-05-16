@@ -1,6 +1,6 @@
 # 🔬 Master Research & Observations Log
 
-> This log compiles cross-repository annotations parsed directly from dependent notes text fields.
+> This log compiles cross-repository annotations parsed directly from dependent notes fields.
 
 ## 🗂️ Category Index
 - [🗣️ Linguistic & Phonetic Observations](#ling) (158 entries)
@@ -19,163 +19,163 @@
 | Source ID | Time | Speaker | Transcription Segment | Observation Note |
 | :--- | :--- | :--- | :--- | :--- |
 | `682-S1` | 06:19 | Joe Peter | JP:  <pi> yaka mamuk-x̣alaqɬ uk lapolt yaka nanich ulman pi ixt tənəs-{man} ya | [LING] good example of "uk" |
-| `682-S1` | 07:09 | Joe Peter | JP:  yaka t'ɬap ixt yaka mamuk-miməlus | [LING]  |miməlus| [[miməlust]], appears to drop the 't' |
-| `682-S1` | 07:31 | Joe Peter | JP:  yax̣ka uku<k> olman | [LING] |olman| [[ulman]] |
-| `682-S1` | 10:39 | Joe Peter | JP:  pi yaka t'ɬap/ yaka nanich/ olman pi ixt tənəs-{man} | [LING] |olman| [[ulman]] |
+| `682-S1` | 07:09 | Joe Peter | JP:  yaka t'ɬap ixt yaka mamuk-miməlus | [LING]  \|miməlus\| [[miməlust]], appears to drop the 't' |
+| `682-S1` | 07:31 | Joe Peter | JP:  yax̣ka uku<k> olman | [LING] \|olman\| [[ulman]] |
+| `682-S1` | 10:39 | Joe Peter | JP:  pi yaka t'ɬap/ yaka nanich/ olman pi ixt tənəs-{man} | [LING] \|olman\| [[ulman]] |
 | `682-S1` | 11:27 | Joe Peter | JP:  mayka na miɬayt hilu tilixam | [TEX] [LING] GREAT EXAMPLE OF question particle "na" |
 | `682-S1` | 11:59 | Joe Peter | JP:  alta yaka chaku-san | [LING] Impersonal third person 'yaka' |
-| `682-S1` | 12:12 | Joe Peter | JP:  yaka iskam yaka kʰalaytən pi yaka ɬatwa | [LING]  |kʰalaytən| [[kalaytən]] |
+| `682-S1` | 12:12 | Joe Peter | JP:  yaka iskam yaka kʰalaytən pi yaka ɬatwa | [LING]  \|kʰalaytən\| [[kalaytən]] |
 | `682-S1` | 16:47 | Joe Peter | JP:  <yaka mamuk-> x̣alaqɬ uk lapot | [LING] [VEX] pretty clear "uk" |
 | `682-S1` | 16:52 | Joe Peter | JP:  yax̣ka ukuk ya yax̣ka ukuk ulman pi uk tənəs-{man}/ kʰupá | [LING] [VEX] pretty clear "uk" [NOTE] has false start and changes from ya to ulman |
-| `682-S1` | 19:09 | Joe Peter | JP:  nisayka na mamuk-miməlus ɬaska | [LING] |miməlus| [[miməlust]]  [TEX] good example of na question particle |
+| `682-S1` | 19:09 | Joe Peter | JP:  nisayka na mamuk-miməlus ɬaska | [LING] \|miməlus\| [[miməlust]]  [TEX] good example of na question particle |
 | `682-S1` | 19:19 | Joe Peter | JP:  alta yaka wawa ukuk {man} | [LING]  post-posed noun-subject |
-| `682-S1` | 19:56 | Joe Peter | JP:  ikta nsay aɬqi nisayka mamuk-paya <ukuk/alta> kʰupa/ kʰul-iley | [LING] |iley| [[iliʔ]] |
+| `682-S1` | 19:56 | Joe Peter | JP:  ikta nsay aɬqi nisayka mamuk-paya <ukuk/alta> kʰupa/ kʰul-iley | [LING] \|iley\| [[iliʔ]] |
 | `682-S2` | 00:40 | Joe Peter | JP:  alta yaka chaku wik-saya san | [LING] "yaka" for "it" |
 | `682-S2` | 02:59 | Joe Peter | JP:  alta yaka/ hayu-nanich kʰupa yaka chupa | [LING] [NOTE] imperfective "hayu-" |
-| `682-S2` | 05:02 | Joe Peter | JP:  á, ɬatwa kikwəli kʰupa ukuk chək | [LING] |á| [[aha]] |
-| `682-S2` | 06:04 | Joe Peter | JP:  weyk | [LING] |weyk| [[wik]] |
-| `682-S2` | 06:26 | Joe Peter | JP:  yaka ɬatwa kikwəli kʰupa ukuk chək qʰwinəm tʰaym | [LING]  |qʰwinəm| [[qwinəm]] |
-| `682-S2` | 08:02 | Joe Peter | JP:  pi ukuk ɬaska aw wik yaka patɬach yax̣ka | [LING] |patɬach| [[paɬach]] |
-| `682-S2` | 10:57 | Joe Peter | JP:  <alta> nayka chaku-tʰili | [LING] |tʰili| [[tʰil]] |
+| `682-S2` | 05:02 | Joe Peter | JP:  á, ɬatwa kikwəli kʰupa ukuk chək | [LING] \|á\| [[aha]] |
+| `682-S2` | 06:04 | Joe Peter | JP:  weyk | [LING] \|weyk\| [[wik]] |
+| `682-S2` | 06:26 | Joe Peter | JP:  yaka ɬatwa kikwəli kʰupa ukuk chək qʰwinəm tʰaym | [LING]  \|qʰwinəm\| [[qwinəm]] |
+| `682-S2` | 08:02 | Joe Peter | JP:  pi ukuk ɬaska aw wik yaka patɬach yax̣ka | [LING] \|patɬach\| [[paɬach]] |
+| `682-S2` | 10:57 | Joe Peter | JP:  <alta> nayka chaku-tʰili | [LING] \|tʰili\| [[tʰil]] |
 | `682-S2` | 13:44 | Joe Peter | JP:  alta <pi> mash sitkum san | [LING] [TEX] "mash" used for "left behind" or "parted ways" |
-| `682-S2` | 15:12 | Joe Peter | JP:  kʰanawi yaka lepʰiye/ hilu | [LING] |lepʰiye| [[lipʰyi]]  [NOTE] starnge sound at beginning |
-| `682-S2` | 16:27 | Joe Peter | JP:  yaka wawa kʰupa ɬaaska | [LING] |ɬaaska| [[ɬaska]] |
-| `683-S1` | 01:23 | Joe Peter | JP:  ɬaska lʊlʊ yax̣ka kʰupa <{uh}>/ chək | [LING]  |lʊlʊ| [[lulu]] |
+| `682-S2` | 15:12 | Joe Peter | JP:  kʰanawi yaka lepʰiye/ hilu | [LING] \|lepʰiye\| [[lipʰyi]]  [NOTE] starnge sound at beginning |
+| `682-S2` | 16:27 | Joe Peter | JP:  yaka wawa kʰupa ɬaaska | [LING] \|ɬaaska\| [[ɬaska]] |
+| `683-S1` | 01:23 | Joe Peter | JP:  ɬaska lʊlʊ yax̣ka kʰupa <{uh}>/ chək | [LING]  \|lʊlʊ\| [[lulu]] |
 | `683-S1` | 01:31 | Joe Peter | JP:  ɬaska mamuk-miɬayt yax̣ka kikwəli kʰupa-uk chək | [LING] [TEX] pretty good example of shortened ukuk using "uk" |
-| `683-S1` | 01:37 | Joe Peter | JP:  ɬasa iskam ɬaska mama | [LING]  |ɬasa| [[ɬaska]] |
-| `683-S1` | 02:19 | Joe Peter | JP:  ixt yaka wawa weyk/ wik mayka p'u | [LING] |weyk| [[wik]] |
-| `683-S1` | 02:30 | Joe Peter | JP:  pi yaka iskam/ pi yaka iskam yaka kʰalaytən yaka p'u ukuk hayash kəlakəla tk'up kəlakəla | [LING] |kʰalaytən| [[kalaytən]] |
-| `683-S1` | 03:41 | Joe Peter | JP:  pi chaku-wam ukuk ston ɬaska mash kʰupuk chək | [LING] |kʰupuk| [[kʰupa <uk>]] |
-| `683-S1` | 09:14 | Joe Peter | JP:  ikta mayka mamuk/ olman | [LING] |olman| [[ulman]] |
+| `683-S1` | 01:37 | Joe Peter | JP:  ɬasa iskam ɬaska mama | [LING]  \|ɬasa\| [[ɬaska]] |
+| `683-S1` | 02:19 | Joe Peter | JP:  ixt yaka wawa weyk/ wik mayka p'u | [LING] \|weyk\| [[wik]] |
+| `683-S1` | 02:30 | Joe Peter | JP:  pi yaka iskam/ pi yaka iskam yaka kʰalaytən yaka p'u ukuk hayash kəlakəla tk'up kəlakəla | [LING] \|kʰalaytən\| [[kalaytən]] |
+| `683-S1` | 03:41 | Joe Peter | JP:  pi chaku-wam ukuk ston ɬaska mash kʰupuk chək | [LING] \|kʰupuk\| [[kʰupa <uk>]] |
+| `683-S1` | 09:14 | Joe Peter | JP:  ikta mayka mamuk/ olman | [LING] \|olman\| [[ulman]] |
 | `683-S1` | 09:30 | Joe Peter | JP:  yaka patɬach | [LING]  Dr. Dave's silent it |
-| `683-S1` | 10:41 | Joe Peter | JP:  mayka// m.. mayka mayka mayka {nim} <<aɬqə>> mawich | [LING] |aɬqə| [[aɬqi]] |
-| `683-S1` | 13:11 | Joe Peter | JP:  <mayka>-k'ilapay kʰupa ukuk iliʔey | [LING]  |iliʔey| [[iliʔi]] |
-| `683-S1` | 13:20 | Joe Peter | JP:  kʰupa yaka/ kʰupa yaka elip-lema| | [LING] |elip-lema| [[iləp-lima]] |
-| `683-S1` | 13:47 | Joe Peter | JP:  <mayka> kwanisəm miɬayt saya kʰupa ukuk iliʔey | [LING]  |iliʔey| [[iliʔi]] |
-| `683-S1` | 13:57 | Joe Peter | JP:  <yaka/wawa> k'ilapay kʰupa ukuk iliʔey | [LING]  |iliʔey| [[iliʔi]] |
+| `683-S1` | 10:41 | Joe Peter | JP:  mayka// m.. mayka mayka mayka {nim} <<aɬqə>> mawich | [LING] \|aɬqə\| [[aɬqi]] |
+| `683-S1` | 13:11 | Joe Peter | JP:  <mayka>-k'ilapay kʰupa ukuk iliʔey | [LING]  \|iliʔey\| [[iliʔi]] |
+| `683-S1` | 13:20 | Joe Peter | JP:  kʰupa yaka/ kʰupa yaka elip-lema\| | [LING] \|elip-lema\| [[iləp-lima]] |
+| `683-S1` | 13:47 | Joe Peter | JP:  <mayka> kwanisəm miɬayt saya kʰupa ukuk iliʔey | [LING]  \|iliʔey\| [[iliʔi]] |
+| `683-S1` | 13:57 | Joe Peter | JP:  <yaka/wawa> k'ilapay kʰupa ukuk iliʔey | [LING]  \|iliʔey\| [[iliʔi]] |
 | `683-S1` | 14:24 | Joe Peter | JP:  hayash hayuuu tənəs-man kʰupá" | [LING] Note translation of "multitude" |
 | `683-S1` | 14:47 | Joe Peter | JP:  pus yaka chaku-kikwəli | [LING] "pus" for "when" |
-| `683-S1` | 15:25 | Joe Peter | JP:  ɬaska {uh}/ kʰupá nayka, qʰəntsi kʰupá nayka | [LING] |qʰəntsi| [[qʰənchi]] |
-| `683-S1` | 16:30 | Joe Peter | JP:  mamuk-k'ilapay yax̣a qwinəm/ k'ilapay | [LING] |yax̣a| [[yax̣ka]] |
-| `683-S1` | 16:44 | Joe Peter | JP:  yaka mash yax̣ka kikwəlili | [LING]  |kikwəlili| [[kikwəli]] |
-| `683-S1` | 17:57 | Joe Peter | JP:  <eyləp> {bon} | [LING] |eyləp| [[iləp]]  [NOTE]  ***try to clean/boost**** |
-| `683-S2` | 00:19 | Joe Peter | JP:  qwinəm/ qwinəm mæn | [LING] |mæn| {man} |
-| `683-S2` | 02:40 | Joe Peter | JP:  lakt san yaka wawa kakwa | [LING] |lakt| [[lakit]] |
-| `683-S2` | 04:04 | Joe Peter | JP:  yaka patɬach yax̣ka hayaw | [LING] |hayaw| [[hayu]] |
-| `683-S2` | 04:31 | Joe Peter | JP:  ɬaska mamuk/ ɬaska mamuk-chaku k'ilapay chxi iɬwəli/ hayaw | [LING] |hayaw| [[hayu]] |
-| `683-S2` | 06:28 | Joe Peter | JP:  kʰupit {skins} alta <wəx̣t/ukuk> pi nisayka | [LING] |skins| [[skin]] |
-| `683-S2` | 07:17 | Joe Peter | JP:  kʰupit yaka {skins} alta ukuk | [LING] |skins| [[skin]] |
-| `683-S2` | 07:26 | Joe Peter | JP:  ikta alta nisayka məkʰmək {uh}/ <nayka/yaka> chupʰa-tənas kʰanawi/ kʰupit {skinz} alta pi misayka | [LING] |skinz| [[skin]] |
-| `683-S2` | 07:41 | Joe Peter | JP:  ɬaska mamuk-lipʰlip ukuk {skinz} kʰanawi | [LING] |skinz| [[skin]] |
-| `683-S2` | 08:00 | Joe Peter | JP:  ɬaska mamuk-ɬxwap kʰupa ileyʔi | [LING] |ileyʔi| [[iliʔi]] |
-| `683-S2` | 09:07 | Joe Peter | JP:  ɬaska <wawa> ɬaska kʰulí/ saya | [LING]  |kʰulí| [[kʰuri]] , he is actually saying the "l" as he should "r" insnt really in early indigenous languages and the kʰuri is most likeley a more recent adapation in GR. |
-| `683-S2` | 09:19 | Joe Peter | JP:  ukuk skukúm yaka/ milay | [LING]  |milay| [[miɬayt]]  Note: possible distortion on "miɬayt" |
-| `683-S2` | 09:44 | Joe Peter | JP:  <<tət'ɬi>> ɬatwa/ kikwəli kʰupa yaka k'watin | [LING]  |k'watin| [[k'wətʰin]] |
-| `683-S2` | 11:14 | Joe Peter | JP:  wik yaka t'ɬap ɬaska kʰanawi | [LING]  |lepʰiye| [[lipʰyi]] |
-| `683-S2` | 11:50 | Joe Peter | JP:  yakaaa mamuk-kuli ɬaska | [LING] |mamuk-kuli| [[mamuk-kʰuri]] |
-| `683-S2` | 11:55 | Joe Peter | JP:  pi wik yaka t'ɬap wəx̣t/ yaka lepʰiye | [LING]  |lepʰiye| [lipʰyi]  [VEX] clear back x on wəx̣t |
-| `683-S2` | 12:14 | Joe Peter | JP:  alta yaka mamuk-kuli ukuk | [LING] |mamuk-kuli| [[mamuk-kʰuri]] |
-| `683-S2` | 12:21 | Joe Peter | JP:  yaka mamuk-kuli ukuk saya | [LING]  |mamuk-kulí| [[mamuk-kʰuri] |
-| `683-S2` | 12:43 | Joe Peter | JP:  yaka/ yaka t'ɬap/ lakit ukuk/ ulman/ aws/ yaka mamuk-miməlust kʰanawi | [LING]  |aws| [[aw]] |
-| `683-S2` | 14:25 | Joe Peter | JP:  ukuk lamiyey | [LING]  |lamiyey| [[lamiyay]] |
+| `683-S1` | 15:25 | Joe Peter | JP:  ɬaska {uh}/ kʰupá nayka, qʰəntsi kʰupá nayka | [LING] \|qʰəntsi\| [[qʰənchi]] |
+| `683-S1` | 16:30 | Joe Peter | JP:  mamuk-k'ilapay yax̣a qwinəm/ k'ilapay | [LING] \|yax̣a\| [[yax̣ka]] |
+| `683-S1` | 16:44 | Joe Peter | JP:  yaka mash yax̣ka kikwəlili | [LING]  \|kikwəlili\| [[kikwəli]] |
+| `683-S1` | 17:57 | Joe Peter | JP:  <eyləp> {bon} | [LING] \|eyləp\| [[iləp]]  [NOTE]  ***try to clean/boost**** |
+| `683-S2` | 00:19 | Joe Peter | JP:  qwinəm/ qwinəm mæn | [LING] \|mæn\| {man} |
+| `683-S2` | 02:40 | Joe Peter | JP:  lakt san yaka wawa kakwa | [LING] \|lakt\| [[lakit]] |
+| `683-S2` | 04:04 | Joe Peter | JP:  yaka patɬach yax̣ka hayaw | [LING] \|hayaw\| [[hayu]] |
+| `683-S2` | 04:31 | Joe Peter | JP:  ɬaska mamuk/ ɬaska mamuk-chaku k'ilapay chxi iɬwəli/ hayaw | [LING] \|hayaw\| [[hayu]] |
+| `683-S2` | 06:28 | Joe Peter | JP:  kʰupit {skins} alta <wəx̣t/ukuk> pi nisayka | [LING] \|skins\| [[skin]] |
+| `683-S2` | 07:17 | Joe Peter | JP:  kʰupit yaka {skins} alta ukuk | [LING] \|skins\| [[skin]] |
+| `683-S2` | 07:26 | Joe Peter | JP:  ikta alta nisayka məkʰmək {uh}/ <nayka/yaka> chupʰa-tənas kʰanawi/ kʰupit {skinz} alta pi misayka | [LING] \|skinz\| [[skin]] |
+| `683-S2` | 07:41 | Joe Peter | JP:  ɬaska mamuk-lipʰlip ukuk {skinz} kʰanawi | [LING] \|skinz\| [[skin]] |
+| `683-S2` | 08:00 | Joe Peter | JP:  ɬaska mamuk-ɬxwap kʰupa ileyʔi | [LING] \|ileyʔi\| [[iliʔi]] |
+| `683-S2` | 09:07 | Joe Peter | JP:  ɬaska <wawa> ɬaska kʰulí/ saya | [LING]  \|kʰulí\| [[kʰuri]] , he is actually saying the "l" as he should "r" insnt really in early indigenous languages and the kʰuri is most likeley a more recent adapation in GR. |
+| `683-S2` | 09:19 | Joe Peter | JP:  ukuk skukúm yaka/ milay | [LING]  \|milay\| [[miɬayt]]  Note: possible distortion on "miɬayt" |
+| `683-S2` | 09:44 | Joe Peter | JP:  <<tət'ɬi>> ɬatwa/ kikwəli kʰupa yaka k'watin | [LING]  \|k'watin\| [[k'wətʰin]] |
+| `683-S2` | 11:14 | Joe Peter | JP:  wik yaka t'ɬap ɬaska kʰanawi | [LING]  \|lepʰiye\| [[lipʰyi]] |
+| `683-S2` | 11:50 | Joe Peter | JP:  yakaaa mamuk-kuli ɬaska | [LING] \|mamuk-kuli\| [[mamuk-kʰuri]] |
+| `683-S2` | 11:55 | Joe Peter | JP:  pi wik yaka t'ɬap wəx̣t/ yaka lepʰiye | [LING]  \|lepʰiye\| [lipʰyi]  [VEX] clear back x on wəx̣t |
+| `683-S2` | 12:14 | Joe Peter | JP:  alta yaka mamuk-kuli ukuk | [LING] \|mamuk-kuli\| [[mamuk-kʰuri]] |
+| `683-S2` | 12:21 | Joe Peter | JP:  yaka mamuk-kuli ukuk saya | [LING]  \|mamuk-kulí\| [[mamuk-kʰuri] |
+| `683-S2` | 12:43 | Joe Peter | JP:  yaka/ yaka t'ɬap/ lakit ukuk/ ulman/ aws/ yaka mamuk-miməlust kʰanawi | [LING]  \|aws\| [[aw]] |
+| `683-S2` | 14:25 | Joe Peter | JP:  ukuk lamiyey | [LING]  \|lamiyey\| [[lamiyay]] |
 | `683-S2` | 15:28 | Joe Peter | JP:  mayka nanich nayk.. ukuk nayka hayu-nanich | [LING] hayu- "ing" for "chasing" |
 | `683-S2` | 16:13 | Joe Peter | JP:  nayka patɬach mayka ukuk tənəs lup-lup | [LING]  Unusual duplicated form "lup-lup" |
 | `683-S2` | 16:23 | Joe Peter | JP:  alta uk.. ukuk ixt/ ya.. ukuk ixt hayash paya/ kəlakəla | [LING] uses big fire bird instead of (syuwyuwən) wonderous supernatural being Upper Chehalis for "Thunderer" here |
-| `683-S2` | 16:32 | Joe Peter | JP:  yaka/ yaka mash yaka lepʰiye inatay kʰupa ukuk/ chək | [LING]  |lepʰiye| [[lipʰyi]] |
-| `683-S2` | 16:42 | Joe Peter | JP:  cha../ mayka ɬatwa kʰupa nayka lepʰiye/ inatay | [LING] |lepʰiye| [[lipʰyi]] |
-| `683-S2` | 16:57 | Joe Peter | JP:  alta ukuk skukúm yaka ɬatwa kʰupa yaka lepʰiye ɬatwa inatay | [LING] |lepʰiye| [[lipʰyi]] |
-| `683-S2` | 17:17 | Joe Peter | JP:  <alta uk>/ ukuk/ ukuk paya-mæn yaka mamuk-/ k'ilapay yaka lepʰiye | [LING]  |lepʰiye| [[lipʰyi]] and |mæn| [[man]] |
-| `683-S2` | 18:48 | Joe Peter | JP:  ɬaska miɬayt kʰupá/ leyley | [LING] |leyley| [[lili]] |
-| `683-S2` | 18:55 | Joe Peter | JP:  ukuk tənəs-mæn wik yaka tiki yaka ɬuchmən | [LING] |mæn| [[man]] |
-| `683-S2` | 19:08 | Joe Peter | JP:  kʰupá qʰəntsix̣ sæn | [LING] |qʰəntsix̣| [[qʰəntsi]] and |sæn| [[san]] |
-| `684-S1` | 01:02 | Joe Peter | JP:  <alta> hayas-{samən} yaka supəna inatay kʰupa yaka/ {net} | [LING] |hayas-samən| [[hayash-samən]] |
-| `684-S1` | 01:09 | Joe Peter | JP:  ukuk paya-{man} yaka nanich kʰupa ileʔi | [LING] |ileʔi| [[iliʔi]] |
-| `684-S1` | 01:14 | Joe Peter | JP:  ayaq yaka/ munk-paya ileʔi | [TEX] [LING] sounds clearly like "munk", |ileʔi| [[iliʔi]] |
-| `684-S1` | 01:21 | Joe Peter | JP:  paya-ileʔi | [LING] |paya-ileʔi| [[paya-iliʔi]]  [idiom for lightning?] |
-| `684-S1` | 01:32 | Joe Peter | JP:  yaka mamuk-kakwə | [LING] |mamuk-kakwə| [mamuk-kakwa] |
-| `684-S1` | 01:54 | Joe Peter | JP:  yaka ɬatwa kʰupa {haws} yaka mash yaka net kʰupa ileʔi | [LING]  |ileʔi| [[iliʔi]] |
-| `684-S1` | 02:05 | Joe Peter | JP:  yaka iskam yaka iskam uk paya/ paya// paya-{stik}/ ileʔi | [LING]  |ileʔi| [[iliʔi]] |
+| `683-S2` | 16:32 | Joe Peter | JP:  yaka/ yaka mash yaka lepʰiye inatay kʰupa ukuk/ chək | [LING]  \|lepʰiye\| [[lipʰyi]] |
+| `683-S2` | 16:42 | Joe Peter | JP:  cha../ mayka ɬatwa kʰupa nayka lepʰiye/ inatay | [LING] \|lepʰiye\| [[lipʰyi]] |
+| `683-S2` | 16:57 | Joe Peter | JP:  alta ukuk skukúm yaka ɬatwa kʰupa yaka lepʰiye ɬatwa inatay | [LING] \|lepʰiye\| [[lipʰyi]] |
+| `683-S2` | 17:17 | Joe Peter | JP:  <alta uk>/ ukuk/ ukuk paya-mæn yaka mamuk-/ k'ilapay yaka lepʰiye | [LING]  \|lepʰiye\| [[lipʰyi]] and \|mæn\| [[man]] |
+| `683-S2` | 18:48 | Joe Peter | JP:  ɬaska miɬayt kʰupá/ leyley | [LING] \|leyley\| [[lili]] |
+| `683-S2` | 18:55 | Joe Peter | JP:  ukuk tənəs-mæn wik yaka tiki yaka ɬuchmən | [LING] \|mæn\| [[man]] |
+| `683-S2` | 19:08 | Joe Peter | JP:  kʰupá qʰəntsix̣ sæn | [LING] \|qʰəntsix̣\| [[qʰəntsi]] and \|sæn\| [[san]] |
+| `684-S1` | 01:02 | Joe Peter | JP:  <alta> hayas-{samən} yaka supəna inatay kʰupa yaka/ {net} | [LING] \|hayas-samən\| [[hayash-samən]] |
+| `684-S1` | 01:09 | Joe Peter | JP:  ukuk paya-{man} yaka nanich kʰupa ileʔi | [LING] \|ileʔi\| [[iliʔi]] |
+| `684-S1` | 01:14 | Joe Peter | JP:  ayaq yaka/ munk-paya ileʔi | [TEX] [LING] sounds clearly like "munk", \|ileʔi\| [[iliʔi]] |
+| `684-S1` | 01:21 | Joe Peter | JP:  paya-ileʔi | [LING] \|paya-ileʔi\| [[paya-iliʔi]]  [idiom for lightning?] |
+| `684-S1` | 01:32 | Joe Peter | JP:  yaka mamuk-kakwə | [LING] \|mamuk-kakwə\| [mamuk-kakwa] |
+| `684-S1` | 01:54 | Joe Peter | JP:  yaka ɬatwa kʰupa {haws} yaka mash yaka net kʰupa ileʔi | [LING]  \|ileʔi\| [[iliʔi]] |
+| `684-S1` | 02:05 | Joe Peter | JP:  yaka iskam yaka iskam uk paya/ paya// paya-{stik}/ ileʔi | [LING]  \|ileʔi\| [[iliʔi]] |
 | `684-S1` | 02:16 | Joe Peter | JP:  ya ɬatwa kʰupa stun | [LING] [TEX] Seemingly clear "ya" |
-| `684-S1` | 02:28 | Joe Peter | JP:  ukuk win ukuk {uh}/ win yaka <cha kʰupa> qʰa <ya> kʰupa ɬax̣-san | [LING] |cha| [[chaku]] |
-| `684-S1` | 02:36 | Joe Peter | JP:  yaka mamuk// yaka mamuk-win/ lolo kʰupa win yaka {haws}/ saya | [LING] |lolo| [[lulu]] |
-| `684-S1` | 03:14 | Joe Peter | JP:  pi wik yaka mamuk-kakwa// x̣awqwaɬ yaka mamuk-kakwa | [LING] |x̣awqwaɬ| [[x̣awqaɬ]] |
+| `684-S1` | 02:28 | Joe Peter | JP:  ukuk win ukuk {uh}/ win yaka <cha kʰupa> qʰa <ya> kʰupa ɬax̣-san | [LING] \|cha\| [[chaku]] |
+| `684-S1` | 02:36 | Joe Peter | JP:  yaka mamuk// yaka mamuk-win/ lolo kʰupa win yaka {haws}/ saya | [LING] \|lolo\| [[lulu]] |
+| `684-S1` | 03:14 | Joe Peter | JP:  pi wik yaka mamuk-kakwa// x̣awqwaɬ yaka mamuk-kakwa | [LING] \|x̣awqwaɬ\| [[x̣awqaɬ]] |
 | `684-S1` | 07:31 | Joe Peter | JP:  yaka hayu-kʰlay | [LING] hayu- "ing" for crying |
 | `684-S1` | 08:56 | Joe Peter | JP:  ukuk tənəs-{man} ya iskam ɬaska | [LING] [TEX] Clear "ya" here |
 | `684-S1` | 10:04 | Joe Peter | JP:  ɬaska hayu-is.. yaka is.. iskam yaka mənk-t'ɬəx̣-t'ɬəx̣ yax̣ka kʰanawi-qʰa | [VEX] clear ejective on t'ɬəx̣ and second t'ɬəx̣ reduced to t'ɬ.  [LING] Also note "mənk", shortened mamuk |
 | `684-S1` | 10:42 | Joe Peter | JP:  <mayka> ɬatwa/ ayaq munk-iskam/ makwst/// makwst swawa | [LING] [TEX] Pretty clear "munk", shortened form of mamuk here |
 | `684-S1` | 14:20 | Joe Peter | JP:  yaka/ uk ulman yaka kəmtəks ukuk/ ɬax̣ani pi yaka mitxwit-ɬatwa ɬax̣ani | [LING] "mitxwit-ɬatwa" for "walk" |
-| `684-S1` | 14:37 | Joe Peter | JP:  dileyt mayka kakwa <kakwa> nayka anqati | [LING] |dileyt| [[dilit]]  [VEX] Clear uvular on "anqati" |
-| `684-S1` | 15:35 | Joe Peter | JP:  ukuk {uh}// lolo-{stik} kʰupá | [LING]  |lolo-stik| [[luʔluʔ-stik]] |
-| `684-S1` | 15:44 | Joe Peter | JP:  yaka kwas chaku <<kʰupa>> tənəs/ wik-saya | [LING]  |kwas| [[k'was]] |
-| `684-S1` | 16:01 | Joe Peter | JP:  iskam ukuk lolo-{stik} | [LING]  |lolo-stik| [[luʔluʔ-stik]] |
-| `684-S1` | 16:09 | Joe Peter | JP:  yaka kʰuli saya | [LING] |kʰuli| [[kuri]] |
-| `684-S1` | 16:14 | Joe Peter | JP:  yaka lulu uk<uk> lolo-{stik}/ kʰanumakwst yax̣ka | [LING]  |lolo-stik| [[luʔluʔ-stik]] |
-| `684-S1` | 16:21 | Joe Peter | JP:  ukuk tilixam ɬaska mamuk-paya kʰanawi ɬaska/ {sticks} | [LING] |{sticks}| [[stik]] |
-| `684-S1` | 16:31 | Joe Peter | JP:  ɬaska mamuk-kʰuli yax̣ka | [LING] |mamuk-kʰuli| [[mamuk-kuri]] |
-| `684-S1` | 16:36 | Joe Peter | JP:  ɬaska mamuk-kʰuli yax̣ka/ saya <ileyi> | [LING] |mamuk-kʰuli| [[mamuk-kuri]] and |ileyi| [[ili?i]] |
-| `684-S1` | 16:58 | Joe Peter | JP:  kakshət msayka/ chopʰa | [LING] |chopʰa| [[chup]] |
-| `684-S1` | 17:03 | Joe Peter | JP:  ɬaska iskam {stik} pi <<mamuk->> kakshət yaka/ chopʰa | [LING] |chopʰa| [[chup]] |
+| `684-S1` | 14:37 | Joe Peter | JP:  dileyt mayka kakwa <kakwa> nayka anqati | [LING] \|dileyt\| [[dilit]]  [VEX] Clear uvular on "anqati" |
+| `684-S1` | 15:35 | Joe Peter | JP:  ukuk {uh}// lolo-{stik} kʰupá | [LING]  \|lolo-stik\| [[luʔluʔ-stik]] |
+| `684-S1` | 15:44 | Joe Peter | JP:  yaka kwas chaku <<kʰupa>> tənəs/ wik-saya | [LING]  \|kwas\| [[k'was]] |
+| `684-S1` | 16:01 | Joe Peter | JP:  iskam ukuk lolo-{stik} | [LING]  \|lolo-stik\| [[luʔluʔ-stik]] |
+| `684-S1` | 16:09 | Joe Peter | JP:  yaka kʰuli saya | [LING] \|kʰuli\| [[kuri]] |
+| `684-S1` | 16:14 | Joe Peter | JP:  yaka lulu uk<uk> lolo-{stik}/ kʰanumakwst yax̣ka | [LING]  \|lolo-stik\| [[luʔluʔ-stik]] |
+| `684-S1` | 16:21 | Joe Peter | JP:  ukuk tilixam ɬaska mamuk-paya kʰanawi ɬaska/ {sticks} | [LING] \|{sticks}\| [[stik]] |
+| `684-S1` | 16:31 | Joe Peter | JP:  ɬaska mamuk-kʰuli yax̣ka | [LING] \|mamuk-kʰuli\| [[mamuk-kuri]] |
+| `684-S1` | 16:36 | Joe Peter | JP:  ɬaska mamuk-kʰuli yax̣ka/ saya <ileyi> | [LING] \|mamuk-kʰuli\| [[mamuk-kuri]] and \|ileyi\| [[ili?i]] |
+| `684-S1` | 16:58 | Joe Peter | JP:  kakshət msayka/ chopʰa | [LING] \|chopʰa\| [[chup]] |
+| `684-S1` | 17:03 | Joe Peter | JP:  ɬaska iskam {stik} pi <<mamuk->> kakshət yaka/ chopʰa | [LING] \|chopʰa\| [[chup]] |
 | `684-S1` | 17:22 | Joe Peter | JP:  {{concentrate that}}// yaka hayu-kʰlay pi yaka mamuk-tsəq | [LING] use of "tsəq" instead of typical "chək" [NOTE} he redoes the last unfinished sentence and completes it. |
-| `684-S1` | 17:35 | Joe Peter | JP:  yaka hayu-shnas alta | [LING] |shnas| [[snas]], hayu- "ing" for raining |
-| `684-S1` | 18:40 | Joe Peter | JP:  ɬaska mamuk-pʰu kʰupa uk {stik} saya | [LING] |mamuk-pʰu| [[mamuk-p'u]] , Clear shortened ukuk with "uk" |
-| `684-S1` | 19:19 | Joe Peter | JP:  ɬaska hayu-pʰu kʰupa ukuk <ya..>/ {stik} kʰanawi | [LING] |hayu-pʰu| [hayu-p'u], hayu- "ing" for shooting |
-| `684-S1` | 19:25 | Joe Peter | JP:  kʰupa ukuk/ kʰupa ukuk kuli/ saya | [LING] |kuli| [[kuri]] |
-| `684-S1` | 19:33 | Joe Peter | JP:  ukuk kʰanawi/ skukum tilixam ɬaska mamuk-paya ɬaska {stik} {uh}/ kuli kʰupa yax̣ka | [LING] |kuli| [[kuri]] |
-| `684-S1` | 20:03 | Joe Peter | JP:  <alta msayka mamuk.. alta> msayka kakshət uk mayka chupʰa | [LING] |chupʰa| [[chup]] |
-| `684-S1` | 20:08 | Joe Peter | JP:  ɬaska iskam/ ɬaska iskam {stik} kakshət ɬaska chupʰa | [LING] |chupʰa| [[chup]] |
-| `684-S1` | 20:19 | Joe Peter | JP:  <{ya}/{uh}>// ukuk ulman yaka mamuk-tsuk | [LING] |mamuk-tsuk| [[mamuk-tsəqw]] |
-| `684-S1` | 20:26 | Joe Peter | JP:  <yaka hayu>-shnas alta | [LING] |hayu-shnas| [[hayu-snas]], hayu- "ing" for raining |
-| `685-S1` | 00:14 | Joe Peter | JP:  <ukuk/alta uk> tilixam ɬaska mash tsək kʰupa kʰanawi/ ukuk paya | [LING] |tsək| [[chək]] |
-| `685-S1` | 01:21 | Joe Peter | JP:  ɬaskaaa// ɬaska mamuk <<tɬuk-tɬuk>> kʰupa iley? ɬaska t'ɬap ukuk | [LING] |iley?| [[iliʔi]] |
+| `684-S1` | 17:35 | Joe Peter | JP:  yaka hayu-shnas alta | [LING] \|shnas\| [[snas]], hayu- "ing" for raining |
+| `684-S1` | 18:40 | Joe Peter | JP:  ɬaska mamuk-pʰu kʰupa uk {stik} saya | [LING] \|mamuk-pʰu\| [[mamuk-p'u]] , Clear shortened ukuk with "uk" |
+| `684-S1` | 19:19 | Joe Peter | JP:  ɬaska hayu-pʰu kʰupa ukuk <ya..>/ {stik} kʰanawi | [LING] \|hayu-pʰu\| [hayu-p'u], hayu- "ing" for shooting |
+| `684-S1` | 19:25 | Joe Peter | JP:  kʰupa ukuk/ kʰupa ukuk kuli/ saya | [LING] \|kuli\| [[kuri]] |
+| `684-S1` | 19:33 | Joe Peter | JP:  ukuk kʰanawi/ skukum tilixam ɬaska mamuk-paya ɬaska {stik} {uh}/ kuli kʰupa yax̣ka | [LING] \|kuli\| [[kuri]] |
+| `684-S1` | 20:03 | Joe Peter | JP:  <alta msayka mamuk.. alta> msayka kakshət uk mayka chupʰa | [LING] \|chupʰa\| [[chup]] |
+| `684-S1` | 20:08 | Joe Peter | JP:  ɬaska iskam/ ɬaska iskam {stik} kakshət ɬaska chupʰa | [LING] \|chupʰa\| [[chup]] |
+| `684-S1` | 20:19 | Joe Peter | JP:  <{ya}/{uh}>// ukuk ulman yaka mamuk-tsuk | [LING] \|mamuk-tsuk\| [[mamuk-tsəqw]] |
+| `684-S1` | 20:26 | Joe Peter | JP:  <yaka hayu>-shnas alta | [LING] \|hayu-shnas\| [[hayu-snas]], hayu- "ing" for raining |
+| `685-S1` | 00:14 | Joe Peter | JP:  <ukuk/alta uk> tilixam ɬaska mash tsək kʰupa kʰanawi/ ukuk paya | [LING] \|tsək\| [[chək]] |
+| `685-S1` | 01:21 | Joe Peter | JP:  ɬaskaaa// ɬaska mamuk <<tɬuk-tɬuk>> kʰupa iley? ɬaska t'ɬap ukuk | [LING] \|iley?\| [[iliʔi]] |
 | `685-S1` | 01:49 | Joe Peter | JP:  nisayka chich yaka mamuk-ɬax̣ayam nsayka | [LING] Both nisayka and nsayka being used |
-| `685-S1` | 02:10 | Joe Peter | JP:  kʰupá ɬaska miɬayt leyli | [LING]  |leyli| [[lili]] |
+| `685-S1` | 02:10 | Joe Peter | JP:  kʰupá ɬaska miɬayt leyli | [LING]  \|leyli\| [[lili]] |
 | `685-S1` | 02:14 | Joe Peter | JP:  ixt san yaka chaku tənas win kʰapuk hayash chək | [LING] Use of kʰapuk, shortened kʰapa-ukuk |
-| `685-S1` | 03:26 | Joe Peter | JP:  ɬaska ɬatwa kʰupa ukuk// hayash tsək | [LING] |tsək| [[chək]] |
-| `685-S1` | 04:31 | Joe Peter | JP:  kʰupá yaka t'ɬap/ makwst tənáaas/ <hayash-> chək kəlakəla | [LING] |tənáaas| [[tənas]] |
-| `685-S1` | 05:26 | Joe Peter | JP:  qʰata aɬqi/ qʰata aɬqi mayka mamuk <lásup> <<kʰupa/ukuk/kʰapuk/kʰupa uk>> mayka tənas | [LING] |lásup| [[lasup]] |
+| `685-S1` | 03:26 | Joe Peter | JP:  ɬaska ɬatwa kʰupa ukuk// hayash tsək | [LING] \|tsək\| [[chək]] |
+| `685-S1` | 04:31 | Joe Peter | JP:  kʰupá yaka t'ɬap/ makwst tənáaas/ <hayash-> chək kəlakəla | [LING] \|tənáaas\| [[tənas]] |
+| `685-S1` | 05:26 | Joe Peter | JP:  qʰata aɬqi/ qʰata aɬqi mayka mamuk <lásup> <<kʰupa/ukuk/kʰapuk/kʰupa uk>> mayka tənas | [LING] \|lásup\| [[lasup]] |
 | `685-S1` | 08:24 | Joe Peter | JP:  yaka wik-saya kʰupa ilíʔi | [LING] Second syllable stress in ilíʔi and í=ey |
-| `685-S1` | 08:52 | Joe Peter | JP:  nsay.. nsayka chich aɬqi yaka/ mak-ɬáx̣ayam <n>sayka pus yaka chaku | [LING] |mak-ɬáx̣ayam| [[mamuk-ɬax̣ayam]], shortened "mak-" for "mamuk" |
-| `685-S1` | 09:33 | Joe Peter | JP:  tənes wawa "chaku kʰupa haws" | [LING] |tənes| [[tənas]] |
+| `685-S1` | 08:52 | Joe Peter | JP:  nsay.. nsayka chich aɬqi yaka/ mak-ɬáx̣ayam <n>sayka pus yaka chaku | [LING] \|mak-ɬáx̣ayam\| [[mamuk-ɬax̣ayam]], shortened "mak-" for "mamuk" |
+| `685-S1` | 09:33 | Joe Peter | JP:  tənes wawa "chaku kʰupa haws" | [LING] \|tənes\| [[tənas]] |
 | `685-S1` | 10:19 | Joe Peter | JP:  ukuk tənas yaka <munk/mamuk>-kʰlay | [NOTE] suggesting "munk" [LING] hayu- "ing" for crying |
-| `685-S1` | 12:11 | Joe Peter | JP:  yaka kʰupit-məkʰmək pi yaka ɬatwa k'ilápa kʰupa yaka haws | [LING]  |k'ilápa| [[k'ilapay]] |
-| `685-S1` | 12:17 | Joe Peter | JP:  ɬaska patɬach yax̣ka mənkst | [LING] |mənkst| [[makwst]] |
+| `685-S1` | 12:11 | Joe Peter | JP:  yaka kʰupit-məkʰmək pi yaka ɬatwa k'ilápa kʰupa yaka haws | [LING]  \|k'ilápa\| [[k'ilapay]] |
+| `685-S1` | 12:17 | Joe Peter | JP:  ɬaska patɬach yax̣ka mənkst | [LING] \|mənkst\| [[makwst]] |
 | `685-S1` | 12:43 | Joe Peter | yaka chaku-ɬax̣ kʰupa uk hayash/ hayu-haws | [LING] clear "uk" for shortened ukuk |
-| `685-S1` | 14:11 | Joe Peter | JP:  ukuk ilei kəlakəla ɬaska məkʰmək mayka | [LING]  |ilei| [[iliʔi]] |
-| `685-S1` | 14:49 | Joe Peter | JP:  <sk'ak'a> <<tsxi>> məkʰmək mayka | [OTL] Cowlitz "sk'ak'aʔ" for crow [LING] |tsxi| [[chxi]] |
+| `685-S1` | 14:11 | Joe Peter | JP:  ukuk ilei kəlakəla ɬaska məkʰmək mayka | [LING]  \|ilei\| [[iliʔi]] |
+| `685-S1` | 14:49 | Joe Peter | JP:  <sk'ak'a> <<tsxi>> məkʰmək mayka | [OTL] Cowlitz "sk'ak'aʔ" for crow [LING] \|tsxi\| [[chxi]] |
 | `685-S1` | 15:00 | Joe Peter | JP:  mayka na nanich | [TEX] [LING] Use of the question particle "na" |
 | `685-S1` | 17:19 | Joe Peter | JP:  ɬaska miɬayt inatay-inatay kʰupa ukuk paya | [LING] "inatay-inatay" sounds intentional |
-| `685-S1` | 17:25 | Joe Peter | JP:  yaka miɬayt qwənəm tənas | [LING] |qwənəm| [[qwinəm]] |
-| `685-S1` | 18:54 | Joe Peter | JP:  yaka chaku-ɬax̣ pi yakaa q'wəɬ kʰupa yaka/ qwatʰin | [LING] |qwatʰin| [[k'wətʰin]] |
+| `685-S1` | 17:25 | Joe Peter | JP:  yaka miɬayt qwənəm tənas | [LING] \|qwənəm\| [[qwinəm]] |
+| `685-S1` | 18:54 | Joe Peter | JP:  yaka chaku-ɬax̣ pi yakaa q'wəɬ kʰupa yaka/ qwatʰin | [LING] \|qwatʰin\| [[k'wətʰin]] |
 | `685-S1` | 19:25 | Joe Peter | JP:  alta na mayka nanich | [LING] Use of the "na" particle |
 | `693-S2` | 05:02 | Joe Peter | JP: nayka munk-təmtəm kʰəltəs-ikta ukuk | [LING] [TEX] clear 'munk" shortened mamuk |
-| `693-S2` | 07:22 | Joe Peter | JP: alta kʰupa miməlust tilixam ukuk {bons} ɬaska | [LING] |bons| [[bon] |
-| `693-S2` | 07:57 | Joe Peter | JP: kʰəpit ukuk yaka {bons} <alta> kʰupá | [LING] |bons| [[bon]] |
-| `693-S2` | 08:56 | Joe Peter | JP: kʰəpit ukuk yaka {bons} ɬaska nanich | [LING] |bons| [[bon]] |
-| `693-S2` | 09:56 | Joe Peter | JP: ukuk kəlakəla yaka <ɬax̣/ɬatwa>/ kuli yawa kʰupa <<ukuk/mamuk>> saya kʰupa hayash-chək | [LING] |kuli| [[kuri]] |
-| `694-S1` | 02:18 | Joe Peter | JP: alta yaka miməlus ukuk kəlákəla | [LING] |miməlus| [[miməlust]] |
+| `693-S2` | 07:22 | Joe Peter | JP: alta kʰupa miməlust tilixam ukuk {bons} ɬaska | [LING] \|bons\| [[bon] |
+| `693-S2` | 07:57 | Joe Peter | JP: kʰəpit ukuk yaka {bons} <alta> kʰupá | [LING] \|bons\| [[bon]] |
+| `693-S2` | 08:56 | Joe Peter | JP: kʰəpit ukuk yaka {bons} ɬaska nanich | [LING] \|bons\| [[bon]] |
+| `693-S2` | 09:56 | Joe Peter | JP: ukuk kəlakəla yaka <ɬax̣/ɬatwa>/ kuli yawa kʰupa <<ukuk/mamuk>> saya kʰupa hayash-chək | [LING] \|kuli\| [[kuri]] |
+| `694-S1` | 02:18 | Joe Peter | JP: alta yaka miməlus ukuk kəlákəla | [LING] \|miməlus\| [[miməlust]] |
 | `694-S1` | 10:22 | Joe Peter | JP: ná nayka aw qʰata-<pi/pus> mayka mamuk-ipsət mayka <<hayu>> kʰupa nayka | [LING] [TEX] Use of the "na" question particle |
-| `694-S1` | 12:18 | Joe Peter | JP: alaxti ɬaska mamuk-miməlus nayka, ɬush <na> təmtəm <mamuk>-k'ilapay | [LING] |miməlus| [[miməlust]] |
-| `694-S1` | 12:56 | Joe Peter | JP: ɬaska patɬæch ukuk kalaytən kʰupa uk tənəs-{man}/ ixt {man} yaka nanich | [LING]  |patɬæch| [[palach]] |
-| `694-S1` | 13:07 | Joe Peter | JP: patɬæch nayka kalaytən | [LING]  |patɬæch| [[palach]] |
-| `694-S1` | 13:40 | Joe Peter | JP: ɬaska patɬæch k'ilapay <kʰupa> ukuk kəlákəla | [LING]  |patɬæch| [[palach]] |
-| `694-S1` | 13:46 | Joe Peter | JP: patɬæch nayka ukuk makwst nayka <<latet yak'isəɬ kʰanu-isəl>> | [LING]  |patɬæch| [[palach]] |
-| `694-S1` | 14:21 | Joe Peter | JP: ukuk/ ukuk kəlákəla yaka kəmtəks mauʔn tilixam yaka chaku <<...>> alta yaka <<chaku-x̣luyma>> | [LING] |mauʔn| [[mountain]] |
-| `694-S1` | 17:50 | Joe Peter | JP: wik nayka <wik qʰata> pus nayka eylan mayka | [LING] |eylan| [[yeʔlan]] |
-| `694-S1` | 18:16 | Joe Peter | JP: alta ya/ alta yaka chaku ukuk x̣luyma tilixam yawa miməlus-iliʔi | [LING] |miməlus| [[miməlust]] |
-| `694-S2` | 03:03 | Joe Peter | JP: alta yaka nanich ukuk anqati miməlus-tilixam | [LING] |miməlus| [[miməlust]] |
-| `694-S2` | 03:08 | Joe Peter | JP: yaka nanich ukuk {man} pus mamuk-ilan ukuk pʰish | [LING] |ilan| [[yeʔlan]] |
-| `694-S2` | 03:54 | Joe Peter | JP: mayka <ma...> mayka nanich alta mayka wik-miməlus | [LING] |miməlus| [[miməlust]] |
-| `694-S2` | 03:59 | Joe Peter | JP: nayka wik-miməlus | [LING] |miməlus| [[miməlust]] |
-| `694-S2` | 06:50 | Joe Peter | JP: <alta> ukuk yax̣ka <ukuk> miməlust-tilixam yaka ilan yax̣ka iləp yaka mamuk-<sax̣ali/ɬax̣ani> yaka lima | [LING] |ilan| [[yeʔlan]] |
-| `694-S2` | 15:41 | Joe Peter | JP: tʰuma.. tʰumala <<miɬ..>> nisayka tənəs miɬayt/ leeyli | [LING] |leeyli| [[lili]] |
-| `694-S2` | 16:24 | Joe Peter | JP: yaka mamuk yaka isəq/ ɬawa | [LING]  |isəq| [[isik]] |
-| `694-S2` | 16:30 | Joe Peter | JP:  yaka/ q'ənchi yaka <ɬaska> ɬatwa <mash kʰanawi> ukuk kənim yaka wawa kʰupa yax̣ka | [LING] |q'ənchi| [[qʰənchi]] |
-| `694-S2` | 16:38 | Joe Peter | JP: alta misayka ɬatwa <mamuk-lalem> katsaq kʰupa ukuk chək | [LING] |lalem| [[lalam]] |
-| `694-S2` | 16:45 | Joe Peter | JP: ɬaska mamuk-lalem saya kʰupa ukuk <<{land}>>/ uk<uk> <iliʔi> | [LING] |lalem| [[lalam]] |
-| `694-S2` | 16:53 | Joe Peter | JP: yaka mamuk-miɬayt qwinəm kəlakəla kʰupa ukúk/ <<wixt {side}/ ixt {side}>> kʰupa kənim/ <yaka/ kənim> | [LING] |ukúk| [[ukuk]] |
-| `694-S2` | 17:18 | Joe Peter | JP: alta mayka mamuk-lalam | [LING] |lalem| [[lalam]] |
-| `694-S2` | 18:36 | Joe Peter | JP: ukuk {smelt} yaka chaku-<heylo> | [LING] |heylo| [[hilu]] |
-| `694-S2` | 19:02 | Joe Peter | JP: ukuk {smelt} alta yaka chaku-heylo | [LING] |heylo| [[hilu]] |
+| `694-S1` | 12:18 | Joe Peter | JP: alaxti ɬaska mamuk-miməlus nayka, ɬush <na> təmtəm <mamuk>-k'ilapay | [LING] \|miməlus\| [[miməlust]] |
+| `694-S1` | 12:56 | Joe Peter | JP: ɬaska patɬæch ukuk kalaytən kʰupa uk tənəs-{man}/ ixt {man} yaka nanich | [LING]  \|patɬæch\| [[palach]] |
+| `694-S1` | 13:07 | Joe Peter | JP: patɬæch nayka kalaytən | [LING]  \|patɬæch\| [[palach]] |
+| `694-S1` | 13:40 | Joe Peter | JP: ɬaska patɬæch k'ilapay <kʰupa> ukuk kəlákəla | [LING]  \|patɬæch\| [[palach]] |
+| `694-S1` | 13:46 | Joe Peter | JP: patɬæch nayka ukuk makwst nayka <<latet yak'isəɬ kʰanu-isəl>> | [LING]  \|patɬæch\| [[palach]] |
+| `694-S1` | 14:21 | Joe Peter | JP: ukuk/ ukuk kəlákəla yaka kəmtəks mauʔn tilixam yaka chaku <<...>> alta yaka <<chaku-x̣luyma>> | [LING] \|mauʔn\| [[mountain]] |
+| `694-S1` | 17:50 | Joe Peter | JP: wik nayka <wik qʰata> pus nayka eylan mayka | [LING] \|eylan\| [[yeʔlan]] |
+| `694-S1` | 18:16 | Joe Peter | JP: alta ya/ alta yaka chaku ukuk x̣luyma tilixam yawa miməlus-iliʔi | [LING] \|miməlus\| [[miməlust]] |
+| `694-S2` | 03:03 | Joe Peter | JP: alta yaka nanich ukuk anqati miməlus-tilixam | [LING] \|miməlus\| [[miməlust]] |
+| `694-S2` | 03:08 | Joe Peter | JP: yaka nanich ukuk {man} pus mamuk-ilan ukuk pʰish | [LING] \|ilan\| [[yeʔlan]] |
+| `694-S2` | 03:54 | Joe Peter | JP: mayka <ma...> mayka nanich alta mayka wik-miməlus | [LING] \|miməlus\| [[miməlust]] |
+| `694-S2` | 03:59 | Joe Peter | JP: nayka wik-miməlus | [LING] \|miməlus\| [[miməlust]] |
+| `694-S2` | 06:50 | Joe Peter | JP: <alta> ukuk yax̣ka <ukuk> miməlust-tilixam yaka ilan yax̣ka iləp yaka mamuk-<sax̣ali/ɬax̣ani> yaka lima | [LING] \|ilan\| [[yeʔlan]] |
+| `694-S2` | 15:41 | Joe Peter | JP: tʰuma.. tʰumala <<miɬ..>> nisayka tənəs miɬayt/ leeyli | [LING] \|leeyli\| [[lili]] |
+| `694-S2` | 16:24 | Joe Peter | JP: yaka mamuk yaka isəq/ ɬawa | [LING]  \|isəq\| [[isik]] |
+| `694-S2` | 16:30 | Joe Peter | JP:  yaka/ q'ənchi yaka <ɬaska> ɬatwa <mash kʰanawi> ukuk kənim yaka wawa kʰupa yax̣ka | [LING] \|q'ənchi\| [[qʰənchi]] |
+| `694-S2` | 16:38 | Joe Peter | JP: alta misayka ɬatwa <mamuk-lalem> katsaq kʰupa ukuk chək | [LING] \|lalem\| [[lalam]] |
+| `694-S2` | 16:45 | Joe Peter | JP: ɬaska mamuk-lalem saya kʰupa ukuk <<{land}>>/ uk<uk> <iliʔi> | [LING] \|lalem\| [[lalam]] |
+| `694-S2` | 16:53 | Joe Peter | JP: yaka mamuk-miɬayt qwinəm kəlakəla kʰupa ukúk/ <<wixt {side}/ ixt {side}>> kʰupa kənim/ <yaka/ kənim> | [LING] \|ukúk\| [[ukuk]] |
+| `694-S2` | 17:18 | Joe Peter | JP: alta mayka mamuk-lalam | [LING] \|lalem\| [[lalam]] |
+| `694-S2` | 18:36 | Joe Peter | JP: ukuk {smelt} yaka chaku-<heylo> | [LING] \|heylo\| [[hilu]] |
+| `694-S2` | 19:02 | Joe Peter | JP: ukuk {smelt} alta yaka chaku-heylo | [LING] \|heylo\| [[hilu]] |
 
 ## <a name="hist"></a>📜 Cultural & Historical Context Logs
 
@@ -408,7 +408,7 @@ _No entries recorded in this category._
 | `682-S1` | 02:27 | Joe Peter | JP:  <<kʷáɬmn>> | [?] [OTL]  https://dictionary.cowlitzsalish.org/#/E/uncle |
 | `682-S1` | 05:54 | Joe Peter | JP:  yaka wəx̣t <<iskam ɬatwa/t'ɬap kəlakəla>> ukuk hayash kəlakəla | [?] [NOTE] Extra difficult |
 | `682-S1` | 06:31 | Joe Peter | JP:  tən<...>n yaka supna yaka wawa | [?] [NOTE] break in audio "tən(əs ma)n" |
-| `682-S1` | 07:01 | Joe Peter | JP:  yax̣ka iskam uk tənəs yaka mamuk/-miməlus ukuk tənəs | [?] [LING] tənəs for tənas?. Unfinished?. |miməlus| [[miməlust]], appears to drop the 't' |
+| `682-S1` | 07:01 | Joe Peter | JP:  yax̣ka iskam uk tənəs yaka mamuk/-miməlus ukuk tənəs | [?] [LING] tənəs for tənas?. Unfinished?. \|miməlus\| [[miməlust]], appears to drop the 't' |
 | `682-S1` | 08:25 | Joe Peter | JP:  tənəs atá | [?] [INFO] example of northernism? |
 | `682-S1` | 10:15 | Joe Peter | JP:  yax̣ka p'u | [?] [LING]  possibly like 'pu'? |
 | `682-S1` | 11:19 | Joe Peter | JP:  tənəs atá | [?] [INFO] example of northernism? |
@@ -422,39 +422,39 @@ _No entries recorded in this category._
 | `682-S1` | 17:58 | Joe Peter | JP:  ukuk tənəs-ɬuchmən ya chaku-saliks | [?] Possible shortened yaka, is this really "ya"? |
 | `682-S2` | 00:34 | Joe Peter | JP:  yaka wawa <hayaaa> lili | [?] have we seen this before |
 | `682-S2` | 00:43 | John Marr | JM:  the old man fell asleep | [NOTE] ended here 1/20 [?] what year was note? |
-| `682-S2` | 00:45 | Joe Peter | JP:  <ya> ulman yaka/ t'ɬux̣-miməlus<t> | [?] [NOTE] check with others again is this a <>, or is he dropping the t and we should use |miməlus| [[miməlust]] |
+| `682-S2` | 00:45 | Joe Peter | JP:  <ya> ulman yaka/ t'ɬux̣-miməlus<t> | [?] [NOTE] check with others again is this a <>, or is he dropping the t and we should use \|miməlus\| [[miməlust]] |
 | `682-S2` | 01:24 | Joe Peter | JP:  yakaaa tənas-ɬuchmən <<yax̣ka wəx̣t>> <miɬayt pi yaka ɬatwa ɬax̣ani> | [?] [NOTE] miɬayt for "mitxwit"? |
-| `682-S2` | 02:23 | Joe Peter | JP:  yaka yaka mi.. yaka miɬayt pi yaka t'ɬap ukuk lapot// ix̣púy | [?] [NOTE] JP possibly is mixing up "mitxwit" and "miɬayt" in this section [LING] |ix̣púy| [[ix̣puy]] |
-| `682-S2` | 03:08 | Joe Peter | JP:  yaka t'ɬap ɬaska kʰupa <hayas> {stik}/ saya | [?] [NOTE] either "hayash" or "kʰupaaassssstik" [LING] |hayas| [[hayash]] |
+| `682-S2` | 02:23 | Joe Peter | JP:  yaka yaka mi.. yaka miɬayt pi yaka t'ɬap ukuk lapot// ix̣púy | [?] [NOTE] JP possibly is mixing up "mitxwit" and "miɬayt" in this section [LING] \|ix̣púy\| [[ix̣puy]] |
+| `682-S2` | 03:08 | Joe Peter | JP:  yaka t'ɬap ɬaska kʰupa <hayas> {stik}/ saya | [?] [NOTE] either "hayash" or "kʰupaaassssstik" [LING] \|hayas\| [[hayash]] |
 | `682-S2` | 04:33 | Joe Peter | JP:  ukuk.. ukuk kʰanawi <nsayka/yaka> aw <<ats/ɬ..>> ɬaska miɬ../ chaku-ɬush/ ɬaska miɬayt alta | [?]  Does JP hear "revived"? |
 | `682-S2` | 11:04 | Joe Peter | JP:  alta yaka <<{man}>> alta yaka <<{man} ya wawa>> | [?] [NOTE] Major audio distortion ****Group Listen he says tilixam"**** |
 | `682-S2` | 16:42 | Joe Peter | JP:  yaka mayka ɬatwa kikwəli kʰupa ukuk chək | [?] [NOTE] kʰupa-ukuk contraction? |
 | `683-S1` | 11:47 | Joe Peter | JP:  yaka <upt'ɬikʰi>/ yaka man yaka tilixam kʰanawi | [?] [LING] devoured -> upt'ɬikʰi ? |
 | `683-S2` | 02:33 | Joe Peter | JP:  ukuk skukúm <<djəs/dais>> yaka məkʰmək kʰanawi ukuk iɬwəli | [?] [NOTE] what is dais(h)?? |
-| `683-S2` | 07:11 | Joe Peter | JP:  ikta <<ikta>> aɬqi yaka makʰmak ukuk nisayka chupʰa | [LING] |makʰmak| [[məkʰmək]]  [?] [NOTE] check pronunciation of məkʰmək |
-| `683-S2` | 12:10 | Joe Peter | JP:  aɬqi yaka alta <ukuk> t'ɬap ɬaska lepʰiye | [LING]  |lepʰiye| [lipʰyi] [?] [NOTE] is "ukuk" object of "t'ɬap"? or are we mishearing "ukuk" for "yaka"? |
+| `683-S2` | 07:11 | Joe Peter | JP:  ikta <<ikta>> aɬqi yaka makʰmak ukuk nisayka chupʰa | [LING] \|makʰmak\| [[məkʰmək]]  [?] [NOTE] check pronunciation of məkʰmək |
+| `683-S2` | 12:10 | Joe Peter | JP:  aɬqi yaka alta <ukuk> t'ɬap ɬaska lepʰiye | [LING]  \|lepʰiye\| [lipʰyi] [?] [NOTE] is "ukuk" object of "t'ɬap"? or are we mishearing "ukuk" for "yaka"? |
 | `683-S2` | 12:24 | John Marr | JM:  and the dog began to yell | [?] [NOTE] out of order or added? |
-| `684-S1` | 00:57 | Joe Peter | JP:  ukuk paya-{man} yaka mamuk-<salax̣/sahlix> | [?] review [NOTE] flipped syllables for sax̣ali?  [LING] |mamuk-salax̣/sahlix| [mamuk-sax̣ali] |
-| `684-S1` | 04:54 | Joe Peter | JP:  yaka <mam..> yaka mamuk kʰanumakwst uku ulman mamuk-miɬayt ukuk laplash k'ilapay kʰanawi | [?] review [LING] |uku| [[ukuk]] |
+| `684-S1` | 00:57 | Joe Peter | JP:  ukuk paya-{man} yaka mamuk-<salax̣/sahlix> | [?] review [NOTE] flipped syllables for sax̣ali?  [LING] \|mamuk-salax̣/sahlix\| [mamuk-sax̣ali] |
+| `684-S1` | 04:54 | Joe Peter | JP:  yaka <mam..> yaka mamuk kʰanumakwst uku ulman mamuk-miɬayt ukuk laplash k'ilapay kʰanawi | [?] review [LING] \|uku\| [[ukuk]] |
 | `684-S1` | 08:43 | Joe Peter | JP:  yaka wawa/ <haya> | [?] [LING] new word for "oh", haya? |
 | `684-S1` | 10:27 | Joe Peter | JP:  yaka tənas tənəs-{man} <mamuk>-k'ilapay ukuk/ kʰupa {stik} | [?] [LING] possibly "munk", shortened form of mamuk here? |
 | `684-S1` | 10:35 | Joe Peter | JP:  aɬqi alta/ lili alta <ukuk/ugu/ug/uk> ulman yaka wawa | [?] to review "ukuk" again |
 | `684-S1` | 11:03 | Joe Peter | JP:  yaka mamuk-x̣alaqɬ <<ukuk/ugu>> lapot | [?] to review "ukuk" again |
-| `684-S1` | 11:13 | Joe Peter | JP:  yaka/ <munk/mamuk>-t'ɬəx̣-t'ɬx̣ yax̣ka kʰanawi-qʰa | [?] to review munk/mamuk [LING] possibly "munk", shortened form of mamuk here?, |mamuk-t'ɬəx̣-t'ɬx̣| [[mamuk-t'ɬəx̣-t'ɬəx̣]] |
+| `684-S1` | 11:13 | Joe Peter | JP:  yaka/ <munk/mamuk>-t'ɬəx̣-t'ɬx̣ yax̣ka kʰanawi-qʰa | [?] to review munk/mamuk [LING] possibly "munk", shortened form of mamuk here?, \|mamuk-t'ɬəx̣-t'ɬx̣\| [[mamuk-t'ɬəx̣-t'ɬəx̣]] |
 | `684-S1` | 11:43 | Joe Peter | JP:  <ukuk> tənəs-{man} yaka <munk/mamuk->k'ilapay ɬaska | [?] [LING] mamuk sounds reduced, maybe "munk" "mamk" or "ma(m)u"? |
 | `684-S1` | 18:44 | Joe Peter | JP:  yaka k'was | [?] [VEX] Clear glottalization/ejective in k'was |
 | `684-S1` | 19:46 | Joe Peter | JP:  ɬaska <hayash>/ ɬaska tiki iskam yaka | [?] needs review [NOTE] Compare tq'ix̣ |
 | `685-S1` | 05:09 | Joe Peter | JP:  nayka ɬ'lap ukuk kəlakəla <kla..> hayash-chək kəlakəla | [?] [LING] kəlakəla generic use for animal, sea otters a "big water bird"? |
 | `685-S1` | 05:43 | Joe Peter | JP:  yaka t'ɬap ukuk hayash/ -chək kəlakəla | [?] [LING] kəlakəla generic use for animal, a sea lion is a "big water bird"? see Wishram texts |
 | `685-S1` | 06:10 | Joe Peter | JP:  kʰanawi-tʰaym/ kʰanawi.. kwanisəm yaka t'ɬap ukuk/ kakwa makwst/ hayash-chək kəlakəla | [?] [LING] kəlakəla generic use for animal, again sea otter is a "big water bird" same as the sea lion? |
-| `685-S1` | 06:56 | Joe Peter | JP:  kʰanawi/ kʰanawi pulakʰli ukuk tilixam inatay kʰupa uk/ chək ɬaska <iskam> mash inatay/ <məq'wməq'w> kʰupa nsayka | [LING] |məq'wməq'w| [[məkʰmək]]  [NOTE] [OTL] [?] one syllable "uk" and possible Salish form of məkʰmək |
+| `685-S1` | 06:56 | Joe Peter | JP:  kʰanawi/ kʰanawi pulakʰli ukuk tilixam inatay kʰupa uk/ chək ɬaska <iskam> mash inatay/ <məq'wməq'w> kʰupa nsayka | [LING] \|məq'wməq'w\| [[məkʰmək]]  [NOTE] [OTL] [?] one syllable "uk" and possible Salish form of məkʰmək |
 | `685-S1` | 07:44 | Joe Peter | JP:  alta ukuk <sk'ak'aʔ> yaka hayu-/ nanich kʰupa yaka/ | [?] [OTL] Cowlitz "sk'ak'aʔ" for crow? maybe he is saying sk'akəla?, hayu- "ing' for looking/searching |
 | `685-S1` | 10:54 | Joe Peter | JP:  yaka k'was kʰupa mayka <win/{wind}> | [?] [NOTE] maybe "wind" or "wint"? |
 | `685-S1` | 11:07 | Joe Peter | JP:  <hayu-> iskam yax̣ka wəx̣t | [?] [NOTE] Is this really "hayu-"? [LING] hayu- "ing" for taking |
-| `685-S1` | 12:24 | Joe Peter | JP:  ɬaska <munk/mauk>-miɬayt pi yaka <munk/mauk>-miɬayt kʰupa yaka lisak | [?] [LING] |mauk-miɬayt| [[mamuk-miɬayt]] or |munk-miɬayt| [[mamuk-miɬayt]] |
+| `685-S1` | 12:24 | Joe Peter | JP:  ɬaska <munk/mauk>-miɬayt pi yaka <munk/mauk>-miɬayt kʰupa yaka lisak | [?] [LING] \|mauk-miɬayt\| [[mamuk-miɬayt]] or \|munk-miɬayt\| [[mamuk-miɬayt]] |
 | `685-S1` | 14:38 | Joe Peter | JP:  o kʰanawi nayka tenas.. nayka tənas yaka tenas | [?] [NOTE] slip for "nayka ats yaka tenas"?, should be ats not tənas |
 | `685-S1` | 15:10 | Joe Peter | JP:  yaka {nim} ukuk/ sk'ak'a | [OTL] Cowlitz "sk'ak'aʔ" for crow  [?] [NOTE] ambiguous "its name is crow" or just abbreviation of previous response? |
-| `685-S1` | 15:57 | Joe Peter | JP:  <<pi>> yaka t'ɬap ɬaska <<yax̣k..>> ɬaska <iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l> | [?] needs review, suggest its actaully "iɬwəli" [LING] |iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l| [[iɬwəli]] |
+| `685-S1` | 15:57 | Joe Peter | JP:  <<pi>> yaka t'ɬap ɬaska <<yax̣k..>> ɬaska <iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l> | [?] needs review, suggest its actaully "iɬwəli" [LING] \|iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l\| [[iɬwəli]] |
 | `693-S2` | 01:46 | Joe Peter | JP: qʰa ukuk alta <<yaka mayka uk kʰilta/kʰimt'a kapak'uk>> | [?] review |
 | `693-S2` | 09:42 | Joe Peter | JP: ukuk yaka ats palach yaka uptsax̣ <<pi>> yaka wawa kʰupa yax̣ka | [?] review palach sounds like potlach |
 | `693-S2` | 09:49 | Joe Peter | JP: kuri/ kuri-ayaq/ <<...>> hayash {samən} ɬaska iskam | [?] suggest Joe is saying kuli not kuri |
