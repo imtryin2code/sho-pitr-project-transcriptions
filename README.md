@@ -58,26 +58,26 @@ To maintain consistency across the archive, the following notations are used to 
 | `..` | Hesitation or stutter |
 
 ### 🔍 Research Notes Categories & Bracket Structural Rules
-The following system tags and structural rules are applied **exclusively inside dependent notes tiers** to categorize annotations and log localized variations:
+The parsing engine reads the `Notes_Text` fields directly, sorting entries dynamically into specialized tracking files using these exact bracketed identifiers and syntax wrappers:
 
-| Category / Rule | Description |
-| :--- | :--- |
-| `[text]` | Transcriber’s notes; generalized workspace context or content placeholder |
-| `[[text]]` | Standard Grand Ronde (GR) spelling for a non-standard pronunciation word variant |
-| `\|text\|` | Indicates pronunciation deviates significantly from standard GR dictionary variants |
-| `[?]` or `[UNCERTAIN]` | For structural transcription problems requiring a second set of ears or review |
-| `[HIST]` or `[INFO]` | For tracking important cultural or historical context markers |
-| `[LING]` | For tracking explicit phonetic, grammar, or dialect pronunciation notes |
-| `[TEX]` | For isolating great linguistic teaching examples |
-| `[VEX]` | For isolating distinct or high-quality vocalization examples |
-| `[OTL]` | For documenting other regional languages utilized inside conversation blocks |
-| `[NOTE]` | For general analytical comments and workspace footnotes |
+| Tag Indicator | Associated Category / Structural Rule | Core Purpose |
+| :--- | :--- | :--- |
+| `[LING]` | 🗣️ Linguistic & Phonetic Observations | Tracks shifts in pronunciation, phonetic deviations, and grammar logs. |
+| `[HIST]` | 📜 Cultural & Historical Context Logs | Captures background context, historical references, and community anecdotes. |
+| `[INFO]` | 💡 General Informational Notes | General observations, track metadata markers, or structural explanations. |
+| `[TEX]` | 🎓 Exemplary Teaching Examples | Highlights excellent data segments optimized for language learning materials. |
+| `[VEX]` | 🎵 High-Quality Vocalization Examples | Isolates distinct vocal inflections, expressions, or exceptional audio clarity. |
+| `[OTL]` | 🌐 Other Languages Utilized | Notes where English, Marr, or outside linguistic fragments overlap text segments. |
+| `[NOTE]` | 📝 Workspace Footnotes & Comments | General internal commentary, alignment flags, or raw project reminders. |
+| `[?]` / `[UNCERTAIN]` | ❓ Uncertain Segments Requiring Review | Flags questionable translations or unclear phonetics requiring peer review. |
+| `\|text\|` | Phonetic Deviation Indicator | Applied inside notes to isolate specific speech variants from standard dictionary records. |
+| `[[text]]` | Standard GR Spelling Variant | Applied inside notes to link non-standard pronunciations back to standard Grand Ronde spellings. |
 
 ---
 
 ## 🔬 Research & Observations
-- **Active Insights:** 302 specific linguistic observations.
-- **Dialect Variations:** 81 identified pronunciation patterns.
+- **Active Insights:** 424 specific linguistic observations.
+- **Dialect Variations:** 137 identified pronunciation patterns.
 - **Logs:** [Research Log](./exports/markdown/Research_Observations_Log.md) | [Variation Report](./exports/markdown/Dialect_Variation_Report.md)
 
 ---

@@ -15,19 +15,33 @@ def update_readme():
             lines = f.readlines()
             completed_ids = list(set(line.split(',')[0].strip() for line in lines[1:] if line.strip()))
     
-    # 2. Count Research Notes
+    # 2. Count Research Notes (Robust Dynamic Counting)
+    # Counts active data rows inside the generated Markdown tables, skipping header structural elements
     notes_count = 0
     if os.path.exists(notes_path):
         with open(notes_path, 'r', encoding='utf-8') as f:
-            notes_count = len(re.findall(r'^- \*\*', f.read(), re.MULTILINE))
+            for line in f:
+                # Count lines that start with a table bar, but aren't headers or dividers
+                if line.strip().startswith('|') and not any(k in line for k in ['Source ID', ':---', '---:']):
+                    # Ensure it's not an empty placeholder line
+                    if '_No entries recorded_' not in line:
+                        notes_count += 1
 
     # 3. Count Dialect Variations
+    # Dynamically reads table lines from the standalone variation report
     variation_count = 0
     if os.path.exists(variation_path):
         with open(variation_path, 'r', encoding='utf-8') as f:
-            variation_count = len([l for l in f.readlines() if l.startswith('| 6')])
+            for line in f:
+                if line.strip().startswith('|') and not any(k in line for k in ['Recording ID', ':---', '---:', 'Total Variations']):
+                    # Check that it isn't the fallback empty line
+                    if '| - | - |' not in line:
+                        variation_count += 1
 
-    if not os.path.exists(readme_path): return
+    if not os.path.exists(readme_path): 
+        print(f"Error: {readme_path} not found.")
+        return
+        
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
@@ -69,7 +83,7 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 6. Primary Dialogue Legend Section
+    # 6. Primary Dialogue Legend Section (Updated and Refined)
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence within the **primary transcription lines**:
 
@@ -86,20 +100,20 @@ To maintain consistency across the archive, the following notations are used to 
 | `..` | Hesitation or stutter |
 
 ### 🔍 Research Notes Categories & Bracket Structural Rules
-The following system tags and structural rules are applied **exclusively inside dependent notes tiers** to categorize annotations and log localized variations:
+The parsing engine reads the `Notes_Text` fields directly, sorting entries dynamically into specialized tracking files using these exact bracketed identifiers and syntax wrappers:
 
-| Category / Rule | Description |
-| :--- | :--- |
-| `[text]` | Transcriber’s notes; generalized workspace context or content placeholder |
-| `[[text]]` | Standard Grand Ronde (GR) spelling for a non-standard pronunciation word variant |
-| `\|text\|` | Indicates pronunciation deviates significantly from standard GR dictionary variants |
-| `[?]` or `[UNCERTAIN]` | For structural transcription problems requiring a second set of ears or review |
-| `[HIST]` or `[INFO]` | For tracking important cultural or historical context markers |
-| `[LING]` | For tracking explicit phonetic, grammar, or dialect pronunciation notes |
-| `[TEX]` | For isolating great linguistic teaching examples |
-| `[VEX]` | For isolating distinct or high-quality vocalization examples |
-| `[OTL]` | For documenting other regional languages utilized inside conversation blocks |
-| `[NOTE]` | For general analytical comments and workspace footnotes |"""
+| Tag Indicator | Associated Category / Structural Rule | Core Purpose |
+| :--- | :--- | :--- |
+| `[LING]` | 🗣️ Linguistic & Phonetic Observations | Tracks shifts in pronunciation, phonetic deviations, and grammar logs. |
+| `[HIST]` | 📜 Cultural & Historical Context Logs | Captures background context, historical references, and community anecdotes. |
+| `[INFO]` | 💡 General Informational Notes | General observations, track metadata markers, or structural explanations. |
+| `[TEX]` | 🎓 Exemplary Teaching Examples | Highlights excellent data segments optimized for language learning materials. |
+| `[VEX]` | 🎵 High-Quality Vocalization Examples | Isolates distinct vocal inflections, expressions, or exceptional audio clarity. |
+| `[OTL]` | 🌐 Other Languages Utilized | Notes where English, Marr, or outside linguistic fragments overlap text segments. |
+| `[NOTE]` | 📝 Workspace Footnotes & Comments | General internal commentary, alignment flags, or raw project reminders. |
+| `[?]` / `[UNCERTAIN]` | ❓ Uncertain Segments Requiring Review | Flags questionable translations or unclear phonetics requiring peer review. |
+| `\|text\|` | Phonetic Deviation Indicator | Applied inside notes to isolate specific speech variants from standard dictionary records. |
+| `[[text]]` | Standard GR Spelling Variant | Applied inside notes to link non-standard pronunciations back to standard Grand Ronde spellings. |"""
 
     # 7. Research Section
     research_section = f"""## 🔬 Research & Observations
@@ -132,7 +146,7 @@ All transcriptions in this archive are created and managed using [ELAN](https://
     with open(readme_path, 'w', newline='', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated successfully: Re-organized structural notations to isolate tier rules.")
+    print(f"README updated successfully: Recalculated dynamic index values based on generated Markdown tables.")
 
 if __name__ == "__main__":
     update_readme()
