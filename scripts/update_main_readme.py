@@ -69,37 +69,37 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 6. Expanded Legend Section (With Notes Categories Added)
+    # 6. Primary Dialogue Legend Section
     legend_section = r"""## ⌨️ Transcription Notation Legend
-To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
+To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence within the **primary transcription lines**:
 
 | Notation | Description |
 | :--- | :--- |
 | `<text>` | Low confidence due to poor audio quality or group disagreement |
 | `<<text>>` | Very low confidence due to extremely poor audio quality |
 | `tex(t)` | Part of the word was not heard or dropped from speech |
-| `[text]` | Transcriber’s notes; see notes categories |
-| `[[text]]` | Standard Grand Ronde (GR) spelling for non-standard pronunciation |
 | `{text}` | English word used within Chinuk-Wawa speech |
 | `{{text}}` | English word(s) spoken by Joe Peter in conversation with Jack Marr |
 | `<...>` | Unknown word(s) or voiced sound(s) |
 | `text/` | Pause in speech following the word |
 | `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
-| `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
 | `..` | Hesitation or stutter |
 
-### 🔍 Research Notes Categories
-These labels are applied inside dependent note tiers to classify observations for localized data processing:
+### 🔍 Research Notes Categories & Bracket Structural Rules
+The following system tags and structural rules are applied **exclusively inside dependent notes tiers** to categorize annotations and log localized variations:
 
-| Category Code | Description |
+| Category / Rule | Description |
 | :--- | :--- |
-| `[?]` or `[UNCERTAIN]` | For structural issues requiring a second set of ears or review |
+| `[text]` | Transcriber’s notes; generalized workspace context or content placeholder |
+| `[[text]]` | Standard Grand Ronde (GR) spelling for a non-standard pronunciation word variant |
+| `\|text\|` | Indicates pronunciation deviates significantly from standard GR dictionary variants |
+| `[?]` or `[UNCERTAIN]` | For structural transcription problems requiring a second set of ears or review |
 | `[HIST]` or `[INFO]` | For tracking important cultural or historical context markers |
 | `[LING]` | For tracking explicit phonetic, grammar, or dialect pronunciation notes |
 | `[TEX]` | For isolating great linguistic teaching examples |
 | `[VEX]` | For isolating distinct or high-quality vocalization examples |
 | `[OTL]` | For documenting other regional languages utilized inside conversation blocks |
-| `[NOTE]` | For general transcribing logs and workspace footnotes |"""
+| `[NOTE]` | For general analytical comments and workspace footnotes |"""
 
     # 7. Research Section
     research_section = f"""## 🔬 Research & Observations
@@ -132,7 +132,7 @@ All transcriptions in this archive are created and managed using [ELAN](https://
     with open(readme_path, 'w', newline='', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated successfully: Injected structural annotation classifications and notes legend.")
+    print(f"README updated successfully: Re-organized structural notations to isolate tier rules.")
 
 if __name__ == "__main__":
     update_readme()
