@@ -1,6 +1,5 @@
 import csv
 import os
-import xml.sax.saxutils as saxutils
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -20,11 +19,21 @@ def safe_reportlab_text(text):
     """
     if not text:
         return ""
-    # Replace amp first so we don't accidentally double-encode later replacements
     text = text.replace("&", "&amp;")
     text = text.replace("<", "&lt;")
     text = text.replace(">", "&gt;")
     return text
+
+def is_primary_speaker(speaker_name):
+    """
+    Strict check to see if the speaker is Joe Peter himself,
+    preventing research notes/tier names from triggering bolding.
+    """
+    if not speaker_name:
+        return False
+    # Normalize name to safely check for explicit primary speech tracks
+    name_clean = speaker_name.strip().lower()
+    return name_clean in ["joe peter", "joe", "peter", "jp"]
 
 def generate_guides():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -70,11 +79,11 @@ def generate_guides():
             f.write("| Time | Speaker | Text | Research Notes |\n")
             f.write("| :--- | :--- | :--- | :--- |\n")
             for raw_row in rows:
-                # Isolate row data completely
                 row = raw_row.copy()
                 md_text = row['Text'] if row['Text'] else ""
                 
-                if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
+                # FIX: Only bold actual spoken dialogue from Joe Peter, never empty rows or notes
+                if is_primary_speaker(row['Speaker']) and md_text:
                     md_text = f"**{md_text}**"
                 
                 note_display = ""
@@ -115,18 +124,15 @@ def generate_guides():
         ]]
 
         for raw_row in rows:
-            # Isolate row data completely
             row = raw_row.copy()
-            is_joe = any(name in row['Speaker'] for name in ["Joe", "Peter"])
+            is_joe = is_primary_speaker(row['Speaker'])
             
-            # Protect the literal tokens and clean strings cleanly
             clean_text = safe_reportlab_text(row['Text'])
             clean_note_tier = safe_reportlab_text(row['Notes_Tier'])
             clean_note_text = safe_reportlab_text(row['Notes_Text'])
             clean_speaker = safe_reportlab_text(row['Speaker'])
             
-            # Apply explicit bold styling ONLY via clean PDF tags, ignoring raw Markdown asterisks
-            if is_joe:
+            if is_joe and clean_text:
                 txt_p = Paragraph(f"<b>{clean_text}</b>", style_text_bold)
                 speaker_p = Paragraph(f"<b>{clean_speaker}</b>", style_speaker_bold)
             else:
@@ -176,7 +182,7 @@ def generate_guides():
             
             p_trans = row_cells[2].paragraphs[0]
             run_trans = p_trans.add_run(row['Text'])
-            if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
+            if is_primary_speaker(row['Speaker']) and row['Text']:
                 run_trans.bold = True
                 
             if row.get('Notes_Text'):
@@ -187,7 +193,7 @@ def generate_guides():
         doc_path = os.path.join(word_output_base, f"{story_id}_Reading_Guide.docx")
         doc_word.save(doc_path)
         
-    print(f"\nSuccess! Exported completely isolated PDF, MD, and DOCX files.")
+    print(f"\nSuccess! Fixed bolding targeting. All guides regenerated accurately.")
 
 if __name__ == "__main__":
     generate_guides()
