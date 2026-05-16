@@ -50,13 +50,28 @@ To maintain consistency across the archive, the following notations are used to 
 | `<text>` | Low confidence due to poor audio quality or group disagreement |
 | `<<text>>` | Very low confidence due to extremely poor audio quality |
 | `tex(t)` | Part of the word was not heard or dropped from speech |
-| `[text]` | Transcriber’s notes or standard Grand Ronde (GR) spelling for non-standard pronunciation |
+| `[text]` | Transcriber’s notes; see notes categories |
+| `[[text]]` | Standard Grand Ronde (GR) spelling for non-standard pronunciation |
 | `{text}` | English word used within Chinuk-Wawa speech |
+| `{{text}}` | English word(s) spoken by Joe Peter in conversation with Jack Marr |
 | `<...>` | Unknown word(s) or voiced sound(s) |
 | `text/` | Pause in speech following the word |
 | `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
 | `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
 | `..` | Hesitation or stutter |
+
+### 🔍 Research Notes Categories
+These labels are applied inside dependent note tiers to classify observations for localized data processing:
+
+| Category Code | Description |
+| :--- | :--- |
+| `[?]` or `[UNCERTAIN]` | For structural issues requiring a second set of ears or review |
+| `[HIST]` or `[INFO]` | For tracking important cultural or historical context markers |
+| `[LING]` | For tracking explicit phonetic, grammar, or dialect pronunciation notes |
+| `[TEX]` | For isolating great linguistic teaching examples |
+| `[VEX]` | For isolating distinct or high-quality vocalization examples |
+| `[OTL]` | For documenting other regional languages utilized inside conversation blocks |
+| `[NOTE]` | For general transcribing logs and workspace footnotes |
 
 ---
 

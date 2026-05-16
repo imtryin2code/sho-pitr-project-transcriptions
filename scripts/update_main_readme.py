@@ -69,7 +69,7 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 6. Legend Section
+    # 6. Expanded Legend Section (With Notes Categories Added)
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence:
 
@@ -78,13 +78,28 @@ To maintain consistency across the archive, the following notations are used to 
 | `<text>` | Low confidence due to poor audio quality or group disagreement |
 | `<<text>>` | Very low confidence due to extremely poor audio quality |
 | `tex(t)` | Part of the word was not heard or dropped from speech |
-| `[text]` | Transcriber’s notes or standard Grand Ronde (GR) spelling for non-standard pronunciation |
+| `[text]` | Transcriber’s notes; see notes categories |
+| `[[text]]` | Standard Grand Ronde (GR) spelling for non-standard pronunciation |
 | `{text}` | English word used within Chinuk-Wawa speech |
+| `{{text}}` | English word(s) spoken by Joe Peter in conversation with Jack Marr |
 | `<...>` | Unknown word(s) or voiced sound(s) |
 | `text/` | Pause in speech following the word |
 | `<text A/text B>` | Ambiguous; group members hear either A or B in even numbers |
 | `\|text\|` | Pronunciation deviates significantly from GR dictionary variants |
-| `..` | Hesitation or stutter |"""
+| `..` | Hesitation or stutter |
+
+### 🔍 Research Notes Categories
+These labels are applied inside dependent note tiers to classify observations for localized data processing:
+
+| Category Code | Description |
+| :--- | :--- |
+| `[?]` or `[UNCERTAIN]` | For structural issues requiring a second set of ears or review |
+| `[HIST]` or `[INFO]` | For tracking important cultural or historical context markers |
+| `[LING]` | For tracking explicit phonetic, grammar, or dialect pronunciation notes |
+| `[TEX]` | For isolating great linguistic teaching examples |
+| `[VEX]` | For isolating distinct or high-quality vocalization examples |
+| `[OTL]` | For documenting other regional languages utilized inside conversation blocks |
+| `[NOTE]` | For general transcribing logs and workspace footnotes |"""
 
     # 7. Research Section
     research_section = f"""## 🔬 Research & Observations
@@ -92,7 +107,7 @@ To maintain consistency across the archive, the following notations are used to 
 - **Dialect Variations:** {variation_count} identified pronunciation patterns.
 - **Logs:** [Research Log](./exports/markdown/Research_Observations_Log.md) | [Variation Report](./exports/markdown/Dialect_Variation_Report.md)"""
 
-    # 8. NEW: Tools & Citation Section
+    # 8. Tools & Citation Section
     tools_section = r"""## 🛠 Tools & Citation
 All transcriptions in this archive are created and managed using [ELAN](https://archive.mpi.nl/tla/elan), developed by the Max Planck Institute for Psycholinguistics.
 
@@ -107,17 +122,17 @@ All transcriptions in this archive are created and managed using [ELAN](https://
         how_to, 
         legend_section, 
         research_section, 
-        tools_section, # Inserted before progress
+        tools_section,
         progress, 
         contributing
     ]
     
     new_content = "\n\n---\n\n".join([s for s in sections if s.strip()])
 
-    with open(readme_path, 'w', encoding='utf-8') as f:
+    with open(readme_path, 'w', newline='', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated: Added ELAN citation section.")
+    print(f"README updated successfully: Injected structural annotation classifications and notes legend.")
 
 if __name__ == "__main__":
     update_readme()
