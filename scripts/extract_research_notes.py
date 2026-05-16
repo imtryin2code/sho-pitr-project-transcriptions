@@ -11,7 +11,7 @@ def generate_research_log():
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    # Clean category definitions matching your readme tags perfectly
+    # Categories matching your legend perfectly
     categories = {
         '[LING]': '🗣️ Linguistic & Phonetic Observations',
         '[HIST]': '📜 Cultural & Historical Context Logs',
@@ -24,28 +24,31 @@ def generate_research_log():
     }
 
     log_data = {tag: [] for tag in categories.keys()}
-    log_data['[UNCATEGORIZED]'] = []  # Catch-all for notes without explicit tags
+    log_data['[UNCATEGORIZED]'] = []  # Catch-all strictly for notes with NO tags at all
 
     with open(csv_path, 'r', encoding='utf-8') as f:
-        # Strip potential spaces out of headers during initialization 
         reader = csv.DictReader(f)
         reader.fieldnames = [name.strip() for name in reader.fieldnames] if reader.fieldnames else []
 
         for row in reader:
-            # Look at your target text cells safely
             note_content = row.get('Notes_Text', '').strip()
             primary_text = row.get('Text', '').strip()
             
-            # Non-negotiable check: If there is no note content, skip it entirely!
             if not note_content:
                 continue
 
-            # Identify the category by looking for the explicit [TAG] inside the text string
+            # Route the entry to its proper home
             matched_tag = None
-            for tag in categories.keys():
-                if tag in note_content:
-                    matched_tag = tag
-                    break
+            
+            # FIX: Check for the exact [?] question mark tag or [UNCERTAIN] string
+            if '[?]' in note_content or '[UNCERTAIN]' in note_content:
+                matched_tag = '[UNCERTAIN]'
+            else:
+                # Look for all other standard legend tags
+                for tag in categories.keys():
+                    if tag in note_content:
+                        matched_tag = tag
+                        break
             
             item = {
                 'id': row.get('ID', 'UNKNOWN').strip(),
@@ -71,7 +74,8 @@ def generate_research_log():
             f.write(f"- [{section_title}](#{tag.lower().replace('[','').replace(']','')}) ({count} entries)\n")
         
         uncat_count = len(log_data['[UNCATEGORIZED]'])
-        f.write(f"- [⚠️ Uncategorized Notes](#uncategorized) ({uncat_count} entries)\n")
+        if uncat_count > 0:
+            f.write(f"- [⚠️ Uncategorized Notes](#uncategorized) ({uncat_count} entries)\n")
         f.write("\n---\n\n")
 
         # Generate output sections for matched categories
@@ -90,7 +94,7 @@ def generate_research_log():
                 f.write(f"| `{e['id']}` | {e['time']} | {e['speaker']} | {e['transcription']} | {e['note']} |\n")
             f.write("\n")
             
-        # Write uncategorized section if it caught any notes
+        # Write uncategorized section only if rogue tags slipped through
         if log_data['[UNCATEGORIZED]']:
             f.write("## <a name=\"uncategorized\"></a>⚠️ Uncategorized Notes\n\n")
             f.write("| Source ID | Time | Speaker | Transcription Segment | Observation Note |\n")
@@ -100,7 +104,7 @@ def generate_research_log():
             f.write("\n")
 
     total_found = sum(len(log_data[c]) for c in log_data)
-    print(f"✅ Success! Rebuilt Research Log. Found {total_found} entries total.")
+    print(f"✅ Success! Rebuilt Research Log. Found {total_found} entries total (with [?] mapped to Uncertain).")
 
 if __name__ == "__main__":
     generate_research_log()
