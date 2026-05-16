@@ -1,6 +1,5 @@
 import csv
 import os
-import xml.sax.saxutils as saxutils  # Built-in tool to safely escape HTML characters
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -12,6 +11,20 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+
+def safe_reportlab_text(text):
+    """
+    Safely encodes brackets so ReportLab renders them as literal text 
+    instead of parsing or stripping them as structural HTML tags.
+    """
+    if not text:
+        return ""
+    # Replace amp first so we don't accidentally double-encode later replacements
+    text = text.replace("&", "&amp;")
+    # Use special internal ReportLab entities for literal less-than and greater-than signs
+    text = text.replace("<", "&lt;")
+    text = text.replace(">", "&gt;")
+    return text
 
 def generate_guides():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -57,13 +70,14 @@ def generate_guides():
             f.write("| Time | Speaker | Text | Research Notes |\n")
             f.write("| :--- | :--- | :--- | :--- |\n")
             for row in rows:
-                text = row['Text']
+                # FIX: Use a separate variable so we don't overwrite row['Text'] for the PDF
+                md_text = row['Text']
                 if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
-                    text = f"**{text}**"
+                    md_text = f"**{md_text}**"
                 note_display = ""
                 if row.get('Notes_Text') and row.get('Notes_Tier'):
                     note_display = f"*{row['Notes_Tier']}*: {row['Notes_Text']}"
-                f.write(f"| {row['Time']} | {row['Speaker']} | {text} | {note_display} |\n")
+                f.write(f"| {row['Time']} | {row['Speaker']} | {md_text} | {note_display} |\n")
 
         # --- 2. REPORTLAB PDF GENERATION ---
         pdf_path = os.path.join(pdf_output_base, f"{story_id}_Reading_Guide.pdf")
@@ -100,13 +114,13 @@ def generate_guides():
         for row in rows:
             is_joe = any(name in row['Speaker'] for name in ["Joe", "Peter"])
             
-            # --- FIX: Escape unsafe characters so ReportLab doesn't think they are HTML tags ---
-            clean_text = saxutils.escape(row['Text'] if row['Text'] else "")
-            clean_note_tier = saxutils.escape(row['Notes_Tier'] if row.get('Notes_Tier') else "")
-            clean_note_text = saxutils.escape(row['Notes_Text'] if row.get('Notes_Text') else "")
-            clean_speaker = saxutils.escape(row['Speaker'] if row['Speaker'] else "")
+            # --- FIX: Protect the literal angle brackets using our custom function ---
+            clean_text = safe_reportlab_text(row['Text'])
+            clean_note_tier = safe_reportlab_text(row['Notes_Tier'])
+            clean_note_text = safe_reportlab_text(row['Notes_Text'])
+            clean_speaker = safe_reportlab_text(row['Speaker'])
             
-            # Formulate paragraphs now that strings are safely escaped
+            # Formulate paragraphs with clear separation of bold styles
             if is_joe:
                 txt_p = Paragraph(f"<b>{clean_text}</b>", style_text_bold)
                 speaker_p = Paragraph(f"<b>{clean_speaker}</b>", style_speaker_bold)
@@ -168,7 +182,7 @@ def generate_guides():
         doc_path = os.path.join(word_output_base, f"{story_id}_Reading_Guide.docx")
         doc_word.save(doc_path)
         
-    print(f"\nSuccess! Exported safe ReportLab PDF, MD, and DOCX for all guides.")
+    print(f"\nSuccess! Exported pristine PDF, MD, and DOCX files.")
 
 if __name__ == "__main__":
     generate_guides()
