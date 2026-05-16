@@ -2,52 +2,73 @@ import csv
 import os
 import re
 
-def extract_dialect_variations():
+def generate_variation_report():
     csv_path = 'metadata/master_transcription_list.csv'
     output_path = 'exports/markdown/Dialect_Variation_Report.md'
     
-    # Pattern: looks for |word| followed by [word]
-    pattern = r"\|([^|]+)\| \s*\[([^\]]+)\]"
-
-    variations = []
-
     if not os.path.exists(csv_path):
-        print("Error: Master CSV not found.")
+        print("Error: Master CSV list not found.")
         return
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    variations = []
 
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
-                matches = re.findall(pattern, row['Text'])
-                for match in matches:
-                    variations.append({
-                        'ID': row['ID'],
-                        'Time': row['Time'],
-                        'Joe_Pronunciation': match[0],
-                        'GR_Standard': match[1],
-                        'Full_Context': row['Text']
-                    })
+        reader.fieldnames = [name.strip() for name in reader.fieldnames] if reader.fieldnames else []
 
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        for row in reader:
+            note_content = row.get('Notes_Text', '').strip()
+            primary_text = row.get('Text', '').strip()
+            
+            # Non-negotiable check: It must have note content
+            if not note_content:
+                continue
+                
+            # Gatekeeper: Only grab it if it's explicitly labeled [LING] or an uncertain question [?]
+            if '[LING]' not in note_content and '[?]' not in note_content:
+                continue
+                
+            # Check if it actually contains the linguistic structural markers (|text| or [[text]])
+            # This keeps the report focused purely on phonetic variations
+            if '|' not in note_content and '[[' not in note_content:
+                continue
+                
+            # Pull localized deviation strings out cleanly via regex
+            extracted_variant = "-"
+            pipe_match = re.search(r'\|([^\|]+)\|', note_content)
+            if pipe_match:
+                extracted_variant = f"|{pipe_match.group(1)}|"
+            
+            gr_spelling = "-"
+            gr_match = re.search(r'\[\[([^\]]+)\]\]', note_content)
+            if gr_match:
+                gr_spelling = f"[[{gr_match.group(1)}]]"
+            
+            variations.append({
+                'id': row.get('ID', 'UNKNOWN').strip(),
+                'time': row.get('Time', '00:00').strip(),
+                'speaker': row.get('Speaker', 'Unknown').strip(),
+                'variant': extracted_variant,
+                'gr_standard': gr_spelling,
+                'raw_content': note_content
+            })
 
     with open(output_path, 'w', encoding='utf-8') as f:
-        f.write("# Dialect Variation Study: Joe Peter vs. Standard Grand Ronde\n\n")
-        f.write("This report extracts instances where Joe Peter's pronunciation deviates from the standard GR dictionary.\n\n")
-        f.write("| Recording | Time | Joe's Pronunciation | GR Standard Spelling | Full Context |\n")
-        f.write("| :--- | :--- | :--- | :--- | :--- |\n")
+        f.write("# 🔊 Dialect Variation & Pronunciation Report\n\n")
+        f.write("> Isolated logs capturing speech segments where Joe Peter's pronunciation shifts from traditional Grand Ronde standards.\n\n")
+        f.write(f"**Total Variations Logged:** {len(variations)} identified variations across tracks.\n\n")
         
-        for v in variations:
-            # We use &#124; to represent the pipe character | so it doesn't break the table
-            joe_variant = f"&#124;{v['Joe_Pronunciation']}&#124;"
-            gr_standard = f"[{v['GR_Standard']}]"
-            
-            # Clean context: replace literal pipes with HTML pipes to keep the table cell intact
-            clean_context = v['Full_Context'].replace('|', '&#124;')
-            
-            f.write(f"| {v['ID']} | {v['Time']} | {joe_variant} | {gr_standard} | {clean_context} |\n")
-
-    print(f"Success! Found {len(variations)} variations. Report saved to {output_path}")
+        f.write("| Recording ID | Timestamp | Speaker | Phonetic Deviation (`\|text\|`) | Standard GR Spelling (`[[text]]`) | Complete Annotation Entry |\n")
+        f.write("| :--- | :--- | :--- | :--- | :--- | :--- |\n")
+        
+        if not variations:
+            f.write("| - | - | - | - | - | - |\n")
+        else:
+            for v in variations:
+                f.write(f"| `{v['id']}` | {v['time']} | {v['speaker']} | **{v['variant']}** | *{v['gr_standard']}* | {v['raw_content']} |\n")
+                
+    print(f"✅ Success! Rebuilt Variation Report. Found {len(variations)} dialect variation entries.")
 
 if __name__ == "__main__":
-    extract_dialect_variations()
+    generate_variation_report()
