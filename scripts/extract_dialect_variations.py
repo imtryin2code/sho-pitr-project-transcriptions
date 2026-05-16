@@ -21,20 +21,15 @@ def generate_variation_report():
             note_content = row.get('Notes_Text', '').strip()
             primary_text = row.get('Text', '').strip()
             
-            # Non-negotiable check: It must have note content
             if not note_content:
                 continue
                 
-            # Gatekeeper: Only grab it if it's explicitly labeled [LING] or an uncertain question [?]
             if '[LING]' not in note_content and '[?]' not in note_content:
                 continue
                 
-            # Check if it actually contains the linguistic structural markers (|text| or [[text]])
-            # This keeps the report focused purely on phonetic variations
             if '|' not in note_content and '[[' not in note_content:
                 continue
                 
-            # Pull localized deviation strings out cleanly via regex
             extracted_variant = "-"
             pipe_match = re.search(r'\|([^\|]+)\|', note_content)
             if pipe_match:
@@ -45,13 +40,18 @@ def generate_variation_report():
             if gr_match:
                 gr_spelling = f"[[{gr_match.group(1)}]]"
             
+            # FIX: Escape the pipes specifically for the Markdown table cells
+            # This replaces raw '|' with '\|' so Markdown doesn't mistake it for a column border
+            safe_variant = extracted_variant.replace('|', '\\|')
+            safe_content = note_content.replace('|', '\\|')
+            
             variations.append({
                 'id': row.get('ID', 'UNKNOWN').strip(),
                 'time': row.get('Time', '00:00').strip(),
                 'speaker': row.get('Speaker', 'Unknown').strip(),
-                'variant': extracted_variant,
+                'variant': safe_variant,
                 'gr_standard': gr_spelling,
-                'raw_content': note_content
+                'raw_content': safe_content
             })
 
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -66,9 +66,10 @@ def generate_variation_report():
             f.write("| - | - | - | - | - | - |\n")
         else:
             for v in variations:
-                f.write(f"| `{v['id']}` | {v['time']} | {v['speaker']} | **{v['variant']}** | *{v['gr_standard']}* | {v['raw_content']} |\n")
+                # Removed the bold formatting around v['variant'] to prevent it from conflicting with empty data strings
+                f.write(f"| `{v['id']}` | {v['time']} | {v['speaker']} | {v['variant']} | *{v['gr_standard']}* | {v['raw_content']} |\n")
                 
-    print(f"✅ Success! Rebuilt Variation Report. Found {len(variations)} dialect variation entries.")
+    print(f"✅ Success! Rebuilt Variation Report. Found {len(variations)} dialect variation entries with escaped Markdown pipes.")
 
 if __name__ == "__main__":
     generate_variation_report()
