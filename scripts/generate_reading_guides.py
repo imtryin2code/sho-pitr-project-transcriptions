@@ -1,5 +1,6 @@
 import csv
 import os
+import xml.sax.saxutils as saxutils
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -21,7 +22,6 @@ def safe_reportlab_text(text):
         return ""
     # Replace amp first so we don't accidentally double-encode later replacements
     text = text.replace("&", "&amp;")
-    # Use special internal ReportLab entities for literal less-than and greater-than signs
     text = text.replace("<", "&lt;")
     text = text.replace(">", "&gt;")
     return text
@@ -69,11 +69,14 @@ def generate_guides():
             f.write(f"# Reading Guide: {story_id}\n\n")
             f.write("| Time | Speaker | Text | Research Notes |\n")
             f.write("| :--- | :--- | :--- | :--- |\n")
-            for row in rows:
-                # FIX: Use a separate variable so we don't overwrite row['Text'] for the PDF
-                md_text = row['Text']
+            for raw_row in rows:
+                # Isolate row data completely
+                row = raw_row.copy()
+                md_text = row['Text'] if row['Text'] else ""
+                
                 if any(name in row['Speaker'] for name in ["Joe", "Peter"]):
                     md_text = f"**{md_text}**"
+                
                 note_display = ""
                 if row.get('Notes_Text') and row.get('Notes_Tier'):
                     note_display = f"*{row['Notes_Tier']}*: {row['Notes_Text']}"
@@ -111,16 +114,18 @@ def generate_guides():
             Paragraph("Research Notes", style_header)
         ]]
 
-        for row in rows:
+        for raw_row in rows:
+            # Isolate row data completely
+            row = raw_row.copy()
             is_joe = any(name in row['Speaker'] for name in ["Joe", "Peter"])
             
-            # --- FIX: Protect the literal angle brackets using our custom function ---
+            # Protect the literal tokens and clean strings cleanly
             clean_text = safe_reportlab_text(row['Text'])
             clean_note_tier = safe_reportlab_text(row['Notes_Tier'])
             clean_note_text = safe_reportlab_text(row['Notes_Text'])
             clean_speaker = safe_reportlab_text(row['Speaker'])
             
-            # Formulate paragraphs with clear separation of bold styles
+            # Apply explicit bold styling ONLY via clean PDF tags, ignoring raw Markdown asterisks
             if is_joe:
                 txt_p = Paragraph(f"<b>{clean_text}</b>", style_text_bold)
                 speaker_p = Paragraph(f"<b>{clean_speaker}</b>", style_speaker_bold)
@@ -130,7 +135,6 @@ def generate_guides():
             
             note_content = f"<b>[{clean_note_tier}]</b> {clean_note_text}" if clean_note_text else ""
             note_p = Paragraph(note_content, style_notes)
-            
             time_p = Paragraph(row['Time'], style_time)
 
             table_data.append([time_p, speaker_p, txt_p, note_p])
@@ -164,7 +168,8 @@ def generate_guides():
         hdr_cells[2].text = 'Transcription'
         hdr_cells[3].text = 'Research Category & Notes'
 
-        for row in rows:
+        for raw_row in rows:
+            row = raw_row.copy()
             row_cells = table_word.add_row().cells
             row_cells[0].text = row['Time']
             row_cells[1].text = row['Speaker']
@@ -182,7 +187,7 @@ def generate_guides():
         doc_path = os.path.join(word_output_base, f"{story_id}_Reading_Guide.docx")
         doc_word.save(doc_path)
         
-    print(f"\nSuccess! Exported pristine PDF, MD, and DOCX files.")
+    print(f"\nSuccess! Exported completely isolated PDF, MD, and DOCX files.")
 
 if __name__ == "__main__":
     generate_guides()
