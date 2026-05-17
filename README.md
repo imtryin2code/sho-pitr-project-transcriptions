@@ -1,7 +1,10 @@
 # Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
-> ### 🌐 [Explore the Interactive Archive & Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/)
-> **The Project Web Page** provides a searchable dictionary, live frequency counts of Joe Peter's vocabulary, and formatted reading guides. It is the primary interface for this archive.
+> ### 🌐 Explore the Interactive Portal & Resource Hub
+> * 🏠 **[Archive Dashboard Home](https://imtryin2code.github.io/sho-pitr-project-transcriptions/index.html)** — Transcription reading gallery, hardware background, and pipeline telemetry.
+> * 📕 **[Chinuk Wawa Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/dictionary.html)** — Searchable concordance index featuring active audio snippet links.
+> * 🔬 **[Research Observations Log](https://imtryin2code.github.io/sho-pitr-project-transcriptions/observations.html)** — Searchable field log engine tracking grammatical and cultural observations.
+> * 🔊 **[Dialect Variations Index](https://imtryin2code.github.io/sho-pitr-project-transcriptions/variations.html)** — Isolated pronunciation variants compared against Grand Ronde references.
 
 - **Current Progress:** 9/30 recordings transcribed.
 - **Project History:** 3 years of active transcription completed.

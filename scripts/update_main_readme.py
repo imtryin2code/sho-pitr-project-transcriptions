@@ -16,25 +16,20 @@ def update_readme():
             completed_ids = list(set(line.split(',')[0].strip() for line in lines[1:] if line.strip()))
     
     # 2. Count Research Notes (Robust Dynamic Counting)
-    # Counts active data rows inside the generated Markdown tables, skipping header structural elements
     notes_count = 0
     if os.path.exists(notes_path):
         with open(notes_path, 'r', encoding='utf-8') as f:
             for line in f:
-                # Count lines that start with a table bar, but aren't headers or dividers
                 if line.strip().startswith('|') and not any(k in line for k in ['Source ID', ':---', '---:']):
-                    # Ensure it's not an empty placeholder line
                     if '_No entries recorded_' not in line:
                         notes_count += 1
 
     # 3. Count Dialect Variations
-    # Dynamically reads table lines from the standalone variation report
     variation_count = 0
     if os.path.exists(variation_path):
         with open(variation_path, 'r', encoding='utf-8') as f:
             for line in f:
                 if line.strip().startswith('|') and not any(k in line for k in ['Recording ID', ':---', '---:', 'Total Variations']):
-                    # Check that it isn't the fallback empty line
                     if '| - | - |' not in line:
                         variation_count += 1
 
@@ -53,11 +48,14 @@ def update_readme():
         match = re.search(pattern, full_text, re.DOTALL)
         return match.group(0).strip() if match else ""
 
-    # 4. Dashboard
+    # 4. Dashboard (Updated to support multi-page web architecture links)
     dashboard = f"""# Joe Peter Project: 1941 Chinook Jargon Transcriptions
 
-> ### 🌐 [Explore the Interactive Archive & Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/)
-> **The Project Web Page** provides a searchable dictionary, live frequency counts of Joe Peter's vocabulary, and formatted reading guides. It is the primary interface for this archive.
+> ### 🌐 Explore the Interactive Portal & Resource Hub
+> * 🏠 **[Archive Dashboard Home](https://imtryin2code.github.io/sho-pitr-project-transcriptions/index.html)** — Transcription reading gallery, hardware background, and pipeline telemetry.
+> * 📕 **[Chinuk Wawa Dictionary](https://imtryin2code.github.io/sho-pitr-project-transcriptions/dictionary.html)** — Searchable concordance index featuring active audio snippet links.
+> * 🔬 **[Research Observations Log](https://imtryin2code.github.io/sho-pitr-project-transcriptions/observations.html)** — Searchable field log engine tracking grammatical and cultural observations.
+> * 🔊 **[Dialect Variations Index](https://imtryin2code.github.io/sho-pitr-project-transcriptions/variations.html)** — Isolated pronunciation variants compared against Grand Ronde references.
 
 - **Current Progress:** {len(completed_ids)}/30 recordings transcribed.
 - **Project History:** 3 years of active transcription completed.
@@ -83,7 +81,7 @@ def update_readme():
         updated_progress_lines.append(line)
     progress = "\n".join(updated_progress_lines)
 
-    # 6. Primary Dialogue Legend Section (Updated and Refined)
+    # 6. Primary Dialogue Legend Section
     legend_section = r"""## ⌨️ Transcription Notation Legend
 To maintain consistency across the archive, the following notations are used to indicate audio quality, speaker behavior, and transcription confidence within the **primary transcription lines**:
 
@@ -146,7 +144,7 @@ All transcriptions in this archive are created and managed using [ELAN](https://
     with open(readme_path, 'w', newline='', encoding='utf-8') as f:
         f.write(new_content.strip() + "\n")
     
-    print(f"README updated successfully: Recalculated dynamic index values based on generated Markdown tables.")
+    print(f"README updated successfully: Extended interactive web sub-page lookup links.")
 
 if __name__ == "__main__":
     update_readme()
