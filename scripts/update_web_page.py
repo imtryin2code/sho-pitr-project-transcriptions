@@ -224,17 +224,17 @@ def generate_web_portal():
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:15px;">
             <div style="background:#fff5f5; padding:20px; border-radius:8px; border:1px solid #ffcccc; text-align:center;">
                 <span style="display:block; font-size:2.3rem; font-weight:bold; color:#8c1b1b;">{dict_word_count}</span>
-                <strong>Documented Glossary Terms</strong>
+                <p style="margin: 5px 0 12px 0; font-weight: bold; color: #333;">Documented Glossary Terms</p>
                 <a class="btn" href="dictionary.html">Open Dictionary</a>
             </div>
             <div style="background:#fff5f5; padding:20px; border-radius:8px; border:1px solid #ffcccc; text-align:center;">
                 <span style="display:block; font-size:2.3rem; font-weight:bold; color:#8c1b1b;">{total_obs}</span>
-                <strong>Active Research Insights</strong>
+                <p style="margin: 5px 0 12px 0; font-weight: bold; color: #333;">Active Research Insights</p>
                 <a class="btn" href="observations.html">View Insights Log</a>
             </div>
             <div style="background:#fff5f5; padding:20px; border-radius:8px; border:1px solid #ffcccc; text-align:center;">
                 <span style="display:block; font-size:2.3rem; font-weight:bold; color:#8c1b1b;">{total_vars}</span>
-                <strong>Pronunciation Variants</strong>
+                <p style="margin: 5px 0 12px 0; font-weight: bold; color: #333;">Pronunciation Variants</p>
                 <a class="btn" href="variations.html">View Variations</a>
             </div>
         </div>
@@ -468,7 +468,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("✅ Success! Portal rebuilt with 4 clean sub-pages. Re-anchored your original mission statement.")
+    print("✅ Success! Portal rebuilt with 4 clean sub-pages. All components synced successfully.")
 
 if __name__ == "__main__":
     generate_web_portal()
