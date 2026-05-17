@@ -59,7 +59,7 @@
 | `683-S1` | 16:30 | Joe Peter | JP:  mamuk-k'ilapay yax̣a qwinəm/ k'ilapay | [LING] \|yax̣a\| [[yax̣ka]] |
 | `683-S1` | 16:44 | Joe Peter | JP:  yaka mash yax̣ka kikwəlili | [LING]  \|kikwəlili\| [[kikwəli]] |
 | `683-S1` | 17:57 | Joe Peter | JP:  &lt;eyləp&gt; {bon} | [LING] \|eyləp\| [[iləp]]  [NOTE]  ***try to clean/boost**** |
-| `683-S2` | 00:19 | Joe Peter | JP:  qwinəm/ qwinəm mæn | [LING] \|mæn\| {man} |
+| `683-S2` | 00:19 | Joe Peter | JP:  qwinəm/ qwinəm mæn | [LING] \|mæn\| [[man]] |
 | `683-S2` | 02:40 | Joe Peter | JP:  lakt san yaka wawa kakwa | [LING] \|lakt\| [[lakit]] |
 | `683-S2` | 04:04 | Joe Peter | JP:  yaka patɬach yax̣ka hayaw | [LING] \|hayaw\| [[hayu]] |
 | `683-S2` | 04:31 | Joe Peter | JP:  ɬaska mamuk/ ɬaska mamuk-chaku k'ilapay chxi iɬwəli/ hayaw | [LING] \|hayaw\| [[hayu]] |
