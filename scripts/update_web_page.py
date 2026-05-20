@@ -163,7 +163,8 @@ def generate_web_portal():
     audio { outline: none; width: 400px; max-width: 100%; }
     """
 
-    audio_dock_html = """
+    # FIXED: String marked as raw 'r"""' block so python ignores JS backslash notation rules
+    audio_dock_html = r"""
     <div id="globalAudioPlayer">
         <div class="player-inner">
             <div class="player-info" id="playerTrackInfo">Track: None</div>
@@ -172,23 +173,36 @@ def generate_web_portal():
         </div>
     </div>
     <script>
+        function getTrueAudioFilename(trackId) {
+            let cleanId = trackId.trim();
+            let match = cleanId.match(/^(\d+)-[sS](\d+)$/);
+            if (match) {
+                let trackNum = match[1].padStart(8, '0');
+                let sideNum = match[2];
+                return "sinaa_" + trackNum + "_side" + sideNum + ".mp3";
+            }
+            if (!cleanId.endsWith('.mp3')) {
+                return cleanId + ".mp3";
+            }
+            return cleanId;
+        }
+
         function playAudioSnippet(trackId, startSeconds) {
             const playerBar = document.getElementById('globalAudioPlayer');
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
-            infoText.innerText = "Loading Track: " + trackId + "...";
+            const audioFile = getTrueAudioFilename(trackId);
+            infoText.innerText = "Loading Track: " + audioFile + "...";
             playerBar.style.display = "block";
             
-            // Try production GitHub path first, then absolute relative path fallback
-            let localPath = "audio-previews/" + trackId + ".mp3";
+            let localPath = "audio-previews/" + audioFile;
             if (window.location.hostname.includes("github.io")) {
-                localPath = "/sho-pitr-project-transcriptions/audio-previews/" + trackId + ".mp3";
+                localPath = "/sho-pitr-project-transcriptions/audio-previews/" + audioFile;
             } else if (window.location.pathname.includes("/docs/")) {
-                localPath = "../audio-previews/" + trackId + ".mp3";
+                localPath = "../audio-previews/" + audioFile;
             }
             
-            // Set track update source
             audio.src = localPath;
             audio.load();
             
@@ -196,15 +210,14 @@ def generate_web_portal():
                 audio.currentTime = startSeconds;
                 infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
                 audio.play().catch(function(err) {
-                    console.log("Autoplay blocked by browser policy, awaiting interaction.");
+                    console.log("Autoplay configuration caught browser interaction lock:", err);
                 });
-                audio.oncanplay = null; // Unbind to prevent duplicate triggers
+                audio.oncanplay = null;
             };
 
             audio.onerror = function() {
-                // Production raw cloud cross-origin fallback asset network check
-                console.log("Local path failed. Requesting remote file storage fallback channel...");
-                audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + trackId + ".mp3";
+                console.log("Local path asset resolution failed. Attempting production raw cloud mirror pipeline...");
+                audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + audioFile;
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startSeconds;
@@ -536,7 +549,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("✅ Success! Fixed audio streaming pipelines with secure live path lookup fallbacks.")
+    print("✅ Success! Fixed syntax warnings. Your audio streaming pipelines are clear.")
 
 if __name__ == "__main__":
     generate_web_portal()
