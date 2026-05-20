@@ -15,7 +15,7 @@ def parse_eaf(file_path):
             time_slots[slot.get('TIME_SLOT_ID')] = slot.get('TIME_VALUE')
 
     # Data structures to manage tier relationships
-    alignable_annotations = {} # annotation_id -> {start_time, speaker, text}
+    alignable_annotations = {} # annotation_id -> {start_time, end_time, speaker, text}
     ref_annotations = []       # List of dictionaries for dependent annotations
 
     # 2. Parse all tiers dynamically
@@ -25,15 +25,19 @@ def parse_eaf(file_path):
         # Process primary time-aligned parent tiers
         for ann in tier.findall('.//ALIGNABLE_ANNOTATION'):
             ann_id = ann.get('ANNOTATION_ID')
-            ts_ref = ann.get('TIME_SLOT_REF1')
-            start_time = int(time_slots.get(ts_ref, 0))
+            ts_ref1 = ann.get('TIME_SLOT_REF1')
+            ts_ref2 = ann.get('TIME_SLOT_REF2') # Capture the ending reference point
+            
+            start_time = int(time_slots.get(ts_ref1, 0))
+            end_time = int(time_slots.get(ts_ref2, 0)) # Look up millisecond finish metric
             
             text_el = ann.find('ANNOTATION_VALUE')
             text = text_el.text if text_el is not None else ""
             
             alignable_annotations[ann_id] = {
                 'ID': identifier,
-                'Raw_MS': start_time,
+                'Raw_Start_MS': start_time,
+                'Raw_End_MS': end_time,
                 'Speaker': tier_id,
                 'Text': text,
                 'Notes_Tier': "",
@@ -56,7 +60,6 @@ def parse_eaf(file_path):
     for ref in ref_annotations:
         parent_id = ref['Parent_Ref']
         if parent_id in alignable_annotations:
-            # If a parent already has notes, append with a separator, else write fresh
             existing_tier = alignable_annotations[parent_id]['Notes_Tier']
             existing_text = alignable_annotations[parent_id]['Notes_Text']
             
@@ -67,25 +70,32 @@ def parse_eaf(file_path):
                 alignable_annotations[parent_id]['Notes_Tier'] = ref['Tier_Name']
                 alignable_annotations[parent_id]['Notes_Text'] = ref['Text']
 
-    # 4. Format timelines and convert milliseconds to MM:SS
+    # 4. Format timelines and convert milliseconds to precise MM:SS formats
     final_rows = []
     for ann in alignable_annotations.values():
-        seconds = (ann['Raw_MS'] / 1000) % 60
-        minutes = (ann['Raw_MS'] / (1000 * 60)) % 60
-        timestamp = f"{int(minutes):02d}:{int(seconds):02d}"
+        # Clean formatting for UI display purposes
+        start_seconds = (ann['Raw_Start_MS'] / 1000) % 60
+        start_minutes = (ann['Raw_Start_MS'] / (1000 * 60)) % 60
+        timestamp = f"{int(start_minutes):02d}:{int(start_seconds):02d}"
+        
+        end_seconds = (ann['Raw_End_MS'] / 1000) % 60
+        end_minutes = (ann['Raw_End_MS'] / (1000 * 60)) % 60
+        end_timestamp = f"{int(end_minutes):02d}:{int(end_seconds):02d}"
         
         final_rows.append({
             'ID': ann['ID'],
-            'Time': timestamp,
+            'Start Time': timestamp,            # Standard readable start position
+            'End Time': end_timestamp,          # Standard readable end position
+            'Time': timestamp,                  # Keeps compatibility with dashboard layouts
             'Speaker': ann['Speaker'],
             'Text': ann['Text'],
             'Notes_Tier': ann['Notes_Tier'],
             'Notes_Text': ann['Notes_Text'],
-            'Raw_MS': ann['Raw_MS']
+            'Raw_Start_MS': ann['Raw_Start_MS'] # Retained explicitly for tracking sorting rules
         })
     
     # Sort strictly by chronology to maintain continuous flow
-    final_rows.sort(key=lambda x: x['Raw_MS'])
+    final_rows.sort(key=lambda x: x['Raw_Start_MS'])
     return final_rows
 
 def main():
@@ -101,8 +111,8 @@ def main():
     output_path = 'metadata/master_transcription_list.csv'
     
     if all_rows:
-        # Added tracking columns to map where categories and notes came from
-        keys = ['ID', 'Time', 'Speaker', 'Text', 'Notes_Tier', 'Notes_Text']
+        # Added explicit boundary targets to headers to sync playback loops precisely
+        keys = ['ID', 'Start Time', 'End Time', 'Time', 'Speaker', 'Text', 'Notes_Tier', 'Notes_Text']
         
         # Ensure output folder exists safely
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -112,7 +122,7 @@ def main():
             writer.writeheader()
             writer.writerows(all_rows)
             
-        print(f"Success! Compiled master list with {len(all_rows)} lines across all dynamic tiers.")
+        print(f"Success! Compiled master list with explicit boundaries across {len(all_rows)} aligned lines.")
 
 if __name__ == "__main__":
     main()
