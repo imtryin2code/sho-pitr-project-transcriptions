@@ -202,7 +202,6 @@
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
-            // Cast values explicitly as numeric floats to stop bracket evaluation string injection attacks
             const startTimeParsed = parseFloat(startSeconds);
             const durationTimeParsed = parseFloat(durationSeconds);
             
@@ -246,7 +245,7 @@
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay locked down:", err);
+                    console.log("Autoplay configuration adjustment required:", err);
                 });
                 audio.oncanplay = null;
             };

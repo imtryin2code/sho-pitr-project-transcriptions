@@ -17,11 +17,17 @@ def time_to_seconds(time_str):
     return 0
 
 def clean_for_html(text):
-    """Escapes pipes and safely converts HTML control characters into safe entities."""
+    """Escapes HTML entities and standardizes text layout."""
     if not text: return ""
-    # Safe entity replacement to protect bracket symbols like <k>
     text = text.replace('|', '\\|')
     return html.escape(text, quote=True)
+
+def clean_for_data_attr(text):
+    """Removes quotes and brackets to prevent breaking HTML structural parsing boundaries."""
+    if not text: return ""
+    # Convert brackets to friendly text style and strip structural quotes
+    cleaned = text.replace('<', '[').replace('>', ']').replace('"', '').replace("'", "")
+    return html.escape(cleaned, quote=True)
 
 def generate_web_portal():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -117,6 +123,7 @@ def generate_web_portal():
         item = {
             'id': rec_id, 'time': timestamp, 'speaker': speaker,
             'transcription': clean_for_html(text), 'note': clean_for_html(actual_payload),
+            'transcription_raw': clean_for_data_attr(text), 'note_raw': clean_for_data_attr(actual_payload),
             'seconds': seconds, 'duration': duration
         }
 
@@ -137,7 +144,10 @@ def generate_web_portal():
             variations_data.append({
                 'id': rec_id, 'time': timestamp, 'speaker': speaker,
                 'variant': clean_for_html(clean_variant), 'gr_standard': clean_for_html(clean_gr),
-                'raw_content': clean_for_html(actual_payload), 'seconds': seconds, 'duration': duration
+                'raw_content': clean_for_html(actual_payload), 
+                'variant_raw': clean_for_data_attr(clean_variant), 'gr_standard_raw': clean_for_data_attr(clean_gr),
+                'raw_content_raw': clean_for_data_attr(actual_payload),
+                'seconds': seconds, 'duration': duration
             })
 
     total_obs = sum(len(observations_data[c]) for c in observations_data)
@@ -206,7 +216,6 @@ def generate_web_portal():
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
-            // Cast values explicitly as numeric floats to stop bracket evaluation string injection attacks
             const startTimeParsed = parseFloat(startSeconds);
             const durationTimeParsed = parseFloat(durationSeconds);
             
@@ -250,7 +259,7 @@ def generate_web_portal():
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay locked down:", err);
+                    console.log("Autoplay configuration adjustment required:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -401,8 +410,12 @@ def generate_web_portal():
                 sec_val = time_to_seconds(o["time"])
                 occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
+            # Use safe data attributes for dictionary search boundaries
+            safe_term = clean_for_data_attr(word.lower())
+            safe_def = clean_for_data_attr(d['definition'].lower())
+            
             dict_cards += f"""
-            <div class="dict-card" data-term="{word.lower()}" data-def="{d['definition'].lower()}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
+            <div class="dict-card" data-term="{safe_term}" data-def="{safe_def}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
                 <strong style="color:#8c1b1b; font-size:1.1rem;">{word}</strong> <small style="color:#777;">({d['count']}x)</small>
                 <p style="margin:5px 0; font-size:0.85rem; color:#444;">{d['definition']}</p>
                 <div style="margin-top:8px;">{occ_links}</div>
@@ -460,9 +473,11 @@ def generate_web_portal():
     obs_rows_html = ""
     for tag, entries in observations_data.items():
         for e in entries:
-            # FIXED: Data attributes wrapped safely via clean_for_html logic to keep bracket markup safe from breaking tables
+            # FIXED: Data attributes use stripped raw content index string to keep bracket markup safe from breaking text attributes
+            safe_text_attr = f"{e['id'].lower()} {e['speaker'].lower()} {e['note_raw'].lower()} {e['transcription_raw'].lower()}"
+            
             obs_rows_html += f"""
-            <tr class="obs-row" data-tag="{tag}" data-text="{e['id'].lower()} {e['speaker'].lower()} {e['note'].lower()} {e['transcription'].lower()}">
+            <tr class="obs-row" data-tag="{tag}" data-text="{safe_text_attr}">
                 <td><span style="background:#8c1b1b; color:white; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">{tag}</span></td>
                 <td><code>{e['id']}</code></td>
                 <td><button class="audio-btn" onclick="playAudioSnippet('{e['id']}', {e['seconds']}, {e['duration']})">{e['time']} 🔊</button></td>
@@ -546,8 +561,11 @@ def generate_web_portal():
     # =========================================================
     var_rows_html = ""
     for v in variations_data:
+        # FIXED: Data search index string fully sanitized to prevent breaking attribute text arrays
+        safe_var_text_attr = f"{v['id'].lower()} {v['speaker'].lower()} {v['variant_raw'].lower()} {v['gr_standard_raw'].lower()} {v['raw_content_raw'].lower()}"
+        
         var_rows_html += f"""
-        <tr class="var-row" data-text="{v['id'].lower()} {v['speaker'].lower()} {v['variant'].lower()} {v['gr_standard'].lower()} {v['raw_content'].lower()}">
+        <tr class="var-row" data-text="{safe_var_text_attr}">
             <td><code>{v['id']}</code></td>
             <td><button class="audio-btn" onclick="playAudioSnippet('{v['id']}', {v['seconds']}, {v['duration']})">{v['time']} 🔊</button></td>
             <td><strong>{v['speaker']}</strong></td>
@@ -611,7 +629,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! Escaped symbols like <k> cleanly. Segment durations are safe.")
+    print("🚀 Success! String indexes fully insulated. Bracket markup like <k> can no longer break playback timers.")
 
 if __name__ == "__main__":
     generate_web_portal()

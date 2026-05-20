@@ -3631,7 +3631,7 @@
                 <p style="margin:5px 0; font-size:0.85rem; color:#444;">TBD</p>
                 <div style="margin-top:8px;"><button class="occ-link" onclick="playAudioSnippet('682-S1', 1153, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">682-S1@19:13 🔊</button></div>
             </div>
-            <div class="dict-card" data-term="{'cause}" data-def="tbd" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
+            <div class="dict-card" data-term="{cause}" data-def="tbd" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
                 <strong style="color:#8c1b1b; font-size:1.1rem;">{'cause}</strong> <small style="color:#777;">(1x)</small>
                 <p style="margin:5px 0; font-size:0.85rem; color:#444;">TBD</p>
                 <div style="margin-top:8px;"><button class="occ-link" onclick="playAudioSnippet('682-S2', 688, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">682-S2@11:28 🔊</button></div>
@@ -3838,7 +3838,6 @@
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
-            // Cast values explicitly as numeric floats to stop bracket evaluation string injection attacks
             const startTimeParsed = parseFloat(startSeconds);
             const durationTimeParsed = parseFloat(durationSeconds);
             
@@ -3882,7 +3881,7 @@
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay locked down:", err);
+                    console.log("Autoplay configuration adjustment required:", err);
                 });
                 audio.oncanplay = null;
             };
