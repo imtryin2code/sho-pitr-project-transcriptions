@@ -202,11 +202,14 @@
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
+            // Cast values explicitly as numeric floats to stop bracket evaluation string injection attacks
+            const startTimeParsed = parseFloat(startSeconds);
+            const durationTimeParsed = parseFloat(durationSeconds);
+            
             const audioFile = getTrueAudioFilename(trackId);
             infoText.innerText = "Loading Track: " + audioFile + "...";
             playerBar.style.display = "block";
             
-            // Explicitly flush older tracking bindings before pushing new source data
             if (globalTimeUpdateListener) {
                 audio.removeEventListener('timeupdate', globalTimeUpdateListener);
                 globalTimeUpdateListener = null;
@@ -223,14 +226,13 @@
             audio.load();
             
             audio.oncanplay = function() {
-                audio.currentTime = startSeconds;
-                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+                audio.currentTime = startTimeParsed;
+                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startTimeParsed) + "s";
                 
-                if (durationSeconds && durationSeconds > 0) {
-                    clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
-                    const stopTargetTime = startSeconds + durationSeconds;
+                if (durationTimeParsed && durationTimeParsed > 0) {
+                    clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                    const stopTargetTime = startTimeParsed + durationTimeParsed;
                     
-                    // Bind the time boundary check loop explicitly AFTER the file finishes its internal reload
                     globalTimeUpdateListener = function() {
                         if (audio.currentTime >= stopTargetTime) {
                             audio.pause();
@@ -244,13 +246,12 @@
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay configuration caught browser interaction lock:", err);
+                    console.log("Autoplay locked down:", err);
                 });
                 audio.oncanplay = null;
             };
 
             audio.onerror = function() {
-                console.log("Local path asset resolution failed. Attempting production raw cloud mirror pipeline...");
                 if (globalTimeUpdateListener) {
                     audio.removeEventListener('timeupdate', globalTimeUpdateListener);
                     globalTimeUpdateListener = null;
@@ -259,12 +260,12 @@
                 audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + audioFile;
                 audio.load();
                 audio.oncanplay = function() {
-                    audio.currentTime = startSeconds;
-                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
+                    audio.currentTime = startTimeParsed;
+                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startTimeParsed) + "s";
                     
-                    if (durationSeconds && durationSeconds > 0) {
-                        clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
-                        const stopTargetTime = startSeconds + durationSeconds;
+                    if (durationTimeParsed && durationTimeParsed > 0) {
+                        clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                        const stopTargetTime = startTimeParsed + durationTimeParsed;
                         
                         globalTimeUpdateListener = function() {
                             if (audio.currentTime >= stopTargetTime) {

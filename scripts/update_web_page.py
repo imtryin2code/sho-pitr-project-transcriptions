@@ -2,6 +2,7 @@ import csv
 import json
 import os
 import re
+import html
 
 def time_to_seconds(time_str):
     """Converts MM:SS or HH:MM:SS format safely to integer seconds for HTML5 playback anchors."""
@@ -16,9 +17,11 @@ def time_to_seconds(time_str):
     return 0
 
 def clean_for_html(text):
-    """Escapes pipes and angle brackets to protect HTML rendering from breaking."""
+    """Escapes pipes and safely converts HTML control characters into safe entities."""
     if not text: return ""
-    return text.replace('|', '\\|').replace('<', '&lt;').replace('>', '&gt;')
+    # Safe entity replacement to protect bracket symbols like <k>
+    text = text.replace('|', '\\|')
+    return html.escape(text, quote=True)
 
 def generate_web_portal():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -173,7 +176,6 @@ def generate_web_portal():
     audio { outline: none; width: 400px; max-width: 100%; }
     """
 
-    # FIXED: Re-architected time tracking hook inside oncanplay loop to bypass media reloading flush states
     audio_dock_html = r"""
     <div id="globalAudioPlayer">
         <div class="player-inner">
@@ -204,11 +206,14 @@ def generate_web_portal():
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
+            // Cast values explicitly as numeric floats to stop bracket evaluation string injection attacks
+            const startTimeParsed = parseFloat(startSeconds);
+            const durationTimeParsed = parseFloat(durationSeconds);
+            
             const audioFile = getTrueAudioFilename(trackId);
             infoText.innerText = "Loading Track: " + audioFile + "...";
             playerBar.style.display = "block";
             
-            // Explicitly flush older tracking bindings before pushing new source data
             if (globalTimeUpdateListener) {
                 audio.removeEventListener('timeupdate', globalTimeUpdateListener);
                 globalTimeUpdateListener = null;
@@ -225,14 +230,13 @@ def generate_web_portal():
             audio.load();
             
             audio.oncanplay = function() {
-                audio.currentTime = startSeconds;
-                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+                audio.currentTime = startTimeParsed;
+                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startTimeParsed) + "s";
                 
-                if (durationSeconds && durationSeconds > 0) {
-                    clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
-                    const stopTargetTime = startSeconds + durationSeconds;
+                if (durationTimeParsed && durationTimeParsed > 0) {
+                    clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                    const stopTargetTime = startTimeParsed + durationTimeParsed;
                     
-                    // Bind the time boundary check loop explicitly AFTER the file finishes its internal reload
                     globalTimeUpdateListener = function() {
                         if (audio.currentTime >= stopTargetTime) {
                             audio.pause();
@@ -246,13 +250,12 @@ def generate_web_portal():
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay configuration caught browser interaction lock:", err);
+                    console.log("Autoplay locked down:", err);
                 });
                 audio.oncanplay = null;
             };
 
             audio.onerror = function() {
-                console.log("Local path asset resolution failed. Attempting production raw cloud mirror pipeline...");
                 if (globalTimeUpdateListener) {
                     audio.removeEventListener('timeupdate', globalTimeUpdateListener);
                     globalTimeUpdateListener = null;
@@ -261,12 +264,12 @@ def generate_web_portal():
                 audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + audioFile;
                 audio.load();
                 audio.oncanplay = function() {
-                    audio.currentTime = startSeconds;
-                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
+                    audio.currentTime = startTimeParsed;
+                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startTimeParsed) + "s";
                     
-                    if (durationSeconds && durationSeconds > 0) {
-                        clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
-                        const stopTargetTime = startSeconds + durationSeconds;
+                    if (durationTimeParsed && durationTimeParsed > 0) {
+                        clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                        const stopTargetTime = startTimeParsed + durationTimeParsed;
                         
                         globalTimeUpdateListener = function() {
                             if (audio.currentTime >= stopTargetTime) {
@@ -396,7 +399,6 @@ def generate_web_portal():
             occ_links = ""
             for o in d.get('occurrences', []):
                 sec_val = time_to_seconds(o["time"])
-                # Windows concordance links smoothly with a clean 4.5 second clip segment
                 occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
             dict_cards += f"""
@@ -458,6 +460,7 @@ def generate_web_portal():
     obs_rows_html = ""
     for tag, entries in observations_data.items():
         for e in entries:
+            # FIXED: Data attributes wrapped safely via clean_for_html logic to keep bracket markup safe from breaking tables
             obs_rows_html += f"""
             <tr class="obs-row" data-tag="{tag}" data-text="{e['id'].lower()} {e['speaker'].lower()} {e['note'].lower()} {e['transcription'].lower()}">
                 <td><span style="background:#8c1b1b; color:white; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">{tag}</span></td>
@@ -608,7 +611,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! Audio isolation boundary trackers are completely synchronized.")
+    print("🚀 Success! Escaped symbols like <k> cleanly. Segment durations are safe.")
 
 if __name__ == "__main__":
     generate_web_portal()
