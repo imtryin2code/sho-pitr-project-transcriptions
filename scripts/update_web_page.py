@@ -17,15 +17,17 @@ def time_to_seconds(time_str):
     return 0
 
 def clean_for_html(text):
-    """Escapes HTML entities and standardizes text layout."""
+    """Safely normalizes text content and replaces angle brackets to stop browser HTML injection bugs."""
     if not text: return ""
+    # Swap pipes safely
     text = text.replace('|', '\\|')
+    # Convert angle brackets to safe square brackets to prevent browser parsing truncations
+    text = text.replace('<', '[').replace('>', ']')
     return html.escape(text, quote=True)
 
 def clean_for_data_attr(text):
     """Removes quotes and brackets to prevent breaking HTML structural parsing boundaries."""
     if not text: return ""
-    # Convert brackets to friendly text style and strip structural quotes
     cleaned = text.replace('<', '[').replace('>', ']').replace('"', '').replace("'", "")
     return html.escape(cleaned, quote=True)
 
@@ -259,7 +261,7 @@ def generate_web_portal():
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay configuration adjustment required:", err);
+                    console.log("Autoplay context lock captured:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -410,7 +412,6 @@ def generate_web_portal():
                 sec_val = time_to_seconds(o["time"])
                 occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
-            # Use safe data attributes for dictionary search boundaries
             safe_term = clean_for_data_attr(word.lower())
             safe_def = clean_for_data_attr(d['definition'].lower())
             
@@ -473,7 +474,6 @@ def generate_web_portal():
     obs_rows_html = ""
     for tag, entries in observations_data.items():
         for e in entries:
-            # FIXED: Data attributes use stripped raw content index string to keep bracket markup safe from breaking text attributes
             safe_text_attr = f"{e['id'].lower()} {e['speaker'].lower()} {e['note_raw'].lower()} {e['transcription_raw'].lower()}"
             
             obs_rows_html += f"""
@@ -561,7 +561,6 @@ def generate_web_portal():
     # =========================================================
     var_rows_html = ""
     for v in variations_data:
-        # FIXED: Data search index string fully sanitized to prevent breaking attribute text arrays
         safe_var_text_attr = f"{v['id'].lower()} {v['speaker'].lower()} {v['variant_raw'].lower()} {v['gr_standard_raw'].lower()} {v['raw_content_raw'].lower()}"
         
         var_rows_html += f"""
@@ -629,7 +628,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! String indexes fully insulated. Bracket markup like <k> can no longer break playback timers.")
+    print("🚀 Success! All angle brackets completely normalized to standard square brackets in data streams.")
 
 if __name__ == "__main__":
     generate_web_portal()

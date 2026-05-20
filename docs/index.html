@@ -245,7 +245,7 @@
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay configuration adjustment required:", err);
+                    console.log("Autoplay context lock captured:", err);
                 });
                 audio.oncanplay = null;
             };
