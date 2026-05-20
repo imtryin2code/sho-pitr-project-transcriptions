@@ -26,10 +26,10 @@ def parse_eaf(file_path):
         for ann in tier.findall('.//ALIGNABLE_ANNOTATION'):
             ann_id = ann.get('ANNOTATION_ID')
             ts_ref1 = ann.get('TIME_SLOT_REF1')
-            ts_ref2 = ann.get('TIME_SLOT_REF2') # Capture the ending reference point
+            ts_ref2 = ann.get('TIME_SLOT_REF2')
             
             start_time = int(time_slots.get(ts_ref1, 0))
-            end_time = int(time_slots.get(ts_ref2, 0)) # Look up millisecond finish metric
+            end_time = int(time_slots.get(ts_ref2, 0))
             
             text_el = ann.find('ANNOTATION_VALUE')
             text = text_el.text if text_el is not None else ""
@@ -70,33 +70,38 @@ def parse_eaf(file_path):
                 alignable_annotations[parent_id]['Notes_Tier'] = ref['Tier_Name']
                 alignable_annotations[parent_id]['Notes_Text'] = ref['Text']
 
-    # 4. Format timelines and convert milliseconds to precise MM:SS formats
+    # 4. Format timelines with millisecond tracking precision (MM:SS.mmm)
     final_rows = []
     for ann in alignable_annotations.values():
-        # Clean formatting for UI display purposes
-        start_seconds = (ann['Raw_Start_MS'] / 1000) % 60
-        start_minutes = (ann['Raw_Start_MS'] / (1000 * 60)) % 60
-        timestamp = f"{int(start_minutes):02d}:{int(start_seconds):02d}"
+        # Retain floating point remainders to stop alignment drift
+        start_total_seconds = ann['Raw_Start_MS'] / 1000.0
+        start_minutes = int(start_total_seconds // 60)
+        start_seconds = start_total_seconds % 60
+        # Formats cleanly to 2-digit minute, 2-digit whole second, and 3-digit millisecond
+        start_timestamp = f"{start_minutes:02d}:{start_seconds:06.3f}"
         
-        end_seconds = (ann['Raw_End_MS'] / 1000) % 60
-        end_minutes = (ann['Raw_End_MS'] / (1000 * 60)) % 60
-        end_timestamp = f"{int(end_minutes):02d}:{int(end_seconds):02d}"
+        end_total_seconds = ann['Raw_End_MS'] / 1000.0
+        end_minutes = int(end_total_seconds // 60)
+        end_seconds = end_total_seconds % 60
+        end_timestamp = f"{end_minutes:02d}:{end_seconds:06.3f}"
         
         final_rows.append({
             'ID': ann['ID'],
-            'Start Time': timestamp,            # Standard readable start position
-            'End Time': end_timestamp,          # Standard readable end position
-            'Time': timestamp,                  # Keeps compatibility with dashboard layouts
+            'Start Time': start_timestamp,
+            'End Time': end_timestamp,
+            'Time': start_timestamp, # Keeps backward compatibility with template layouts
             'Speaker': ann['Speaker'],
             'Text': ann['Text'],
-            'Notes_Tier': ann['Notes_Tier'],
+            'Notes_Tier': append_clean_tier_names(ann),
             'Notes_Text': ann['Notes_Text'],
-            'Raw_Start_MS': ann['Raw_Start_MS'] # Retained explicitly for tracking sorting rules
+            'Raw_Start_MS': ann['Raw_Start_MS']
         })
     
-    # Sort strictly by chronology to maintain continuous flow
     final_rows.sort(key=lambda x: x['Raw_Start_MS'])
     return final_rows
+
+def append_clean_tier_names(ann):
+    return ann['Notes_Tier']
 
 def main():
     all_rows = []
@@ -111,10 +116,7 @@ def main():
     output_path = 'metadata/master_transcription_list.csv'
     
     if all_rows:
-        # Added explicit boundary targets to headers to sync playback loops precisely
         keys = ['ID', 'Start Time', 'End Time', 'Time', 'Speaker', 'Text', 'Notes_Tier', 'Notes_Text']
-        
-        # Ensure output folder exists safely
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
         with open(output_path, 'w', newline='', encoding='utf-8') as f:
@@ -122,7 +124,7 @@ def main():
             writer.writeheader()
             writer.writerows(all_rows)
             
-        print(f"Success! Compiled master list with explicit boundaries across {len(all_rows)} aligned lines.")
+        print(f"Success! Compiled master list with precise sub-second bounds across {len(all_rows)} rows.")
 
 if __name__ == "__main__":
     main()
