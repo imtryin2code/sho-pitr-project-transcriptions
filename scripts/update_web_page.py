@@ -173,7 +173,7 @@ def generate_web_portal():
     audio { outline: none; width: 400px; max-width: 100%; }
     """
 
-    # FIXED: Added dynamic runtime boundary enforcement mechanics to audio element via 'timeupdate' hooks
+    # FIXED: Re-architected time tracking hook inside oncanplay loop to bypass media reloading flush states
     audio_dock_html = r"""
     <div id="globalAudioPlayer">
         <div class="player-inner">
@@ -183,7 +183,7 @@ def generate_web_portal():
         </div>
     </div>
     <script>
-        let currentClipEndTimestamp = null;
+        let globalTimeUpdateListener = null;
 
         function getTrueAudioFilename(trackId) {
             let cleanId = trackId.trim();
@@ -199,15 +199,6 @@ def generate_web_portal():
             return cleanId;
         }
 
-        // Initialize background tracking daemon to isolate audio bounds per segment row
-        document.getElementById('html5AudioWidget').addEventListener('timeupdate', function() {
-            if (currentClipEndTimestamp !== null && this.currentTime >= currentClipEndTimestamp) {
-                this.pause();
-                currentClipEndTimestamp = null; // Unbind endpoint safely
-                document.getElementById('playerTrackInfo').innerText += " (Segment Finished)";
-            }
-        });
-
         function playAudioSnippet(trackId, startSeconds, durationSeconds) {
             const playerBar = document.getElementById('globalAudioPlayer');
             const audio = document.getElementById('html5AudioWidget');
@@ -217,8 +208,11 @@ def generate_web_portal():
             infoText.innerText = "Loading Track: " + audioFile + "...";
             playerBar.style.display = "block";
             
-            // Set end boundary marker explicitly
-            currentClipEndTimestamp = (durationSeconds && durationSeconds > 0) ? (startSeconds + durationSeconds) : null;
+            // Explicitly flush older tracking bindings before pushing new source data
+            if (globalTimeUpdateListener) {
+                audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                globalTimeUpdateListener = null;
+            }
             
             let localPath = "audio-previews/" + audioFile;
             if (window.location.hostname.includes("github.io")) {
@@ -233,9 +227,24 @@ def generate_web_portal():
             audio.oncanplay = function() {
                 audio.currentTime = startSeconds;
                 let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
-                if (durationSeconds) { clipInfo += " [" + durationSeconds.toFixed(1) + "s Clip]"; }
-                infoText.innerText = clipInfo;
                 
+                if (durationSeconds && durationSeconds > 0) {
+                    clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
+                    const stopTargetTime = startSeconds + durationSeconds;
+                    
+                    // Bind the time boundary check loop explicitly AFTER the file finishes its internal reload
+                    globalTimeUpdateListener = function() {
+                        if (audio.currentTime >= stopTargetTime) {
+                            audio.pause();
+                            audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                            globalTimeUpdateListener = null;
+                            infoText.innerText = "Track: " + trackId + " (Segment Finished)";
+                        }
+                    };
+                    audio.addEventListener('timeupdate', globalTimeUpdateListener);
+                }
+                
+                infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
                     console.log("Autoplay configuration caught browser interaction lock:", err);
                 });
@@ -244,12 +253,32 @@ def generate_web_portal():
 
             audio.onerror = function() {
                 console.log("Local path asset resolution failed. Attempting production raw cloud mirror pipeline...");
+                if (globalTimeUpdateListener) {
+                    audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                    globalTimeUpdateListener = null;
+                }
+                
                 audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + audioFile;
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startSeconds;
                     let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
-                    if (durationSeconds) { clipInfo += " [" + durationSeconds.toFixed(1) + "s Clip]"; }
+                    
+                    if (durationSeconds && durationSeconds > 0) {
+                        clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
+                        const stopTargetTime = startSeconds + durationSeconds;
+                        
+                        globalTimeUpdateListener = function() {
+                            if (audio.currentTime >= stopTargetTime) {
+                                audio.pause();
+                                audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                                globalTimeUpdateListener = null;
+                                infoText.innerText = "Track: " + trackId + " (Segment Finished)";
+                            }
+                        };
+                        audio.addEventListener('timeupdate', globalTimeUpdateListener);
+                    }
+                    
                     infoText.innerText = clipInfo;
                     audio.play();
                     audio.oncanplay = null;
@@ -367,8 +396,8 @@ def generate_web_portal():
             occ_links = ""
             for o in d.get('occurrences', []):
                 sec_val = time_to_seconds(o["time"])
-                # Since occurrences come from secondary structures, a safe 5-second segment slice windows it cleanly
-                occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 5.0)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
+                # Windows concordance links smoothly with a clean 4.5 second clip segment
+                occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
             dict_cards += f"""
             <div class="dict-card" data-term="{word.lower()}" data-def="{d['definition'].lower()}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
@@ -579,7 +608,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("✅ Success! Time-boundary trackers integrated. Segments will now isolate and pause cleanly.")
+    print("🚀 Success! Audio isolation boundary trackers are completely synchronized.")
 
 if __name__ == "__main__":
     generate_web_portal()

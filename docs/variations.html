@@ -1187,7 +1187,7 @@
         </div>
     </div>
     <script>
-        let currentClipEndTimestamp = null;
+        let globalTimeUpdateListener = null;
 
         function getTrueAudioFilename(trackId) {
             let cleanId = trackId.trim();
@@ -1203,15 +1203,6 @@
             return cleanId;
         }
 
-        // Initialize background tracking daemon to isolate audio bounds per segment row
-        document.getElementById('html5AudioWidget').addEventListener('timeupdate', function() {
-            if (currentClipEndTimestamp !== null && this.currentTime >= currentClipEndTimestamp) {
-                this.pause();
-                currentClipEndTimestamp = null; // Unbind endpoint safely
-                document.getElementById('playerTrackInfo').innerText += " (Segment Finished)";
-            }
-        });
-
         function playAudioSnippet(trackId, startSeconds, durationSeconds) {
             const playerBar = document.getElementById('globalAudioPlayer');
             const audio = document.getElementById('html5AudioWidget');
@@ -1221,8 +1212,11 @@
             infoText.innerText = "Loading Track: " + audioFile + "...";
             playerBar.style.display = "block";
             
-            // Set end boundary marker explicitly
-            currentClipEndTimestamp = (durationSeconds && durationSeconds > 0) ? (startSeconds + durationSeconds) : null;
+            // Explicitly flush older tracking bindings before pushing new source data
+            if (globalTimeUpdateListener) {
+                audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                globalTimeUpdateListener = null;
+            }
             
             let localPath = "audio-previews/" + audioFile;
             if (window.location.hostname.includes("github.io")) {
@@ -1237,9 +1231,24 @@
             audio.oncanplay = function() {
                 audio.currentTime = startSeconds;
                 let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
-                if (durationSeconds) { clipInfo += " [" + durationSeconds.toFixed(1) + "s Clip]"; }
-                infoText.innerText = clipInfo;
                 
+                if (durationSeconds && durationSeconds > 0) {
+                    clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
+                    const stopTargetTime = startSeconds + durationSeconds;
+                    
+                    // Bind the time boundary check loop explicitly AFTER the file finishes its internal reload
+                    globalTimeUpdateListener = function() {
+                        if (audio.currentTime >= stopTargetTime) {
+                            audio.pause();
+                            audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                            globalTimeUpdateListener = null;
+                            infoText.innerText = "Track: " + trackId + " (Segment Finished)";
+                        }
+                    };
+                    audio.addEventListener('timeupdate', globalTimeUpdateListener);
+                }
+                
+                infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
                     console.log("Autoplay configuration caught browser interaction lock:", err);
                 });
@@ -1248,12 +1257,32 @@
 
             audio.onerror = function() {
                 console.log("Local path asset resolution failed. Attempting production raw cloud mirror pipeline...");
+                if (globalTimeUpdateListener) {
+                    audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                    globalTimeUpdateListener = null;
+                }
+                
                 audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + audioFile;
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startSeconds;
                     let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
-                    if (durationSeconds) { clipInfo += " [" + durationSeconds.toFixed(1) + "s Clip]"; }
+                    
+                    if (durationSeconds && durationSeconds > 0) {
+                        clipInfo += " [" + durationSeconds.toFixed(1) + "s Segment]";
+                        const stopTargetTime = startSeconds + durationSeconds;
+                        
+                        globalTimeUpdateListener = function() {
+                            if (audio.currentTime >= stopTargetTime) {
+                                audio.pause();
+                                audio.removeEventListener('timeupdate', globalTimeUpdateListener);
+                                globalTimeUpdateListener = null;
+                                infoText.innerText = "Track: " + trackId + " (Segment Finished)";
+                            }
+                        };
+                        audio.addEventListener('timeupdate', globalTimeUpdateListener);
+                    }
+                    
                     infoText.innerText = clipInfo;
                     audio.play();
                     audio.oncanplay = null;
