@@ -29,7 +29,7 @@
     #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
     .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
     .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
-    audio { outline: none; }
+    audio { outline: none; width: 400px; max-width: 100%; }
     </style>
     </head>
     <body>
@@ -3503,22 +3503,43 @@
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
             
-            // Reconstruct path cleanly relative to docs output location
-            const targetSrc = "../audio-previews/" + trackId + ".mp3";
-            
-            infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+            infoText.innerText = "Loading Track: " + trackId + "...";
             playerBar.style.display = "block";
             
-            // Set source and load if it's a fresh file assignment
-            if (!audio.src.includes(targetSrc)) {
-                audio.src = targetSrc;
-                audio.load();
+            // Try production GitHub path first, then absolute relative path fallback
+            let localPath = "audio-previews/" + trackId + ".mp3";
+            if (window.location.hostname.includes("github.io")) {
+                localPath = "/sho-pitr-project-transcriptions/audio-previews/" + trackId + ".mp3";
+            } else if (window.location.pathname.includes("/docs/")) {
+                localPath = "../audio-previews/" + trackId + ".mp3";
             }
             
-            audio.currentTime = startSeconds;
-            audio.play().catch(function(error) {
-                console.log("Audio playback configuration failed:", error);
-            });
+            // Set track update source
+            audio.src = localPath;
+            audio.load();
+            
+            audio.oncanplay = function() {
+                audio.currentTime = startSeconds;
+                infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+                audio.play().catch(function(err) {
+                    console.log("Autoplay blocked by browser policy, awaiting interaction.");
+                });
+                audio.oncanplay = null; // Unbind to prevent duplicate triggers
+            };
+
+            audio.onerror = function() {
+                // Production raw cloud cross-origin fallback asset network check
+                console.log("Local path failed. Requesting remote file storage fallback channel...");
+                audio.src = "https://raw.githubusercontent.com/imtryin2code/sho-pitr-project-transcriptions/main/audio-previews/" + trackId + ".mp3";
+                audio.load();
+                audio.oncanplay = function() {
+                    audio.currentTime = startSeconds;
+                    infoText.innerText = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
+                    audio.play();
+                    audio.oncanplay = null;
+                };
+                audio.onerror = null;
+            };
         }
     </script>
     
