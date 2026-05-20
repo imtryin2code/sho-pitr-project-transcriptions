@@ -75,7 +75,8 @@ def generate_web_portal():
     observations_data['[UNCATEGORIZED]'] = []
     variations_data = []
 
-    for row in raw_rows:
+    # Calculate smart segment durations by checking when the next timestamp begins
+    for i, row in enumerate(raw_rows):
         tier = row.get('Notes_Tier', '').strip()
         note = row.get('Notes_Text', '').strip()
         text = row.get('Text', '').strip()
@@ -84,6 +85,15 @@ def generate_web_portal():
         speaker = row.get('Speaker', 'Unknown').strip()
         
         seconds = time_to_seconds(timestamp)
+        
+        # Look ahead to find next timestamp for the same file to determine duration
+        duration = 6.0  # Safe default fallback clip length in seconds
+        if i + 1 < len(raw_rows):
+            next_row = raw_rows[i + 1]
+            if next_row.get('ID', '').strip() == rec_id:
+                next_seconds = time_to_seconds(next_row.get('Time', '00:00'))
+                if next_seconds > seconds:
+                    duration = next_seconds - seconds
 
         matched_tag = None
         if '[?]' in note or '[UNCERTAIN]' in note or '[?]' in tier or '[UNCERTAIN]' in tier:
@@ -104,7 +114,7 @@ def generate_web_portal():
         item = {
             'id': rec_id, 'time': timestamp, 'speaker': speaker,
             'transcription': clean_for_html(text), 'note': clean_for_html(actual_payload),
-            'seconds': seconds
+            'seconds': seconds, 'duration': duration
         }
 
         if matched_tag:
@@ -124,7 +134,7 @@ def generate_web_portal():
             variations_data.append({
                 'id': rec_id, 'time': timestamp, 'speaker': speaker,
                 'variant': clean_for_html(clean_variant), 'gr_standard': clean_for_html(clean_gr),
-                'raw_content': clean_for_html(actual_payload), 'seconds': seconds
+                'raw_content': clean_for_html(actual_payload), 'seconds': seconds, 'duration': duration
             })
 
     total_obs = sum(len(observations_data[c]) for c in observations_data)
@@ -163,7 +173,7 @@ def generate_web_portal():
     audio { outline: none; width: 400px; max-width: 100%; }
     """
 
-    # FIXED: String marked as raw 'r"""' block so python ignores JS backslash notation rules
+    # FIXED: Added dynamic runtime boundary enforcement mechanics to audio element via 'timeupdate' hooks
     audio_dock_html = r"""
     <div id="globalAudioPlayer">
         <div class="player-inner">
@@ -173,6 +183,8 @@ def generate_web_portal():
         </div>
     </div>
     <script>
+        let currentClipEndTimestamp = null;
+
         function getTrueAudioFilename(trackId) {
             let cleanId = trackId.trim();
             let match = cleanId.match(/^(\d+)-[sS](\d+)$/);
@@ -187,7 +199,16 @@ def generate_web_portal():
             return cleanId;
         }
 
-        function playAudioSnippet(trackId, startSeconds) {
+        // Initialize background tracking daemon to isolate audio bounds per segment row
+        document.getElementById('html5AudioWidget').addEventListener('timeupdate', function() {
+            if (currentClipEndTimestamp !== null && this.currentTime >= currentClipEndTimestamp) {
+                this.pause();
+                currentClipEndTimestamp = null; // Unbind endpoint safely
+                document.getElementById('playerTrackInfo').innerText += " (Segment Finished)";
+            }
+        });
+
+        function playAudioSnippet(trackId, startSeconds, durationSeconds) {
             const playerBar = document.getElementById('globalAudioPlayer');
             const audio = document.getElementById('html5AudioWidget');
             const infoText = document.getElementById('playerTrackInfo');
@@ -195,6 +216,9 @@ def generate_web_portal():
             const audioFile = getTrueAudioFilename(trackId);
             infoText.innerText = "Loading Track: " + audioFile + "...";
             playerBar.style.display = "block";
+            
+            // Set end boundary marker explicitly
+            currentClipEndTimestamp = (durationSeconds && durationSeconds > 0) ? (startSeconds + durationSeconds) : null;
             
             let localPath = "audio-previews/" + audioFile;
             if (window.location.hostname.includes("github.io")) {
@@ -208,7 +232,10 @@ def generate_web_portal():
             
             audio.oncanplay = function() {
                 audio.currentTime = startSeconds;
-                infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+                if (durationSeconds) { clipInfo += " [" + durationSeconds.toFixed(1) + "s Clip]"; }
+                infoText.innerText = clipInfo;
+                
                 audio.play().catch(function(err) {
                     console.log("Autoplay configuration caught browser interaction lock:", err);
                 });
@@ -221,7 +248,9 @@ def generate_web_portal():
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startSeconds;
-                    infoText.innerText = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
+                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startSeconds) + "s";
+                    if (durationSeconds) { clipInfo += " [" + durationSeconds.toFixed(1) + "s Clip]"; }
+                    infoText.innerText = clipInfo;
                     audio.play();
                     audio.oncanplay = null;
                 };
@@ -250,7 +279,7 @@ def generate_web_portal():
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/{cid}_Reading_Guide.md" target="_blank">View Guide</a>
-                <button class="btn" style="background:#444;" onclick="playAudioSnippet('{cid}', 0)">🎚️ Play Audio</button>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('{cid}', 0, 0)">🎚️ Play Audio</button>
             </div>
         </div>""" for cid in completed_ids])
 
@@ -338,7 +367,8 @@ def generate_web_portal():
             occ_links = ""
             for o in d.get('occurrences', []):
                 sec_val = time_to_seconds(o["time"])
-                occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val})" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
+                # Since occurrences come from secondary structures, a safe 5-second segment slice windows it cleanly
+                occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 5.0)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
             dict_cards += f"""
             <div class="dict-card" data-term="{word.lower()}" data-def="{d['definition'].lower()}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
@@ -403,7 +433,7 @@ def generate_web_portal():
             <tr class="obs-row" data-tag="{tag}" data-text="{e['id'].lower()} {e['speaker'].lower()} {e['note'].lower()} {e['transcription'].lower()}">
                 <td><span style="background:#8c1b1b; color:white; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">{tag}</span></td>
                 <td><code>{e['id']}</code></td>
-                <td><button class="audio-btn" onclick="playAudioSnippet('{e['id']}', {e['seconds']})">{e['time']} 🔊</button></td>
+                <td><button class="audio-btn" onclick="playAudioSnippet('{e['id']}', {e['seconds']}, {e['duration']})">{e['time']} 🔊</button></td>
                 <td><strong>{e['speaker']}</strong></td>
                 <td><small style="color:#555;">{e['transcription']}</small></td>
                 <td>{e['note']}</td>
@@ -487,7 +517,7 @@ def generate_web_portal():
         var_rows_html += f"""
         <tr class="var-row" data-text="{v['id'].lower()} {v['speaker'].lower()} {v['variant'].lower()} {v['gr_standard'].lower()} {v['raw_content'].lower()}">
             <td><code>{v['id']}</code></td>
-            <td><button class="audio-btn" onclick="playAudioSnippet('{v['id']}', {v['seconds']})">{v['time']} 🔊</button></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('{v['id']}', {v['seconds']}, {v['duration']})">{v['time']} 🔊</button></td>
             <td><strong>{v['speaker']}</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">{v['variant']}</td>
             <td style="font-style:italic; color:#2c3e50;">{v['gr_standard']}</td>
@@ -549,7 +579,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("✅ Success! Fixed syntax warnings. Your audio streaming pipelines are clear.")
+    print("✅ Success! Time-boundary trackers integrated. Segments will now isolate and pause cleanly.")
 
 if __name__ == "__main__":
     generate_web_portal()
