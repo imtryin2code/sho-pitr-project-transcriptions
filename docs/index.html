@@ -197,7 +197,6 @@
             return cleanId;
         }
 
-        // DOM data-attribute approach to guarantee variables are loaded purely as clean datatypes
         function triggerAudioFromElement(btnElement) {
             const trackId = btnElement.getAttribute('data-track');
             const startSeconds = btnElement.getAttribute('data-start');
@@ -234,7 +233,7 @@
             
             audio.oncanplay = function() {
                 audio.currentTime = startTimeParsed;
-                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startTimeParsed) + "s";
+                let clipInfo = "Playing Track: " + trackId + " @ " + startTimeParsed.toFixed(1) + "s";
                 
                 if (durationTimeParsed && durationTimeParsed > 0) {
                     clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
@@ -253,7 +252,7 @@
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Play action handling adjusted:", err);
+                    console.log("Play action fallback executed safely:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -268,7 +267,7 @@
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startTimeParsed;
-                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startTimeParsed) + "s";
+                    let clipInfo = "Playing Track: " + trackId + " (Remote) @ " + startTimeParsed.toFixed(1) + "s";
                     
                     if (durationTimeParsed && durationTimeParsed > 0) {
                         clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";

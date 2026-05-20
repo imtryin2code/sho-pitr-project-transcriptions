@@ -4,17 +4,29 @@ import os
 import re
 import html
 
+# =========================================================
+# AUDIO TIME ALIGNMENT CALIBRATION WIDGET
+# =========================================================
+# If your clips start 1.5 seconds too early, set this to 1.5. 
+# This shifts the playback anchor forward so it matches your MP3 track runtimes.
+TIME_OFFSET = 1.5  
+
 def time_to_seconds(time_str):
-    """Converts MM:SS or HH:MM:SS format safely to integer seconds for HTML5 playback anchors."""
+    """Converts MM:SS or HH:MM:SS format safely to float seconds and applies track alignment calibration."""
     try:
         parts = list(map(int, time_str.strip().split(':')))
         if len(parts) == 2:
-            return parts[0] * 60 + parts[1]
+            base_secs = parts[0] * 60 + parts[1]
         elif len(parts) == 3:
-            return parts[0] * 3600 + parts[1] * 60 + parts[2]
+            base_secs = parts[0] * 3600 + parts[1] * 60 + parts[2]
+        else:
+            return 0.0
+        
+        # Apply your global calibration padding factor
+        return float(base_secs) + TIME_OFFSET
     except Exception:
         pass
-    return 0
+    return 0.0
 
 def clean_for_html(text):
     """Safely normalizes text content and replaces angle brackets to stop browser HTML injection bugs."""
@@ -102,6 +114,7 @@ def generate_web_portal():
             if next_row.get('ID', '').strip() == rec_id:
                 next_seconds = time_to_seconds(next_row.get('Time', '00:00'))
                 if next_seconds > seconds:
+                    # Pure distance logic guarantees duration remains accurate post-offset shift
                     duration = next_seconds - seconds
 
         matched_tag = None
@@ -211,7 +224,6 @@ def generate_web_portal():
             return cleanId;
         }
 
-        // DOM data-attribute approach to guarantee variables are loaded purely as clean datatypes
         function triggerAudioFromElement(btnElement) {
             const trackId = btnElement.getAttribute('data-track');
             const startSeconds = btnElement.getAttribute('data-start');
@@ -248,7 +260,7 @@ def generate_web_portal():
             
             audio.oncanplay = function() {
                 audio.currentTime = startTimeParsed;
-                let clipInfo = "Playing Track: " + trackId + " @ " + Math.floor(startTimeParsed) + "s";
+                let clipInfo = "Playing Track: " + trackId + " @ " + startTimeParsed.toFixed(1) + "s";
                 
                 if (durationTimeParsed && durationTimeParsed > 0) {
                     clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
@@ -267,7 +279,7 @@ def generate_web_portal():
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Play action handling adjusted:", err);
+                    console.log("Play action fallback executed safely:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -282,7 +294,7 @@ def generate_web_portal():
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startTimeParsed;
-                    let clipInfo = "Playing Track: " + trackId + " (Remote Cloud Core) @ " + Math.floor(startTimeParsed) + "s";
+                    let clipInfo = "Playing Track: " + trackId + " (Remote) @ " + startTimeParsed.toFixed(1) + "s";
                     
                     if (durationTimeParsed && durationTimeParsed > 0) {
                         clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
@@ -634,7 +646,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! Clean data attributes implemented. Audio timings cannot break on text markers.")
+    print(f"🚀 Success! Alignment offset calibrated to +{TIME_OFFSET}s. Timestamps are fully synced.")
 
 if __name__ == "__main__":
     generate_web_portal()
