@@ -84,7 +84,6 @@ def generate_web_portal():
         speaker = row.get('Speaker', 'Unknown').strip()
         
         seconds = time_to_seconds(timestamp)
-        audio_link = f"../audio-previews/{rec_id}.mp3#t={seconds}" if rec_id != 'UNKNOWN' else "#"
 
         matched_tag = None
         if '[?]' in note or '[UNCERTAIN]' in note or '[?]' in tier or '[UNCERTAIN]' in tier:
@@ -105,7 +104,7 @@ def generate_web_portal():
         item = {
             'id': rec_id, 'time': timestamp, 'speaker': speaker,
             'transcription': clean_for_html(text), 'note': clean_for_html(actual_payload),
-            'audio': audio_link
+            'seconds': seconds
         }
 
         if matched_tag:
@@ -125,7 +124,7 @@ def generate_web_portal():
             variations_data.append({
                 'id': rec_id, 'time': timestamp, 'speaker': speaker,
                 'variant': clean_for_html(clean_variant), 'gr_standard': clean_for_html(clean_gr),
-                'raw_content': clean_for_html(actual_payload), 'audio': audio_link
+                'raw_content': clean_for_html(actual_payload), 'seconds': seconds
             })
 
     total_obs = sum(len(observations_data[c]) for c in observations_data)
@@ -135,7 +134,7 @@ def generate_web_portal():
     # 2. SHARED LAYOUT STYLES & NAV COMPONENT ENGINE
     # ---------------------------------------------------------
     shared_css = """
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; padding-bottom: 120px; }
     header { background: #8c1b1b; color: white; padding: 35px 20px; border-radius: 8px 8px 0 0; text-align: center; position: relative; }
     .repo-link { position: absolute; top: 15px; right: 20px; color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 5px 12px; border-radius: 4px; }
     nav { background: #333; color: white; padding: 14px; text-align: center; border-radius: 0 0 8px 8px; margin-bottom: 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -143,12 +142,12 @@ def generate_web_portal():
     nav a:hover, nav a.active { color: #ffcccb; border-bottom: 2px solid #ffcccb; padding-bottom: 3px; }
     .section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     h2 { color: #8c1b1b; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
-    .btn { display: inline-block; background: #8c1b1b; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; }
+    .btn { display: inline-block; background: #8c1b1b; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; cursor: pointer; border: none; }
     .btn:hover { background: #6b1414; }
     .search-container { margin: 20px 0; }
     .search-bar { width: 100%; padding: 14px 20px; border: 2px solid #eee; border-radius: 25px; font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.3s; }
     .search-bar:focus { border-color: #8c1b1b; }
-    .audio-btn { background: #2c3e50; font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; color: white; text-decoration: none; display: inline-block; font-weight: bold; }
+    .audio-btn { background: #2c3e50; font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; color: white; text-decoration: none; display: inline-block; font-weight: bold; cursor: pointer; border: none; }
     .audio-btn:hover { background: #1a252f; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
     th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
@@ -156,6 +155,46 @@ def generate_web_portal():
     tr.hidden { display: none !important; }
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    
+    /* Sticky Footer Media Bar */
+    #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
+    .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+    .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
+    audio { outline: none; }
+    """
+
+    audio_dock_html = """
+    <div id="globalAudioPlayer">
+        <div class="player-inner">
+            <div class="player-info" id="playerTrackInfo">Track: None</div>
+            <audio id="html5AudioWidget" controls preload="auto"></audio>
+            <button onclick="document.getElementById('globalAudioPlayer').style.display='none'" style="background:#555; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer; font-size:0.75rem;">✕ Close Bar</button>
+        </div>
+    </div>
+    <script>
+        function playAudioSnippet(trackId, startSeconds) {
+            const playerBar = document.getElementById('globalAudioPlayer');
+            const audio = document.getElementById('html5AudioWidget');
+            const infoText = document.getElementById('playerTrackInfo');
+            
+            // Reconstruct path cleanly relative to docs output location
+            const targetSrc = "../audio-previews/" + trackId + ".mp3";
+            
+            infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+            playerBar.style.display = "block";
+            
+            // Set source and load if it's a fresh file assignment
+            if (!audio.src.includes(targetSrc)) {
+                audio.src = targetSrc;
+                audio.load();
+            }
+            
+            audio.currentTime = startSeconds;
+            audio.play().catch(function(error) {
+                console.log("Audio playback configuration failed:", error);
+            });
+        }
+    </script>
     """
 
     def generate_nav(active_page):
@@ -177,7 +216,7 @@ def generate_web_portal():
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/{cid}_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/{cid}.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('{cid}', 0)">🎚️ Play Audio</button>
             </div>
         </div>""" for cid in completed_ids])
 
@@ -248,6 +287,7 @@ def generate_web_portal():
             &copy; 2026 Joe Peter Project Team. Powered by the J.P. Harrington Collection.
         </p>
     </footer>
+    {audio_dock_html}
     </body>
     </html>"""
 
@@ -261,7 +301,11 @@ def generate_web_portal():
     dict_cards = ""
     for word, d in glossary.items():
         if d.get('count', 0) > 0:
-            occ_links = "".join([f'<a class="occ-link" href="../audio-previews/{o["id"]}.mp3#t={time_to_seconds(o["time"])}" target="_blank" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc;">{o["id"]}@{o["time"]} 🔊</a>' for o in d.get('occurrences', [])])
+            occ_links = ""
+            for o in d.get('occurrences', []):
+                sec_val = time_to_seconds(o["time"])
+                occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val})" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
+            
             dict_cards += f"""
             <div class="dict-card" data-term="{word.lower()}" data-def="{d['definition'].lower()}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
                 <strong style="color:#8c1b1b; font-size:1.1rem;">{word}</strong> <small style="color:#777;">({d['count']}x)</small>
@@ -309,6 +353,7 @@ def generate_web_portal():
             }}
         }}
     </script>
+    {audio_dock_html}
     </body>
     </html>"""
 
@@ -324,7 +369,7 @@ def generate_web_portal():
             <tr class="obs-row" data-tag="{tag}" data-text="{e['id'].lower()} {e['speaker'].lower()} {e['note'].lower()} {e['transcription'].lower()}">
                 <td><span style="background:#8c1b1b; color:white; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">{tag}</span></td>
                 <td><code>{e['id']}</code></td>
-                <td><a class="audio-btn" href="{e['audio']}" target="_blank">{e['time']} 🔊</a></td>
+                <td><button class="audio-btn" onclick="playAudioSnippet('{e['id']}', {e['seconds']})">{e['time']} 🔊</button></td>
                 <td><strong>{e['speaker']}</strong></td>
                 <td><small style="color:#555;">{e['transcription']}</small></td>
                 <td>{e['note']}</td>
@@ -394,6 +439,7 @@ def generate_web_portal():
             }}
         }}
     </script>
+    {audio_dock_html}
     </body>
     </html>"""
 
@@ -407,7 +453,7 @@ def generate_web_portal():
         var_rows_html += f"""
         <tr class="var-row" data-text="{v['id'].lower()} {v['speaker'].lower()} {v['variant'].lower()} {v['gr_standard'].lower()} {v['raw_content'].lower()}">
             <td><code>{v['id']}</code></td>
-            <td><a class="audio-btn" href="{v['audio']}" target="_blank">{v['time']} 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('{v['id']}', {v['seconds']})">{v['time']} 🔊</button></td>
             <td><strong>{v['speaker']}</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">{v['variant']}</td>
             <td style="font-style:italic; color:#2c3e50;">{v['gr_standard']}</td>
@@ -463,12 +509,13 @@ def generate_web_portal():
             }}
         }}
     </script>
+    {audio_dock_html}
     </body>
     </html>"""
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("✅ Success! Portal rebuilt with 4 clean sub-pages. All components synced successfully.")
+    print("✅ Success! Fixed audio player functionality across all 4 built views.")
 
 if __name__ == "__main__":
     generate_web_portal()

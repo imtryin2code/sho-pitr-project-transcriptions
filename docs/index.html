@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"><title>Joe Peter Project Archive</title>
         <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; padding-bottom: 120px; }
     header { background: #8c1b1b; color: white; padding: 35px 20px; border-radius: 8px 8px 0 0; text-align: center; position: relative; }
     .repo-link { position: absolute; top: 15px; right: 20px; color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 5px 12px; border-radius: 4px; }
     nav { background: #333; color: white; padding: 14px; text-align: center; border-radius: 0 0 8px 8px; margin-bottom: 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -11,12 +11,12 @@
     nav a:hover, nav a.active { color: #ffcccb; border-bottom: 2px solid #ffcccb; padding-bottom: 3px; }
     .section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     h2 { color: #8c1b1b; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
-    .btn { display: inline-block; background: #8c1b1b; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; }
+    .btn { display: inline-block; background: #8c1b1b; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; cursor: pointer; border: none; }
     .btn:hover { background: #6b1414; }
     .search-container { margin: 20px 0; }
     .search-bar { width: 100%; padding: 14px 20px; border: 2px solid #eee; border-radius: 25px; font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.3s; }
     .search-bar:focus { border-color: #8c1b1b; }
-    .audio-btn { background: #2c3e50; font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; color: white; text-decoration: none; display: inline-block; font-weight: bold; }
+    .audio-btn { background: #2c3e50; font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; color: white; text-decoration: none; display: inline-block; font-weight: bold; cursor: pointer; border: none; }
     .audio-btn:hover { background: #1a252f; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
     th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
@@ -24,6 +24,12 @@
     tr.hidden { display: none !important; }
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    
+    /* Sticky Footer Media Bar */
+    #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
+    .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+    .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
+    audio { outline: none; }
     </style>
     </head>
     <body>
@@ -93,7 +99,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/682-S1_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/682-S1.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('682-S1', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -101,7 +107,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/682-S2_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/682-S2.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('682-S2', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -109,7 +115,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/683-S1_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/683-S1.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('683-S1', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -117,7 +123,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/683-S2_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/683-S2.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('683-S2', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -125,7 +131,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/684-S1_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/684-S1.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('684-S1', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -133,7 +139,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/685-S1_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/685-S1.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('685-S1', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -141,7 +147,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/693-S2_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/693-S2.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('693-S2', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -149,7 +155,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/694-S1_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/694-S1.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('694-S1', 0)">🎚️ Play Audio</button>
             </div>
         </div>
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -157,7 +163,7 @@
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/694-S2_Reading_Guide.md" target="_blank">View Guide</a>
-                <a class="btn" style="background:#444;" href="../audio-previews/694-S2.mp3" target="_blank">🎚️ Audio</a>
+                <button class="btn" style="background:#444;" onclick="playAudioSnippet('694-S2', 0)">🎚️ Play Audio</button>
             </div>
         </div></div>
 
@@ -166,5 +172,38 @@
             &copy; 2026 Joe Peter Project Team. Powered by the J.P. Harrington Collection.
         </p>
     </footer>
+    
+    <div id="globalAudioPlayer">
+        <div class="player-inner">
+            <div class="player-info" id="playerTrackInfo">Track: None</div>
+            <audio id="html5AudioWidget" controls preload="auto"></audio>
+            <button onclick="document.getElementById('globalAudioPlayer').style.display='none'" style="background:#555; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer; font-size:0.75rem;">✕ Close Bar</button>
+        </div>
+    </div>
+    <script>
+        function playAudioSnippet(trackId, startSeconds) {
+            const playerBar = document.getElementById('globalAudioPlayer');
+            const audio = document.getElementById('html5AudioWidget');
+            const infoText = document.getElementById('playerTrackInfo');
+            
+            // Reconstruct path cleanly relative to docs output location
+            const targetSrc = "../audio-previews/" + trackId + ".mp3";
+            
+            infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+            playerBar.style.display = "block";
+            
+            // Set source and load if it's a fresh file assignment
+            if (!audio.src.includes(targetSrc)) {
+                audio.src = targetSrc;
+                audio.load();
+            }
+            
+            audio.currentTime = startSeconds;
+            audio.play().catch(function(error) {
+                console.log("Audio playback configuration failed:", error);
+            });
+        }
+    </script>
+    
     </body>
     </html>

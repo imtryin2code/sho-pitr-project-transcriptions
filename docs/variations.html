@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"><title>Dialect Variation Report</title>
         <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; padding-bottom: 120px; }
     header { background: #8c1b1b; color: white; padding: 35px 20px; border-radius: 8px 8px 0 0; text-align: center; position: relative; }
     .repo-link { position: absolute; top: 15px; right: 20px; color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 5px 12px; border-radius: 4px; }
     nav { background: #333; color: white; padding: 14px; text-align: center; border-radius: 0 0 8px 8px; margin-bottom: 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -11,12 +11,12 @@
     nav a:hover, nav a.active { color: #ffcccb; border-bottom: 2px solid #ffcccb; padding-bottom: 3px; }
     .section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     h2 { color: #8c1b1b; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
-    .btn { display: inline-block; background: #8c1b1b; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; }
+    .btn { display: inline-block; background: #8c1b1b; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; cursor: pointer; border: none; }
     .btn:hover { background: #6b1414; }
     .search-container { margin: 20px 0; }
     .search-bar { width: 100%; padding: 14px 20px; border: 2px solid #eee; border-radius: 25px; font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.3s; }
     .search-bar:focus { border-color: #8c1b1b; }
-    .audio-btn { background: #2c3e50; font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; color: white; text-decoration: none; display: inline-block; font-weight: bold; }
+    .audio-btn { background: #2c3e50; font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; color: white; text-decoration: none; display: inline-block; font-weight: bold; cursor: pointer; border: none; }
     .audio-btn:hover { background: #1a252f; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
     th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
@@ -24,6 +24,12 @@
     tr.hidden { display: none !important; }
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    
+    /* Sticky Footer Media Bar */
+    #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
+    .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+    .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
+    audio { outline: none; }
     </style>
     </head>
     <body>
@@ -61,7 +67,7 @@
             <tbody id="varTableBody">
         <tr class="var-row" data-text="682-s1 joe peter miməlus miməlust [?] [ling] tənəs for tənas?. unfinished?. \|miməlus\| [[miməlust]], appears to drop the 't'">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=421" target="_blank">07:01 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 421)">07:01 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -69,7 +75,7 @@
         </tr>
         <tr class="var-row" data-text="682-s1 joe peter miməlus miməlust [ling]  \|miməlus\| [[miməlust]], appears to drop the 't'">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=429" target="_blank">07:09 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 429)">07:09 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -77,7 +83,7 @@
         </tr>
         <tr class="var-row" data-text="682-s1 joe peter olman ulman [ling] \|olman\| [[ulman]]">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=451" target="_blank">07:31 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 451)">07:31 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">olman</td>
             <td style="font-style:italic; color:#2c3e50;">ulman</td>
@@ -85,7 +91,7 @@
         </tr>
         <tr class="var-row" data-text="682-s1 joe peter olman ulman [ling] \|olman\| [[ulman]]">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=639" target="_blank">10:39 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 639)">10:39 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">olman</td>
             <td style="font-style:italic; color:#2c3e50;">ulman</td>
@@ -93,7 +99,7 @@
         </tr>
         <tr class="var-row" data-text="682-s1 joe peter kʰalaytən kalaytən [ling]  \|kʰalaytən\| [[kalaytən]]">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=732" target="_blank">12:12 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 732)">12:12 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kʰalaytən</td>
             <td style="font-style:italic; color:#2c3e50;">kalaytən</td>
@@ -101,7 +107,7 @@
         </tr>
         <tr class="var-row" data-text="682-s1 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]  [tex] good example of na question particle">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=1149" target="_blank">19:09 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 1149)">19:09 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -109,7 +115,7 @@
         </tr>
         <tr class="var-row" data-text="682-s1 joe peter iley iliʔ [ling] \|iley\| [[iliʔ]]">
             <td><code>682-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S1.mp3#t=1196" target="_blank">19:56 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S1', 1196)">19:56 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">iley</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔ</td>
@@ -117,7 +123,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter miməlus miməlust [?] [note] check with others again is this a &lt;&gt;, or is he dropping the t and we should use \|miməlus\| [[miməlust]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=45" target="_blank">00:45 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 45)">00:45 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -125,7 +131,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter ix̣púy ix̣puy [?] [note] jp possibly is mixing up "mitxwit" and "miɬayt" in this section [ling] \|ix̣púy\| [[ix̣puy]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=143" target="_blank">02:23 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 143)">02:23 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ix̣púy</td>
             <td style="font-style:italic; color:#2c3e50;">ix̣puy</td>
@@ -133,7 +139,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter hayas hayash [?] [note] either "hayash" or "kʰupaaassssstik" [ling] \|hayas\| [[hayash]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=188" target="_blank">03:08 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 188)">03:08 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">hayas</td>
             <td style="font-style:italic; color:#2c3e50;">hayash</td>
@@ -141,7 +147,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter á aha [ling] \|á\| [[aha]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=302" target="_blank">05:02 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 302)">05:02 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">á</td>
             <td style="font-style:italic; color:#2c3e50;">aha</td>
@@ -149,7 +155,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter weyk wik [ling] \|weyk\| [[wik]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=364" target="_blank">06:04 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 364)">06:04 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">weyk</td>
             <td style="font-style:italic; color:#2c3e50;">wik</td>
@@ -157,7 +163,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter qʰwinəm qwinəm [ling]  \|qʰwinəm\| [[qwinəm]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=386" target="_blank">06:26 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 386)">06:26 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">qʰwinəm</td>
             <td style="font-style:italic; color:#2c3e50;">qwinəm</td>
@@ -165,7 +171,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter patɬach paɬach [ling] \|patɬach\| [[paɬach]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=482" target="_blank">08:02 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 482)">08:02 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">patɬach</td>
             <td style="font-style:italic; color:#2c3e50;">paɬach</td>
@@ -173,7 +179,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter tʰili tʰil [ling] \|tʰili\| [[tʰil]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=657" target="_blank">10:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 657)">10:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">tʰili</td>
             <td style="font-style:italic; color:#2c3e50;">tʰil</td>
@@ -181,7 +187,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter lepʰiye lipʰyi [ling] \|lepʰiye\| [[lipʰyi]]  [note] starnge sound at beginning">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=912" target="_blank">15:12 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 912)">15:12 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">lipʰyi</td>
@@ -189,7 +195,7 @@
         </tr>
         <tr class="var-row" data-text="682-s2 joe peter ɬaaska ɬaska [ling] \|ɬaaska\| [[ɬaska]]">
             <td><code>682-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/682-S2.mp3#t=987" target="_blank">16:27 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('682-S2', 987)">16:27 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ɬaaska</td>
             <td style="font-style:italic; color:#2c3e50;">ɬaska</td>
@@ -197,7 +203,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter lʊlʊ lulu [ling]  \|lʊlʊ\| [[lulu]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=83" target="_blank">01:23 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 83)">01:23 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lʊlʊ</td>
             <td style="font-style:italic; color:#2c3e50;">lulu</td>
@@ -205,7 +211,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter ɬasa ɬaska [ling]  \|ɬasa\| [[ɬaska]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=97" target="_blank">01:37 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 97)">01:37 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ɬasa</td>
             <td style="font-style:italic; color:#2c3e50;">ɬaska</td>
@@ -213,7 +219,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter weyk wik [ling] \|weyk\| [[wik]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=139" target="_blank">02:19 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 139)">02:19 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">weyk</td>
             <td style="font-style:italic; color:#2c3e50;">wik</td>
@@ -221,7 +227,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter kʰalaytən kalaytən [ling] \|kʰalaytən\| [[kalaytən]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=150" target="_blank">02:30 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 150)">02:30 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kʰalaytən</td>
             <td style="font-style:italic; color:#2c3e50;">kalaytən</td>
@@ -229,7 +235,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter kʰupuk kʰupa &lt;uk&gt; [ling] \|kʰupuk\| [[kʰupa &lt;uk&gt;]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=221" target="_blank">03:41 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 221)">03:41 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kʰupuk</td>
             <td style="font-style:italic; color:#2c3e50;">kʰupa &lt;uk&gt;</td>
@@ -237,7 +243,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter olman ulman [ling] \|olman\| [[ulman]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=554" target="_blank">09:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 554)">09:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">olman</td>
             <td style="font-style:italic; color:#2c3e50;">ulman</td>
@@ -245,7 +251,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter aɬqə aɬqi [ling] \|aɬqə\| [[aɬqi]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=641" target="_blank">10:41 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 641)">10:41 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">aɬqə</td>
             <td style="font-style:italic; color:#2c3e50;">aɬqi</td>
@@ -253,7 +259,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter iliʔey iliʔi [ling]  \|iliʔey\| [[iliʔi]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=791" target="_blank">13:11 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 791)">13:11 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">iliʔey</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -261,7 +267,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter elip-lema iləp-lima [ling] \|elip-lema\| [[iləp-lima]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=800" target="_blank">13:20 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 800)">13:20 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">elip-lema</td>
             <td style="font-style:italic; color:#2c3e50;">iləp-lima</td>
@@ -269,7 +275,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter iliʔey iliʔi [ling]  \|iliʔey\| [[iliʔi]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=827" target="_blank">13:47 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 827)">13:47 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">iliʔey</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -277,7 +283,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter iliʔey iliʔi [ling]  \|iliʔey\| [[iliʔi]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=837" target="_blank">13:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 837)">13:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">iliʔey</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -285,7 +291,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter qʰəntsi qʰənchi [ling] \|qʰəntsi\| [[qʰənchi]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=925" target="_blank">15:25 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 925)">15:25 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">qʰəntsi</td>
             <td style="font-style:italic; color:#2c3e50;">qʰənchi</td>
@@ -293,7 +299,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter yax̣a yax̣ka [ling] \|yax̣a\| [[yax̣ka]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=990" target="_blank">16:30 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 990)">16:30 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">yax̣a</td>
             <td style="font-style:italic; color:#2c3e50;">yax̣ka</td>
@@ -301,7 +307,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter kikwəlili kikwəli [ling]  \|kikwəlili\| [[kikwəli]]">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=1004" target="_blank">16:44 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 1004)">16:44 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kikwəlili</td>
             <td style="font-style:italic; color:#2c3e50;">kikwəli</td>
@@ -309,7 +315,7 @@
         </tr>
         <tr class="var-row" data-text="683-s1 joe peter eyləp iləp [ling] \|eyləp\| [[iləp]]  [note]  ***try to clean/boost****">
             <td><code>683-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S1.mp3#t=1077" target="_blank">17:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S1', 1077)">17:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">eyləp</td>
             <td style="font-style:italic; color:#2c3e50;">iləp</td>
@@ -317,7 +323,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter mæn man [ling] \|mæn\| [[man]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=19" target="_blank">00:19 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 19)">00:19 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mæn</td>
             <td style="font-style:italic; color:#2c3e50;">man</td>
@@ -325,7 +331,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lakt lakit [ling] \|lakt\| [[lakit]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=160" target="_blank">02:40 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 160)">02:40 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lakt</td>
             <td style="font-style:italic; color:#2c3e50;">lakit</td>
@@ -333,7 +339,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter hayaw hayu [ling] \|hayaw\| [[hayu]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=244" target="_blank">04:04 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 244)">04:04 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">hayaw</td>
             <td style="font-style:italic; color:#2c3e50;">hayu</td>
@@ -341,7 +347,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter hayaw hayu [ling] \|hayaw\| [[hayu]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=271" target="_blank">04:31 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 271)">04:31 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">hayaw</td>
             <td style="font-style:italic; color:#2c3e50;">hayu</td>
@@ -349,7 +355,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter skins skin [ling] \|skins\| [[skin]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=388" target="_blank">06:28 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 388)">06:28 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">skins</td>
             <td style="font-style:italic; color:#2c3e50;">skin</td>
@@ -357,7 +363,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter makʰmak məkʰmək [ling] \|makʰmak\| [[məkʰmək]]  [?] [note] check pronunciation of məkʰmək">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=431" target="_blank">07:11 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 431)">07:11 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">makʰmak</td>
             <td style="font-style:italic; color:#2c3e50;">məkʰmək</td>
@@ -365,7 +371,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter skins skin [ling] \|skins\| [[skin]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=437" target="_blank">07:17 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 437)">07:17 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">skins</td>
             <td style="font-style:italic; color:#2c3e50;">skin</td>
@@ -373,7 +379,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter skinz skin [ling] \|skinz\| [[skin]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=446" target="_blank">07:26 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 446)">07:26 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">skinz</td>
             <td style="font-style:italic; color:#2c3e50;">skin</td>
@@ -381,7 +387,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter skinz skin [ling] \|skinz\| [[skin]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=461" target="_blank">07:41 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 461)">07:41 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">skinz</td>
             <td style="font-style:italic; color:#2c3e50;">skin</td>
@@ -389,7 +395,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter ileyʔi iliʔi [ling] \|ileyʔi\| [[iliʔi]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=480" target="_blank">08:00 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 480)">08:00 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ileyʔi</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -397,7 +403,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter kʰulí kʰuri [ling]  \|kʰulí\| [[kʰuri]] , he is actually saying the "l" as he should "r" insnt really in early indigenous languages and the kʰuri is most likeley a more recent adapation in gr.">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=547" target="_blank">09:07 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 547)">09:07 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kʰulí</td>
             <td style="font-style:italic; color:#2c3e50;">kʰuri</td>
@@ -405,7 +411,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter milay miɬayt [ling]  \|milay\| [[miɬayt]]  note: possible distortion on "miɬayt"">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=559" target="_blank">09:19 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 559)">09:19 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">milay</td>
             <td style="font-style:italic; color:#2c3e50;">miɬayt</td>
@@ -413,7 +419,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter k'watin k'wətʰin [ling]  \|k'watin\| [[k'wətʰin]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=584" target="_blank">09:44 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 584)">09:44 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">k'watin</td>
             <td style="font-style:italic; color:#2c3e50;">k'wətʰin</td>
@@ -421,7 +427,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye lipʰyi [ling]  \|lepʰiye\| [[lipʰyi]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=674" target="_blank">11:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 674)">11:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">lipʰyi</td>
@@ -429,7 +435,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter mamuk-kuli mamuk-kʰuri [ling] \|mamuk-kuli\| [[mamuk-kʰuri]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=710" target="_blank">11:50 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 710)">11:50 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-kuli</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-kʰuri</td>
@@ -437,7 +443,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye - [ling]  \|lepʰiye\| [lipʰyi]  [vex] clear back x on wəx̣t">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=715" target="_blank">11:55 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 715)">11:55 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -445,7 +451,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye - [ling]  \|lepʰiye\| [lipʰyi] [?] [note] is "ukuk" object of "t'ɬap"? or are we mishearing "ukuk" for "yaka"?">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=730" target="_blank">12:10 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 730)">12:10 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -453,7 +459,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter mamuk-kuli mamuk-kʰuri [ling] \|mamuk-kuli\| [[mamuk-kʰuri]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=734" target="_blank">12:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 734)">12:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-kuli</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-kʰuri</td>
@@ -461,7 +467,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter mamuk-kulí - [ling]  \|mamuk-kulí\| [[mamuk-kʰuri]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=741" target="_blank">12:21 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 741)">12:21 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-kulí</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -469,7 +475,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter aws aw [ling]  \|aws\| [[aw]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=763" target="_blank">12:43 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 763)">12:43 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">aws</td>
             <td style="font-style:italic; color:#2c3e50;">aw</td>
@@ -477,7 +483,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lamiyey lamiyay [ling]  \|lamiyey\| [[lamiyay]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=865" target="_blank">14:25 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 865)">14:25 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lamiyey</td>
             <td style="font-style:italic; color:#2c3e50;">lamiyay</td>
@@ -485,7 +491,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye lipʰyi [ling]  \|lepʰiye\| [[lipʰyi]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=992" target="_blank">16:32 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 992)">16:32 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">lipʰyi</td>
@@ -493,7 +499,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye lipʰyi [ling] \|lepʰiye\| [[lipʰyi]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=1002" target="_blank">16:42 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 1002)">16:42 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">lipʰyi</td>
@@ -501,7 +507,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye lipʰyi [ling] \|lepʰiye\| [[lipʰyi]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=1017" target="_blank">16:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 1017)">16:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">lipʰyi</td>
@@ -509,7 +515,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter lepʰiye lipʰyi [ling]  \|lepʰiye\| [[lipʰyi]] and \|mæn\| [[man]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=1037" target="_blank">17:17 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 1037)">17:17 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lepʰiye</td>
             <td style="font-style:italic; color:#2c3e50;">lipʰyi</td>
@@ -517,7 +523,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter leyley lili [ling] \|leyley\| [[lili]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=1128" target="_blank">18:48 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 1128)">18:48 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">leyley</td>
             <td style="font-style:italic; color:#2c3e50;">lili</td>
@@ -525,7 +531,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter mæn man [ling] \|mæn\| [[man]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=1135" target="_blank">18:55 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 1135)">18:55 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mæn</td>
             <td style="font-style:italic; color:#2c3e50;">man</td>
@@ -533,7 +539,7 @@
         </tr>
         <tr class="var-row" data-text="683-s2 joe peter qʰəntsix̣ qʰəntsi [ling] \|qʰəntsix̣\| [[qʰəntsi]] and \|sæn\| [[san]]">
             <td><code>683-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/683-S2.mp3#t=1148" target="_blank">19:08 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('683-S2', 1148)">19:08 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">qʰəntsix̣</td>
             <td style="font-style:italic; color:#2c3e50;">qʰəntsi</td>
@@ -541,7 +547,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-salax̣/sahlix - [?] review [note] flipped syllables for sax̣ali?  [ling] \|mamuk-salax̣/sahlix\| [mamuk-sax̣ali]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=57" target="_blank">00:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 57)">00:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-salax̣/sahlix</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -549,7 +555,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter hayas-samən hayash-samən [ling] \|hayas-samən\| [[hayash-samən]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=62" target="_blank">01:02 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 62)">01:02 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">hayas-samən</td>
             <td style="font-style:italic; color:#2c3e50;">hayash-samən</td>
@@ -557,7 +563,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter ileʔi iliʔi [ling] \|ileʔi\| [[iliʔi]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=69" target="_blank">01:09 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 69)">01:09 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ileʔi</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -565,7 +571,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter ileʔi iliʔi [tex] [ling] sounds clearly like "munk", \|ileʔi\| [[iliʔi]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=74" target="_blank">01:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 74)">01:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ileʔi</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -573,7 +579,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter paya-ileʔi paya-iliʔi [ling] \|paya-ileʔi\| [[paya-iliʔi]]  [idiom for lightning?]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=81" target="_blank">01:21 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 81)">01:21 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">paya-ileʔi</td>
             <td style="font-style:italic; color:#2c3e50;">paya-iliʔi</td>
@@ -581,7 +587,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-kakwə - [ling] \|mamuk-kakwə\| [mamuk-kakwa]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=92" target="_blank">01:32 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 92)">01:32 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-kakwə</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -589,7 +595,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter ileʔi iliʔi [ling]  \|ileʔi\| [[iliʔi]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=114" target="_blank">01:54 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 114)">01:54 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ileʔi</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -597,7 +603,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter ileʔi iliʔi [ling]  \|ileʔi\| [[iliʔi]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=125" target="_blank">02:05 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 125)">02:05 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ileʔi</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -605,7 +611,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter cha chaku [ling] \|cha\| [[chaku]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=148" target="_blank">02:28 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 148)">02:28 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">cha</td>
             <td style="font-style:italic; color:#2c3e50;">chaku</td>
@@ -613,7 +619,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter lolo lulu [ling] \|lolo\| [[lulu]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=156" target="_blank">02:36 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 156)">02:36 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lolo</td>
             <td style="font-style:italic; color:#2c3e50;">lulu</td>
@@ -621,7 +627,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter x̣awqwaɬ x̣awqaɬ [ling] \|x̣awqwaɬ\| [[x̣awqaɬ]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=194" target="_blank">03:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 194)">03:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">x̣awqwaɬ</td>
             <td style="font-style:italic; color:#2c3e50;">x̣awqaɬ</td>
@@ -629,7 +635,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter uku ukuk [?] review [ling] \|uku\| [[ukuk]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=294" target="_blank">04:54 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 294)">04:54 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">uku</td>
             <td style="font-style:italic; color:#2c3e50;">ukuk</td>
@@ -637,7 +643,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-t'ɬəx̣-t'ɬx̣ mamuk-t'ɬəx̣-t'ɬəx̣ [?] to review munk/mamuk [ling] possibly "munk", shortened form of mamuk here?, \|mamuk-t'ɬəx̣-t'ɬx̣\| [[mamuk-t'ɬəx̣-t'ɬəx̣]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=673" target="_blank">11:13 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 673)">11:13 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-t'ɬəx̣-t'ɬx̣</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-t'ɬəx̣-t'ɬəx̣</td>
@@ -645,7 +651,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter dileyt dilit [ling] \|dileyt\| [[dilit]]  [vex] clear uvular on "anqati"">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=877" target="_blank">14:37 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 877)">14:37 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">dileyt</td>
             <td style="font-style:italic; color:#2c3e50;">dilit</td>
@@ -653,7 +659,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter lolo-stik luʔluʔ-stik [ling]  \|lolo-stik\| [[luʔluʔ-stik]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=935" target="_blank">15:35 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 935)">15:35 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lolo-stik</td>
             <td style="font-style:italic; color:#2c3e50;">luʔluʔ-stik</td>
@@ -661,7 +667,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter kwas k'was [ling]  \|kwas\| [[k'was]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=944" target="_blank">15:44 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 944)">15:44 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kwas</td>
             <td style="font-style:italic; color:#2c3e50;">k'was</td>
@@ -669,7 +675,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter lolo-stik luʔluʔ-stik [ling]  \|lolo-stik\| [[luʔluʔ-stik]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=961" target="_blank">16:01 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 961)">16:01 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lolo-stik</td>
             <td style="font-style:italic; color:#2c3e50;">luʔluʔ-stik</td>
@@ -677,7 +683,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter kʰuli kuri [ling] \|kʰuli\| [[kuri]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=969" target="_blank">16:09 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 969)">16:09 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kʰuli</td>
             <td style="font-style:italic; color:#2c3e50;">kuri</td>
@@ -685,7 +691,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter lolo-stik luʔluʔ-stik [ling]  \|lolo-stik\| [[luʔluʔ-stik]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=974" target="_blank">16:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 974)">16:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lolo-stik</td>
             <td style="font-style:italic; color:#2c3e50;">luʔluʔ-stik</td>
@@ -693,7 +699,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter {sticks} stik [ling] \|{sticks}\| [[stik]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=981" target="_blank">16:21 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 981)">16:21 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">{sticks}</td>
             <td style="font-style:italic; color:#2c3e50;">stik</td>
@@ -701,7 +707,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-kʰuli mamuk-kuri [ling] \|mamuk-kʰuli\| [[mamuk-kuri]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=991" target="_blank">16:31 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 991)">16:31 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-kʰuli</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-kuri</td>
@@ -709,7 +715,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-kʰuli mamuk-kuri [ling] \|mamuk-kʰuli\| [[mamuk-kuri]] and \|ileyi\| [[ili?i]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=996" target="_blank">16:36 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 996)">16:36 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-kʰuli</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-kuri</td>
@@ -717,7 +723,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter chopʰa chup [ling] \|chopʰa\| [[chup]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1018" target="_blank">16:58 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1018)">16:58 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">chopʰa</td>
             <td style="font-style:italic; color:#2c3e50;">chup</td>
@@ -725,7 +731,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter chopʰa chup [ling] \|chopʰa\| [[chup]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1023" target="_blank">17:03 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1023)">17:03 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">chopʰa</td>
             <td style="font-style:italic; color:#2c3e50;">chup</td>
@@ -733,7 +739,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter shnas snas [ling] \|shnas\| [[snas]], hayu- "ing" for raining">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1055" target="_blank">17:35 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1055)">17:35 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">shnas</td>
             <td style="font-style:italic; color:#2c3e50;">snas</td>
@@ -741,7 +747,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-pʰu mamuk-p'u [ling] \|mamuk-pʰu\| [[mamuk-p'u]] , clear shortened ukuk with "uk"">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1120" target="_blank">18:40 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1120)">18:40 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-pʰu</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-p'u</td>
@@ -749,7 +755,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter hayu-pʰu - [ling] \|hayu-pʰu\| [hayu-p'u], hayu- "ing" for shooting">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1159" target="_blank">19:19 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1159)">19:19 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">hayu-pʰu</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -757,7 +763,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter kuli kuri [ling] \|kuli\| [[kuri]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1165" target="_blank">19:25 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1165)">19:25 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kuli</td>
             <td style="font-style:italic; color:#2c3e50;">kuri</td>
@@ -765,7 +771,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter kuli kuri [ling] \|kuli\| [[kuri]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1173" target="_blank">19:33 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1173)">19:33 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kuli</td>
             <td style="font-style:italic; color:#2c3e50;">kuri</td>
@@ -773,7 +779,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter chupʰa chup [ling] \|chupʰa\| [[chup]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1203" target="_blank">20:03 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1203)">20:03 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">chupʰa</td>
             <td style="font-style:italic; color:#2c3e50;">chup</td>
@@ -781,7 +787,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter chupʰa chup [ling] \|chupʰa\| [[chup]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1208" target="_blank">20:08 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1208)">20:08 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">chupʰa</td>
             <td style="font-style:italic; color:#2c3e50;">chup</td>
@@ -789,7 +795,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter mamuk-tsuk mamuk-tsəqw [ling] \|mamuk-tsuk\| [[mamuk-tsəqw]]">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1219" target="_blank">20:19 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1219)">20:19 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mamuk-tsuk</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-tsəqw</td>
@@ -797,7 +803,7 @@
         </tr>
         <tr class="var-row" data-text="684-s1 joe peter hayu-shnas hayu-snas [ling] \|hayu-shnas\| [[hayu-snas]], hayu- "ing" for raining">
             <td><code>684-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/684-S1.mp3#t=1226" target="_blank">20:26 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('684-S1', 1226)">20:26 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">hayu-shnas</td>
             <td style="font-style:italic; color:#2c3e50;">hayu-snas</td>
@@ -805,7 +811,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter tsək chək [ling] \|tsək\| [[chək]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=14" target="_blank">00:14 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 14)">00:14 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">tsək</td>
             <td style="font-style:italic; color:#2c3e50;">chək</td>
@@ -813,7 +819,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter iley? iliʔi [ling] \|iley?\| [[iliʔi]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=81" target="_blank">01:21 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 81)">01:21 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">iley?</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -821,7 +827,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter leyli lili [ling]  \|leyli\| [[lili]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=130" target="_blank">02:10 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 130)">02:10 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">leyli</td>
             <td style="font-style:italic; color:#2c3e50;">lili</td>
@@ -829,7 +835,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter tsək chək [ling] \|tsək\| [[chək]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=206" target="_blank">03:26 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 206)">03:26 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">tsək</td>
             <td style="font-style:italic; color:#2c3e50;">chək</td>
@@ -837,7 +843,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter tənáaas tənas [ling] \|tənáaas\| [[tənas]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=271" target="_blank">04:31 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 271)">04:31 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">tənáaas</td>
             <td style="font-style:italic; color:#2c3e50;">tənas</td>
@@ -845,7 +851,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter lásup lasup [ling] \|lásup\| [[lasup]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=326" target="_blank">05:26 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 326)">05:26 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lásup</td>
             <td style="font-style:italic; color:#2c3e50;">lasup</td>
@@ -853,7 +859,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter məq'wməq'w məkʰmək [ling] \|məq'wməq'w\| [[məkʰmək]]  [note] [otl] [?] one syllable "uk" and possible salish form of məkʰmək">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=416" target="_blank">06:56 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 416)">06:56 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">məq'wməq'w</td>
             <td style="font-style:italic; color:#2c3e50;">məkʰmək</td>
@@ -861,7 +867,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter mak-ɬáx̣ayam mamuk-ɬax̣ayam [ling] \|mak-ɬáx̣ayam\| [[mamuk-ɬax̣ayam]], shortened "mak-" for "mamuk"">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=532" target="_blank">08:52 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 532)">08:52 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mak-ɬáx̣ayam</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-ɬax̣ayam</td>
@@ -869,7 +875,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter tənes tənas [ling] \|tənes\| [[tənas]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=573" target="_blank">09:33 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 573)">09:33 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">tənes</td>
             <td style="font-style:italic; color:#2c3e50;">tənas</td>
@@ -877,7 +883,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter k'ilápa k'ilapay [ling]  \|k'ilápa\| [[k'ilapay]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=731" target="_blank">12:11 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 731)">12:11 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">k'ilápa</td>
             <td style="font-style:italic; color:#2c3e50;">k'ilapay</td>
@@ -885,7 +891,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter mənkst makwst [ling] \|mənkst\| [[makwst]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=737" target="_blank">12:17 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 737)">12:17 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mənkst</td>
             <td style="font-style:italic; color:#2c3e50;">makwst</td>
@@ -893,7 +899,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter mauk-miɬayt mamuk-miɬayt [?] [ling] \|mauk-miɬayt\| [[mamuk-miɬayt]] or \|munk-miɬayt\| [[mamuk-miɬayt]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=744" target="_blank">12:24 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 744)">12:24 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mauk-miɬayt</td>
             <td style="font-style:italic; color:#2c3e50;">mamuk-miɬayt</td>
@@ -901,7 +907,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter ilei iliʔi [ling]  \|ilei\| [[iliʔi]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=851" target="_blank">14:11 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 851)">14:11 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ilei</td>
             <td style="font-style:italic; color:#2c3e50;">iliʔi</td>
@@ -909,7 +915,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter tsxi chxi [otl] cowlitz "sk'ak'aʔ" for crow [ling] \|tsxi\| [[chxi]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=889" target="_blank">14:49 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 889)">14:49 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">tsxi</td>
             <td style="font-style:italic; color:#2c3e50;">chxi</td>
@@ -917,7 +923,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l iɬwəli [?] needs review, suggest its actaully "iɬwəli" [ling] \|iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l\| [[iɬwəli]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=957" target="_blank">15:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 957)">15:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">iɬwəle/iɬwəlo/iɬəwil/iɬəwə́l</td>
             <td style="font-style:italic; color:#2c3e50;">iɬwəli</td>
@@ -925,7 +931,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter qwənəm qwinəm [ling] \|qwənəm\| [[qwinəm]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=1045" target="_blank">17:25 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 1045)">17:25 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">qwənəm</td>
             <td style="font-style:italic; color:#2c3e50;">qwinəm</td>
@@ -933,7 +939,7 @@
         </tr>
         <tr class="var-row" data-text="685-s1 joe peter qwatʰin k'wətʰin [ling] \|qwatʰin\| [[k'wətʰin]]">
             <td><code>685-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/685-S1.mp3#t=1134" target="_blank">18:54 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('685-S1', 1134)">18:54 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">qwatʰin</td>
             <td style="font-style:italic; color:#2c3e50;">k'wətʰin</td>
@@ -941,7 +947,7 @@
         </tr>
         <tr class="var-row" data-text="693-s2 joe peter bons - [ling] \|bons\| [[bon]">
             <td><code>693-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/693-S2.mp3#t=442" target="_blank">07:22 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('693-S2', 442)">07:22 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">bons</td>
             <td style="font-style:italic; color:#2c3e50;">-</td>
@@ -949,7 +955,7 @@
         </tr>
         <tr class="var-row" data-text="693-s2 joe peter bons bon [ling] \|bons\| [[bon]]">
             <td><code>693-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/693-S2.mp3#t=477" target="_blank">07:57 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('693-S2', 477)">07:57 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">bons</td>
             <td style="font-style:italic; color:#2c3e50;">bon</td>
@@ -957,7 +963,7 @@
         </tr>
         <tr class="var-row" data-text="693-s2 joe peter bons bon [ling] \|bons\| [[bon]]">
             <td><code>693-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/693-S2.mp3#t=536" target="_blank">08:56 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('693-S2', 536)">08:56 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">bons</td>
             <td style="font-style:italic; color:#2c3e50;">bon</td>
@@ -965,7 +971,7 @@
         </tr>
         <tr class="var-row" data-text="693-s2 joe peter kuli kuri [ling] \|kuli\| [[kuri]]">
             <td><code>693-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/693-S2.mp3#t=596" target="_blank">09:56 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('693-S2', 596)">09:56 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">kuli</td>
             <td style="font-style:italic; color:#2c3e50;">kuri</td>
@@ -973,7 +979,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=138" target="_blank">02:18 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 138)">02:18 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -981,7 +987,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=738" target="_blank">12:18 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 738)">12:18 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -989,7 +995,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter patɬæch palach [ling]  \|patɬæch\| [[palach]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=776" target="_blank">12:56 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 776)">12:56 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">patɬæch</td>
             <td style="font-style:italic; color:#2c3e50;">palach</td>
@@ -997,7 +1003,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter patɬæch palach [ling]  \|patɬæch\| [[palach]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=787" target="_blank">13:07 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 787)">13:07 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">patɬæch</td>
             <td style="font-style:italic; color:#2c3e50;">palach</td>
@@ -1005,7 +1011,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter patɬæch palach [ling]  \|patɬæch\| [[palach]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=820" target="_blank">13:40 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 820)">13:40 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">patɬæch</td>
             <td style="font-style:italic; color:#2c3e50;">palach</td>
@@ -1013,7 +1019,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter patɬæch palach [ling]  \|patɬæch\| [[palach]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=826" target="_blank">13:46 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 826)">13:46 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">patɬæch</td>
             <td style="font-style:italic; color:#2c3e50;">palach</td>
@@ -1021,7 +1027,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter mauʔn mountain [ling] \|mauʔn\| [[mountain]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=861" target="_blank">14:21 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 861)">14:21 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">mauʔn</td>
             <td style="font-style:italic; color:#2c3e50;">mountain</td>
@@ -1029,7 +1035,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter eylan yeʔlan [ling] \|eylan\| [[yeʔlan]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=1070" target="_blank">17:50 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 1070)">17:50 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">eylan</td>
             <td style="font-style:italic; color:#2c3e50;">yeʔlan</td>
@@ -1037,7 +1043,7 @@
         </tr>
         <tr class="var-row" data-text="694-s1 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]">
             <td><code>694-S1</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S1.mp3#t=1096" target="_blank">18:16 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S1', 1096)">18:16 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -1045,7 +1051,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=183" target="_blank">03:03 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 183)">03:03 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -1053,7 +1059,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter ilan yeʔlan [ling] \|ilan\| [[yeʔlan]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=188" target="_blank">03:08 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 188)">03:08 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ilan</td>
             <td style="font-style:italic; color:#2c3e50;">yeʔlan</td>
@@ -1061,7 +1067,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=234" target="_blank">03:54 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 234)">03:54 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -1069,7 +1075,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter miməlus miməlust [ling] \|miməlus\| [[miməlust]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=239" target="_blank">03:59 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 239)">03:59 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">miməlus</td>
             <td style="font-style:italic; color:#2c3e50;">miməlust</td>
@@ -1077,7 +1083,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter ilan yeʔlan [ling] \|ilan\| [[yeʔlan]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=410" target="_blank">06:50 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 410)">06:50 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ilan</td>
             <td style="font-style:italic; color:#2c3e50;">yeʔlan</td>
@@ -1085,7 +1091,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter leeyli lili [ling] \|leeyli\| [[lili]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=941" target="_blank">15:41 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 941)">15:41 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">leeyli</td>
             <td style="font-style:italic; color:#2c3e50;">lili</td>
@@ -1093,7 +1099,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter isəq isik [ling]  \|isəq\| [[isik]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=984" target="_blank">16:24 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 984)">16:24 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">isəq</td>
             <td style="font-style:italic; color:#2c3e50;">isik</td>
@@ -1101,7 +1107,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter q'ənchi qʰənchi [ling] \|q'ənchi\| [[qʰənchi]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=990" target="_blank">16:30 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 990)">16:30 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">q'ənchi</td>
             <td style="font-style:italic; color:#2c3e50;">qʰənchi</td>
@@ -1109,7 +1115,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter lalem lalam [ling] \|lalem\| [[lalam]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=998" target="_blank">16:38 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 998)">16:38 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lalem</td>
             <td style="font-style:italic; color:#2c3e50;">lalam</td>
@@ -1117,7 +1123,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter lalem lalam [ling] \|lalem\| [[lalam]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=1005" target="_blank">16:45 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 1005)">16:45 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lalem</td>
             <td style="font-style:italic; color:#2c3e50;">lalam</td>
@@ -1125,7 +1131,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter ukúk ukuk [ling] \|ukúk\| [[ukuk]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=1013" target="_blank">16:53 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 1013)">16:53 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">ukúk</td>
             <td style="font-style:italic; color:#2c3e50;">ukuk</td>
@@ -1133,7 +1139,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter lalem lalam [ling] \|lalem\| [[lalam]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=1038" target="_blank">17:18 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 1038)">17:18 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">lalem</td>
             <td style="font-style:italic; color:#2c3e50;">lalam</td>
@@ -1141,7 +1147,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter heylo hilu [ling] \|heylo\| [[hilu]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=1116" target="_blank">18:36 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 1116)">18:36 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">heylo</td>
             <td style="font-style:italic; color:#2c3e50;">hilu</td>
@@ -1149,7 +1155,7 @@
         </tr>
         <tr class="var-row" data-text="694-s2 joe peter heylo hilu [ling] \|heylo\| [[hilu]]">
             <td><code>694-S2</code></td>
-            <td><a class="audio-btn" href="../audio-previews/694-S2.mp3#t=1142" target="_blank">19:02 🔊</a></td>
+            <td><button class="audio-btn" onclick="playAudioSnippet('694-S2', 1142)">19:02 🔊</button></td>
             <td><strong>Joe Peter</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">heylo</td>
             <td style="font-style:italic; color:#2c3e50;">hilu</td>
@@ -1172,5 +1178,38 @@
             }
         }
     </script>
+    
+    <div id="globalAudioPlayer">
+        <div class="player-inner">
+            <div class="player-info" id="playerTrackInfo">Track: None</div>
+            <audio id="html5AudioWidget" controls preload="auto"></audio>
+            <button onclick="document.getElementById('globalAudioPlayer').style.display='none'" style="background:#555; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer; font-size:0.75rem;">✕ Close Bar</button>
+        </div>
+    </div>
+    <script>
+        function playAudioSnippet(trackId, startSeconds) {
+            const playerBar = document.getElementById('globalAudioPlayer');
+            const audio = document.getElementById('html5AudioWidget');
+            const infoText = document.getElementById('playerTrackInfo');
+            
+            // Reconstruct path cleanly relative to docs output location
+            const targetSrc = "../audio-previews/" + trackId + ".mp3";
+            
+            infoText.innerText = "Playing Track: " + trackId + " @ " + Math.floor(startSeconds) + "s";
+            playerBar.style.display = "block";
+            
+            // Set source and load if it's a fresh file assignment
+            if (!audio.src.includes(targetSrc)) {
+                audio.src = targetSrc;
+                audio.load();
+            }
+            
+            audio.currentTime = startSeconds;
+            audio.play().catch(function(error) {
+                console.log("Audio playback configuration failed:", error);
+            });
+        }
+    </script>
+    
     </body>
     </html>
