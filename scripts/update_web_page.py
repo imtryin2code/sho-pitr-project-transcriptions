@@ -19,9 +19,7 @@ def time_to_seconds(time_str):
 def clean_for_html(text):
     """Safely normalizes text content and replaces angle brackets to stop browser HTML injection bugs."""
     if not text: return ""
-    # Swap pipes safely
     text = text.replace('|', '\\|')
-    # Convert angle brackets to safe square brackets to prevent browser parsing truncations
     text = text.replace('<', '[').replace('>', ']')
     return html.escape(text, quote=True)
 
@@ -213,6 +211,14 @@ def generate_web_portal():
             return cleanId;
         }
 
+        // DOM data-attribute approach to guarantee variables are loaded purely as clean datatypes
+        function triggerAudioFromElement(btnElement) {
+            const trackId = btnElement.getAttribute('data-track');
+            const startSeconds = btnElement.getAttribute('data-start');
+            const durationSeconds = btnElement.getAttribute('data-duration');
+            playAudioSnippet(trackId, startSeconds, durationSeconds);
+        }
+
         function playAudioSnippet(trackId, startSeconds, durationSeconds) {
             const playerBar = document.getElementById('globalAudioPlayer');
             const audio = document.getElementById('html5AudioWidget');
@@ -261,7 +267,7 @@ def generate_web_portal():
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Autoplay context lock captured:", err);
+                    console.log("Play action handling adjusted:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -322,7 +328,7 @@ def generate_web_portal():
             <p>Digitized transcription of 1941 metal disc recordings.</p>
             <div style="display:flex; gap:10px;">
                 <a class="btn" href="https://github.com/imtryin2code/sho-pitr-project-transcriptions/blob/main/exports/markdown/{cid}_Reading_Guide.md" target="_blank">View Guide</a>
-                <button class="btn" style="background:#444;" onclick="playAudioSnippet('{cid}', 0, 0)">🎚️ Play Audio</button>
+                <button class="btn" style="background:#444;" data-track="{cid}" data-start="0" data-duration="0" onclick="triggerAudioFromElement(this)">🎚️ Play Audio</button>
             </div>
         </div>""" for cid in completed_ids])
 
@@ -410,7 +416,7 @@ def generate_web_portal():
             occ_links = ""
             for o in d.get('occurrences', []):
                 sec_val = time_to_seconds(o["time"])
-                occ_links += f'<button class="occ-link" onclick="playAudioSnippet(\'{o["id"]}\', {sec_val}, 4.5)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
+                occ_links += f'<button class="occ-link" data-track="{o["id"]}" data-start="{sec_val}" data-duration="4.5" onclick="triggerAudioFromElement(this)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
             safe_term = clean_for_data_attr(word.lower())
             safe_def = clean_for_data_attr(d['definition'].lower())
@@ -480,7 +486,7 @@ def generate_web_portal():
             <tr class="obs-row" data-tag="{tag}" data-text="{safe_text_attr}">
                 <td><span style="background:#8c1b1b; color:white; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">{tag}</span></td>
                 <td><code>{e['id']}</code></td>
-                <td><button class="audio-btn" onclick="playAudioSnippet('{e['id']}', {e['seconds']}, {e['duration']})">{e['time']} 🔊</button></td>
+                <td><button class="audio-btn" data-track="{e['id']}" data-start="{e['seconds']}" data-duration="{e['duration']}" onclick="triggerAudioFromElement(this)">{e['time']} 🔊</button></td>
                 <td><strong>{e['speaker']}</strong></td>
                 <td><small style="color:#555;">{e['transcription']}</small></td>
                 <td>{e['note']}</td>
@@ -566,7 +572,7 @@ def generate_web_portal():
         var_rows_html += f"""
         <tr class="var-row" data-text="{safe_var_text_attr}">
             <td><code>{v['id']}</code></td>
-            <td><button class="audio-btn" onclick="playAudioSnippet('{v['id']}', {v['seconds']}, {v['duration']})">{v['time']} 🔊</button></td>
+            <td><button class="audio-btn" data-track="{v['id']}" data-start="{v['seconds']}" data-duration="{v['duration']}" onclick="triggerAudioFromElement(this)">{v['time']} 🔊</button></td>
             <td><strong>{v['speaker']}</strong></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">{v['variant']}</td>
             <td style="font-style:italic; color:#2c3e50;">{v['gr_standard']}</td>
@@ -628,7 +634,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! All angle brackets completely normalized to standard square brackets in data streams.")
+    print("🚀 Success! Clean data attributes implemented. Audio timings cannot break on text markers.")
 
 if __name__ == "__main__":
     generate_web_portal()
