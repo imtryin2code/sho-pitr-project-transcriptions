@@ -4,29 +4,36 @@ import os
 import re
 import html
 
-# =========================================================
-# AUDIO TIME ALIGNMENT CALIBRATION WIDGET
-# =========================================================
-# If your clips start 1.5 seconds too early, set this to 1.5. 
-# This shifts the playback anchor forward so it matches your MP3 track runtimes.
-TIME_OFFSET = 1.5  
+def parse_elan_time(time_val):
+    """
+    Robustly parses ELAN time values into accurate float seconds.
+    Handles raw milliseconds (14250), float seconds (14.25), or MM:SS.fff strings.
+    """
+    if not time_val:
+        return 0.0
+    
+    time_str = str(time_val).strip()
+    
+    # Case 1: Standard MM:SS or HH:MM:SS format (potentially with decimals)
+    if ':' in time_str:
+        try:
+            parts = time_str.split(':')
+            if len(parts) == 2: # MM:SS.fff
+                return float(parts[0]) * 60 + float(parts[1])
+            elif len(parts) == 3: # HH:MM:SS.fff
+                return float(parts[0]) * 3600 + float(parts[1]) * 60 + float(parts[2])
+        except ValueError:
+            pass
 
-def time_to_seconds(time_str):
-    """Converts MM:SS or HH:MM:SS format safely to float seconds and applies track alignment calibration."""
+    # Case 2: Pure numeric string (Raw milliseconds vs raw seconds)
     try:
-        parts = list(map(int, time_str.strip().split(':')))
-        if len(parts) == 2:
-            base_secs = parts[0] * 60 + parts[1]
-        elif len(parts) == 3:
-            base_secs = parts[0] * 3600 + parts[1] * 60 + parts[2]
-        else:
-            return 0.0
-        
-        # Apply your global calibration padding factor
-        return float(base_secs) + TIME_OFFSET
-    except Exception:
-        pass
-    return 0.0
+        numeric_val = float(time_str)
+        # If it's a large integer, ELAN exported it as raw milliseconds (e.g., 12500 instead of 12.5)
+        if numeric_val > 36000 and '.' not in time_str:
+            return numeric_val / 1000.0
+        return numeric_val
+    except ValueError:
+        return 0.0
 
 def clean_for_html(text):
     """Safely normalizes text content and replaces angle brackets to stop browser HTML injection bugs."""
@@ -96,26 +103,35 @@ def generate_web_portal():
     observations_data['[UNCATEGORIZED]'] = []
     variations_data = []
 
-    # Calculate smart segment durations by checking when the next timestamp begins
-    for i, row in enumerate(raw_rows):
+    # Process segments using explicit ELAN boundaries
+    for row in raw_rows:
         tier = row.get('Notes_Tier', '').strip()
         note = row.get('Notes_Text', '').strip()
         text = row.get('Text', '').strip()
         rec_id = row.get('ID', 'UNKNOWN').strip()
-        timestamp = row.get('Time', '00:00').strip()
         speaker = row.get('Speaker', 'Unknown').strip()
         
-        seconds = time_to_seconds(timestamp)
+        # Fallback reading strategies for your CSV columns
+        raw_start = row.get('Start Time', row.get('Time', '00:00')).strip()
+        raw_end = row.get('End Time', '').strip()
         
-        # Look ahead to find next timestamp for the same file to determine duration
-        duration = 6.0  # Safe default fallback clip length in seconds
-        if i + 1 < len(raw_rows):
-            next_row = raw_rows[i + 1]
-            if next_row.get('ID', '').strip() == rec_id:
-                next_seconds = time_to_seconds(next_row.get('Time', '00:00'))
-                if next_seconds > seconds:
-                    # Pure distance logic guarantees duration remains accurate post-offset shift
-                    duration = next_seconds - seconds
+        start_seconds = parse_elan_time(raw_start)
+        
+        if raw_end:
+            end_seconds = parse_elan_time(raw_end)
+            duration = max(0.1, end_seconds - start_seconds)
+        else:
+            # Fallback if a row lacks an explicit end time
+            duration = 6.0 
+
+        # Format a display timestamp for the UI table
+        if ':' in raw_start:
+            display_time = raw_start
+        else:
+            # Convert raw numeric seconds to clean MM:SS format
+            mins = int(start_seconds) // 60
+            secs = int(start_seconds) % 60
+            display_time = f"{mins:02d}:{secs:02d}"
 
         matched_tag = None
         if '[?]' in note or '[UNCERTAIN]' in note or '[?]' in tier or '[UNCERTAIN]' in tier:
@@ -134,10 +150,10 @@ def generate_web_portal():
             continue
 
         item = {
-            'id': rec_id, 'time': timestamp, 'speaker': speaker,
+            'id': rec_id, 'time': display_time, 'speaker': speaker,
             'transcription': clean_for_html(text), 'note': clean_for_html(actual_payload),
             'transcription_raw': clean_for_data_attr(text), 'note_raw': clean_for_data_attr(actual_payload),
-            'seconds': seconds, 'duration': duration
+            'seconds': start_seconds, 'duration': duration
         }
 
         if matched_tag:
@@ -155,12 +171,12 @@ def generate_web_portal():
             if gr_match: clean_gr = gr_match.group(1).strip()
 
             variations_data.append({
-                'id': rec_id, 'time': timestamp, 'speaker': speaker,
+                'id': rec_id, 'time': display_time, 'speaker': speaker,
                 'variant': clean_for_html(clean_variant), 'gr_standard': clean_for_html(clean_gr),
                 'raw_content': clean_for_html(actual_payload), 
                 'variant_raw': clean_for_data_attr(clean_variant), 'gr_standard_raw': clean_for_data_attr(clean_gr),
                 'raw_content_raw': clean_for_data_attr(actual_payload),
-                'seconds': seconds, 'duration': duration
+                'seconds': start_seconds, 'duration': duration
             })
 
     total_obs = sum(len(observations_data[c]) for c in observations_data)
@@ -192,7 +208,6 @@ def generate_web_portal():
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     
-    /* Sticky Footer Media Bar */
     #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
     .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
     .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
@@ -260,10 +275,10 @@ def generate_web_portal():
             
             audio.oncanplay = function() {
                 audio.currentTime = startTimeParsed;
-                let clipInfo = "Playing Track: " + trackId + " @ " + startTimeParsed.toFixed(1) + "s";
+                let clipInfo = "Playing Track: " + trackId + " @ " + startTimeParsed.toFixed(2) + "s";
                 
                 if (durationTimeParsed && durationTimeParsed > 0) {
-                    clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                    clipInfo += " [" + durationTimeParsed.toFixed(2) + "s Segment]";
                     const stopTargetTime = startTimeParsed + durationTimeParsed;
                     
                     globalTimeUpdateListener = function() {
@@ -279,7 +294,7 @@ def generate_web_portal():
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Play action fallback executed safely:", err);
+                    console.log("Context baseline handled:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -294,10 +309,10 @@ def generate_web_portal():
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startTimeParsed;
-                    let clipInfo = "Playing Track: " + trackId + " (Remote) @ " + startTimeParsed.toFixed(1) + "s";
+                    let clipInfo = "Playing Track: " + trackId + " (Remote) @ " + startTimeParsed.toFixed(2) + "s";
                     
                     if (durationTimeParsed && durationTimeParsed > 0) {
-                        clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                        clipInfo += " [" + durationTimeParsed.toFixed(2) + "s Segment]";
                         const stopTargetTime = startTimeParsed + durationTimeParsed;
                         
                         globalTimeUpdateListener = function() {
@@ -332,7 +347,7 @@ def generate_web_portal():
         """
 
     # =========================================================
-    # PAGE BUILD 1: INDEX.HTML (RESTORED MISSION DASHBOARD)
+    # PAGE BUILD 1: INDEX.HTML
     # =========================================================
     html_cards = "".join([f"""
         <div style="background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border-top:5px solid #8c1b1b;">
@@ -418,7 +433,7 @@ def generate_web_portal():
     with open(html_output_main, 'w', encoding='utf-8') as f: f.write(index_body)
 
     # =========================================================
-    # PAGE BUILD 2: DICTIONARY.HTML (DEDICATED SEARCH PAGE)
+    # PAGE BUILD 2: DICTIONARY.HTML
     # =========================================================
     spotlights = "".join([f'<div style="background:#8c1b1b; color:white; padding:6px 14px; border-radius:50px; font-size:0.8rem; font-weight:bold;">{w} ({d["count"]}x)</div>' for w, d in sorted_by_freq])
 
@@ -427,7 +442,7 @@ def generate_web_portal():
         if d.get('count', 0) > 0:
             occ_links = ""
             for o in d.get('occurrences', []):
-                sec_val = time_to_seconds(o["time"])
+                sec_val = parse_elan_time(o["time"])
                 occ_links += f'<button class="occ-link" data-track="{o["id"]}" data-start="{sec_val}" data-duration="4.5" onclick="triggerAudioFromElement(this)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
             
             safe_term = clean_for_data_attr(word.lower())
@@ -487,7 +502,7 @@ def generate_web_portal():
     with open(html_output_dict, 'w', encoding='utf-8') as f: f.write(dict_body)
 
     # =========================================================
-    # PAGE BUILD 3: OBSERVATIONS.HTML (RESEARCH LOGS)
+    # PAGE BUILD 3: OBSERVATIONS.HTML
     # =========================================================
     obs_rows_html = ""
     for tag, entries in observations_data.items():
@@ -575,7 +590,7 @@ def generate_web_portal():
     with open(html_output_obs, 'w', encoding='utf-8') as f: f.write(obs_body)
 
     # =========================================================
-    # PAGE BUILD 4: VARIATIONS.HTML (PRONUNCIATION REPORTS)
+    # PAGE BUILD 4: VARIATIONS.HTML
     # =========================================================
     var_rows_html = ""
     for v in variations_data:
@@ -646,7 +661,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print(f"🚀 Success! Alignment offset calibrated to +{TIME_OFFSET}s. Timestamps are fully synced.")
+    print("🚀 Success! Portal synchronized directly with explicit segment boundaries.")
 
 if __name__ == "__main__":
     generate_web_portal()

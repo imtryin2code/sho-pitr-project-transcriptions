@@ -25,7 +25,6 @@
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     
-    /* Sticky Footer Media Bar */
     #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
     .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
     .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
@@ -233,10 +232,10 @@
             
             audio.oncanplay = function() {
                 audio.currentTime = startTimeParsed;
-                let clipInfo = "Playing Track: " + trackId + " @ " + startTimeParsed.toFixed(1) + "s";
+                let clipInfo = "Playing Track: " + trackId + " @ " + startTimeParsed.toFixed(2) + "s";
                 
                 if (durationTimeParsed && durationTimeParsed > 0) {
-                    clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                    clipInfo += " [" + durationTimeParsed.toFixed(2) + "s Segment]";
                     const stopTargetTime = startTimeParsed + durationTimeParsed;
                     
                     globalTimeUpdateListener = function() {
@@ -252,7 +251,7 @@
                 
                 infoText.innerText = clipInfo;
                 audio.play().catch(function(err) {
-                    console.log("Play action fallback executed safely:", err);
+                    console.log("Context baseline handled:", err);
                 });
                 audio.oncanplay = null;
             };
@@ -267,10 +266,10 @@
                 audio.load();
                 audio.oncanplay = function() {
                     audio.currentTime = startTimeParsed;
-                    let clipInfo = "Playing Track: " + trackId + " (Remote) @ " + startTimeParsed.toFixed(1) + "s";
+                    let clipInfo = "Playing Track: " + trackId + " (Remote) @ " + startTimeParsed.toFixed(2) + "s";
                     
                     if (durationTimeParsed && durationTimeParsed > 0) {
-                        clipInfo += " [" + durationTimeParsed.toFixed(1) + "s Segment]";
+                        clipInfo += " [" + durationTimeParsed.toFixed(2) + "s Segment]";
                         const stopTargetTime = startTimeParsed + durationTimeParsed;
                         
                         globalTimeUpdateListener = function() {
