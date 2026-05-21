@@ -14,7 +14,6 @@ def parse_elan_time(time_val):
     
     time_str = str(time_val).strip()
     
-    # Case 1: Standard MM:SS or HH:MM:SS format (potentially with decimals)
     if ':' in time_str:
         try:
             parts = time_str.split(':')
@@ -25,10 +24,8 @@ def parse_elan_time(time_val):
         except ValueError:
             pass
 
-    # Case 2: Pure numeric string (Raw milliseconds vs raw seconds)
     try:
         numeric_val = float(time_str)
-        # If it's a large integer, ELAN exported it as raw milliseconds (e.g., 12500 instead of 12.5)
         if numeric_val > 36000 and '.' not in time_str:
             return numeric_val / 1000.0
         return numeric_val
@@ -111,7 +108,6 @@ def generate_web_portal():
         rec_id = row.get('ID', 'UNKNOWN').strip()
         speaker = row.get('Speaker', 'Unknown').strip()
         
-        # Fallback reading strategies for your CSV columns
         raw_start = row.get('Start Time', row.get('Time', '00:00')).strip()
         raw_end = row.get('End Time', '').strip()
         
@@ -121,14 +117,11 @@ def generate_web_portal():
             end_seconds = parse_elan_time(raw_end)
             duration = max(0.1, end_seconds - start_seconds)
         else:
-            # Fallback if a row lacks an explicit end time
             duration = 6.0 
 
-        # Format a display timestamp for the UI table
         if ':' in raw_start:
             display_time = raw_start
         else:
-            # Convert raw numeric seconds to clean MM:SS format
             mins = int(start_seconds) // 60
             secs = int(start_seconds) % 60
             display_time = f"{mins:02d}:{secs:02d}"
@@ -161,6 +154,7 @@ def generate_web_portal():
         else:
             observations_data['[UNCATEGORIZED]'].append(item)
 
+        # Map dialogue transcription explicitly to the variation track
         if matched_tag in ['[LING]', '[UNCERTAIN]'] and ('|' in actual_payload or '[[' in actual_payload):
             clean_variant = "-"
             pipe_match = re.search(r'\|([^\|]+)\|', actual_payload)
@@ -172,8 +166,10 @@ def generate_web_portal():
 
             variations_data.append({
                 'id': rec_id, 'time': display_time, 'speaker': speaker,
+                'transcription': clean_for_html(text), # Passed Dialogue Context text here
                 'variant': clean_for_html(clean_variant), 'gr_standard': clean_for_html(clean_gr),
                 'raw_content': clean_for_html(actual_payload), 
+                'transcription_raw': clean_for_data_attr(text),
                 'variant_raw': clean_for_data_attr(clean_variant), 'gr_standard_raw': clean_for_data_attr(clean_gr),
                 'raw_content_raw': clean_for_data_attr(actual_payload),
                 'seconds': start_seconds, 'duration': duration
@@ -590,17 +586,19 @@ def generate_web_portal():
     with open(html_output_obs, 'w', encoding='utf-8') as f: f.write(obs_body)
 
     # =========================================================
-    # PAGE BUILD 4: VARIATIONS.HTML
+    # PAGE BUILD 4: VARIATIONS.HTML (UPDATED WITH DIALOGUE CONTEXT)
     # =========================================================
     var_rows_html = ""
     for v in variations_data:
-        safe_var_text_attr = f"{v['id'].lower()} {v['speaker'].lower()} {v['variant_raw'].lower()} {v['gr_standard_raw'].lower()} {v['raw_content_raw'].lower()}"
+        # Include transcription_raw in the search indexing string for front-end search bars
+        safe_var_text_attr = f"{v['id'].lower()} {v['speaker'].lower()} {v['variant_raw'].lower()} {v['gr_standard_raw'].lower()} {v['raw_content_raw'].lower()} {v['transcription_raw'].lower()}"
         
         var_rows_html += f"""
         <tr class="var-row" data-text="{safe_var_text_attr}">
             <td><code>{v['id']}</code></td>
             <td><button class="audio-btn" data-track="{v['id']}" data-start="{v['seconds']}" data-duration="{v['duration']}" onclick="triggerAudioFromElement(this)">{v['time']} 🔊</button></td>
             <td><strong>{v['speaker']}</strong></td>
+            <td><small style="color:#555;">{v['transcription']}</small></td> <!-- Dialogue Context Column Added -->
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">{v['variant']}</td>
             <td style="font-style:italic; color:#2c3e50;">{v['gr_standard']}</td>
             <td><small style="color:#444;">{v['raw_content']}</small></td>
@@ -629,12 +627,13 @@ def generate_web_portal():
         <table>
             <thead>
                 <tr>
-                    <th style="width:12%;">Track ID</th>
-                    <th style="width:12%;">Timestamp</th>
-                    <th style="width:15%;">Speaker</th>
-                    <th style="width:23%;">Phonetic Deviation</th>
-                    <th style="width:23%;">Standard GR Spelling Reference</th>
-                    <th style="width:15%;">Full Content Audit String</th>
+                    <th style="width:10%;">Track ID</th>
+                    <th style="width:10%;">Timestamp</th>
+                    <th style="width:12%;">Speaker</th>
+                    <th style="width:24%;">Dialogue Context</th> <!-- Layout updated with custom dimensions -->
+                    <th style="width:16%;">Phonetic Deviation</th>
+                    <th style="width:16%;">Standard GR Spelling Reference</th>
+                    <th style="width:12%;">Full Content Audit String</th>
                 </tr>
             </thead>
             <tbody id="varTableBody">{var_rows_html}</tbody>
