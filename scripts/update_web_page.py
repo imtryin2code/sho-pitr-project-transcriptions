@@ -5,15 +5,10 @@ import re
 import html
 
 def parse_elan_time(time_val):
-    """
-    Robustly parses ELAN time values into accurate float seconds.
-    Handles raw milliseconds (14250), float seconds (14.25), or MM:SS.fff strings.
-    """
+    """Robustly parses ELAN time values into accurate float seconds."""
     if not time_val:
         return 0.0
-    
     time_str = str(time_val).strip()
-    
     if ':' in time_str:
         try:
             parts = time_str.split(':')
@@ -23,7 +18,6 @@ def parse_elan_time(time_val):
                 return float(parts[0]) * 3600 + float(parts[1]) * 60 + float(parts[2])
         except ValueError:
             pass
-
     try:
         numeric_val = float(time_str)
         if numeric_val > 36000 and '.' not in time_str:
@@ -56,9 +50,7 @@ def generate_web_portal():
     
     os.makedirs('docs', exist_ok=True)
 
-    # ---------------------------------------------------------
     # 1. PARSE INCOMING DATA METRICS & ROWS
-    # ---------------------------------------------------------
     completed_ids = []
     raw_rows = []
     if os.path.exists(csv_path):
@@ -154,7 +146,6 @@ def generate_web_portal():
         else:
             observations_data['[UNCATEGORIZED]'].append(item)
 
-        # Map dialogue transcription explicitly to the variation track
         if matched_tag in ['[LING]', '[UNCERTAIN]'] and ('|' in actual_payload or '[[' in actual_payload):
             clean_variant = "-"
             pipe_match = re.search(r'\|([^\|]+)\|', actual_payload)
@@ -166,7 +157,7 @@ def generate_web_portal():
 
             variations_data.append({
                 'id': rec_id, 'time': display_time, 'speaker': speaker,
-                'transcription': clean_for_html(text), # Passed Dialogue Context text here
+                'transcription': clean_for_html(text),
                 'variant': clean_for_html(clean_variant), 'gr_standard': clean_for_html(clean_gr),
                 'raw_content': clean_for_html(actual_payload), 
                 'transcription_raw': clean_for_data_attr(text),
@@ -178,9 +169,7 @@ def generate_web_portal():
     total_obs = sum(len(observations_data[c]) for c in observations_data)
     total_vars = len(variations_data)
 
-    # ---------------------------------------------------------
-    # 2. SHARED LAYOUT STYLES & NAV COMPONENT ENGINE
-    # ---------------------------------------------------------
+    # 2. SHARED LAYOUT STYLES & INTERACTIVE TOOLTIP INJECTOR
     shared_css = """
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; padding-bottom: 120px; }
     header { background: #8c1b1b; color: white; padding: 35px 20px; border-radius: 8px 8px 0 0; text-align: center; position: relative; }
@@ -204,6 +193,19 @@ def generate_web_portal():
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     
+    /* HOVER POPUP LAYOUT ARCHITECTURE */
+    .occ-links-container { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .occ-chip-wrapper { position: relative; display: inline-block; }
+    .occ-link-btn { display: inline-block; font-size: 0.72rem; background: #f5f4ef; padding: 5px 9px; border-radius: 4px; text-decoration: none; color: #333; border: 1px solid #ddd; cursor: pointer; transition: background 0.15s; font-weight: 500; }
+    .occ-link-btn:hover { background: #e0dbd3; border-color: #bbb; }
+    .occ-class-lbl { color: #8c1b1b; font-style: italic; font-weight: bold; text-transform: lowercase; }
+    
+    .occ-popover { visibility: hidden; opacity: 0; position: absolute; bottom: 135%; left: 50%; transform: translateX(-50%); width: 290px; background: #1e1c1b; color: #fff; padding: 12px 14px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 10000; pointer-events: none; transition: opacity 0.2s, visibility 0.2s; font-size: 0.8rem; line-height: 1.4; }
+    .occ-popover::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #1e1c1b transparent transparent transparent; }
+    .occ-chip-wrapper:hover .occ-popover { visibility: visible; opacity: 1; }
+    .popover-context-line { display: block; margin-bottom: 5px; color: #f4f4f4; font-style: normal; }
+    .popover-hint { display: block; font-size: 0.68rem; color: #aaa; border-top: 1px solid #444; padding-top: 4px; margin-top: 4px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
     #globalAudioPlayer { position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 15px 20px; box-shadow: 0 -3px 10px rgba(0,0,0,0.2); display: none; z-index: 9999; box-sizing: border-box; }
     .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
     .player-info { font-size: 0.85rem; font-weight: bold; color: #ffcccb; }
@@ -429,7 +431,7 @@ def generate_web_portal():
     with open(html_output_main, 'w', encoding='utf-8') as f: f.write(index_body)
 
     # =========================================================
-    # PAGE BUILD 2: DICTIONARY.HTML
+    # PAGE BUILD 2: DICTIONARY.HTML (HOVER POPOVERS ADDED)
     # =========================================================
     spotlights = "".join([f'<div style="background:#8c1b1b; color:white; padding:6px 14px; border-radius:50px; font-size:0.8rem; font-weight:bold;">{w} ({d["count"]}x)</div>' for w, d in sorted_by_freq])
 
@@ -438,17 +440,35 @@ def generate_web_portal():
         if d.get('count', 0) > 0:
             occ_links = ""
             for o in d.get('occurrences', []):
-                sec_val = parse_elan_time(o["time"])
-                occ_links += f'<button class="occ-link" data-track="{o["id"]}" data-start="{sec_val}" data-duration="4.5" onclick="triggerAudioFromElement(this)" style="display:inline-block; font-size:0.7rem; background:#f0f0f0; padding:2px 5px; margin:2px; border-radius:3px; text-decoration:none; color:#333; border:1px solid #ccc; cursor:pointer;">{o["id"]}@{o["time"]} 🔊</button>'
+                sec_val = parse_elan_time(o.get("start_time", o.get("time", "00:00")))
+                track_id = o.get("id", "Unknown")
+                time_lbl = o.get("start_time", o.get("time", "00:00"))
+                word_class = o.get("word_class", "Unclassified")
+                
+                # Double escape quotes inside string to ensure html data attributes parse correctly
+                raw_context = o.get("context_line", "").replace('"', '&quot;').replace("'", "&apos;")
+                clean_context = clean_for_html(o.get("context_line", ""))
+                
+                # Nest structural UI chips with tracking popovers
+                occ_links += f"""
+                <div class="occ-chip-wrapper">
+                    <button class="occ-link-btn" data-track="{track_id}" data-start="{sec_val}" data-duration="4.5" onclick="triggerAudioFromElement(this)">
+                        {track_id}@{time_lbl} • <span class="occ-class-lbl">{word_class}</span> 🔊
+                    </button>
+                    <div class="occ-popover">
+                        <span class="popover-context-line"><strong>Context:</strong> "{clean_context}"</span>
+                        <span class="popover-hint">Click token to stream segment</span>
+                    </div>
+                </div>"""
             
             safe_term = clean_for_data_attr(word.lower())
             safe_def = clean_for_data_attr(d['definition'].lower())
             
             dict_cards += f"""
-            <div class="dict-card" data-term="{safe_term}" data-def="{safe_def}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px;">
+            <div class="dict-card" data-term="{safe_term}" data-def="{safe_def}" style="background:#fff; border:1px solid #ddd; padding:15px; border-radius:6px; position:relative;">
                 <strong style="color:#8c1b1b; font-size:1.1rem;">{word}</strong> <small style="color:#777;">({d['count']}x)</small>
                 <p style="margin:5px 0; font-size:0.85rem; color:#444;">{d['definition']}</p>
-                <div style="margin-top:8px;">{occ_links}</div>
+                <div class="occ-links-container">{occ_links}</div>
             </div>"""
 
     dict_body = f"""<!DOCTYPE html>
@@ -586,11 +606,10 @@ def generate_web_portal():
     with open(html_output_obs, 'w', encoding='utf-8') as f: f.write(obs_body)
 
     # =========================================================
-    # PAGE BUILD 4: VARIATIONS.HTML (UPDATED WITH DIALOGUE CONTEXT)
+    # PAGE BUILD 4: VARIATIONS.HTML
     # =========================================================
     var_rows_html = ""
     for v in variations_data:
-        # Include transcription_raw in the search indexing string for front-end search bars
         safe_var_text_attr = f"{v['id'].lower()} {v['speaker'].lower()} {v['variant_raw'].lower()} {v['gr_standard_raw'].lower()} {v['raw_content_raw'].lower()} {v['transcription_raw'].lower()}"
         
         var_rows_html += f"""
@@ -598,7 +617,7 @@ def generate_web_portal():
             <td><code>{v['id']}</code></td>
             <td><button class="audio-btn" data-track="{v['id']}" data-start="{v['seconds']}" data-duration="{v['duration']}" onclick="triggerAudioFromElement(this)">{v['time']} 🔊</button></td>
             <td><strong>{v['speaker']}</strong></td>
-            <td><small style="color:#555;">{v['transcription']}</small></td> <!-- Dialogue Context Column Added -->
+            <td><small style="color:#555;">{v['transcription']}</small></td>
             <td style="color:#8c1b1b; font-weight:bold; font-size:1rem;">{v['variant']}</td>
             <td style="font-style:italic; color:#2c3e50;">{v['gr_standard']}</td>
             <td><small style="color:#444;">{v['raw_content']}</small></td>
@@ -630,7 +649,7 @@ def generate_web_portal():
                     <th style="width:10%;">Track ID</th>
                     <th style="width:10%;">Timestamp</th>
                     <th style="width:12%;">Speaker</th>
-                    <th style="width:24%;">Dialogue Context</th> <!-- Layout updated with custom dimensions -->
+                    <th style="width:24%;">Dialogue Context</th>
                     <th style="width:16%;">Phonetic Deviation</th>
                     <th style="width:16%;">Standard GR Spelling Reference</th>
                     <th style="width:12%;">Full Content Audit String</th>
@@ -660,7 +679,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! Portal synchronized directly with explicit segment boundaries.")
+    print("🚀 Success! Portal synchronized directly with occurrence popovers.")
 
 if __name__ == "__main__":
     generate_web_portal()
