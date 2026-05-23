@@ -27,23 +27,18 @@ def parse_elan_time(time_val):
         return 0.0
 
 def clean_for_html(text):
-    """Normalizes text content safely while preserving notation angle brackets for the UI."""
+    """Safely escapes HTML to render raw characters like < > visibly without breaking the browser."""
     if not text: return ""
     text = text.replace('|', '\\|')
-    
-    # Run standard HTML escaping first to protect everything else
-    escaped = html.escape(text, quote=True)
-    
-    # Restore escaped angle brackets back to pure characters for the UI legend standard
-    escaped = escaped.replace('&lt;', '<').replace('&gt;', '>')
-    return escaped
+    # Standard HTML escaping turns < into &lt; and > into &gt;
+    # This forces the browser to print the literal characters as text instead of treating them as HTML tags.
+    return html.escape(text, quote=True)
 
 def clean_for_data_attr(text):
-    """Cleans text for safe placement inside HTML data attributes without breaking boundaries."""
+    """Cleans text safely for HTML data attributes while preserving notations."""
     if not text: return ""
-    # Strip quotes but allow the standard angle brackets to remain intact
     cleaned = text.replace('"', '').replace("'", "")
-    return html.escape(cleaned, quote=True).replace('&lt;', '<').replace('&gt;', '>')
+    return html.escape(cleaned, quote=True)
 
 def generate_web_portal():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -152,13 +147,14 @@ def generate_web_portal():
         else:
             observations_data['[UNCATEGORIZED]'].append(item)
 
-        # REVERTED TO NATIVE ARCHIVE NOTATIONS: Target explicit double bracket variations << >>
+        # Process variations using the standard archive legend notation strings
         if matched_tag in ['[LING]', '[UNCERTAIN]'] and ('|' in actual_payload or '<<' in actual_payload):
             clean_variant = "-"
             pipe_match = re.search(r'\|([^\|]+)\|', actual_payload)
             if pipe_match: clean_variant = pipe_match.group(1).strip()
 
             clean_gr = "-"
+            # Captures content inside your standard << >> legend notation tags
             gr_match = re.search(r'<<([^>]+)>>', actual_payload)
             if gr_match: clean_gr = gr_match.group(1).strip()
 
