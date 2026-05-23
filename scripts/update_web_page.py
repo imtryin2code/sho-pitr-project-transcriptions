@@ -27,17 +27,23 @@ def parse_elan_time(time_val):
         return 0.0
 
 def clean_for_html(text):
-    """Safely normalizes text content and replaces angle brackets to stop browser HTML injection bugs."""
+    """Normalizes text content safely while preserving notation angle brackets for the UI."""
     if not text: return ""
     text = text.replace('|', '\\|')
-    text = text.replace('<', '[').replace('>', ']')
-    return html.escape(text, quote=True)
+    
+    # Run standard HTML escaping first to protect everything else
+    escaped = html.escape(text, quote=True)
+    
+    # Restore escaped angle brackets back to pure characters for the UI legend standard
+    escaped = escaped.replace('&lt;', '<').replace('&gt;', '>')
+    return escaped
 
 def clean_for_data_attr(text):
-    """Removes quotes and brackets to prevent breaking HTML structural parsing boundaries."""
+    """Cleans text for safe placement inside HTML data attributes without breaking boundaries."""
     if not text: return ""
-    cleaned = text.replace('<', '[').replace('>', ']').replace('"', '').replace("'", "")
-    return html.escape(cleaned, quote=True)
+    # Strip quotes but allow the standard angle brackets to remain intact
+    cleaned = text.replace('"', '').replace("'", "")
+    return html.escape(cleaned, quote=True).replace('&lt;', '<').replace('&gt;', '>')
 
 def generate_web_portal():
     csv_path = 'metadata/master_transcription_list.csv'
@@ -146,13 +152,14 @@ def generate_web_portal():
         else:
             observations_data['[UNCATEGORIZED]'].append(item)
 
-        if matched_tag in ['[LING]', '[UNCERTAIN]'] and ('|' in actual_payload or '[[' in actual_payload):
+        # REVERTED TO NATIVE ARCHIVE NOTATIONS: Target explicit double bracket variations << >>
+        if matched_tag in ['[LING]', '[UNCERTAIN]'] and ('|' in actual_payload or '<<' in actual_payload):
             clean_variant = "-"
             pipe_match = re.search(r'\|([^\|]+)\|', actual_payload)
             if pipe_match: clean_variant = pipe_match.group(1).strip()
 
             clean_gr = "-"
-            gr_match = re.search(r'\[\[([^\]]+)\]\]', actual_payload)
+            gr_match = re.search(r'<<([^>]+)>>', actual_payload)
             if gr_match: clean_gr = gr_match.group(1).strip()
 
             variations_data.append({
@@ -169,7 +176,7 @@ def generate_web_portal():
     total_obs = sum(len(observations_data[c]) for c in observations_data)
     total_vars = len(variations_data)
 
-    # 2. SHARED LAYOUT STYLES & INTERACTIVE TOOLTIP INJECTOR
+    # 2. SHARED LAYOUT STYLES & NAV COMPONENT ENGINE
     shared_css = """
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f4f4; padding-bottom: 120px; }
     header { background: #8c1b1b; color: white; padding: 35px 20px; border-radius: 8px 8px 0 0; text-align: center; position: relative; }
@@ -193,7 +200,6 @@ def generate_web_portal():
     tr:nth-child(even) { background-color: #fdfdfd; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     
-    /* HOVER POPUP LAYOUT ARCHITECTURE */
     .occ-links-container { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
     .occ-chip-wrapper { position: relative; display: inline-block; }
     .occ-link-btn { display: inline-block; font-size: 0.72rem; background: #f5f4ef; padding: 5px 9px; border-radius: 4px; text-decoration: none; color: #333; border: 1px solid #ddd; cursor: pointer; transition: background 0.15s; font-weight: 500; }
@@ -431,7 +437,7 @@ def generate_web_portal():
     with open(html_output_main, 'w', encoding='utf-8') as f: f.write(index_body)
 
     # =========================================================
-    # PAGE BUILD 2: DICTIONARY.HTML (HOVER POPOVERS ADDED)
+    # PAGE BUILD 2: DICTIONARY.HTML
     # =========================================================
     spotlights = "".join([f'<div style="background:#8c1b1b; color:white; padding:6px 14px; border-radius:50px; font-size:0.8rem; font-weight:bold;">{w} ({d["count"]}x)</div>' for w, d in sorted_by_freq])
 
@@ -445,11 +451,8 @@ def generate_web_portal():
                 time_lbl = o.get("start_time", o.get("time", "00:00"))
                 word_class = o.get("word_class", "Unclassified")
                 
-                # Double escape quotes inside string to ensure html data attributes parse correctly
-                raw_context = o.get("context_line", "").replace('"', '&quot;').replace("'", "&apos;")
                 clean_context = clean_for_html(o.get("context_line", ""))
                 
-                # Nest structural UI chips with tracking popovers
                 occ_links += f"""
                 <div class="occ-chip-wrapper">
                     <button class="occ-link-btn" data-track="{track_id}" data-start="{sec_val}" data-duration="4.5" onclick="triggerAudioFromElement(this)">
@@ -679,7 +682,7 @@ def generate_web_portal():
 
     with open(html_output_vars, 'w', encoding='utf-8') as f: f.write(vars_body)
 
-    print("🚀 Success! Portal synchronized directly with occurrence popovers.")
+    print("🚀 Success! Portal synchronized directly with native angle bracket notations.")
 
 if __name__ == "__main__":
     generate_web_portal()
